@@ -1,0 +1,12 @@
+
+.root{
+	-fx-background-image:url(img/welcome_win_bg.png);
+}
+.button{
+	-fx-cursor: hand;
+	-fx-background-color: transparent ;
+	-fx-background-image: url(img/circle.png);
+}
+.button:hover{
+	-fx-background-image: url(img/circle_hover.png);
+}

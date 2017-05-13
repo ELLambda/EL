@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color:green;&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
+  <children>
+    <Text layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="lambda" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="215.13">
+      <fill>
+        <Color blue="1.000" green="1.000" opacity="0.741" red="1.000" fx:id="x1" />
+      </fill>
+      <font>
+        <Font name="Bauhaus 93" size="50.0" />
+      </font>
+    </Text>
+    <Text fill="$x1" layoutX="250.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Created by">
+      <font>
+        <Font name="Bauhaus 93" size="20.0" />
+      </font>
+    </Text>
+    <Button id="circleBtn" fx:id="circle" layoutX="508.0" layoutY="315.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="" />
+  </children>
+</AnchorPane>
