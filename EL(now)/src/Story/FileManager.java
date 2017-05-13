@@ -74,23 +74,23 @@ public class FileManager
 			while((line = reader.readLine())!= null){
 				if(line.startsWith("/*ts")){
 					type.add(ts);
-					ts.add(line.replaceAll("/*ts",""));
+					ts.add(line.trim().replaceAll("/*ts",""));
 				}
 				else if(line.startsWith("/*xj")){
 					type.add(xj);
-					xj.add(line.replaceAll("/xj",""));
+					xj.add(line.trim().replaceAll("/xj",""));
 				}
 				else if(line.startsWith("/*lr")){
 					type.add(lr);
-					xj.add(line.replaceAll("/*lr", ""));
+					xj.add(line.trim().replaceAll("/*lr", ""));
 				}
 				else if(line.startsWith("//")){
 					type.add(narration);
-					narration.add(line.replaceAll("//", ""));
+					narration.add(line.trim().replaceAll("//", ""));
 				}
 				else if(line.startsWith("A.")){
 					type.add(choices);
-					String[] twochoices = line.split(" ");
+					String[] twochoices = line.trim().split("@");
 					choices.add(twochoices);
 				}
 				else if(line.startsWith("/*bg")){
