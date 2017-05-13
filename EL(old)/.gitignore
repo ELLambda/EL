@@ -6,3 +6,4 @@ outline 0.pages
 bin/.DS_Store
 src/.DS_Store
 bin/*
+bin
