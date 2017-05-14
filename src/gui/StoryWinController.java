@@ -51,7 +51,7 @@ public class StoryWinController {
 	@FXML
 	public void onChartClicked() {
 //		Timer timer = new Timer();
-		//´¦Àí¾çÇé
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //	    FileManager filemanager = new FileManager(1);
 //	    
 //	    ArrayList<ArrayList> type = filemanager.type ;
@@ -88,13 +88,12 @@ public class StoryWinController {
 		if(i == 0)
 		subline.setText("           asbdsdo123");
 		if(i == 1)
-			subline.setText("       hahahah¹þ¹þ¹þ¹þ¹þ¹þ¹þ");
+			subline.setText("       hahahahï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		i++;
 		if(i == 3){
 			Platform.runLater(()->{
 				//game
 				GameWin game=new GameWin();
-				//MessageWin messageWin = new MessageWin(1);
 				root.getScene().getWindow().hide();
 			});
 		}
