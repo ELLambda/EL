@@ -26,11 +26,6 @@ public class StoryWin extends Stage {
 	public StoryWin() throws IOException {
 		Music.playBgMusic(4);
 		root= FXMLLoader.load(getClass().getResource("Story.fxml"));
-//		root.setBackground(new Background(new BackgroundImage(new Image("gui/img/story1.jpeg"),
-//	                BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,BackgroundSize.DEFAULT)));
-//		root.setBackground(new Background(new BackgroundImage(new Image("gui/img/storyChart.jpg"),
-//	                BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,BackgroundSize.DEFAULT)));
-
 
 		 Scene scene=new Scene(root,1200,800);
 		 scene.setFill(Color.TRANSPARENT);
