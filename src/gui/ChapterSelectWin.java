@@ -9,7 +9,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+/**
+ * 选关界面
+ * @author julia98
+ *
+ */
 public class ChapterSelectWin extends Stage {
 	AnchorPane root;
 

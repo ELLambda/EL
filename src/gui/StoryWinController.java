@@ -50,19 +50,17 @@ public class StoryWinController {
 	
 	@FXML
 	public void onChartClicked() {
-//		Timer timer = new Timer();
-		//�������
-//	    FileManager filemanager = new FileManager(1);
-//	    
+	    FileManager filemanager = new FileManager(4);
+	    
 //	    ArrayList<ArrayList> type = filemanager.type ;
 //	    ArrayList<String> ts = filemanager.ts;
 //	    ArrayList<String> xj = filemanager.xj;
 //	    ArrayList<String> lr = filemanager.lr;
 //	    ArrayList<String> narration = filemanager.narration;
 //	    ArrayList<String[]> choices = filemanager.choices;
-	   // public void myTask extends TimerTask{
-	    
-//		    	ArrayList word = type.get(i);
+	    ArrayList<String> word = filemanager.word;
+		    	//ArrayList word = type.get(i);
+		    	subline.setText(word.get(i));
 //		    	if(ts.contains(word.get(i)))
 //	    		subline.setText((String) word.get(i));
 //		    	else if(xj.contains(word.get(i)))
@@ -71,31 +69,13 @@ public class StoryWinController {
 //		    		subline.setText((String) word.get(i));
 //		    	else if(narration.contains(word.get(i)))
 //		    		subline.setText((String) word.get(i));
-//	    
-//	    subline.setText(narration.get(i));
-//		    	i++;
-		    	//timer.schedule(myTask,5000);
-
-//		FileReader fr=new FileReader("chapter1.txt");
-//        BufferedReader br=new BufferedReader(fr);
-//        String line="";
-//        if ((line=br.readLine())!=null) {
-//            subline.setText(line);
-//        }
-//        br.close();
-//        fr.close();
-		
-		if(i == 0)
-		subline.setText("           asbdsdo123");
-		if(i == 1)
-			subline.setText("       hahahah��������������");
-		i++;
-		if(i == 3){
-			Platform.runLater(()->{
-				//game
-				GameWin game=new GameWin();
-				root.getScene().getWindow().hide();
-			});
-		}
+//		    	else if(choices.contains(word.get(i)))
+//		    		subline.setText((String) word.get(i));
+		    	i++;
+		    	if(i == word.size())
+		    		Platform.runLater(()->{
+		    			GameWin game=new GameWin();
+		    			root.getScene().getWindow().hide();
+		    		});
 	}
 }

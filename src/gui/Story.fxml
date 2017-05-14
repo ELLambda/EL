@@ -33,6 +33,9 @@
             <Image url="@img/girl.png" />
          </image>
       </ImageView>
-      <TextField fx:id="subline" layoutX="80.0" layoutY="625.0" onAction="#onChartClicked" prefHeight="124.0" prefWidth="676.0" style="-fx-background-color: transparent;" />
+      <TextField fx:id="subline" layoutX="80.0" layoutY="625.0" onAction="#onChartClicked" prefHeight="124.0" prefWidth="676.0" style="-fx-background-color: transparent;">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
    </children>
 </AnchorPane>
