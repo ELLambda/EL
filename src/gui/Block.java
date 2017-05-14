@@ -35,6 +35,19 @@ public class Block extends Button{
 		this.setBackground(new Background(new BackgroundImage(new Image(path),
 				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 	}
+	
+	public void setBombColor(String color){
+		this.color=color;
+		//ͨ��ʹ��css���ñ���
+		//gui/img/star/1.png
+		String path="gui/img/star/"+this.color+".gif";
+		//this.setStyle("-fx-background-color: red;");
+		//this.setStyle("-fx-border-color: white;-fx-border-radius: 5px;");
+		//this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,255,255,1),8,0.2,0,0) ;");
+		this.setBackground(new Background(new BackgroundImage(new Image(path),
+				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+	}
+	
 	//���鱻ѡ�к�������Ӿ�Ч��
 	public void setSelected() {
 		this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,255,255,1),8,0.8,0,0) ;");

@@ -14,6 +14,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 
 public class GameWinControllor {
@@ -278,6 +280,37 @@ public class GameWinControllor {
 		        		
 			        });
 	        }
+	        else if(block.getSpecialType().equals("Bomb")){			//变成爆炸块
+	        	if(i == BlockManager.length - 1)
+			        transition.setOnFinished(e->{
+			        	blockGridPan.getChildren().remove(block);
+			        	
+			        	createOneBlock(block.getX(),block.getY());
+		        		Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
+		        		bombBlock.setSpecialType("Bomb");
+		        		bombBlock.setBackgroundColor("Bomb");
+//		        		bombBlock.setBombColor("Bomb");
+		        		blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
+		        		
+		        		
+			        	 descend();
+			          
+			        });
+		        
+		        else
+		        	transition.setOnFinished(e->{
+		        		
+		        		blockGridPan.getChildren().remove(block);
+		        		
+		        		createOneBlock(block.getX(),block.getY());
+		        		Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
+		        		bombBlock.setSpecialType("Bomb");
+		        		bombBlock.setBackgroundColor("Bomb");
+//		        		bombBlock.setBombColor("Bomb");
+		        		blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
+		        		
+			        });
+	        }
 	        
 	        transition.play();
 	        
@@ -391,6 +424,7 @@ public class GameWinControllor {
 					erase();
 				else{
 					BlockManager.resetArrays();
+					bombExplode();			//炸弹块爆炸
 					erasedTimes = 1;
 					isMoving = false;
 					
@@ -400,6 +434,60 @@ public class GameWinControllor {
 		
 	}
 
+	public void bombExplode(){
+		HashSet<Block> h = new HashSet<Block>();
+		for(int i = 0;i < 10;i++){
+			for(int j = 0;j < 10;j++){
+				if(BlockManager.blocks[i][j].getSpecialType().equals("Bomb")){
+					BlockManager.blocks[i][j].setSpecialType("null");
+					if(i >= 2)
+						h.add(BlockManager.blocks[i-2][j]);
+					if(i >= 1){
+						h.add(BlockManager.blocks[i-1][j]);
+						if(j >= 1)
+							h.add(BlockManager.blocks[i-1][j-1]);
+						if(j < 9)
+							h.add(BlockManager.blocks[i-1][j+1]);
+					}
+					h.add(BlockManager.blocks[i][j]);
+					if(j >= 2)
+						h.add(BlockManager.blocks[i][j-2]);
+					if(j >= 1)
+						h.add(BlockManager.blocks[i][j-1]);
+					if(j < 9)
+						h.add(BlockManager.blocks[i][j+1]);
+					if(j < 8)
+						h.add(BlockManager.blocks[i][j+2]);
+					if(i < 9){
+						h.add(BlockManager.blocks[i+1][j]);
+						if(j >= 1)
+							h.add(BlockManager.blocks[i+1][j-1]);
+						if(j < 9)
+							h.add(BlockManager.blocks[i+1][j+1]);
+					}
+					if(i < 8)
+						h.add(BlockManager.blocks[i+2][j]);
+
+						
+				}
+			}
+		}
+		
+		if(h.isEmpty())		//没有爆炸块
+			return;
+		
+		Iterator<Block> iterator = h.iterator();
+		while(iterator.hasNext()){
+			Block block = iterator.next();
+			BlockManager.erased[BlockManager.length][0] = block.getX();
+			BlockManager.erased[BlockManager.length][1] = block.getY();
+			BlockManager.length++;
+		}
+		
+		erase();
+		
+		
+	}
 
 	public void onRestartBtnClick(ActionEvent actionEvent) {
 		blockGridPan.getChildren().clear();

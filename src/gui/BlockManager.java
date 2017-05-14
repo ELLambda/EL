@@ -257,10 +257,10 @@ public class BlockManager {
         	erased[length][1] = b.getY();
         	length++;
         }
-//        if(h.size() >= 5){
-//        	if(block.getSpecialType().equals("null"))
-//        		block.setSpecialType("bomb");
-//        }
+        if(h.size() >= 5){
+        	if(block.getSpecialType().equals("null"))
+        		block.setSpecialType("Bomb");
+        }
 
         erasableVBlocks.clear();
         erasableHBlocks.clear();
