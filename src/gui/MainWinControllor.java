@@ -43,12 +43,7 @@ public class MainWinControllor {
 
     public void onLordBtnClick(ActionEvent actionEvent) {
     	Platform.runLater(()->{
-			try {
-				StoryWin storyWin=new StoryWin();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			ChapterWin chapterWin=new ChapterWin();
 		});
     }
 

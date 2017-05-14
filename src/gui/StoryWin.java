@@ -15,7 +15,11 @@ import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+/**
+ * 
+ * @author julia98
+ *
+ */
 public class StoryWin extends Stage {
 	AnchorPane root;
 
