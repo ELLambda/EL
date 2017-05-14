@@ -30,16 +30,19 @@ public class GameWinControllor {
 	private static boolean isMoving = false;
 	
 	//private SimpleIntegerProperty scoreProperty=new SimpleIntegerProperty();
-//	boolean remainDescended = false;	//ʣ��Ŀ��Ƿ��Ѿ�����
-	
 //    ChangeListener<? super EventHandler<ActionEvent>> listener =
 //	null;
 //	EventHandler<ActionEvent> eraseOnFinished = null;
 	
 	
-	@FXML void initialize(){
+	@FXML  void initialize(){
+
+		//blockGridPan.setGridLinesVisible(true);
+		//blockGridPan.set
 		createBlocks();
 
+
+		
 		CountDownLatch countDownLatch=new CountDownLatch(60);
 		CountThread countThread=new CountThread(countDownLatch, 60);
 		countThread.start();
@@ -52,11 +55,12 @@ public class GameWinControllor {
 //		
 //	}
 	
-	public synchronized void createBlocks(){
+	public  void createBlocks(){
 		blockGridPan.setPrefWidth(600);
 		blockGridPan.setPrefHeight(600);
 		blockGridPan.setVgap(10);
 		blockGridPan.setHgap(10);
+
 
 		int x,y;
 		
@@ -69,57 +73,123 @@ public class GameWinControllor {
 			blockGridPan.add(BlockManager.blocks[x][y], x, y);	
 		}
 		BlockManager.resetArrays();
+		
 		//BlockManager.blocks.toArray(BlockManager.blocksList);
 	}
 
 
-	//�Ѵ���һ��block�ķ�������д
-	public synchronized void createOneBlock(int x,int y){
+	//创建一个block
+	public  void createOneBlock(int x,int y){
 		Block btn=new Block(x,y);
 		btn.getStyleClass().add("block");
 		btn.setOnMouseClicked(e->{
 			if(isMoving == false){
 			Music.playEffectMusic(2);//click
-			if(btn.getIsPressed()==false){		//֮ǰû����
+			if(btn.getIsPressed()==false){		//之前没被点
 				btn.setIsPressed(true);
 				btn.setSelected();
-				BlockManager.addBlocksToList(btn);//���뵽�������list
+				BlockManager.addBlocksToList(btn);//加入两个块的list中
 				System.out.println(btn.getColor()+":"+btn.getX()+","+btn.getY());
 			}
-			else{								//֮ǰ������
+			else{								//之前被点了
 				btn.setIsPressed(false);
 				btn.setNotSelected();
-				BlockManager.removeBlocksFromList(btn);//���������list���Ƴ�
+				BlockManager.removeBlocksFromList(btn);//从两个块的list中移除
 			}
-			if(BlockManager.twoBlocks.size()==2){		//������������
+			if(BlockManager.twoBlocks.size()==2){		//已经点了两个块了
 				isMoving = true;
-				if(BlockManager.isNear() == true){		//�������������
+				if(BlockManager.isNear() == true){		//点的两个块相邻
+					if(BlockManager.twoBlocks.get(0).getSpecialType().equals("null") && 
+					   BlockManager.twoBlocks.get(1).getSpecialType().equals("null")){
+						System.out.println("start exchanging");
+						Transition transition = BlockManager.exchange();	//交换
+						transition.setOnFinished(e2 ->{
+							BlockManager.twoBlocks.get(0).setNotSelected();
+							BlockManager.twoBlocks.get(1).setNotSelected();
+							BlockManager.twoBlocks.get(0).setIsPressed(false);
+							BlockManager.twoBlocks.get(1).setIsPressed(false);
+							System.out.println("exchange done");
+							if(BlockManager.erasable(BlockManager.twoBlocks.get(0))|BlockManager.erasable(BlockManager.twoBlocks.get(1))){
+								BlockManager.twoBlocks.clear();
+								erase();
 					
-					System.out.println("start exchanging");
-					Transition transition = BlockManager.exchange();
-					transition.setOnFinished(e2 ->{ 
-						System.out.println("exchange done");
-						if(BlockManager.erasable(BlockManager.twoBlocks.get(0))|BlockManager.erasable(BlockManager.twoBlocks.get(1))){
-							BlockManager.twoBlocks.clear();
-							erase();
-				
-						}
-						else{
-							
-							Transition t = null;
-							t = BlockManager.exchange();
-							BlockManager.twoBlocks.clear();
-							t.setOnFinished(e3 ->{
-								isMoving = false;
+							}
+							else{
 								
-							});
-							BlockManager.resetArrays();
+								Transition t = null;
+								t = BlockManager.exchange();
+								BlockManager.twoBlocks.clear();
+								t.setOnFinished(e3 ->{
+									isMoving = false;
+									
+								});
+								BlockManager.resetArrays();
+								
+							}
+						});
+					}
+					else if(BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird") && 
+							BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird")){	//全屏消
+						Transition transition = BlockManager.exchange();	
+						transition.setOnFinished(e2 ->{
+							BlockManager.twoBlocks.get(0).setNotSelected();
+							BlockManager.twoBlocks.get(1).setNotSelected();
+							BlockManager.twoBlocks.get(0).setIsPressed(false);
+							BlockManager.twoBlocks.get(1).setIsPressed(false);
+							BlockManager.twoBlocks.get(0).setSpecialType("null");
+							BlockManager.twoBlocks.get(1).setSpecialType("null");
+							BlockManager.twoBlocks.clear();
+							for(int i = 0; i < 10;i++)
+								for(int j = 0; j< 10;j++){
+									BlockManager.erased[BlockManager.length][0] = i;
+									BlockManager.erased[BlockManager.length][1] = j;
+									BlockManager.length++;
+								}
+							erase();
+					
 							
-						}
-					});
+							
+						});
+						
+					}
+					else if((BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird") &&
+							BlockManager.twoBlocks.get(1).getSpecialType().equals("null")) | 
+							(BlockManager.twoBlocks.get(0).getSpecialType().equals("null") &&
+							BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird"))){   //消掉全部相同颜色的
+						Transition transition = BlockManager.exchange();	
+						transition.setOnFinished(e2 ->{
+							BlockManager.twoBlocks.get(0).setNotSelected();
+							BlockManager.twoBlocks.get(1).setNotSelected();
+							BlockManager.twoBlocks.get(0).setIsPressed(false);
+							BlockManager.twoBlocks.get(1).setIsPressed(false);
+							String color = BlockManager.twoBlocks.get(0).getColor();		//将要消掉的颜色
+							if(BlockManager.twoBlocks.get(0).getColor().equals("MagicBird"))
+								color = BlockManager.twoBlocks.get(1).getColor();
+							BlockManager.twoBlocks.get(0).setSpecialType("null");
+							BlockManager.twoBlocks.get(1).setSpecialType("null");
+							BlockManager.twoBlocks.get(0).setColor(color);
+							BlockManager.twoBlocks.get(1).setColor(color);
+							BlockManager.twoBlocks.clear();
+							for(int i = 0; i < 10;i++)
+								for(int j = 0; j < 10;j++){
+									if(BlockManager.blocks[i][j].getColor().equals(color)){
+										BlockManager.erased[BlockManager.length][0] = i;
+										BlockManager.erased[BlockManager.length][1] = j;
+										BlockManager.length++;
+									}
+								}
+							erase();
+					
+							
+							
+						});
+						
+						
+						
+					}
 				}
-				else{												//��������鲻����
-					Block b = BlockManager.twoBlocks.get(0);		//�ѵ�һ����Ŀ�ȡ��
+				else{												//点的两个块不相邻
+					Block b = BlockManager.twoBlocks.get(0);		//把第一个点的熄灭
 					b.setIsPressed(false);
 					b.setNotSelected();
 					BlockManager.removeBlocksFromList(b);
@@ -144,16 +214,11 @@ public class GameWinControllor {
 	
 	
 	
-	//��������
-	public synchronized void erase(){
-		//�������Ŀ��λ��(x,y)����һ����ά����int[][] erased = new int[100][2]��,��length��
-//		boolean onFinished = false;
-//		while(!onFinished){
-//			if(BlockManager.exchangeOnFinished != null){
-//				onFinished = true;
+	//消除
+	public  void erase(){
 		
 		
-		score += BlockManager.length*(erasedTimes++);
+		score += BlockManager.length*BlockManager.length*(erasedTimes++);
 		
 		noticeText.setText(String.valueOf(score));
 		
@@ -164,30 +229,55 @@ public class GameWinControllor {
 		for(int i = 0;i < BlockManager.length;i++){
 			Block block = BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]];
 			BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]] = null;
-			//��������
+			//消失的动画
 	        FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
 	        transition.setFromValue(1);
 	        transition.setToValue(0);
-	        
-	        if(i == BlockManager.length - 1)
-		        transition.setOnFinished(e->{
-		           System.out.println("erase done");
-		        	blockGridPan.getChildren().remove(block);
-	
-		        	 descend();
-		        	 
-		        	 //BlockManager.resetArrays();
-		           
-		          
-		        });
-	        
-	        else
-	        	transition.setOnFinished(e->{
-
-	        		blockGridPan.getChildren().remove(block);
-	
-		        });
-	        	
+	        if(block.getSpecialType().equals("null")){		//不变成特效块
+		        if(i == BlockManager.length - 1)
+			        transition.setOnFinished(e->{
+			        	blockGridPan.getChildren().remove(block);
+		
+			        	 descend();
+			          
+			        });
+		        
+		        else
+		        	transition.setOnFinished(e->{
+		        		
+		        		blockGridPan.getChildren().remove(block);
+		        		
+			        });
+		    }
+	        else if(block.getSpecialType().equals("MagicBird")){			//变成魔力鸟
+	        	if(i == BlockManager.length - 1)
+			        transition.setOnFinished(e->{
+			        	blockGridPan.getChildren().remove(block);
+			        	
+			        	createOneBlock(block.getX(),block.getY());
+		        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
+		        		magicBirdBlock.setSpecialType("MagicBird");
+		        		magicBirdBlock.setBackgroundColor("MagicBird");
+		        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
+		        		
+		        		
+			        	 descend();
+			          
+			        });
+		        
+		        else
+		        	transition.setOnFinished(e->{
+		        		
+		        		blockGridPan.getChildren().remove(block);
+		        		
+		        		createOneBlock(block.getX(),block.getY());
+		        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
+		        		magicBirdBlock.setSpecialType("MagicBird");
+		        		magicBirdBlock.setBackgroundColor("MagicBird");
+		        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
+		        		
+			        });
+	        }
 	        
 	        transition.play();
 	        
@@ -201,27 +291,33 @@ public class GameWinControllor {
 	        
 	}
 
-	int[][] descend = new int[HEIGHT*WIDE][2];
-	int descendLength = 0;
+//	int[][] descend = new int[HEIGHT*WIDE][2];
+//	int descendLength = 0;
 
 	
-	//�½�����
-	public synchronized void descend(){
-		int[] columnX = new int[10];		//������ÿ���м���
-//		int[] theUpperOne = new int[10];	//ÿ�������Ŀ��������һ��
-//		boolean lastAnimationFinished = false;
-//		boolean remainDescended = false;	//ʣ��Ŀ��Ƿ��Ѿ�����
+	//下降
+	public  void descend(){
+		int[] columnX = new int[10];		//每一列消掉了几个
+
+		for(int i = 0;i < 10;i++){
+			columnX[i] = 0;
+			for(int j = 0;j < 10;j++){
+				if(BlockManager.blocks[i][j] == null)
+					columnX[i]++;
+			}
+		}
+			
 		
 //		Arrays.fill(theUpperOne, 10);
-		Arrays.fill(columnX,0);
-		System.out.println("length: "+BlockManager.length);
-		
-		for(int j = 0;j < BlockManager.length;j++){		
-			columnX[BlockManager.erased[j][0]]++;	
-//			if(BlockManager.erased[j][1] < theUpperOne[BlockManager.erased[j][0]]){
-//				theUpperOne[BlockManager.erased[j][0]] = BlockManager.erased[j][1];
-//			}
-		}
+//		Arrays.fill(columnX,0);
+//		System.out.println("length: "+BlockManager.length);
+//		
+//		for(int j = 0;j < BlockManager.length;j++){		
+//			columnX[BlockManager.erased[j][0]]++;	
+////			if(BlockManager.erased[j][1] < theUpperOne[BlockManager.erased[j][0]]){
+////				theUpperOne[BlockManager.erased[j][0]] = BlockManager.erased[j][1];
+////			}
+//		}
 		
 		TranslateTransition transition = null;
 		
@@ -229,14 +325,14 @@ public class GameWinControllor {
 		System.out.println("length  : "+BlockManager.length);
 
 		
-		for(int i = 0;i < 10;i++){		//�����i��
-			//��i��û�������Ŀ�
+		for(int i = 0;i < 10;i++){		//处理第i列
+			//第i列没有消除掉的
 			if(columnX[i] == 0) 
 				continue;
 			
-			//��i���б������Ŀ�
-			//���еĿ��½�
+			//第i列有消除掉的
 			
+			//已有的块下降
 			for(int j = WIDE - 1;j >= 0;j--){
 				if(BlockManager.blocks[i][j] == null)
 					continue;
@@ -250,23 +346,19 @@ public class GameWinControllor {
 					
 					transition = new TranslateTransition(Duration.seconds(SECOND),BlockManager.blocks[i][j]);
 					transition.setByY(deltaY);
-												//�½��Ķ���
 					BlockManager.blocks[i][j + dY] = BlockManager.blocks[i][j];
 					BlockManager.blocks[i][j + dY].setPosition(i, j + dY);
 					BlockManager.blocks[i][j] = null;
 					
 					BlockManager.blocks[i][j + dY].setDescended(true);
 					transition.play();
-					transition.setOnFinished(ei ->{
-						System.out.println("old block descended");
-					});
 				}
 			}
 			
 				
 			
 			
-			//�����¿鲢�½�
+			//产生新块并下降
 			for(int j = columnX[i] - 1;j >= 0;j--){
 
 				int deltYJ = j * 60;
@@ -290,7 +382,7 @@ public class GameWinControllor {
 			
 		  
 
-			//��������
+			//连续消除
 			if(transition != null)
 			transition.setOnFinished(e ->{
 				System.out.println("descend done");
@@ -312,14 +404,14 @@ public class GameWinControllor {
 	public void onRestartBtnClick(ActionEvent actionEvent) {
 		blockGridPan.getChildren().clear();
 		createBlocks();
-		noticeText.clear();
-		score = 0;
+        noticeText.clear();
+        score = 0;
 	}
 
 	public void onSettingBtnClick(ActionEvent actionEvent) {
 		Platform.runLater(()->{
 			try {
-				new SettingWin().show();
+				new SettingWin();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

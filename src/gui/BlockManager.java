@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -41,11 +42,11 @@ public class BlockManager {
 
 	public void setBlockBackgroundColor(Block block) {
 
-		//??????�?????????
 		int ramdonNum=0;
 		while(true){
 			ramdonNum=(int)(Math.random()*5)+1;
 			block.setBackgroundColor(String.valueOf(ramdonNum));
+			block.setSpecialType("null");
 			if(!erasable(block))
 				break;
 		}
@@ -53,7 +54,6 @@ public class BlockManager {
 
 	public void setBlockColorWithoutCheck(Block block) {
 
-		//??????�?????????
 		int ramdonNum=0;
 
 		ramdonNum=(int)(Math.random()*5)+1;
@@ -64,16 +64,16 @@ public class BlockManager {
 	
 	
 	//����Ѿ����ķ���
-	public synchronized void addBlocksToList(Block block){
+	public  void addBlocksToList(Block block){
 		twoBlocks.add(block);
 	}
 	
-	public synchronized void removeBlocksFromList(Block block){
+	public  void removeBlocksFromList(Block block){
 		twoBlocks.remove(block);
 	}
 	
-	//�����������Ƿ�����
-	public synchronized boolean isNear(){
+	//判断点的两个块是否相邻
+	public boolean isNear(){
         Block block1 = twoBlocks.get(0);
         Block block2 = twoBlocks.get(1);
         
@@ -91,7 +91,7 @@ public class BlockManager {
         else return false;
     }
 
-	public synchronized Transition exchange(){
+	public Transition exchange(){
 		
 
 		Block block0=twoBlocks.get(0);
@@ -122,22 +122,6 @@ public class BlockManager {
 		return t;
 
 
-		//System.out.println("block0"+blockHashMap.get(x1+","+y1).getColor());
-
-//		for (int i=0;i<100;i++){
-//			if(blocksList[i]==block0){
-//				for(int j=0;j<100;j++){
-//					if (blocksList[j]==block1){
-//						blocksList[j]=block0;
-//						blocksList[i]=block1;
-//						break;
-//					}
-//				}
-//				break;
-//			}
-//		}
-
-
 
 	}
 	
@@ -156,12 +140,12 @@ public class BlockManager {
 	
 	ArrayList<Block> erasableHBlocks = new ArrayList<Block>();
 	ArrayList<Block> erasableVBlocks = new ArrayList<Block>();
-    public synchronized boolean hSearch(Block block){
+    public  boolean hSearch(Block block){
 
         int x=block.getX();
-        int y=block.getY();//�������
+        int y=block.getY();//block的坐标
 
-        int count=1;//��ͬ��ɫ�ķ�������������㷽��
+        int count=1;
 
         //����
         for (int i = x+1;i<WIDE;i++){
@@ -190,12 +174,12 @@ public class BlockManager {
         }
 
         //�Ƿ��Ѿ���������
-//        System.out.println("H:"+count);
         if (count>=3){
-//        	for(Block b : erasableHBlocks){
-//        		b.setDescended(false);
-//        	}
-        	if(!erasableHBlocks.contains(block))
+        	if(count >= 5){  //产生一个魔力鸟
+        		block.setSpecialType("MagicBird");
+        		if(x > 0 && blocks[x-1][y] != null && blocks[x-1][y].getColor().equals(block.getColor()))
+        			blocks[x-1][y].setSpecialType("null");
+        	}
         		erasableHBlocks.add(block);//����㷽��Ҳ����
             return true;
         }else{
@@ -207,7 +191,7 @@ public class BlockManager {
     /*
     ��������
      */
-    public synchronized boolean vSearch(Block block){
+    public  boolean vSearch(Block block){
         int x=block.getX();
         int y=block.getY();//�������
 
@@ -239,14 +223,14 @@ public class BlockManager {
            }else break;
         }
 
-//        System.out.println("V:"+count);
-        //�Ƿ��Ѿ���������
         if (count>=3){
-//        	for(Block b : erasableVBlocks){
-//        		b.setDescended(false);
-//        	}
-        	if(!erasableVBlocks.contains(block))
-        		erasableVBlocks.add(block);//����㷽��Ҳ����
+//        	if(!erasableVBlocks.contains(block))
+        	if(count >= 5){  //产生一个魔力鸟
+        		block.setSpecialType("MagicBird");
+        		if(y > 0 && blocks[x][y-1] != null && blocks[x][y-1].getColor().equals(block.getColor()))   //让五个连着的中只有1个变身成MagicBird
+        			blocks[x][y-1].setSpecialType("null");
+        	}
+        	erasableVBlocks.add(block);
             return true;
         }else{
             erasableVBlocks.clear();
@@ -257,27 +241,27 @@ public class BlockManager {
     }
 
 
-    /*
-    �Ƿ��������
-     */
-    public synchronized boolean erasable(Block block){
+    //判断消除
+    public  boolean erasable(Block block){
 
         Boolean isErasable = hSearch(block)|vSearch(block);
-        for(int i = 0;i < erasableVBlocks.size();i++){
-        	erased[length][0] = erasableVBlocks.get(i).getX();
-        	erased[length][1] = erasableVBlocks.get(i).getY();
+        
+        HashSet<Block> h = new HashSet<Block>();
+        h.addAll(erasableHBlocks);
+        h.addAll(erasableVBlocks);
+        Iterator<Block> iterator = h.iterator();
+        
+        while(iterator.hasNext()){
+        	Block b = iterator.next();
+        	erased[length][0] = b.getX();
+        	erased[length][1] = b.getY();
         	length++;
         }
-        for(int i = 0;i < erasableHBlocks.size();i++){
-        	erased[length][0] = erasableHBlocks.get(i).getX();
-        	erased[length][1] = erasableHBlocks.get(i).getY();
-        	length++;
-        }
-        if(erasableHBlocks.size() != 0 && erasableVBlocks.size() != 0){
-        	length--;
-        	erased[length][0] = 0;
-        	erased[length][1] = 0;
-        }
+//        if(h.size() >= 5){
+//        	if(block.getSpecialType().equals("null"))
+//        		block.setSpecialType("bomb");
+//        }
+
         erasableVBlocks.clear();
         erasableHBlocks.clear();
         
@@ -286,8 +270,8 @@ public class BlockManager {
         return isErasable;
     }
    
-    //�������
-    public synchronized void resetArrays(){
+    //清空数组
+    public  void resetArrays(){
     	System.out.println("start reseting Arrays");
     	for(int i = 0;i < length;i++){
     		erased[i][0] = 0;
@@ -303,7 +287,7 @@ public class BlockManager {
     }
     
     
-	//���齻������Ч��
+	//块交换的动画
 	public Transition blockTransition(Block block0,Block block1){
 
 
@@ -317,26 +301,12 @@ public class BlockManager {
 		transition.setByX(deltX);
 		transition.setByY(deltY);
 		transition.play();
-		//��ʱ�������ȴ��������
-		Timer timer=new Timer();
-		timer.schedule(new TimerTask() {
-			@Override
-			public void run() {
-				block0.setNotSelected();
-				block0.setIsPressed(false);
-				//block1.setNotSelected();
-				//block1.setIsPressed(false);
-
-
-			}
-		},(long)(SECOND*1000));
-		
 		return transition;
 
 	}
 	
-	//����ܷ�����
-	public synchronized boolean check(){
+	//检查是否还有可以消的
+	public  boolean check(){
 		boolean hasErasableBlocks = false;
 		for(int i = 0 ; i< HEIGHT; i++ )
 			for(int j = 0; j < WIDE; j++){
@@ -348,34 +318,26 @@ public class BlockManager {
 				}
 			}
 		
-		System.out.println("before remove duplicate, length: "+ length);
 		if(length != 0){
 			hasErasableBlocks = true;
-			  //ȥ���ظ���Ԫ��
-	        ArrayList<Block> removeDuplicate = new ArrayList<Block>();
-	        
+			
+			HashSet<Block> h = new HashSet<Block>();
 	        for(int i = 0; i< length; i++){
-	        removeDuplicate.add(blocks[erased[i][0]][erased[i][1]]);
+	        h.add(blocks[erased[i][0]][erased[i][1]]);
 	        erased[i][0] = 0;
 	        erased[i][1] = 0;
 	        }
-	        
-	        HashSet<Block> h = new HashSet<Block>(removeDuplicate);
-	        removeDuplicate.clear();
-	        removeDuplicate.addAll(h);
-	        
 	        length = 0;
 	        
-	        for(int i = 0; i<removeDuplicate.size(); i++){
-	        	erased[i][0] = removeDuplicate.get(i).getX();
-	        	erased[i][1] = removeDuplicate.get(i).getY();
+	        Iterator<Block> iterator = h.iterator();
+	        while(iterator.hasNext()){
+	        	Block block = iterator.next();
+	        	erased[length][0] = block.getX();
+	        	erased[length][1] = block.getY();
 	        	length++;
 	        }
 	        
-	        removeDuplicate.clear();
-	        
 		}
-		System.out.println("after remove duplicate, length: "+ length);
 
 		System.out.println(hasErasableBlocks);
 		return hasErasableBlocks;

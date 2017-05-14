@@ -5,5 +5,5 @@ outline 0.pages
 .settings/org.eclipse.core.resources.prefs
 bin/.DS_Store
 src/.DS_Store
-bin/*
-bin
+bin/
+

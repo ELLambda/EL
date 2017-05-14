@@ -10,13 +10,14 @@ public class Block extends Button{
 
 	//private int[] position=new int[2];
 	private int x;
-	private  int y;//´æ´¢ÐÐÁÐÐÅÏ¢
+	private  int y;//ï¿½æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 	private String color="0";
-	private boolean isPressed=false;//¼ÇÂ¼·½¿éÊÇ·ñ±»°´ÏÂ
+	private boolean isPressed=false;//ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ñ±»°ï¿½ï¿½ï¿½
 	private boolean Descended=false;
+	private String specialType = "null";
+
 
 	public Block(int x,int y) {
-		// TODO Auto-generated constructor stub
 		super();
 		this.setMinSize(50, 50);
 		this.x=x;
@@ -25,7 +26,7 @@ public class Block extends Button{
 	
 	public void setBackgroundColor(String color){
 		this.color=color;
-		//Í¨¹ýÊ¹ÓÃcssÉèÖÃ±³¾°
+		//Í¨ï¿½ï¿½Ê¹ï¿½ï¿½cssï¿½ï¿½ï¿½Ã±ï¿½ï¿½ï¿½
 		//gui/img/star/1.png
 		String path="gui/img/star/"+this.color+".png";
 		//this.setStyle("-fx-background-color: red;");
@@ -34,7 +35,7 @@ public class Block extends Button{
 		this.setBackground(new Background(new BackgroundImage(new Image(path),
 				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 	}
-	//·½¿é±»Ñ¡ÖÐºó²úÉúµÄÊÓ¾õÐ§¹û
+	//ï¿½ï¿½ï¿½é±»Ñ¡ï¿½Ðºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¾ï¿½Ð§ï¿½ï¿½
 	public void setSelected() {
 		this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,255,255,1),8,0.8,0,0) ;");
 	}
@@ -44,7 +45,7 @@ public class Block extends Button{
 	}
 	
 	
-	//colorµÄget set
+	//colorï¿½ï¿½get set
 	public String getColor() {return this.color;}
 	public void setColor(String color){this.color=color;}
 	
@@ -83,5 +84,13 @@ public class Block extends Button{
 
 	public boolean getDescended(){
 		return this.Descended;
+	}
+
+	public String getSpecialType() {
+		return specialType;
+	}
+
+	public void setSpecialType(String specialType) {
+		this.specialType = specialType;
 	}
 }
