@@ -12,6 +12,7 @@ import Story.FileManager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -36,7 +37,7 @@ public class StoryWinController {
 	@FXML
 	public ImageView picture3;
 	@FXML
-	public TextField subline;
+	public Label subline;
 	
 	@FXML
 	public void onSkipBtnClicked(){

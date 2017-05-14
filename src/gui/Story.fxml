@@ -33,9 +33,10 @@
             <Image url="@img/girl.png" />
          </image>
       </ImageView>
-      <TextField fx:id="subline" layoutX="80.0" layoutY="625.0" onAction="#onChartClicked" prefHeight="124.0" prefWidth="676.0" style="-fx-background-color: transparent;">
+      <Label fx:id="subline" layoutX="76.0" layoutY="628.0" onMouseClicked="#onChartClicked" prefHeight="119.0" prefWidth="667.0" text="Story begins..." textFill="#a14c4c">
          <font>
             <Font size="18.0" />
-         </font></TextField>
+         </font>
+      </Label>
    </children>
 </AnchorPane>
