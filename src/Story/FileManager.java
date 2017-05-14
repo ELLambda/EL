@@ -15,21 +15,21 @@ import java.util.ArrayList;
 
 public class FileManager
 {
-	private static final String CHAPTER1 = FileManager.class.getClassLoader().getResource("chapter1.txt").getPath();
-	private static final String CHAPTER2 = FileManager.class.getClassLoader().getResource("chapter2.txt").getPath();
-	private static final String CHAPTER3 = FileManager.class.getClassLoader().getResource("chapter3.txt").getPath();
-	private static final String CHAPTER4 = FileManager.class.getClassLoader().getResource("chapter4.txt").getPath();
-	private static final String CHAPTER5 = FileManager.class.getClassLoader().getResource("chapter5.txt").getPath();
-	private static final String CHAPTER6 = FileManager.class.getClassLoader().getResource("chapter6.txt").getPath();
-	private static final String CHAPTER7 = FileManager.class.getClassLoader().getResource("chapter7.txt").getPath();
-	private static final String CHAPTER8 = FileManager.class.getClassLoader().getResource("chapter8.txt").getPath();
-	private static final String CHAPTER9 = FileManager.class.getClassLoader().getResource("chapter9.txt").getPath();
-	private static final String CHAPTER10 = FileManager.class.getClassLoader().getResource("chapter10.txt").getPath();
-	private static final String CHAPTER11 = FileManager.class.getClassLoader().getResource("chapter11.txt").getPath();
-	private static final String CHAPTER12 = FileManager.class.getClassLoader().getResource("chapter12.txt").getPath();
-	private static final String ENDING1 = FileManager.class.getClassLoader().getResource("ending1.txt").getPath();
-	private static final String ENDING2 = FileManager.class.getClassLoader().getResource("ending2.txt").getPath();
-	private static final String ENDING3 = FileManager.class.getClassLoader().getResource("ending3.txt").getPath();
+	private static final String CHAPTER1 = "src/Story/chapter1.txt";
+	private static final String CHAPTER2 = "src/Story/chapter2.txt";
+	private static final String CHAPTER3 = "src/Story/chapter3.txt";
+	private static final String CHAPTER4 = "src/Story/chapter4.txt";
+	private static final String CHAPTER5 = "src/Story/chapter5.txt";
+	private static final String CHAPTER6 = "src/Story/chapter6.txt";
+	private static final String CHAPTER7 = "src/Story/chapter7.txt";
+	private static final String CHAPTER8 = "src/Story/chapter8.txt";
+	private static final String CHAPTER9 = "src/Story/chapter9.txt";
+	private static final String CHAPTER10 = "src/Story/chapter10.txt";
+	private static final String CHAPTER11 = "src/Story/chapter11.txt";
+	private static final String CHAPTER12 = "src/Story/chapter12.txt";
+	private static final String ENDING1 = "src/Story/ending1.txt";
+	private static final String ENDING2 = "src/Story/ending2.txt";
+	private static final String ENDING3 = "src/Story/ending3.txt";
 	
 	private static final String[] chapters = {CHAPTER1,CHAPTER2,CHAPTER3,CHAPTER4,CHAPTER5,CHAPTER6,CHAPTER7,CHAPTER8,CHAPTER9,CHAPTER10,CHAPTER11,CHAPTER12,ENDING1,ENDING2,ENDING3};
 	
@@ -37,6 +37,8 @@ public class FileManager
 			"第十章 神木之戒","第十一章 神木之忆","第十二章 木石前盟","大结局","大结局","大结局"};
 	private static String chapterName;
 	
+	public ArrayList<String> word = new ArrayList<String>();
+ 	
 	//存储当前应该画哪个人物,
 	//更换背景图为setWin
 	public ArrayList<ArrayList> type = new ArrayList<ArrayList>();
@@ -105,7 +107,17 @@ public class FileManager
 			e.printStackTrace();
 		}
 		
-		 	
+		try{
+			BufferedReader reader = new BufferedReader
+					(new FileReader(new File(chapters[index - 1])));
+			
+			String line = null;
+			while((line = reader.readLine()) != null){
+				word.add(line);
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
 		
 		

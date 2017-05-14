@@ -56,7 +56,7 @@ public class ChapterSelectWinController {
 	public void onChapter1Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(1);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -65,7 +65,7 @@ public class ChapterSelectWinController {
 	public void onChapter2Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(2);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -74,7 +74,7 @@ public class ChapterSelectWinController {
 	public void onChapter3Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(3);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -83,7 +83,7 @@ public class ChapterSelectWinController {
 	public void onChapter4Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(4);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -92,7 +92,7 @@ public class ChapterSelectWinController {
 	public void onChapter5Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(5);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -101,7 +101,7 @@ public class ChapterSelectWinController {
 	public void onChapter6Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(6);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -110,7 +110,7 @@ public class ChapterSelectWinController {
 	public void onChapter7Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(7);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -119,7 +119,7 @@ public class ChapterSelectWinController {
 	public void onChapter8Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(8);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -128,7 +128,7 @@ public class ChapterSelectWinController {
 	public void onChapter9Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(9);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -137,7 +137,7 @@ public class ChapterSelectWinController {
 	public void onChapter10Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(10);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -146,7 +146,7 @@ public class ChapterSelectWinController {
 	public void onChapter11Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(11);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -155,7 +155,7 @@ public class ChapterSelectWinController {
 	public void onChapter12Clicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(12);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -164,7 +164,7 @@ public class ChapterSelectWinController {
 	public void onEndingClicked(){
 		Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin();
+			ChapterWin chapter=new ChapterWin(13);
 			root.getScene().getWindow().hide();
 		});
 	}

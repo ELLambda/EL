@@ -21,14 +21,14 @@ import javafx.util.Duration;
 
 import java.io.File;
 
-/*
+/**
 信息窗口，即每关游戏开始前的窗口
  */
 public class MessageWin extends Stage{
 
 	AnchorPane root;
 	
-	/*
+	/**
 	n为第几关
 	 */
 	public MessageWin(int n) {
