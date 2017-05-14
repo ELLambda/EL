@@ -42,6 +42,8 @@ public class GameWinControllor {
 		//blockGridPan.setGridLinesVisible(true);
 		//blockGridPan.set
 		createBlocks();
+		
+		noticeText.setText("0");
 
 
 		
@@ -492,7 +494,7 @@ public class GameWinControllor {
 	public void onRestartBtnClick(ActionEvent actionEvent) {
 		blockGridPan.getChildren().clear();
 		createBlocks();
-        noticeText.clear();
+		noticeText.setText("0");
         score = 0;
 	}
 
@@ -507,6 +509,8 @@ public class GameWinControllor {
 	}
 
 	public void onStoreBtnClick(ActionEvent actionEvent) {
+		
+		
 	}
 }
 
