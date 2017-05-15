@@ -39,6 +39,7 @@ public class BlockManager {
 	//static HashMap<String,Block> blockHashMap=new HashMap<>();
 
 //	EventHandler <ActionEvent> exchangeOnFinished = null;
+	private static final String[] specialTypes = {"null","MagicBird","Bomb"};
 
 	public void setBlockBackgroundColor(Block block) {
 
@@ -51,6 +52,11 @@ public class BlockManager {
 				break;
 		}
 	}
+
+	public String getBlockSpecialTypeRandom() {
+		return specialTypes[(int)(Math.random()*specialTypes.length)];
+		}
+	
 
 	public void setBlockColorWithoutCheck(Block block) {
 
