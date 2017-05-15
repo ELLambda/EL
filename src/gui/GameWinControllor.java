@@ -586,7 +586,7 @@ public class GameWinControllor {
 					});
 				}
 				
-			},(long)1000);
+			},1000);
 			
 		}
 		
@@ -603,6 +603,15 @@ public class GameWinControllor {
 	
 	        noticeText.clear();
 	        noticeText.setText("Restart!");
+	        Timer timer = new Timer();
+			timer.schedule(new TimerTask(){
+				public void run(){
+					Platform.runLater(()->{
+						noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+					});
+				}
+				
+			},1000);
 	        steps=Data.totalstpes;
 	        stepLabel.setText("Steps Left:"+steps);
 	        stepProgressBar.setProgress(1.0);
@@ -632,6 +641,15 @@ public class GameWinControllor {
 			Music.playEffectMusic(2);//click
 			if(score.intValue()<20) {
 				noticeText.setText("Your score is inadequate!");
+				Timer timer = new Timer();
+				timer.schedule(new TimerTask(){
+					public void run(){
+						Platform.runLater(()->{
+							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+						});
+					}
+					
+				},1000);
 				return;
 			}
 			if(!BlockManager.twoBlocks.isEmpty()){
@@ -673,6 +691,15 @@ public class GameWinControllor {
 			Music.playEffectMusic(2);//click
 			if(score.intValue()<200) {
 				noticeText.setText("Your score is inadequate!");
+				Timer timer = new Timer();
+				timer.schedule(new TimerTask(){
+					public void run(){
+						Platform.runLater(()->{
+							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+						});
+					}
+					
+				},1000);
 				return;
 			}
 			
