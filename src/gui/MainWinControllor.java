@@ -15,6 +15,8 @@ import java.net.URL;
 public class MainWinControllor {
 
 
+	public Button startBtn;
+
 	public static void changeScene(AnchorPane root, URL url){
 		try {
 			root= FXMLLoader.load(url);
@@ -33,7 +35,9 @@ public class MainWinControllor {
 	@FXML
 	private void onStartBtnClick(){
 
+		Data.mode=1;
 		Platform.runLater(()->{
+			startBtn.getScene().getWindow().hide();
 			LevelWin levelWin=new LevelWin();
 		});
 
@@ -41,9 +45,11 @@ public class MainWinControllor {
 	}
 
 
-    public void onLordBtnClick(ActionEvent actionEvent) {
+    public void onStoryBtnClick(ActionEvent actionEvent) {
+		Data.mode=0;
     	Platform.runLater(()->{
 			try {
+				startBtn.getScene().getWindow().hide();
 				ChapterSelectWin chapter=new ChapterSelectWin();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

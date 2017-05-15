@@ -25,7 +25,7 @@
             <Font name="Bauhaus 93" size="25.0" fx:id="x1" />
           </font>
         </Button>
-        <Button font="$x1" layoutX="14.0" layoutY="-26.0" mnemonicParsing="false" onAction="#onLordBtnClick" prefHeight="47.0" prefWidth="219.0" text="Story Mode" textAlignment="CENTER" />
+        <Button font="$x1" layoutX="14.0" layoutY="-26.0" mnemonicParsing="false" onAction="#onStoryBtnClick" prefHeight="47.0" prefWidth="219.0" text="Story Mode" textAlignment="CENTER" />
         <Button font="$x1" layoutX="14.0" layoutY="171.0" mnemonicParsing="false" onAction="#onAboutBtnClick" prefHeight="47.0" prefWidth="219.0" text="About" textAlignment="CENTER" />
       </children>
     </Group>

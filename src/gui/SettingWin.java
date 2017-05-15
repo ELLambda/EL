@@ -26,7 +26,7 @@ public class SettingWin extends Stage {
 
 
         Scene scene=new Scene(root,600,400);
-        //scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
         this.setScene(scene);
         this.initStyle(StageStyle.UNDECORATED);
         this.show();
