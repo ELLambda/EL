@@ -225,6 +225,7 @@ public class GameWinControllor {
 					}
 					break;
 				case "SmallHammer":
+					steps--;
 					BlockManager.erased[0][0] = btn.getX();
 					BlockManager.erased[0][1] = btn.getY();
 					BlockManager.length = 1;
@@ -235,6 +236,7 @@ public class GameWinControllor {
 					erase();
 					break;
 				case "BigHammer":
+					steps--;
 					int i = btn.getX();
 					int j = btn.getY();
 					
