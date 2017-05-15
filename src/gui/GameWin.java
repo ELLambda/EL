@@ -2,6 +2,7 @@ package gui;
 
 import java.io.IOException;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,6 +38,9 @@ public class GameWin extends Stage{
 			exitBtn.setOnAction(e->{
 				this.close();
 				Music.stopBgMusic();
+				Platform.runLater(()->{
+					new LevelWin();
+				});
 			});
 			
 			this.setScene(scene);
