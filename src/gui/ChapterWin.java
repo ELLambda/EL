@@ -115,7 +115,7 @@ public class ChapterWin extends Stage{
 			}else if(i == 6){
 				try {
 					Data.setLimit(Data.order);
-					Story2Win story2=new Story2Win();
+					Story6Win story6=new Story6Win();
 					this.close();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
@@ -124,7 +124,7 @@ public class ChapterWin extends Stage{
 			}else if(i == 7){
 				try {
 					Data.setLimit(Data.order);
-					Story2Win story2=new Story2Win();
+					Story7Win story7=new Story7Win();
 					this.close();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
