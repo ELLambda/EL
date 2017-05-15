@@ -4,14 +4,18 @@ import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
+import javax.jws.Oneway;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -20,17 +24,20 @@ import java.util.concurrent.CountDownLatch;
 
 public class GameWinControllor {
 	public static BlockManager BlockManager = new BlockManager();
-	public ProgressBar time;
+	public Label stepLabel;
+	public ProgressBar stepProgressBar;
 	@FXML private GridPane blockGridPan;
 	@FXML private AnchorPane root;
 	@FXML private TextField noticeText;
 	private final static int HEIGHT = 10;
 	private final static int WIDE = 10;
 	public static final double SECOND = 0.5;
-	public static int score=0;
+	//public static int score=0;
+	private static IntegerProperty score;
 	private static int erasedTimes = 1;
 	private static boolean isMoving = false;
-	
+	private static int steps=Data.totalstpes;
+
 	//private SimpleIntegerProperty scoreProperty=new SimpleIntegerProperty();
 //    ChangeListener<? super EventHandler<ActionEvent>> listener =
 //	null;
@@ -43,14 +50,26 @@ public class GameWinControllor {
 		//blockGridPan.set
 		createBlocks();
 
+		steps=Data.totalstpes;
+		score = new SimpleIntegerProperty(0);
+		score.addListener((observable, oldValue, newValue) -> {
+			if(newValue.intValue()>=Data.targetScore){
+				//score.removeListener();
+				Platform.runLater(()->{
+					blockGridPan.getScene().getWindow().hide();
+					new WarnWin(true);
+					Data.warnNumber++;
+				});
+			}
+		});
 
-		
-		CountDownLatch countDownLatch=new CountDownLatch(60);
-		CountThread countThread=new CountThread(countDownLatch, 60);
-		countThread.start();
-		time.progressProperty().bind(countThread.doubleProperty);
+
+
+		noticeText.setText("Total steps:"+steps+"    Target score:"+Data.targetScore);
+		stepLabel.setText("Steps Left:"+steps);
 
 	}
+
 	
 //	@FXML void onExitBtnClick(){
 //		//root.setVisible(false);
@@ -101,6 +120,19 @@ public class GameWinControllor {
 			if(BlockManager.twoBlocks.size()==2){		//已经点了两个块了
 				isMoving = true;
 				if(BlockManager.isNear() == true){		//点的两个块相邻
+
+					steps--;//步数减1
+					if(steps==0){
+						Platform.runLater(()->{
+							blockGridPan.getScene().getWindow().hide();
+							new WarnWin(false);
+							Data.warnNumber++;
+						});
+					}
+					stepLabel.setText("Steps Left:"+steps);
+					stepProgressBar.setProgress((double) steps/Data.totalstpes);
+
+
 					if(BlockManager.twoBlocks.get(0).getSpecialType().equals("null") && 
 					   BlockManager.twoBlocks.get(1).getSpecialType().equals("null")){
 						System.out.println("start exchanging");
@@ -219,10 +251,11 @@ public class GameWinControllor {
 	//消除
 	public  void erase(){
 		
+		//int temp=score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++);
+		score.set(score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++));
+
 		
-		score += BlockManager.length*BlockManager.length*(erasedTimes++);
-		
-		noticeText.setText(String.valueOf(score));
+		noticeText.setText(String.valueOf(score.intValue()));
 		
 		 Music.playEffectMusic(1);//eliminate
 		
@@ -313,7 +346,6 @@ public class GameWinControllor {
 	        }
 	        
 	        transition.play();
-	        
 	        
 		}
 //	        ChangeListener<? super EventHandler<ActionEvent>> listener =
@@ -493,7 +525,11 @@ public class GameWinControllor {
 		blockGridPan.getChildren().clear();
 		createBlocks();
         noticeText.clear();
-        score = 0;
+        noticeText.setText("Restart!");
+        steps=Data.totalstpes;
+        stepLabel.setText("Steps Left:"+steps);
+        stepProgressBar.setProgress(1.0);
+        score.set(0);
 	}
 
 	public void onSettingBtnClick(ActionEvent actionEvent) {
