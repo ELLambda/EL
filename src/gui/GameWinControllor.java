@@ -8,6 +8,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
@@ -28,6 +29,8 @@ public class GameWinControllor {
 	public static BlockManager BlockManager = new BlockManager();
 	public Label stepLabel;
 	public ProgressBar stepProgressBar;
+	public Button smallHammer;
+	public Button bigHammer;
 	@FXML private GridPane blockGridPan;
 	@FXML private AnchorPane root;
 	@FXML private TextField noticeText;
@@ -56,7 +59,7 @@ public class GameWinControllor {
 		steps=Data.totalstpes;
 		score = new SimpleIntegerProperty(0);
 
-		noticeText.setText("your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+		noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 		stepLabel.setText("Steps Left:"+steps);
 
 	}
@@ -226,8 +229,10 @@ public class GameWinControllor {
 					BlockManager.erased[0][1] = btn.getY();
 					BlockManager.length = 1;
 					//把小锤子按钮熄灭
+					setToolNotSelected(smallHammer);
 					score.set(score.intValue() - 20);		//使用小锤子技能要减10分
 					erase();
+					itemSelected="null";
 					break;
 				case "BigHammer":
 					int i = btn.getX();
@@ -262,8 +267,10 @@ public class GameWinControllor {
 						BlockManager.length++;
 					}
 					//把小锤子熄灭
+					setToolNotSelected(bigHammer);
 					score.set(score.intValue() - 200);		//使用大锤子技能减200分
 					erase();
+					itemSelected="null";
 					break;
 //				case 其他技能
 					
@@ -618,6 +625,10 @@ public class GameWinControllor {
 	}
 	
 	public void onSmallHammerBtnClick(ActionEvent actionEvent) {
+		if(score.intValue()<20) {
+			noticeText.setText("Your score isn't adequate!");
+			return;
+		}
 		if(isMoving == false){
 			Music.playEffectMusic(2);//click
 			if(!BlockManager.twoBlocks.isEmpty()){
@@ -630,15 +641,18 @@ public class GameWinControllor {
 			switch (itemSelected){
 			case "SmallHammer":
 				//把小锤子按钮变灭
+				setToolNotSelected(smallHammer);
 				itemSelected = "null";
 				break;
 			case "BigHammer":
 				//把大锤子按钮变灭
+				setToolNotSelected(bigHammer);
 				;		//没有break
 //			case 其他技能
 //				把它的按钮变灭
 			case "null":
 				//这里加把小锤子按钮变亮
+				setToolSelected(smallHammer);
 				itemSelected = "SmallHammer";
 				break;
 			}
@@ -650,6 +664,10 @@ public class GameWinControllor {
 	}
 	
 	public void onBigHammerBtnClick(ActionEvent actionEvent){
+		if(score.intValue()<200) {
+			noticeText.setText("Your score isn't adequate!");
+			return;
+		}
 		if(isMoving == false){
 			Music.playEffectMusic(2);//click
 			if(!BlockManager.twoBlocks.isEmpty()){
@@ -663,20 +681,30 @@ public class GameWinControllor {
 			switch (itemSelected){
 			case "BigHammer":
 				//把大锤子按钮变灭
+				setToolNotSelected(bigHammer);
 				itemSelected = "null";
 				break;
 			case "SmallHammer":
 				//把小锤子按钮变灭
+				setToolNotSelected(smallHammer);
 				;		//没有break
 //			case 其他技能
 //				把它的按钮变灭
 			case "null":
 				//这里加把大锤子按钮变亮
+				setToolSelected(bigHammer);
 				itemSelected = "BigHammer";
 				break;
 			}	
 				
 		}
+	}
+
+	public void setToolSelected(Button tool){
+		tool.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+	}
+	public void setToolNotSelected(Button tool){
+		tool.setStyle("-fx-effect: null");
 	}
 	
 }

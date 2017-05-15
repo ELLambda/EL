@@ -40,3 +40,12 @@
 .progress-bar{
 	-fx-accent:green;
 }
+#smallHammer{
+	-fx-background-image: url("img/hammer.png");
+	-fx-background-color: transparent;
+}
+#bigHammer{
+	-fx-background-image: url("img/tornado.png");
+	-fx-background-color: transparent;
+}
+

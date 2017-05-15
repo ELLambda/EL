@@ -33,7 +33,7 @@ public class WelcomeWin extends Application{
 	Group ellipseGroup=new Group();//存放椭圆的组,利于后期一起旋转
 	
 	public void musics() {
-		Music.playBgMusic(1);//open
+		Music.playBgMusic(3);//open
 	}
 	
 	@Override
