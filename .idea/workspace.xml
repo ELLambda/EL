@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7219021b-39db-45c3-ad0f-98c17406f109" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/img/hammer.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/img/star/11.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/gui/img/tornado.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/img/star/1.png" afterPath="$PROJECT_DIR$/src/gui/img/star/1.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWin.fxml" afterPath="$PROJECT_DIR$/src/gui/GameWin.fxml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWinControllor.java" afterPath="$PROJECT_DIR$/src/gui/GameWinControllor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/WelcomeWin.java" afterPath="$PROJECT_DIR$/src/gui/WelcomeWin.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/gamewin.css" afterPath="$PROJECT_DIR$/src/gui/gamewin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWin.java" afterPath="$PROJECT_DIR$/src/gui/GameWin.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,50 +28,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="GameWin.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LevelWinControllor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/LevelWinControllor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1222">
+              <caret line="138" column="0" lean-forward="false" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+              <folding>
+                <element signature="method#onLevelOneBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelTwoBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelThreeBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelFourBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelFiveBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelSixBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelSevenBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelEightBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelNineBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelTenBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+                <element signature="method#onLevelElevenBtnClick#0;class#LevelWinControllor#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MessageWin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/MessageWin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="624">
+              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+              <folding>
+                <element signature="method#circleAnimation#0;class#MessageWin#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChapterWin.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/ChapterWin.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="69" column="40" lean-forward="false" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="40" />
+              <folding>
+                <element signature="method#ChapterWin#0;class#ChapterWin#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Data.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/gui/Data.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1742">
+              <caret line="67" column="32" lean-forward="false" selection-start-line="67" selection-start-column="32" selection-end-line="67" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameWin.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/GameWin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
+            <state relative-caret-position="404">
+              <caret line="42" column="19" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameWin.fxml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/gui/GameWin.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="89" column="76" lean-forward="false" selection-start-line="89" selection-start-column="76" selection-end-line="89" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gamewin.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/gamewin.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="47" column="49" lean-forward="true" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WelcomeWin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/WelcomeWin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-              <folding>
-                <element signature="e#955#956#0" expanded="true" />
-                <element signature="e#988#989#0" expanded="true" />
-                <element signature="method#rotateEllipses#0;class#WelcomeWin#0" expanded="true" />
-                <element signature="method#createEllipse#0;class#WelcomeWin#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -88,9 +99,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="520">
               <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,41 +122,27 @@
       <file leaf-file-name="GameWinControllor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/GameWinControllor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-16172">
-              <caret line="61" column="29" lean-forward="false" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+            <state relative-caret-position="-134">
+              <caret line="288" column="0" lean-forward="false" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
               <folding>
+                <element signature="method#initialize#0;class#GameWinControllor#0" expanded="true" />
                 <element signature="method#createBlocks#0;class#GameWinControllor#0" expanded="true" />
                 <element signature="method#createOneBlock#0;class#GameWinControllor#0" expanded="true" />
-                <element signature="e#7867#7874#0" expanded="true" />
-                <element signature="method#erase#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="e#7713#7720#0" expanded="true" />
                 <element signature="method#descend#0;class#GameWinControllor#0" expanded="true" />
                 <element signature="method#bombExplode#0;class#GameWinControllor#0" expanded="true" />
-                <element signature="e#15414#15421#0" expanded="true" />
+                <element signature="e#15198#15205#0" expanded="true" />
                 <element signature="method#checkIsLose#0;class#GameWinControllor#0" expanded="true" />
-                <element signature="e#16842#17030#0" expanded="true" />
-                <element signature="e#17029#17030#0" expanded="true" />
-                <element signature="e#17117#17311#0" expanded="true" />
-                <element signature="e#17310#17311#0" expanded="true" />
+                <element signature="e#16626#16814#0" expanded="true" />
+                <element signature="e#16813#16814#0" expanded="true" />
+                <element signature="e#16901#17095#0" expanded="true" />
+                <element signature="e#17094#17095#0" expanded="true" />
                 <element signature="method#onRestartBtnClick#0;class#GameWinControllor#0" expanded="true" />
                 <element signature="method#onSettingBtnClick#0;class#GameWinControllor#0" expanded="true" />
                 <element signature="method#onStoreBtnClick#0;class#GameWinControllor#0" expanded="true" />
                 <element signature="method#onSmallHammerBtnClick#0;class#GameWinControllor#0" expanded="true" />
                 <element signature="method#onBigHammerBtnClick#0;class#GameWinControllor#0" expanded="true" />
-                <element signature="e#19707#19708#0" expanded="true" />
-                <element signature="e#19784#19785#0" expanded="true" />
-                <element signature="e#19830#19831#0" expanded="true" />
-                <element signature="e#19870#19871#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/gui/Block.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -157,7 +152,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1040">
               <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -208,6 +205,7 @@
         <option value="$PROJECT_DIR$/src/gui/messagewin3.css" />
         <option value="$PROJECT_DIR$/src/gui/GameWinControllor2.java" />
         <option value="$PROJECT_DIR$/src/gui/BlockManager2.java" />
+        <option value="$PROJECT_DIR$/src/gui/WelcomeWin.java" />
         <option value="$PROJECT_DIR$/src/gui/messagewin4.css" />
         <option value="$PROJECT_DIR$/src/gui/MainWin.java" />
         <option value="$PROJECT_DIR$/src/gui/img/MenuBtn.css" />
@@ -220,6 +218,7 @@
         <option value="$PROJECT_DIR$/src/gui/BlockManager.java" />
         <option value="$PROJECT_DIR$/src/gui/Test.java" />
         <option value="$PROJECT_DIR$/src/gui/CountThread.java" />
+        <option value="$PROJECT_DIR$/src/gui/gamewin.css" />
         <option value="$PROJECT_DIR$/src/gui/mainwin.css" />
         <option value="$PROJECT_DIR$/src/gui/Music.java" />
         <option value="$PROJECT_DIR$/src/gui/Block.java" />
@@ -228,6 +227,7 @@
         <option value="$PROJECT_DIR$/src/gui/WarnWin.fxml" />
         <option value="$PROJECT_DIR$/src/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/gui/MainWin.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/GameWin.fxml" />
         <option value="$PROJECT_DIR$/src/gui/ChapterWin.java" />
         <option value="$PROJECT_DIR$/src/gui/levelwin.css" />
         <option value="$PROJECT_DIR$/src/gui/Data.java" />
@@ -237,11 +237,8 @@
         <option value="$PROJECT_DIR$/src/gui/LevelWinControllor.java" />
         <option value="$PROJECT_DIR$/src/gui/WarnWin.java" />
         <option value="$PROJECT_DIR$/src/gui/MessageWin.java" />
-        <option value="$PROJECT_DIR$/src/gui/GameWin.java" />
-        <option value="$PROJECT_DIR$/src/gui/WelcomeWin.java" />
-        <option value="$PROJECT_DIR$/src/gui/gamewin.css" />
         <option value="$PROJECT_DIR$/src/gui/GameWinControllor.java" />
-        <option value="$PROJECT_DIR$/src/gui/GameWin.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/GameWin.java" />
       </list>
     </option>
   </component>
@@ -820,12 +817,12 @@
       <workItem from="1494810517394" duration="5969000" />
       <workItem from="1494817380166" duration="1264000" />
       <workItem from="1494854693354" duration="781000" />
-      <workItem from="1494855503227" duration="4668000" />
+      <workItem from="1494855503227" duration="159000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106144000" />
+    <option name="totallyTimeSpent" value="101635000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -843,14 +840,13 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3150384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3150384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -867,6 +863,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32852387" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -961,6 +958,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/gamewin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-670">
+          <caret line="1" column="37" lean-forward="false" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/mainwin.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -1010,6 +1014,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/WelcomeWin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="543">
+          <caret line="108" column="1" lean-forward="false" selection-start-line="108" selection-start-column="1" selection-end-line="108" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/menubtn.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -1050,6 +1061,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="58" column="4" lean-forward="false" selection-start-line="58" selection-start-column="4" selection-end-line="58" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/img/game_bg.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1069,6 +1088,17 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/gui/GameWin.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="86" column="32" lean-forward="true" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
           <folding />
         </state>
       </provider>
@@ -1180,9 +1210,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="520">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1203,7 +1231,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1040">
           <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1217,80 +1247,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GameWin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="41" column="35" lean-forward="true" selection-start-line="41" selection-start-column="35" selection-end-line="41" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/gamewin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="47" column="49" lean-forward="true" selection-start-line="47" selection-start-column="49" selection-end-line="47" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/WelcomeWin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="35" column="27" lean-forward="false" selection-start-line="35" selection-start-column="27" selection-end-line="35" selection-end-column="27" />
-          <folding>
-            <element signature="e#955#956#0" expanded="true" />
-            <element signature="e#988#989#0" expanded="true" />
-            <element signature="method#rotateEllipses#0;class#WelcomeWin#0" expanded="true" />
-            <element signature="method#createEllipse#0;class#WelcomeWin#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameWinControllor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16172">
-          <caret line="61" column="29" lean-forward="false" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+        <state relative-caret-position="-134">
+          <caret line="288" column="0" lean-forward="false" selection-start-line="288" selection-start-column="0" selection-end-line="288" selection-end-column="0" />
           <folding>
+            <element signature="method#initialize#0;class#GameWinControllor#0" expanded="true" />
             <element signature="method#createBlocks#0;class#GameWinControllor#0" expanded="true" />
             <element signature="method#createOneBlock#0;class#GameWinControllor#0" expanded="true" />
-            <element signature="e#7867#7874#0" expanded="true" />
-            <element signature="method#erase#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="e#7713#7720#0" expanded="true" />
             <element signature="method#descend#0;class#GameWinControllor#0" expanded="true" />
             <element signature="method#bombExplode#0;class#GameWinControllor#0" expanded="true" />
-            <element signature="e#15414#15421#0" expanded="true" />
+            <element signature="e#15198#15205#0" expanded="true" />
             <element signature="method#checkIsLose#0;class#GameWinControllor#0" expanded="true" />
-            <element signature="e#16842#17030#0" expanded="true" />
-            <element signature="e#17029#17030#0" expanded="true" />
-            <element signature="e#17117#17311#0" expanded="true" />
-            <element signature="e#17310#17311#0" expanded="true" />
+            <element signature="e#16626#16814#0" expanded="true" />
+            <element signature="e#16813#16814#0" expanded="true" />
+            <element signature="e#16901#17095#0" expanded="true" />
+            <element signature="e#17094#17095#0" expanded="true" />
             <element signature="method#onRestartBtnClick#0;class#GameWinControllor#0" expanded="true" />
             <element signature="method#onSettingBtnClick#0;class#GameWinControllor#0" expanded="true" />
             <element signature="method#onStoreBtnClick#0;class#GameWinControllor#0" expanded="true" />
             <element signature="method#onSmallHammerBtnClick#0;class#GameWinControllor#0" expanded="true" />
             <element signature="method#onBigHammerBtnClick#0;class#GameWinControllor#0" expanded="true" />
-            <element signature="e#19707#19708#0" expanded="true" />
-            <element signature="e#19784#19785#0" expanded="true" />
-            <element signature="e#19830#19831#0" expanded="true" />
-            <element signature="e#19870#19871#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/gui/GameWin.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/gui/GameWin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="89" column="76" lean-forward="false" selection-start-line="89" selection-start-column="76" selection-end-line="89" selection-end-column="76" />
+        <state relative-caret-position="404">
+          <caret line="42" column="19" lean-forward="true" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
           <folding />
         </state>
       </provider>

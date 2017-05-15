@@ -14,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 /**
@@ -22,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
  * @author julia98
  *
  */
-public class StoryWinController {
+public class Story2WinController {
 	int i = 0;
 	@FXML
 	public AnchorPane root;
@@ -44,34 +43,17 @@ public class StoryWinController {
 		Platform.runLater(()->{
 			//game
 			GameWin game=new GameWin();
-			//MessageWin messageWin = new MessageWin(1);
 			root.getScene().getWindow().hide();
 		});
 	}
 	
 	@FXML
 	public void onChartClicked() {
-	    FileManager filemanager = new FileManager(1);
+	    FileManager filemanager = new FileManager(2);
 	    
-//	    ArrayList<ArrayList> type = filemanager.type ;
-//	    ArrayList<String> ts = filemanager.ts;
-//	    ArrayList<String> xj = filemanager.xj;
-//	    ArrayList<String> lr = filemanager.lr;
-//	    ArrayList<String> narration = filemanager.narration;
-//	    ArrayList<String[]> choices = filemanager.choices;
 	    ArrayList<String> word = filemanager.word;
-		    	//ArrayList word = type.get(i);
 		    	subline.setText(word.get(i));
-//		    	if(ts.contains(word.get(i)))
-//	    		subline.setText((String) word.get(i));
-//		    	else if(xj.contains(word.get(i)))
-//		    		subline.setText((String) word.get(i));
-//       	    	else if(lr.contains(word.get(i)))
-//		    		subline.setText((String) word.get(i));
-//		    	else if(narration.contains(word.get(i)))
-//		    		subline.setText((String) word.get(i));
-//		    	else if(choices.contains(word.get(i)))
-//		    		subline.setText((String) word.get(i));
+
 		    	i++;
 		    	if(i == word.size())
 		    		Platform.runLater(()->{
@@ -80,3 +62,4 @@ public class StoryWinController {
 		    		});
 	}
 }
+

@@ -26,13 +26,17 @@ chapter窗口
 public class ChapterWin extends Stage{
 
 	AnchorPane root;
-	
+	public static int i = 0;
 	/**
 	n为第几关
 	 */
 	public ChapterWin(int n) {
 		// TODO Auto-generated constructor stub
+<<<<<<< HEAD
+		i = n;
+=======
 		Data.order=n;
+>>>>>>> ff8825c53bf7c15ea4d136b7525c4e8a9530c98b
 		root=new AnchorPane();
 		Scene scene=new Scene(root, 1200, 800);
 		scene.setFill(Color.TRANSPARENT);
@@ -66,6 +70,24 @@ public class ChapterWin extends Stage{
 		
 		//点击圆形跳转到storyWin
 		circle.setOnMouseClicked(e->{
+<<<<<<< HEAD
+			if(i == 1){
+				try {
+					StoryWin story=new StoryWin();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 2){
+				try {
+					Story2Win story2=new Story2Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+=======
 			try {
 				Data.setLimit(Data.order);
 				StoryWin story=new StoryWin();
@@ -73,6 +95,7 @@ public class ChapterWin extends Stage{
 			} catch (IOException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+>>>>>>> ff8825c53bf7c15ea4d136b7525c4e8a9530c98b
 			}
 		});
 					
