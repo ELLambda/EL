@@ -230,9 +230,9 @@ public class GameWinControllor {
 					BlockManager.length = 1;
 					//把小锤子按钮熄灭
 					setToolNotSelected(smallHammer);
-					score.set(score.intValue() - 20);		//使用小锤子技能要减10分
-					erase();
+					score.set(score.intValue() - 20);		//使用小锤子技能要减20分
 					itemSelected="null";
+					erase();
 					break;
 				case "BigHammer":
 					int i = btn.getX();
@@ -269,8 +269,8 @@ public class GameWinControllor {
 					//把小锤子熄灭
 					setToolNotSelected(bigHammer);
 					score.set(score.intValue() - 200);		//使用大锤子技能减200分
-					erase();
 					itemSelected="null";
+					erase();
 					break;
 //				case 其他技能
 					
@@ -290,7 +290,7 @@ public class GameWinControllor {
 		//int temp=score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++);
 		score.set(score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++));
 
-		noticeText.setText("your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+		noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 //		noticeText.setText(String.valueOf(score.intValue()));
 		
 		 Music.playEffectMusic(1);//eliminate
@@ -625,12 +625,13 @@ public class GameWinControllor {
 	}
 	
 	public void onSmallHammerBtnClick(ActionEvent actionEvent) {
-		if(score.intValue()<20) {
-			noticeText.setText("Your score isn't adequate!");
-			return;
-		}
+		
 		if(isMoving == false){
 			Music.playEffectMusic(2);//click
+			if(score.intValue()<20) {
+				noticeText.setText("Your score is inadequate!");
+				return;
+			}
 			if(!BlockManager.twoBlocks.isEmpty()){
 				Block b = BlockManager.twoBlocks.get(0);		//如果有，把之前点的块熄灭
 				b.setIsPressed(false);
@@ -664,12 +665,15 @@ public class GameWinControllor {
 	}
 	
 	public void onBigHammerBtnClick(ActionEvent actionEvent){
-		if(score.intValue()<200) {
-			noticeText.setText("Your score isn't adequate!");
-			return;
-		}
+		
 		if(isMoving == false){
+			
 			Music.playEffectMusic(2);//click
+			if(score.intValue()<200) {
+				noticeText.setText("Your score is inadequate!");
+				return;
+			}
+			
 			if(!BlockManager.twoBlocks.isEmpty()){
 				Block b = BlockManager.twoBlocks.get(0);		//如果有，把之前点的块熄灭
 				b.setIsPressed(false);
