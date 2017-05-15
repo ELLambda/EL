@@ -10,11 +10,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Story7WinController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Story8WinController">
    <children>
       <ImageView fx:id="picture1" fitHeight="800.0" fitWidth="1200.0">
          <image>
-            <Image url="@img/story7.jpeg" />
+            <Image url="@img/story8.jpeg" />
          </image>
       </ImageView>
       <ImageView fx:id="picture2" fitHeight="243.0" fitWidth="1084.0" layoutY="557.0">
@@ -30,7 +30,7 @@
       <Separator fx:id="seperate" layoutX="-5.0" layoutY="581.0" prefHeight="5.0" prefWidth="1200.0" />
       <ImageView fx:id="picture3" fitHeight="264.0" fitWidth="246.0" layoutX="949.0" layoutY="528.0">
          <image>
-            <Image url="@img/boy.png" />
+            <Image url="@img/girl.png" />
          </image>
       </ImageView>
       <Label fx:id="subline" layoutX="76.0" layoutY="628.0" onMouseClicked="#onChartClicked" prefHeight="119.0" prefWidth="667.0" text="Story begins..." textFill="#90318c">

@@ -30,10 +30,10 @@ public class WelcomeWin extends Application{
 	@FXML
 	private Text prompText;
 	
-	Group ellipseGroup=new Group();//´æ·ÅÍÖÔ²µÄ×é,ÀûÓÚºóÆÚÒ»ÆðÐý×ª
+	Group ellipseGroup=new Group();//ï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½×ª
 	
 	public void musics() {
-		Music.playBgMusic(3);//open
+		Music.playBgMusic(5);//open
 	}
 	
 	@Override
@@ -49,14 +49,14 @@ public class WelcomeWin extends Application{
 			createEllipse(i);				
 		}
 		
-		//¾ÓÖÐÏÔÊ¾
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 		ellipseGroup.setLayoutX(scene.getWidth()/2);
 		ellipseGroup.setLayoutY(scene.getHeight()/2-50);
 		rootPan.getChildren().add(ellipseGroup);
-		//Ðý×ª
+		//ï¿½ï¿½×ª
 		rotateEllipses(ellipseGroup);
 
-		//µã»÷´°¿ÚÈÎÒâµØ·½½øÈëÓÎÏ·
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·
 		rootPan.setOnMouseClicked(e->{
 			Platform.runLater(new Runnable() {
 				
@@ -80,7 +80,7 @@ public class WelcomeWin extends Application{
 //		launch(args);
 //	}
 
-//Ðý×ªÍÖÔ²×é
+//ï¿½ï¿½×ªï¿½ï¿½Ô²ï¿½ï¿½
 public void rotateEllipses(Group ellipse) {
 	FadeTransition fd=new FadeTransition(Duration.millis(3000),ellipse);
 	fd.setFromValue(0.1);
@@ -97,14 +97,14 @@ public void rotateEllipses(Group ellipse) {
 	rt.play();
 }	
 /*
- * @param int i:ÓÃÓÚ¼ÆËãÆ«×ª½Ç¶È
+ * @param int i:ï¿½ï¿½ï¿½Ú¼ï¿½ï¿½ï¿½Æ«×ªï¿½Ç¶ï¿½
  */
 public void createEllipse(int i) {
-	//ÐÂ½¨ÍÖÔ²²¢Ìî³äÑÕÉ«
+	//ï¿½Â½ï¿½ï¿½ï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«
 	Ellipse ellipse=new Ellipse(50, 100);
 	ellipse.setFill(Color.web("rgba(255,255,255,0.3)"));
 	
-	//ÉèÖÃÔ­Ê¼Ðý×ª½Ç¶È
+	//ï¿½ï¿½ï¿½ï¿½Ô­Ê¼ï¿½ï¿½×ªï¿½Ç¶ï¿½
 	ellipse.setRotate(i*30);
 	
 	
