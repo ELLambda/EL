@@ -1,5 +1,6 @@
 .root{
-	-fx-background-color: rgba(0,0,0,0.5) ;
+	/*-fx-background-color: rgba(0,0,0,0.5) ;*/
+	-fx-background-color: transparent;
 	-fx-background-image:url(img/level_bg.png); 
 }
 .button{

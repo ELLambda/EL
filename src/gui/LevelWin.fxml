@@ -14,7 +14,7 @@
         <Image preserveRatio="true" smooth="true" url="file:level_bg.png" />
       </image>
     </ImageView>
-    <Button layoutX="488.0" layoutY="112.0" mnemonicParsing="false" onAction="#onLevelOneBtnClick" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color:transparent;&#10;-fx-border-radius:50;&#10;" text="" />
+    <Button fx:id="btn" layoutX="488.0" layoutY="112.0" mnemonicParsing="false" onAction="#onLevelOneBtnClick" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color:transparent;&#10;-fx-border-radius:50;&#10;" text="" />
     <Button layoutX="617.0" layoutY="112.0" mnemonicParsing="false" onAction="#onLevelTwoBtnClick" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color:transparent;&#10;-fx-border-radius:50;&#10;" text="" />
     <Button layoutX="728.0" layoutY="185.0" mnemonicParsing="false" onAction="#onLevelThreeBtnClick" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color:transparent;&#10;-fx-border-radius:50;&#10;" text="" />
     <Button layoutX="795.0" layoutY="298.0" mnemonicParsing="false" onAction="#onLevelFourBtnClick" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color:transparent;&#10;-fx-border-radius:50;&#10;" text="" />

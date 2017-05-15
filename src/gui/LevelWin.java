@@ -59,9 +59,10 @@ public class LevelWin extends Stage{
 		
 		circle2.setOnMouseClicked(e->{
 			this.close();
+			new MainWin();
 		});
 		
-		//Ëõ·Å¶¯»­
+		//ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½
 		ScaleTransition st=new  ScaleTransition(Duration.millis(3000),circle);		
 		st.setByX(0.5);
 		st.setByY(0.5);	
