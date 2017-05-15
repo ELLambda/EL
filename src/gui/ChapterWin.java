@@ -33,7 +33,7 @@ public class ChapterWin extends Stage{
 	public ChapterWin(int n) {
 		// TODO Auto-generated constructor stub
 		i = n;
-		//Data.order=n;
+		Data.order=n;
 		root=new AnchorPane();
 		Scene scene=new Scene(root, 1200, 800);
 		scene.setFill(Color.TRANSPARENT);
