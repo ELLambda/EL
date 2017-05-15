@@ -95,11 +95,11 @@
 
             <Button id="smallHammer" fx:id="smallHammer" layoutY="34.0" mnemonicParsing="false" onAction="#onSmallHammerBtnClick" prefHeight="70" prefWidth="70" text="">
                <tooltip>
-                  <Tooltip text="Empty Tooltip" />
+                  <Tooltip text="花费20点分数使用，任意消除一个方块" />
                </tooltip></Button>
             <Button id="bigHammer" fx:id="bigHammer" layoutY="82.0" mnemonicParsing="false" onAction="#onBigHammerBtnClick" prefHeight="70" prefWidth="70" text="">
                <tooltip>
-                  <Tooltip text="Empty Tooltip" />
+                  <Tooltip text="花费200点分数使用，任意消除一个3*3区域" />
                </tooltip>
             </Button>
          </children>
