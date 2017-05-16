@@ -61,5 +61,9 @@ public class MainWinControllor {
     }
 
     public void onAboutBtnClick(ActionEvent actionEvent) {
+		Platform.runLater(()->{
+			startBtn.getScene().getWindow().hide();
+			new AboutWin();
+		});
     }
 }

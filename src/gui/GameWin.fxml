@@ -104,7 +104,7 @@
             </Button>
            <Button id="magicStick" fx:id="magic" layoutY="82.0" mnemonicParsing="false" onAction="#onMagicBtnClick" prefHeight="70" prefWidth="70" text="">
              <tooltip>
-               <Tooltip text="花费250点分数使用该道具，使任意一个方块变成一个随机的特殊块" />
+               <Tooltip text="花费500点分数使用该道具，使任意一个方块变成一个随机的特殊块" />
              </tooltip>
            </Button>
          </children>

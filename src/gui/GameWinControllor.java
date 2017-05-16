@@ -287,7 +287,7 @@ public class GameWinControllor {
 					erase();
 					break;
 					
-					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减250分
+					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减500分
 				case"Magic":
 					if(Data.order != 12){
 						steps--;
@@ -302,7 +302,7 @@ public class GameWinControllor {
 	        		blockGridPan.add(specialBlock, specialBlock.getX(), specialBlock.getY());
 
 					setToolNotSelected(magic);
-					score.set(score.intValue() - 250);		//使用魔力棒技能减250分
+					score.set(score.intValue() - 500);		//使用魔力棒技能减500分
 					if(Data.order == 12){
 						noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 					}
@@ -806,7 +806,7 @@ public class GameWinControllor {
 				
 		}
 	}
-		public void onMagicBtnClick(ActionEvent actionEvent){
+	public void onMagicBtnClick(ActionEvent actionEvent){
 			if(score.intValue()<250) {
 				noticeText.setText("Your score is inadequate!");
 				Timer timer = new Timer();
