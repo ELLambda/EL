@@ -3,11 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="7219021b-39db-45c3-ad0f-98c17406f109" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/BlockManager.java" afterPath="$PROJECT_DIR$/src/gui/BlockManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWin.fxml" afterPath="$PROJECT_DIR$/src/gui/GameWin.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/GameWinControllor.java" afterPath="$PROJECT_DIR$/src/gui/GameWinControllor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Main.java" afterPath="$PROJECT_DIR$/src/gui/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/gamewin.css" afterPath="$PROJECT_DIR$/src/gui/gamewin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story10WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story10WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story11WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story11WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story12WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story12WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story2WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story2WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story3WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story3WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story4WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story4WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story5WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story5WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story6WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story6WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story7WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story7WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story8WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story8WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/Story9WinController.java" afterPath="$PROJECT_DIR$/src/gui/Story9WinController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/gui/chapterSelect.css" afterPath="$PROJECT_DIR$/src/gui/chapterSelect.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,7 +45,10 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4290">
               <caret line="205" column="8" lean-forward="false" selection-start-line="205" selection-start-column="8" selection-end-line="205" selection-end-column="8" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="method#ChapterWin#0;class#ChapterWin#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -48,7 +59,8 @@
             <state relative-caret-position="104">
               <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
               <folding>
-                <element signature="method#circleAnimation#0;class#LevelWin#0" expanded="true" />
+                <element signature="imports" expanded="false" />
+                <element signature="method#LevelWin#0;class#LevelWin#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -66,25 +78,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameWin.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameWin.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/GameWin.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="117" column="12" lean-forward="true" selection-start-line="117" selection-start-column="12" selection-end-line="117" selection-end-column="12" />
+            <state relative-caret-position="587">
+              <caret line="117" column="12" lean-forward="false" selection-start-line="117" selection-start-column="12" selection-end-line="117" selection-end-column="12" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/Block.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="702">
               <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="method#getColor#0;class#Block#0" expanded="false" />
+                <element signature="method#setColor#0;class#Block#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +107,7 @@
       <file leaf-file-name="gamewin.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/gamewin.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
+            <state relative-caret-position="1352">
               <caret line="52" column="49" lean-forward="false" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
               <folding />
             </state>
@@ -102,25 +117,46 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
+            <state relative-caret-position="520">
               <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+                <element signature="e#782#783#0" expanded="false" />
+                <element signature="e#801#802#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameWinControllor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameWinControllor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/gui/GameWinControllor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="282" column="0" lean-forward="true" selection-start-line="282" selection-start-column="0" selection-end-line="282" selection-end-column="0" />
+            <state relative-caret-position="724">
+              <caret line="291" column="21" lean-forward="true" selection-start-line="291" selection-start-column="21" selection-end-line="291" selection-end-column="21" />
               <folding>
+                <element signature="method#initialize#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="method#createBlocks#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="e#7889#7896#0" expanded="true" />
                 <element signature="method#erase#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="method#descend#0;class#GameWinControllor#0" expanded="true" />
                 <element signature="method#bombExplode#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="e#16167#16174#0" expanded="true" />
+                <element signature="method#checkIsLose#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="e#17595#17783#0" expanded="true" />
+                <element signature="e#17782#17783#0" expanded="true" />
+                <element signature="e#17870#18064#0" expanded="true" />
+                <element signature="e#18063#18064#0" expanded="true" />
+                <element signature="method#onRestartBtnClick#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="method#onSettingBtnClick#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="method#onStoreBtnClick#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="method#onSmallHammerBtnClick#0;class#GameWinControllor#0" expanded="true" />
+                <element signature="method#onBigHammerBtnClick#0;class#GameWinControllor#0" expanded="true" />
                 <element signature="method#onMagicBtnClick#0;class#GameWinControllor#0" expanded="true" />
-                <element signature="e#21494#21495#0" expanded="true" />
-                <element signature="e#21571#21572#0" expanded="true" />
-                <marker date="1494901258117" expanded="true" signature="21445:21451" ph="{...}" />
+                <marker date="1494902416185" expanded="true" signature="21442:21448" ph="{...}" />
+                <marker date="1494902416185" expanded="false" signature="21491:21495" ph=" { " />
+                <marker date="1494902416185" expanded="false" signature="21566:21569" ph=" }" />
+                <marker date="1494902416185" expanded="false" signature="21614:21618" ph=" { " />
+                <marker date="1494902416185" expanded="false" signature="21652:21655" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -217,8 +253,8 @@
         <option value="$PROJECT_DIR$/src/gui/gamewin.css" />
         <option value="$PROJECT_DIR$/src/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/gui/BlockManager.java" />
-        <option value="$PROJECT_DIR$/src/gui/GameWinControllor.java" />
         <option value="$PROJECT_DIR$/src/gui/GameWin.fxml" />
+        <option value="$PROJECT_DIR$/src/gui/GameWinControllor.java" />
       </list>
     </option>
   </component>
@@ -249,8 +285,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -298,6 +332,8 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -807,7 +843,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="104846000" />
+    <option name="totallyTimeSpent" value="104979000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -829,10 +865,10 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.50208336" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3150384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.49791667" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3150384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -846,11 +882,34 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3150384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17864583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -926,14 +985,14 @@
     <entry file="file://$PROJECT_DIR$/src/gui/Test.fxml" />
     <entry file="file://$PROJECT_DIR$/src/gui/Test.java" />
     <entry file="file://$PROJECT_DIR$/src/gui/SettingWin.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="988">
           <caret line="38" column="96" lean-forward="false" selection-start-line="38" selection-start-column="96" selection-end-line="38" selection-end-column="96" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/welcome.css">
@@ -1006,14 +1065,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/WarnWin.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/CountThread.java">
@@ -1036,14 +1095,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/MainWin.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="22" column="29" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/levelwin.css">
@@ -1054,14 +1113,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/chapterSelect.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/chapterSelect.css">
@@ -1072,14 +1131,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/LevelWin.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="16" column="21" lean-forward="false" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/LevelWinControllor.java">
@@ -1117,11 +1176,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="624">
           <caret line="53" column="28" lean-forward="false" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
-          <folding>
-            <element signature="method#changeScene#0;class#MainWinControllor#0" expanded="true" />
-            <element signature="method#onStartBtnClick#0;class#MainWinControllor#0" expanded="true" />
-            <element signature="method#onAboutBtnClick#0;class#MainWinControllor#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1129,7 +1183,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
           <caret line="56" column="30" lean-forward="false" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1137,9 +1190,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <element signature="method#ChapterSelectWin#0;class#ChapterSelectWin#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1147,7 +1197,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4290">
           <caret line="205" column="8" lean-forward="false" selection-start-line="205" selection-start-column="8" selection-end-line="205" selection-end-column="8" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="method#ChapterWin#0;class#ChapterWin#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1156,7 +1209,8 @@
         <state relative-caret-position="104">
           <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
           <folding>
-            <element signature="method#circleAnimation#0;class#LevelWin#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="method#LevelWin#0;class#LevelWin#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1183,7 +1237,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/gamewin.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
+        <state relative-caret-position="1352">
           <caret line="52" column="49" lean-forward="false" selection-start-line="52" selection-start-column="49" selection-end-line="52" selection-end-column="49" />
           <folding />
         </state>
@@ -1191,17 +1245,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
+        <state relative-caret-position="520">
           <caret line="22" column="22" lean-forward="false" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#782#783#0" expanded="false" />
+            <element signature="e#801#802#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/Block.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="702">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="method#getColor#0;class#Block#0" expanded="false" />
+            <element signature="method#setColor#0;class#Block#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1218,28 +1279,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameWinControllor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="282" column="0" lean-forward="true" selection-start-line="282" selection-start-column="0" selection-end-line="282" selection-end-column="0" />
+        <state relative-caret-position="724">
+          <caret line="291" column="21" lean-forward="true" selection-start-line="291" selection-start-column="21" selection-end-line="291" selection-end-column="21" />
           <folding>
+            <element signature="method#initialize#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="method#createBlocks#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="e#7889#7896#0" expanded="true" />
             <element signature="method#erase#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="method#descend#0;class#GameWinControllor#0" expanded="true" />
             <element signature="method#bombExplode#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="e#16167#16174#0" expanded="true" />
+            <element signature="method#checkIsLose#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="e#17595#17783#0" expanded="true" />
+            <element signature="e#17782#17783#0" expanded="true" />
+            <element signature="e#17870#18064#0" expanded="true" />
+            <element signature="e#18063#18064#0" expanded="true" />
+            <element signature="method#onRestartBtnClick#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="method#onSettingBtnClick#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="method#onStoreBtnClick#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="method#onSmallHammerBtnClick#0;class#GameWinControllor#0" expanded="true" />
+            <element signature="method#onBigHammerBtnClick#0;class#GameWinControllor#0" expanded="true" />
             <element signature="method#onMagicBtnClick#0;class#GameWinControllor#0" expanded="true" />
-            <element signature="e#21494#21495#0" expanded="true" />
-            <element signature="e#21571#21572#0" expanded="true" />
-            <marker date="1494901258117" expanded="true" signature="21445:21451" ph="{...}" />
+            <marker date="1494902416185" expanded="true" signature="21442:21448" ph="{...}" />
+            <marker date="1494902416185" expanded="false" signature="21491:21495" ph=" { " />
+            <marker date="1494902416185" expanded="false" signature="21566:21569" ph=" }" />
+            <marker date="1494902416185" expanded="false" signature="21614:21618" ph=" { " />
+            <marker date="1494902416185" expanded="false" signature="21652:21655" ph=" }" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/gui/GameWin.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="117" column="12" lean-forward="true" selection-start-line="117" selection-start-column="12" selection-end-line="117" selection-end-column="12" />
+        <state relative-caret-position="587">
+          <caret line="117" column="12" lean-forward="false" selection-start-line="117" selection-start-column="12" selection-end-line="117" selection-end-column="12" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
   </component>
