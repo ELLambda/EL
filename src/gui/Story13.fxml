@@ -14,12 +14,12 @@
    <children>
       <ImageView fx:id="picture1" fitHeight="800.0" fitWidth="1200.0">
          <image>
-            <Image url="@img/story13.jpeg" />
+            <Image url="@img/story13.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="picture2" fitHeight="243.0" fitWidth="1084.0" layoutY="557.0">
          <image>
-            <Image url="@img/storyChart2.png" />
+            <Image url="@img/storyChart.png" />
          </image>
       </ImageView>
       <Button fx:id="skipBtn" layoutX="1115.0" layoutY="6.0" mnemonicParsing="false" onMouseClicked="#onSkipBtnClicked" prefHeight="40.0" prefWidth="80.0" stylesheets="@story.css" text="Skip" underline="true">
@@ -33,7 +33,7 @@
             <Image url="@img/boy.png" />
          </image>
       </ImageView>
-      <Label fx:id="subline" layoutX="76.0" layoutY="628.0" onMouseClicked="#onChartClicked" prefHeight="119.0" prefWidth="667.0" text="Story begins..." textFill="#961da1">
+      <Label fx:id="subline" layoutX="76.0" layoutY="628.0" onMouseClicked="#onChartClicked" prefHeight="119.0" prefWidth="667.0" text="Story begins..." textFill="#a11f4d">
          <font>
             <Font size="18.0" />
          </font>
