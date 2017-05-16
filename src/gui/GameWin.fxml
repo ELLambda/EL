@@ -95,13 +95,18 @@
 
             <Button id="smallHammer" fx:id="smallHammer" layoutY="34.0" mnemonicParsing="false" onAction="#onSmallHammerBtnClick" prefHeight="70" prefWidth="70" text="">
                <tooltip>
-                  <Tooltip text="Empty Tooltip" />
+                  <Tooltip text="花费20点分数使用该道具，消除任意一个方块" />
                </tooltip></Button>
             <Button id="bigHammer" fx:id="bigHammer" layoutY="82.0" mnemonicParsing="false" onAction="#onBigHammerBtnClick" prefHeight="70" prefWidth="70" text="">
                <tooltip>
-                  <Tooltip text="Empty Tooltip" />
+                  <Tooltip text="花费200点分数使用该道具，消除任意一个3*3的区域 "/>
                </tooltip>
             </Button>
+           <Button id="magicStick" fx:id="magic" layoutY="82.0" mnemonicParsing="false" onAction="#onMagicBtnClick" prefHeight="70" prefWidth="70" text="">
+             <tooltip>
+               <Tooltip text="花费250点分数使用该道具，使任意一个方块变成一个随机的特殊块" />
+             </tooltip>
+           </Button>
          </children>
         <padding>
           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
