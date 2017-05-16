@@ -56,8 +56,8 @@ public class ChapterWin extends Stage{
 	
 	public void circleAnimation(){
 		
-		int x=100;
-		int y=400;
+		int x=620;
+		int y=420;
 		
 		Circle circle=new Circle(x, y, 20);
 		circle.setFill(Color.TRANSPARENT);
@@ -175,7 +175,7 @@ public class ChapterWin extends Stage{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			}else if(i == 13){
+			}else if(i == 13 && StorySelectBox.ending_1){
 				try {
 					Data.setLimit(Data.order);
 					Story13Win story13=new Story13Win();
@@ -184,20 +184,29 @@ public class ChapterWin extends Stage{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			}else if(i == 14){
+			}else if(i == 13 && StorySelectBox.ending_2){
 				try {
 					Data.setLimit(Data.order);
-					Story2Win story2=new Story2Win();
+					Story14Win story14=new Story14Win();
 					this.close();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-			}else if(i == 15){
+			}else if(i == 13 && (StorySelectBox.rationality == -2)){
 				try {
 					Data.setLimit(Data.order);
-					Story2Win story2=new Story2Win();
+					Story15Win story15=new Story15Win();
 					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 13){
+				//Data.setLimit(Data.order);
+				//应该有提示窗口 显示未达到开启结局条件
+				try {
+					ChapterSelectWin csw = new ChapterSelectWin();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

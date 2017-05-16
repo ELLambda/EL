@@ -44,7 +44,6 @@ public class StoryWinController {
 		Platform.runLater(()->{
 			//game
 			GameWin game=new GameWin();
-			//MessageWin messageWin = new MessageWin(1);
 			root.getScene().getWindow().hide();
 		});
 	}
@@ -76,6 +75,7 @@ public class StoryWinController {
 		    	if(i == word.size())
 		    		Platform.runLater(()->{
 		    			GameWin game=new GameWin();
+		    			//StorySelectBox ssb = new StorySelectBox(1);
 		    			root.getScene().getWindow().hide();
 		    		});
 	}

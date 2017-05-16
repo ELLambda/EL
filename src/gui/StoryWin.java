@@ -36,8 +36,4 @@ public class StoryWin extends Stage {
 	        this.show();
 
 	}
-
-//	public static void main(String[] args) {
-//		launch(args);
-//	}
 }

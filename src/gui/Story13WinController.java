@@ -54,7 +54,8 @@ public class Story13WinController {
 	public void onChartClicked() {
     	if(i == word.size())
     		Platform.runLater(()->{
-    			GameWin game=new GameWin();
+    			//GameWin game=new GameWin();
+    			MainWin mw = new MainWin();
     			root.getScene().getWindow().hide();
     		});
 
