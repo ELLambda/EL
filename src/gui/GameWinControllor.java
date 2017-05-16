@@ -104,6 +104,7 @@ public class GameWinControllor {
 		btn.getStyleClass().add("block");
 		btn.setOnMouseClicked(e->{
 			if(isMoving == false){
+				System.out.println("I have clicked");
 				switch (itemSelected){
 				case "null":
 					Music.playEffectMusic(2);//click
@@ -230,6 +231,7 @@ public class GameWinControllor {
 					}
 					break;
 				case "SmallHammer":
+					isMoving = true;
 					if(Data.order != 12){
 						steps--;
 					}
@@ -243,6 +245,7 @@ public class GameWinControllor {
 					erase();
 					break;
 				case "BigHammer":
+					isMoving = true;
 					if(Data.order != 12){
 						steps--;
 					}
@@ -300,12 +303,17 @@ public class GameWinControllor {
 
 					setToolNotSelected(magic);
 					score.set(score.intValue() - 250);		//使用魔力棒技能减250分
+					if(Data.order == 12){
+						noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
+					}
+					else{
+						noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+					}
 					itemSelected="null";
 					if(specialType.equals("Bomb")){
+						isMoving = true;
 					    bombExplode();
                     }
-					
-//					erase();
 					break;
 
 //				case 其他技能
