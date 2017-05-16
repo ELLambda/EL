@@ -1,8 +1,6 @@
 package gui;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.Transition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -63,6 +61,7 @@ public class GameWinControllor {
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 			stepLabel.setText("No steps limit!");
 			stepProgressBar.setProgress(-1);
+			stepLabel.setLayoutX(997);
 		}
 		else{
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
@@ -643,8 +642,7 @@ public class GameWinControllor {
 		
 		
 	}
-	
-	
+
 
 	public void onRestartBtnClick(ActionEvent actionEvent) {
 		if(isMoving == false){
@@ -866,6 +864,14 @@ public class GameWinControllor {
 
 	public void setToolSelected(Button tool){
 		tool.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+		ScaleTransition transition=new ScaleTransition(Duration.seconds(0.5),tool);
+		transition.setFromX(1);
+		transition.setFromY(1);
+		transition.setToX(2);
+		transition.setToY(2);
+		transition.setCycleCount(2);
+		transition.setAutoReverse(true);
+		transition.play();
 	}
 	public void setToolNotSelected(Button tool){
 		tool.setStyle("-fx-effect: null");

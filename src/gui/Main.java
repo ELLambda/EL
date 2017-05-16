@@ -20,7 +20,8 @@ public class Main extends Application{
 				// TODO Auto-generated method stub
 				try {
 					new WelcomeWin().start(new Stage());
-					//new GameWin();
+					Data.setLimit(12);
+					new GameWin();
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
