@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -10,86 +13,78 @@
 
 <AnchorPane fx:id="root" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ChapterSelectWinController">
    <children>
-      <ImageView fx:id="chapterPicture" fitHeight="806.0" fitWidth="1213.0" layoutX="-4.0" layoutY="-1.0">
+      <ImageView fx:id="chapterPicture" fitHeight="806.0" fitWidth="1213.0">
          <image>
-            <Image url="@img/chapterBg.jpeg" />
+            <Image url="@img/chapterBg2.jpg" />
          </image>
       </ImageView>
-      <GridPane fx:id="catalogPane" layoutX="396.0" layoutY="121.0" prefHeight="488.0" prefWidth="479.0">
-        <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="240.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="256.0" minWidth="10.0" prefWidth="240.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="243.0" minWidth="10.0" prefWidth="239.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Button fx:id="chapter1" mnemonicParsing="false" onAction="#onChapter1Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter1">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chapter2" mnemonicParsing="false" onAction="#onChapter2Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter2" GridPane.columnIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chapter3" mnemonicParsing="false" onAction="#onChapter3Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter3" GridPane.columnIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chaoter4" mnemonicParsing="false" onAction="#onChapter4Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter4" GridPane.rowIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chapter5" mnemonicParsing="false" onAction="#onChapter5Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter5" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chaoter6" mnemonicParsing="false" onAction="#onChapter6Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter6" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chaoter7" mnemonicParsing="false" onAction="#onChapter7Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter7" GridPane.rowIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chapter8" mnemonicParsing="false" onAction="#onChapter8Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter8" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chapter9" mnemonicParsing="false" onAction="#onChapter9Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter9" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chapter10" mnemonicParsing="false" onAction="#onChapter10Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter10" GridPane.rowIndex="3">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chapter11" mnemonicParsing="false" onAction="#onChapter11Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter11" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-            <Button fx:id="chaoter12" mnemonicParsing="false" onAction="#onChapter12Clicked" prefHeight="37.0" prefWidth="130.0" text="Chapter12" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <font>
-                  <Font size="18.0" />
-               </font></Button>
-         </children>
-      </GridPane>
-      <Button fx:id="ending" layoutX="562.0" layoutY="666.0" mnemonicParsing="false" onAction="#onEndingClicked" prefHeight="37.0" prefWidth="130.0" text="Ending">
+      <Button fx:id="chapter9" layoutX="737.0" layoutY="245.0" mnemonicParsing="false" onAction="#onChapter9Clicked" prefHeight="40.0" prefWidth="51.0" text="9">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chaoter4" layoutX="328.0" layoutY="693.0" mnemonicParsing="false" onAction="#onChapter4Clicked" prefHeight="40.0" prefWidth="51.0" text="4">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chapter2" layoutX="893.0" layoutY="504.0" mnemonicParsing="false" onAction="#onChapter2Clicked" prefHeight="40.0" prefWidth="51.0" text="2">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="ending" layoutX="183.0" layoutY="133.0" mnemonicParsing="false" onAction="#onEndingClicked" prefHeight="37.0" prefWidth="51.0" text="13">
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Label fx:id="catalog" layoutX="531.0" layoutY="51.0" prefHeight="46.0" prefWidth="193.0" text="CATALOG" textAlignment="CENTER">
-         <font>
-            <Font size="34.0" />
-         </font>
-      </Label>
       <Button fx:id="back" layoutX="1111.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBackBtnClicked" text="Back" underline="true">
          <font>
             <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="chapter1" layoutX="1051.0" layoutY="704.0" mnemonicParsing="false" onAction="#onChapter1Clicked" prefHeight="40.0" prefWidth="51.0" text="1">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chapter3" layoutX="641.0" layoutY="696.0" mnemonicParsing="false" onAction="#onChapter3Clicked" prefHeight="37.0" prefWidth="51.0" text="3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chapter5" layoutX="120.0" layoutY="496.0" mnemonicParsing="false" onAction="#onChapter5Clicked" prefHeight="40.0" prefWidth="51.0" text="5">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chaoter6" layoutX="285.0" layoutY="478.0" mnemonicParsing="false" onAction="#onChapter6Clicked" prefHeight="37.0" prefWidth="51.0" text="6">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chaoter7" layoutX="445.0" layoutY="383.0" mnemonicParsing="false" onAction="#onChapter7Clicked" prefHeight="40.0" prefWidth="51.0" text="7">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chapter8" layoutX="680.0" layoutY="390.0" mnemonicParsing="false" onAction="#onChapter8Clicked" prefHeight="40.0" prefWidth="51.0" text="8">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chaoter12" layoutX="310.0" layoutY="228.0" mnemonicParsing="false" onAction="#onChapter12Clicked" prefHeight="37.0" prefWidth="51.0" text="12">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chapter11" layoutX="445.0" layoutY="245.0" mnemonicParsing="false" onAction="#onChapter11Clicked" prefHeight="40.0" prefWidth="51.0" text="11">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="chapter10" layoutX="590.0" layoutY="277.0" mnemonicParsing="false" onAction="#onChapter10Clicked" prefHeight="40.0" prefWidth="51.0" text="10">
+         <font>
+            <Font size="18.0" />
          </font>
       </Button>
    </children>

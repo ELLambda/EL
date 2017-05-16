@@ -13,8 +13,6 @@ public class ChapterSelectWinController {
 	@FXML
 	public ImageView chapterPicture;
 	@FXML
-	public GridPane catalogPane;
-	@FXML
 	public Button chapter1;
 	@FXML
 	public Button chapter2;
