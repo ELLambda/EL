@@ -66,7 +66,7 @@ public class Data {
                 break;
             case 12:
                 targetScore=2000;
-                totalstpes=15;
+                totalstpes=-1;
                 break;
 
         }

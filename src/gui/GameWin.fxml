@@ -79,7 +79,7 @@
         <Font name="Bauhaus 93" size="25.0" />
       </font>
     </TextField>
-      <Label fx:id="stepLabel" layoutX="1014.0" layoutY="143.0" text="Steps Left:" textFill="WHITE">
+      <Label fx:id="stepLabel" layoutX="1010.0" layoutY="143.0" text="Steps Left:" textFill="WHITE">
          <font>
             <Font name="Bauhaus 93" size="24.0" />
          </font>
