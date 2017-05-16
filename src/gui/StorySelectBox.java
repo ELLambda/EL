@@ -58,7 +58,7 @@ public class StorySelectBox extends Stage{
 		Scene scene=new Scene(root, 600, 400);
 		scene.setFill(Color.TRANSPARENT);
 		
-		root.setBackground(new Background(new BackgroundImage(new Image("gui/img/storySelectBox.png"),
+		root.setBackground(new Background(new BackgroundImage(new Image("gui/img/storySelectBox2.png"),
 				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER,BackgroundSize.DEFAULT)
 				));
 		
@@ -102,7 +102,10 @@ public class StorySelectBox extends Stage{
 			else if(i == 11)
 				water = true;
 			
-			root.getScene().getWindow().hide();
+			Platform.runLater(()->{
+    			GameWin game=new GameWin();
+    			root.getScene().getWindow().hide();
+    		});
 		});
 		
 		B.setOnMouseClicked(e->{
@@ -115,7 +118,10 @@ public class StorySelectBox extends Stage{
 			else if(i == 11)
 				rationality--;
 			
-			root.getScene().getWindow().hide();
+			Platform.runLater(()->{
+    			GameWin game=new GameWin();
+    			root.getScene().getWindow().hide();
+    		});
 		});
 	}
 }

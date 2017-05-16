@@ -54,7 +54,7 @@ public class Story2WinController {
 	public void onChartClicked() {
     	if(i == word.size())
     		Platform.runLater(()->{
-    			GameWin game=new GameWin();
+    			//GameWin game=new GameWin();
     			StorySelectBox ssb = new StorySelectBox(2);
     			root.getScene().getWindow().hide();
     		});
