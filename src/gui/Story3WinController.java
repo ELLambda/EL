@@ -37,7 +37,10 @@ public class Story3WinController {
 	public ImageView picture3;
 	@FXML
 	public Label subline;
-	
+    FileManager filemanager = new FileManager(3);
+    
+    ArrayList<String> word = filemanager.word;
+
 	@FXML
 	public void onSkipBtnClicked(){
 		Platform.runLater(()->{
@@ -49,17 +52,15 @@ public class Story3WinController {
 	
 	@FXML
 	public void onChartClicked() {
-	    FileManager filemanager = new FileManager(3);
-	    
-	    ArrayList<String> word = filemanager.word;
+    	if(i == word.size())
+    		Platform.runLater(()->{
+    			GameWin game=new GameWin();
+    			root.getScene().getWindow().hide();
+    		});
+
 		    	subline.setText(word.get(i));
 
 		    	i++;
-		    	if(i == word.size())
-		    		Platform.runLater(()->{
-		    			GameWin game=new GameWin();
-		    			root.getScene().getWindow().hide();
-		    		});
 	}
 }
 

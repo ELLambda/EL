@@ -29,9 +29,11 @@ public class GameWinControllor {
 	public static BlockManager BlockManager = new BlockManager();
 	public Label stepLabel;
 	public ProgressBar stepProgressBar;
+	
 	public Button smallHammer;
 	public Button bigHammer;
 	public Button magic;
+	
 	@FXML private GridPane blockGridPan;
 	@FXML private AnchorPane root;
 	@FXML private TextField noticeText;
@@ -284,7 +286,7 @@ public class GameWinControllor {
 	        		specialBlock.setSpecialType(specialType);
 	        		specialBlock.setBackgroundColor(specialType);
 	        		blockGridPan.add(specialBlock, specialBlock.getX(), specialBlock.getY());
-
+	        		//把魔力棒熄灭
 					setToolNotSelected(magic);
 					score.set(score.intValue() - 250);		//使用魔力棒技能减250分
 					erase();
@@ -760,9 +762,9 @@ public class GameWinControllor {
 //				case 其他技能
 //					把它的按钮变灭
 				case "null":
-					//这里加把大锤子按钮变亮
-					setToolSelected(bigHammer);
-					itemSelected = "BigHammer";
+					//这里加把魔力棒按钮变亮
+					setToolSelected(magic);
+					itemSelected = "Magic";
 					break;
 				}	
 			}
