@@ -62,6 +62,7 @@ public class GameWinControllor {
 		if(Data.order == 12){
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 			stepLabel.setText("No steps limit!");
+			stepProgressBar.setProgress(-1);
 		}
 		else{
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
