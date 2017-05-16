@@ -39,7 +39,18 @@ public class GameWin extends Stage{
 				this.close();
 				Music.stopBgMusic();
 				Platform.runLater(()->{
-					new LevelWin();
+					switch (Data.mode){
+						case 0:
+							try {
+								new ChapterSelectWin();
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+							break;
+						case 1:
+							new LevelWin();
+							break;
+					}
 				});
 			});
 			

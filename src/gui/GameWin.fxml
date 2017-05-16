@@ -85,7 +85,7 @@
          </font>
       </Label>
       <ProgressBar fx:id="stepProgressBar" layoutX="968.0" layoutY="189.0" prefWidth="200.0" progress="1.0" />
-      <VBox layoutX="1030.0" layoutY="292.0" spacing="20" alignment="CENTER">
+      <VBox id="tools" layoutX="1030.0" layoutY="292.0" spacing="20" alignment="CENTER">
          <children>
             <Label layoutX="15.0" layoutY="4.0" text="Tools" textFill="white">
               <font>
