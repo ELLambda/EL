@@ -39,7 +39,7 @@ public class BlockManager {
 	//static HashMap<String,Block> blockHashMap=new HashMap<>();
 
 //	EventHandler <ActionEvent> exchangeOnFinished = null;
-	private static final String[] specialTypes = {"null","MagicBird","Bomb"};
+	private static final String[] specialTypes = {"MagicBird","Bomb"};
 
 	public void setBlockBackgroundColor(Block block) {
 

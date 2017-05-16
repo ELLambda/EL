@@ -48,6 +48,10 @@
 	-fx-background-image: url("img/tornado.png");
 	-fx-background-color: transparent;
 }
+#magicStick{
+	-fx-background-color: transparent;
+	-fx-background-image: url("img/magicStick.png");
+}
 
 #tools{
 	-fx-border-color: rgba(255,255,255,0.5);
