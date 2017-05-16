@@ -1,6 +1,6 @@
 .button{
 	-fx-background-color: rgba(255,255,255,0.4);
-	-fx-effet: dropshadow(gaussian,rgba(0,233,222,0.2),5,5,0,0) ; 
+	-fx-effect: dropshadow(gaussian,rgba(0,233,222,0.2),5,5,0,0) ; 
 	-fx-border-radius: 23;
 	-fx-background-radius: 23;
 }

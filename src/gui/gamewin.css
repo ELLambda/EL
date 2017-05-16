@@ -49,3 +49,8 @@
 	-fx-background-color: transparent;
 }
 
+#tools{
+	-fx-border-color: rgba(255,255,255,0.5);
+	-fx-border-width: 3;
+	-fx-border-radius: 15;
+}

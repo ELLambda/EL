@@ -33,7 +33,7 @@ public class ChapterWin extends Stage{
 	public ChapterWin(int n) {
 		// TODO Auto-generated constructor stub
 		i = n;
-		//Data.order=n;
+		Data.order=n;
 		root=new AnchorPane();
 		Scene scene=new Scene(root, 1200, 800);
 		scene.setFill(Color.TRANSPARENT);
@@ -69,7 +69,7 @@ public class ChapterWin extends Stage{
 		circle.setOnMouseClicked(e->{
 			if(i == 1){
 				try {
-					//Data.setLimit(Data.order);
+					Data.setLimit(Data.order);
 					StoryWin story=new StoryWin();
 					this.close();
 				} catch (IOException e1) {
@@ -78,6 +78,124 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 2){
 				try {
+					Data.setLimit(Data.order);
+					Story2Win story2=new Story2Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 3){
+				try {
+					Data.setLimit(Data.order);
+					Story3Win story3=new Story3Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 4){
+				try {
+					Data.setLimit(Data.order);
+					Story4Win story4=new Story4Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 5){
+				try {
+					Data.setLimit(Data.order);
+					Story5Win story5=new Story5Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 6){
+				try {
+					Data.setLimit(Data.order);
+					Story6Win story6=new Story6Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 7){
+				try {
+					Data.setLimit(Data.order);
+					Story7Win story7=new Story7Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 8){
+				try {
+					Data.setLimit(Data.order);
+					Story8Win story2=new Story8Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 9){
+				try {
+					Data.setLimit(Data.order);
+					Story9Win story9=new Story9Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 10){
+				try {
+					Data.setLimit(Data.order);
+					Story10Win story10=new Story10Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 11){
+				try {
+					Data.setLimit(Data.order);
+					Story11Win story11=new Story11Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 12){
+				try {
+					Data.setLimit(Data.order);
+					Story12Win story2=new Story12Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 13){
+				try {
+					Data.setLimit(Data.order);
+					Story2Win story2=new Story2Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 14){
+				try {
+					Data.setLimit(Data.order);
+					Story2Win story2=new Story2Win();
+					this.close();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}else if(i == 15){
+				try {
+					Data.setLimit(Data.order);
 					Story2Win story2=new Story2Win();
 					this.close();
 				} catch (IOException e1) {

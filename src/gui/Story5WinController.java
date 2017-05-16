@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
  * @author julia98
  *
  */
-public class Story2WinController {
+public class Story5WinController {
 	int i = 0;
 	@FXML
 	public AnchorPane root;
@@ -37,7 +37,7 @@ public class Story2WinController {
 	public ImageView picture3;
 	@FXML
 	public Label subline;
-    FileManager filemanager = new FileManager(2);
+    FileManager filemanager = new FileManager(5);
     
     ArrayList<String> word = filemanager.word;
 

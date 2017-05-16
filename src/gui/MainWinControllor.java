@@ -38,6 +38,7 @@ public class MainWinControllor {
 		Data.mode=1;
 		Platform.runLater(()->{
 			startBtn.getScene().getWindow().hide();
+			Data.mode=1;
 			LevelWin levelWin=new LevelWin();
 		});
 
@@ -50,6 +51,7 @@ public class MainWinControllor {
     	Platform.runLater(()->{
 			try {
 				startBtn.getScene().getWindow().hide();
+				Data.mode=0;
 				ChapterSelectWin chapter=new ChapterSelectWin();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
