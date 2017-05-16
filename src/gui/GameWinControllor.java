@@ -1,8 +1,6 @@
 package gui;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.Transition;
-import javafx.animation.TranslateTransition;
+import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -63,6 +61,7 @@ public class GameWinControllor {
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 			stepLabel.setText("No steps limit!");
 			stepProgressBar.setProgress(-1);
+			stepLabel.setLayoutX(997);
 		}
 		else{
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
@@ -105,6 +104,7 @@ public class GameWinControllor {
 		btn.getStyleClass().add("block");
 		btn.setOnMouseClicked(e->{
 			if(isMoving == false){
+				System.out.println("I have clicked");
 				switch (itemSelected){
 				case "null":
 					Music.playEffectMusic(2);//click
@@ -231,6 +231,7 @@ public class GameWinControllor {
 					}
 					break;
 				case "SmallHammer":
+					isMoving = true;
 					if(Data.order != 12){
 						steps--;
 					}
@@ -244,6 +245,7 @@ public class GameWinControllor {
 					erase();
 					break;
 				case "BigHammer":
+					isMoving = true;
 					if(Data.order != 12){
 						steps--;
 					}
@@ -301,12 +303,17 @@ public class GameWinControllor {
 
 					setToolNotSelected(magic);
 					score.set(score.intValue() - 250);		//使用魔力棒技能减250分
+					if(Data.order == 12){
+						noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
+					}
+					else{
+						noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+					}
 					itemSelected="null";
 					if(specialType.equals("Bomb")){
+						isMoving = true;
 					    bombExplode();
                     }
-					
-//					erase();
 					break;
 
 //				case 其他技能
@@ -635,8 +642,7 @@ public class GameWinControllor {
 		
 		
 	}
-	
-	
+
 
 	public void onRestartBtnClick(ActionEvent actionEvent) {
 		if(isMoving == false){
@@ -858,6 +864,14 @@ public class GameWinControllor {
 
 	public void setToolSelected(Button tool){
 		tool.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+		ScaleTransition transition=new ScaleTransition(Duration.seconds(0.5),tool);
+		transition.setFromX(1);
+		transition.setFromY(1);
+		transition.setToX(2);
+		transition.setToY(2);
+		transition.setCycleCount(2);
+		transition.setAutoReverse(true);
+		transition.play();
 	}
 	public void setToolNotSelected(Button tool){
 		tool.setStyle("-fx-effect: null");
