@@ -763,8 +763,8 @@ public class GameWinControllor {
 //					把它的按钮变灭
 				case "null":
 					//这里加把大锤子按钮变亮
-					setToolSelected(bigHammer);
-					itemSelected = "BigHammer";
+					setToolSelected(magic);
+					itemSelected = "Magic";
 					break;
 				}	
 			}
