@@ -287,7 +287,9 @@ public class GameWinControllor {
 
 					setToolNotSelected(magic);
 					score.set(score.intValue() - 250);		//使用魔力棒技能减250分
-					erase();
+					if(specialType.equals("Bomb")){
+						bombExplode();
+					}
 					itemSelected="null";
 					break;
 
@@ -732,6 +734,7 @@ public class GameWinControllor {
 				noticeText.setText("Your score isn't adequate!");
 				return;
 			}
+			//setToolSelected(magic);
 			if(isMoving == false){
 				Music.playEffectMusic(2);//click
 				if(!BlockManager.twoBlocks.isEmpty()){
@@ -761,8 +764,8 @@ public class GameWinControllor {
 //					把它的按钮变灭
 				case "null":
 					//这里加把大锤子按钮变亮
-					setToolSelected(bigHammer);
-					itemSelected = "BigHammer";
+					setToolSelected(magic);
+					itemSelected = "Magic";
 					break;
 				}	
 			}
