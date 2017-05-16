@@ -13,13 +13,15 @@ public class Main extends Application{
 
 
 
-		//´ò¿ª»¶Ó­´°¿Ú
+		//ï¿½ò¿ª»ï¿½Ó­ï¿½ï¿½ï¿½ï¿½
 		Platform.runLater(new Runnable() {			
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
 				try {
 					new WelcomeWin().start(new Stage());
+//					Data.setLimit(12);
+//					new GameWin();
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

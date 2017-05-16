@@ -2,6 +2,7 @@ package gui;
 
 import java.io.IOException;
 
+import achievements.Calculator;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +30,8 @@ public class MainWin extends Stage{
 			
 
 			this.show();
+			Calculator.initialize();
+
 			
 			
 		} catch (IOException e) {

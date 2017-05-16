@@ -15,6 +15,10 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
 import javax.jws.Oneway;
+
+import achievements.AchievementsManager;
+import achievements.Calculator;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -42,7 +46,13 @@ public class GameWinControllor {
 	private static boolean isMoving = false;
 	private static int steps=Data.totalstpes;
 	private static String itemSelected = "null";
+	
+	private static final int BLOCKBOUND = 666;
+	private static final int ITEMBOUND = 99;
+	private static final int STEPBOUND = 10086;
+	private static final int SCOREBOUND = 5201314;
 
+	
 	//private SimpleIntegerProperty scoreProperty=new SimpleIntegerProperty();
 //    ChangeListener<? super EventHandler<ActionEvent>> listener =
 //	null;
@@ -239,6 +249,9 @@ public class GameWinControllor {
 					BlockManager.erased[0][1] = btn.getY();
 					BlockManager.length = 1;
 					//把小锤子按钮熄灭
+					Calculator.smallHammer++;
+					if(Calculator.smallHammer >= ITEMBOUND)
+						AchievementsManager.AchievementsList[1][0].setAchieved(true);
 					setToolNotSelected(smallHammer);
 					score.set(score.intValue() - 20);		//使用小锤子技能要减20分
 					itemSelected="null";
@@ -281,6 +294,10 @@ public class GameWinControllor {
 						BlockManager.length++;
 					}
 					//把小锤子熄灭
+					Calculator.bigHammer++;
+					if(Calculator.bigHammer >= ITEMBOUND)
+						AchievementsManager.AchievementsList[1][1].setAchieved(true);
+
 					setToolNotSelected(bigHammer);
 					score.set(score.intValue() - 200);		//使用大锤子技能减200分
 					itemSelected="null";
@@ -301,7 +318,11 @@ public class GameWinControllor {
 	        		specialBlock.setBackgroundColor(specialType);
 	        		blockGridPan.add(specialBlock, specialBlock.getX(), specialBlock.getY());
 
-					setToolNotSelected(magic);
+	        		Calculator.magic++;
+					if(Calculator.magic >= ITEMBOUND)
+						AchievementsManager.AchievementsList[1][2].setAchieved(true);
+
+	        		setToolNotSelected(magic);
 					score.set(score.intValue() - 500);		//使用魔力棒技能减500分
 					if(Data.order == 12){
 						noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
@@ -333,6 +354,13 @@ public class GameWinControllor {
 		
 		//int temp=score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++);
 		score.set(score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++));
+		
+		//改变记录值
+
+		Calculator.steps += erasedTimes;
+		if(Calculator.steps>= STEPBOUND)
+			AchievementsManager.AchievementsList[1][3].setAchieved(true);
+
 
 		if(Data.order == 12){
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
@@ -346,7 +374,40 @@ public class GameWinControllor {
 		 System.out.println("start erasing");
 		 
 		for(int i = 0;i < BlockManager.length;i++){
+			
 			Block block = BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]];
+			switch(block.getColor()){
+			case("1"):
+				Calculator.first++;
+			if(Calculator.first >= BLOCKBOUND)
+					AchievementsManager.AchievementsList[0][0].setAchieved(true);
+
+			break;
+			case("2"):
+				Calculator.second++;
+			if(Calculator.second >= BLOCKBOUND)
+				AchievementsManager.AchievementsList[0][1].setAchieved(true);
+
+			break;
+			case("3"):
+				Calculator.third++;
+			if(Calculator.third >= BLOCKBOUND)
+				AchievementsManager.AchievementsList[0][2].setAchieved(true);
+
+			break;
+			case("4"):
+				Calculator.fourth++;
+			if(Calculator.fourth >= BLOCKBOUND)
+				AchievementsManager.AchievementsList[0][3].setAchieved(true);
+
+			break;
+			case("5"):
+				Calculator.fifth++;
+			if(Calculator.fifth >= BLOCKBOUND)
+				AchievementsManager.AchievementsList[0][4].setAchieved(true);
+
+			break;
+			}
 			BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]] = null;
 			//消失的动画
 	        FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
@@ -432,7 +493,7 @@ public class GameWinControllor {
 	        transition.play();
 	        
 		}
-//	        ChangeListener<? super EventHandler<ActionEvent>> listener =
+	//	        ChangeListener<? super EventHandler<ActionEvent>> listener =
 //			null;
 //	        eraseOnFinished = transition.getOnFinished();
 	       
@@ -611,6 +672,10 @@ public class GameWinControllor {
 	
 	private void checkIsLose(){
 		if(score.intValue()>=Data.targetScore){
+			Calculator.scores += score.intValue();
+			if(Calculator.scores >= SCOREBOUND)
+				AchievementsManager.AchievementsList[1][4].setAchieved(true);
+
 			Timer timer = new Timer();
 			timer.schedule(new TimerTask(){
 				public void run(){
@@ -626,6 +691,10 @@ public class GameWinControllor {
 		
 		
 		if(steps==0){
+			Calculator.scores += score.intValue();
+			if(Calculator.scores >= SCOREBOUND)
+				AchievementsManager.AchievementsList[1][4].setAchieved(true);
+			
 			Timer timer = new Timer();
 			timer.schedule(new TimerTask(){
 				public void run(){

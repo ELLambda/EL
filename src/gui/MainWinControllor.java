@@ -9,6 +9,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
 import javax.annotation.Resources;
+
+import achievements.AchievementsManager;
+import achievements.Calculator;
+
 import java.io.IOException;
 import java.net.URL;
 
@@ -29,6 +33,7 @@ public class MainWinControllor {
 
 	@FXML
 	private void onExitBtnClick(){
+		Calculator.leaving();
 		System.exit(0);
 	}
 	
