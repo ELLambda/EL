@@ -61,10 +61,14 @@ public class GameWinControllor {
 		
 		steps=Data.totalstpes;
 		score = new SimpleIntegerProperty(0);
-
-		noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
-		stepLabel.setText("Steps Left:"+steps);
-
+		if(Data.order == 12){
+			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
+			stepLabel.setText("No steps limit!");
+		}
+		else{
+			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+			stepLabel.setText("Steps Left:"+steps);
+		}
 	}
 
 	
@@ -119,12 +123,12 @@ public class GameWinControllor {
 					if(BlockManager.twoBlocks.size()==2){		//已经点了两个块了
 						isMoving = true;
 						if(BlockManager.isNear() == true){		//点的两个块相邻
-		
-							steps--;//步数减1
-							
-							stepLabel.setText("Steps Left:"+steps);
-							stepProgressBar.setProgress((double) steps/Data.totalstpes);
-		
+							if(Data.order != 12){
+								steps--;//步数减1
+								
+								stepLabel.setText("Steps Left:"+steps);
+								stepProgressBar.setProgress((double) steps/Data.totalstpes);
+							}
 		
 							if(BlockManager.twoBlocks.get(0).getSpecialType().equals("null") && 
 							   BlockManager.twoBlocks.get(1).getSpecialType().equals("null")){
@@ -147,8 +151,8 @@ public class GameWinControllor {
 										t = BlockManager.exchange();
 										BlockManager.twoBlocks.clear();
 										t.setOnFinished(e3 ->{
-											
-											checkIsLose();
+											if(Data.order != 12)
+												checkIsLose();
 											
 											isMoving = false;
 											
@@ -228,7 +232,9 @@ public class GameWinControllor {
 					}
 					break;
 				case "SmallHammer":
-					steps--;
+					if(Data.order != 12){
+						steps--;
+					}
 					BlockManager.erased[0][0] = btn.getX();
 					BlockManager.erased[0][1] = btn.getY();
 					BlockManager.length = 1;
@@ -239,7 +245,9 @@ public class GameWinControllor {
 					erase();
 					break;
 				case "BigHammer":
-					steps--;
+					if(Data.order != 12){
+						steps--;
+					}
 					int i = btn.getX();
 					int j = btn.getY();
 					
@@ -280,7 +288,9 @@ public class GameWinControllor {
 					
 					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减250分
 				case"Magic":
-					steps--;
+					if(Data.order != 12){
+						steps--;
+					}
 	        		blockGridPan.getChildren().remove(btn);
 	        		
 	        		createOneBlock(btn.getX(),btn.getY());
@@ -314,8 +324,12 @@ public class GameWinControllor {
 		//int temp=score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++);
 		score.set(score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++));
 
-		noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
-//		noticeText.setText(String.valueOf(score.intValue()));
+		if(Data.order == 12){
+			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
+		}
+		else{
+			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+		}
 		
 		 Music.playEffectMusic(1);//eliminate
 		
@@ -564,7 +578,8 @@ public class GameWinControllor {
 		if(h.isEmpty()){		//没有爆炸块
 			erasedTimes = 1;
 			System.out.println("everything finished");
-//			checkIsLose();
+			if(Data.order != 12)
+				checkIsLose();
 			isMoving = false;
 			return;
 		}
@@ -632,14 +647,21 @@ public class GameWinControllor {
 			timer.schedule(new TimerTask(){
 				public void run(){
 					Platform.runLater(()->{
-						noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+						if(Data.order == 12){
+							noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
+						}
+						else{
+							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+						}
 					});
 				}
 				
 			},1000);
-	        steps=Data.totalstpes;
-	        stepLabel.setText("Steps Left:"+steps);
-	        stepProgressBar.setProgress(1.0);
+			if(Data.order != 12){
+		        steps=Data.totalstpes;
+		        stepLabel.setText("Steps Left:"+steps);
+		        stepProgressBar.setProgress(1.0);
+			}
 	        score.set(0);
 		}
 	}
@@ -670,7 +692,12 @@ public class GameWinControllor {
 				timer.schedule(new TimerTask(){
 					public void run(){
 						Platform.runLater(()->{
-							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+							if(Data.order == 12){
+								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
+							}
+							else{
+								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+							}
 						});
 					}
 					
@@ -724,7 +751,12 @@ public class GameWinControllor {
 				timer.schedule(new TimerTask(){
 					public void run(){
 						Platform.runLater(()->{
-							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+							if(Data.order == 12){
+								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
+							}
+							else{
+								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+							}						
 						});
 					}
 					
@@ -772,7 +804,12 @@ public class GameWinControllor {
 				timer.schedule(new TimerTask(){
 					public void run(){
 						Platform.runLater(()->{
-							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+							if(Data.order == 12){
+								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
+							}
+							else{
+								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+							}
 						});
 					}
 					
