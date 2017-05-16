@@ -61,20 +61,24 @@ public class ChapterSelectWinController {
 	
 	@FXML
 	public void onChapter2Clicked(){
-		Platform.runLater(()->{
-			//main
-			ChapterWin chapter=new ChapterWin(2);
-			root.getScene().getWindow().hide();
-		});
+		if(Data.chapterReached >= 2){
+			Platform.runLater(()->{
+				//main
+				ChapterWin chapter=new ChapterWin(2);
+				root.getScene().getWindow().hide();
+			});
+		}
 	}
 	
 	@FXML
 	public void onChapter3Clicked(){
-		Platform.runLater(()->{
-			//main
-			ChapterWin chapter=new ChapterWin(3);
-			root.getScene().getWindow().hide();
-		});
+		if(Data.chapterReached >= 3){
+			Platform.runLater(()->{
+				//main
+				ChapterWin chapter=new ChapterWin(3);
+				root.getScene().getWindow().hide();
+			});
+		}
 	}
 	
 	@FXML

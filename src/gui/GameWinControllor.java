@@ -15,6 +15,9 @@ import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
 import javax.jws.Oneway;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -622,6 +625,22 @@ public class GameWinControllor {
 				}
 			}, 1000);
 			
+			if(Data.mode == 0){
+				BufferedWriter bw = null;
+				try {
+					bw = new BufferedWriter(new FileWriter("src/gui/StoryMoodStore.txt"));
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				Data.chapterReached++;
+				try {
+					bw.write("chapterReached:"+String.valueOf(Data.chapterReached));
+					bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			
 		}
 		
 		
@@ -687,6 +706,13 @@ public class GameWinControllor {
 	}
 
 	public void onStoreBtnClick(ActionEvent actionEvent) {
+		BufferedWriter bw = null;
+		try {
+			bw = new BufferedWriter(new FileWriter("src/gui/EndlessModeStore.txt"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		
 		
 	}
