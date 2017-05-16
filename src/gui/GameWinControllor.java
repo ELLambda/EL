@@ -280,6 +280,7 @@ public class GameWinControllor {
 					
 					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减250分
 				case"Magic":
+					steps--;
 	        		blockGridPan.getChildren().remove(btn);
 	        		
 	        		createOneBlock(btn.getX(),btn.getY());
@@ -291,8 +292,8 @@ public class GameWinControllor {
 	        		//把魔力棒熄灭
 					setToolNotSelected(magic);
 					score.set(score.intValue() - 250);		//使用魔力棒技能减250分
-					erase();
 					itemSelected="null";
+					erase();
 					break;
 
 //				case 其他技能
@@ -513,10 +514,7 @@ public class GameWinControllor {
 				else{
 					BlockManager.resetArrays();
 					bombExplode();			//炸弹块爆炸
-					erasedTimes = 1;
-					
-					checkIsLose();
-					isMoving = false;
+		
 					
 				}
 			});
@@ -563,8 +561,14 @@ public class GameWinControllor {
 			}
 		}
 		
-		if(h.isEmpty())		//没有爆炸块
+		if(h.isEmpty()){		//没有爆炸块
+			erasedTimes = 1;
+			System.out.println("everything finished");
+//			checkIsLose();
+			isMoving = false;
 			return;
+		}
+			
 		
 		Iterator<Block> iterator = h.iterator();
 		while(iterator.hasNext()){
@@ -682,22 +686,22 @@ public class GameWinControllor {
 			
 			switch (itemSelected){
 			case "SmallHammer":
-				//把小锤子按钮变灭
 				setToolNotSelected(smallHammer);
 				itemSelected = "null";
 				break;
 			case "BigHammer":
-				//把大锤子按钮变灭
 				setToolNotSelected(bigHammer);
-				;		//没有break
+				setToolSelected(smallHammer);
+				itemSelected = "SmallHammer";
+				break;
 			case"Magic":
-				//把魔力棒变灭
 				setToolNotSelected(magic);
-				
+				setToolSelected(smallHammer);
+				itemSelected = "SmallHammer";
+				break;
 //			case 其他技能
-//				把它的按钮变灭
+//				;
 			case "null":
-				//这里加把小锤子按钮变亮
 				setToolSelected(smallHammer);
 				itemSelected = "SmallHammer";
 				break;
@@ -738,23 +742,22 @@ public class GameWinControllor {
 
 			switch (itemSelected){
 			case "BigHammer":
-				//把大锤子按钮变灭
 				setToolNotSelected(bigHammer);
 				itemSelected = "null";
 				break;
 			case "SmallHammer":
-				//把小锤子按钮变灭
 				setToolNotSelected(smallHammer);
-				;		//没有break
+				setToolSelected(bigHammer);
+				itemSelected = "BigHammer";
+				break;
 			case"Magic":
-				//把魔力棒变灭
 				setToolNotSelected(magic);
-				
-
+				setToolSelected(bigHammer);
+				itemSelected = "BigHammer";
+				break;
 //			case 其他技能
-//				把它的按钮变灭
+//				,
 			case "null":
-				//这里加把大锤子按钮变亮
 				setToolSelected(bigHammer);
 				itemSelected = "BigHammer";
 				break;
@@ -764,7 +767,16 @@ public class GameWinControllor {
 	}
 		public void onMagicBtnClick(ActionEvent actionEvent){
 			if(score.intValue()<250) {
-				noticeText.setText("Your score isn't adequate!");
+				noticeText.setText("Your score is inadequate!");
+				Timer timer = new Timer();
+				timer.schedule(new TimerTask(){
+					public void run(){
+						Platform.runLater(()->{
+							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+						});
+					}
+					
+				},1000);
 				return;
 			}
 			if(isMoving == false){
@@ -778,22 +790,23 @@ public class GameWinControllor {
 				
 
 				switch (itemSelected){
-				case "BigHammer":
-					//把大锤子按钮变灭
-					setToolNotSelected(bigHammer);
-					
-				case "SmallHammer":
-					//把小锤子按钮变灭
-					setToolNotSelected(smallHammer);
-					;		//没有break
 				case"Magic":
-					//把魔力棒变灭
 					setToolNotSelected(magic);
 					itemSelected = "null";
 					break;
-
+				
+				case "BigHammer":
+					setToolNotSelected(bigHammer);
+					setToolSelected(magic);
+					itemSelected = "Magic";
+					break;
+				case "SmallHammer":
+					setToolNotSelected(smallHammer);
+					setToolSelected(magic);
+					itemSelected = "Magic";
+					break;
 //				case 其他技能
-//					把它的按钮变灭
+//					,
 				case "null":
 					//这里加把魔力棒按钮变亮
 					setToolSelected(magic);
