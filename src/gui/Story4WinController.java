@@ -60,6 +60,7 @@ public class Story4WinController {
     		});
 		else{
 			subline.setText(word.get(i));
+			subline.setWrapText(true);
 
 	    	i++;
 		}

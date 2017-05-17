@@ -61,6 +61,7 @@ public class Story2WinController {
 		
 		else{
 			subline.setText(word.get(i));
+			subline.setWrapText(true);
 
 	    	i++;
 		}
