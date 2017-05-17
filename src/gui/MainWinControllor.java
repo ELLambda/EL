@@ -36,6 +36,7 @@ public class MainWinControllor {
 	@FXML
 	private void onExitBtnClick(){
 		Calculator.leaving();
+		AchievementsManager.setAchieveCondition();
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask(){
 			public void run(){

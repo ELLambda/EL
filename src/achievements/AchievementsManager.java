@@ -41,7 +41,7 @@ public class AchievementsManager
 	}
 
 	//读档
-	public void getAchieveCondition() {
+	public static void getAchieveCondition() {
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(
 					"src/achievements/achieveCondition.txt"));
@@ -70,7 +70,7 @@ public class AchievementsManager
 	}
 
 	//存档
-	public void setAchieveCondition() {
+	public static void setAchieveCondition() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(
 					"src/achievements/achieveCondition.txt",false));
