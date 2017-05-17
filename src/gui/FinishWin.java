@@ -26,7 +26,7 @@ public class FinishWin extends Stage{
 		scene.setFill(Color.TRANSPARENT);
 
 		//设置背景图片
-		root.setBackground(new Background(new BackgroundImage(new Image("gui/img/Finish.jpeg"),
+		root.setBackground(new Background(new BackgroundImage(new Image("gui/img/Finish2.png"),
 				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER,BackgroundSize.DEFAULT)
 				));
 		
