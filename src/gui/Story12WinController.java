@@ -55,7 +55,7 @@ public class Story12WinController {
     	if(i == word.size())
     		Platform.runLater(()->{
     			GameWin game=new GameWin();
-    			StorySelectBox ssb = new StorySelectBox(12);
+    			//StorySelectBox ssb = new StorySelectBox(12);
     			root.getScene().getWindow().hide();
     		});
 
