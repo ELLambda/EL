@@ -4,7 +4,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 
 /**  
-* 成就的抽象类，所有的成就按钮都继承这个类
+* 成就按钮
 * 写了很多空方法
 *  
 * @author Andy

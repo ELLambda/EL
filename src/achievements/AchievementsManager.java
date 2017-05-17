@@ -79,18 +79,23 @@ public class AchievementsManager
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(
 					"src/achievements/achieveCondition.txt",false));
-			for(int i=0;i<ACHIEVEMENT_NUMBER-1;i++){ 
+
 				for(int m = 0; m < HEIGHT; m++)
 					for(int n = 0; n < WIDTH; n++)
+						if(!((m == (HEIGHT-1)) && (n == (WIDTH - 1)))){
 						if(AchievementsList[m][n].getAchieved() == true)
 				bw.write("1"+"@");
 						else
 							bw.write("0"+"@");
-			}
-			if(AchievementsList[HEIGHT - 1][WIDTH - 1].getAchieved() == true)
-	bw.write("1");
-			else
-				bw.write("0");
+						}else
+						{
+							if(AchievementsList[m][n].getAchieved() == true)
+								bw.write("1");
+										else
+											bw.write("0");
+
+						}
+			
 
 			
 			bw.close();
