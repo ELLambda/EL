@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -55,34 +56,35 @@ public class StorySelectBox extends Stage{
 	public StorySelectBox(int n){
 		i = n;
 		root=new AnchorPane();
-		Scene scene=new Scene(root, 600, 400);
+		Scene scene=new Scene(root, 1200, 800);
 		scene.setFill(Color.TRANSPARENT);
+		
 		
 		root.setBackground(new Background(new BackgroundImage(new Image("gui/img/storySelectBox2.png"),
 				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,BackgroundPosition.CENTER,BackgroundSize.DEFAULT)
 				));
 		
 		Label StorySelectLabel = new Label();
-		StorySelectLabel.setLayoutX(199.0);
-		StorySelectLabel.setLayoutY(87.0);
+		StorySelectLabel.setLayoutX(522.0);
+		StorySelectLabel.setLayoutY(273.0);
 		StorySelectLabel.setPrefSize(183.0, 32.0);
 		StorySelectLabel.setText("YOUR CHOICE");
 		StorySelectLabel.setTextFill(Color.BLACK);
-		Font a = new Font(25.0);
+		Font a = new Font(24.0);
 		StorySelectLabel.setFont(a);
 		root.getChildren().add(StorySelectLabel);
 		
 		Button A = new Button();
-		A.setLayoutX(100.0);
-		A.setLayoutY(200.0);
+		A.setLayoutX(416.0);
+		A.setLayoutY(467.0);
 		A.setMnemonicParsing(false);
 		A.setText("选项 A");
 		A.setFont(a);
 		root.getChildren().add(A);
 		
 		Button B = new Button();
-		B.setLayoutX(370.0);
-		B.setLayoutY(200.0);
+		B.setLayoutX(695.0);
+		B.setLayoutY(467.0);
 		B.setMnemonicParsing(false);
 		B.setText("选项 B");
 		B.setFont(a);
@@ -92,6 +94,7 @@ public class StorySelectBox extends Stage{
 		this.setScene(scene);
 		 
 	        this.initStyle(StageStyle.UNDECORATED);
+	        this.initStyle(StageStyle.TRANSPARENT);
 	        this.show();
 		
 		A.setOnMouseClicked(e->{
