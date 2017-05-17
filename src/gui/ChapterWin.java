@@ -21,7 +21,9 @@ import java.io.File;
 import java.io.IOException;
 
 /**
-chapter窗口
+ * 章节封面
+ * @author julia98
+ *
  */
 public class ChapterWin extends Stage{
 
