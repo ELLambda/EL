@@ -58,10 +58,12 @@ public class Story13WinController {
     			MainWin mw = new MainWin();
     			root.getScene().getWindow().hide();
     		});
+    	
+    	else{
+    		subline.setText(word.get(i));
 
-		    	subline.setText(word.get(i));
-
-		    	i++;
+        	i++;
+    	}
 	}
 }
 

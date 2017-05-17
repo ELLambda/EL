@@ -58,10 +58,11 @@ public class Story3WinController {
     			//StorySelectBox ssb = new StorySelectBox(3);
     			root.getScene().getWindow().hide();
     		});
+    	else{
+    		subline.setText(word.get(i));
 
-		    	subline.setText(word.get(i));
-
-		    	i++;
+        	i++;
+    	}
 	}
 }
 

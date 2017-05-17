@@ -103,7 +103,7 @@ public class StorySelectBox extends Stage{
 				water = true;
 			
 			Platform.runLater(()->{
-    			GameWin game=new GameWin();
+    			//GameWin game=new GameWin();
     			root.getScene().getWindow().hide();
     		});
 		});
@@ -119,7 +119,7 @@ public class StorySelectBox extends Stage{
 				rationality--;
 			
 			Platform.runLater(()->{
-    			GameWin game=new GameWin();
+    			//GameWin game=new GameWin();
     			root.getScene().getWindow().hide();
     		});
 		});

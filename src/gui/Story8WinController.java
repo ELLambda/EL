@@ -52,16 +52,25 @@ public class Story8WinController {
 	
 	@FXML
 	public void onChartClicked() {
-    	if(i == word.size())
+		if(i == word.size() + 1)//退出对话框
+    		Platform.runLater(()->{
+    			GameWin game=new GameWin();
+    			//StorySelectBox ssb = new StorySelectBox(2);
+    			root.getScene().getWindow().hide();
+    		});
+		else{
+			subline.setText(word.get(i));
+
+	    	i++;
+		}
+		
+    	if(i == word.size())//出现选择框
     		Platform.runLater(()->{
     			//GameWin game=new GameWin();
     			StorySelectBox ssb = new StorySelectBox(8);
-    			root.getScene().getWindow().hide();
+    			//root.getScene().getWindow().hide();
+    			i++;
     		});
-
-		    	subline.setText(word.get(i));
-
-		    	i++;
 	}
 }
 
