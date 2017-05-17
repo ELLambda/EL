@@ -55,7 +55,8 @@ public class Story13WinController {
     	if(i == word.size())
     		Platform.runLater(()->{
     			//GameWin game=new GameWin();
-    			MainWin mw = new MainWin();
+    			//MainWin mw = new MainWin();
+    			FinishWin fw = new FinishWin();
     			root.getScene().getWindow().hide();
     		});
     	
