@@ -9,3 +9,4 @@ bin/
 __MACOSX/
 out/
 
+.idea/
