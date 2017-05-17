@@ -209,6 +209,7 @@ public class ChapterWin extends Stage{
 				//应该有提示窗口 显示未达到开启结局条件
 				try {
 					ChapterSelectWin csw = new ChapterSelectWin();
+					this.close();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
