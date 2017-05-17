@@ -15,6 +15,8 @@ import achievements.Calculator;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class MainWinControllor {
 
@@ -34,7 +36,15 @@ public class MainWinControllor {
 	@FXML
 	private void onExitBtnClick(){
 		Calculator.leaving();
-		System.exit(0);
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask(){
+			public void run(){
+				Platform.runLater(()->{
+					System.exit(0);
+				});
+			}
+			
+		},1000);
 	}
 	
 	@FXML

@@ -33,19 +33,28 @@ public class Calculator
 	public static int steps;
 	public static int scores;
 	
+	
 	public static void getCalculatorCondition() {
+		String line = new String();
+		
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(
 					"src/achievements/calculator.txt"));
-			String tem = br.readLine();
-			String[] spl = tem.split("@");
+			System.out.println("ready to read");
+			if((line = br.readLine()) != null){
+				
+
+			System.out.println(line);
+			String[] spl = line.split("@");
+			
 
 			for (int i = 0; i < achievementsManager.ACHIEVEMENT_NUMBER; i++) {
 				list[i] = Integer.parseInt(spl[i]);
 			
 //				System.out.println(list[i]);
-
 			}
+			}
+			
 			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -100,6 +109,7 @@ public class Calculator
 		
 		list[8] = steps;
 		list[9] = scores;
+		System.out.println(list[0]);
 
 		setCalculatorCondition();
 

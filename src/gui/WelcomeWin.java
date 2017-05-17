@@ -1,5 +1,6 @@
 package gui;
 
+import achievements.Calculator;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.RotateTransition;
@@ -39,6 +40,7 @@ public class WelcomeWin extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
+		Calculator.initialize();
 		musics();
 		rootPan=FXMLLoader.load(getClass().getResource("WelcomeWin.fxml"));
 		Scene scene=new Scene(rootPan,600,400);

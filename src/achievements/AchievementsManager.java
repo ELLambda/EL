@@ -45,8 +45,10 @@ public class AchievementsManager
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(
 					"src/achievements/achieveCondition.txt"));
+			while(br.readLine() != null){
 			String tem = br.readLine();
 			String[] spl = tem.split("@");
+			
 
 			for (int i = 0; i < ACHIEVEMENT_NUMBER; i++) 
 				for(int m = 0; m < HEIGHT;m++)
@@ -57,10 +59,11 @@ public class AchievementsManager
 				else
 					AchievementsList[m][n].setAchieved(false);
 			
-//				System.out.println(achieveCondition[i]);
-
 			
-			br.close();
+//				System.out.println(achieveCondition[i]);
+			}
+			
+//			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

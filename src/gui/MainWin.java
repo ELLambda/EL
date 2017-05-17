@@ -30,7 +30,7 @@ public class MainWin extends Stage{
 			
 
 			this.show();
-			Calculator.initialize();
+
 
 			
 			
