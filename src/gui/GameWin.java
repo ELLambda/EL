@@ -2,6 +2,7 @@ package gui;
 
 import java.io.IOException;
 
+import achievements.Calculator;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -34,10 +35,11 @@ public class GameWin extends Stage{
 			scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
 
 			
-			//ÓÃlookupÀ´¶¨Î»¿Ø¼þ
+			//ï¿½ï¿½lookupï¿½ï¿½ï¿½ï¿½Î»ï¿½Ø¼ï¿½
 			Button exitBtn=(Button) root.lookup("#exitBtn");
 			exitBtn.setOnAction(e->{
 				this.close();
+				Calculator.scores += GameWinControllor.score.intValue();
 				Music.stopBgMusic();
 				Platform.runLater(()->{
 					switch (Data.mode){

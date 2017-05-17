@@ -41,7 +41,7 @@ public class GameWinControllor {
 	private final static int WIDE = 10;
 	public static final double SECOND = 0.5;
 	//public static int score=0;
-	private static IntegerProperty score;
+	public static IntegerProperty score;
 	private static int erasedTimes = 1;
 	private static boolean isMoving = false;
 	private static int steps=Data.totalstpes;
