@@ -18,7 +18,7 @@ import java.io.IOException;
 public class AchievementsManager
 
 {
-	
+
 	//存储成就的名称
 	public static final String[] names = {"","","","","","","","","",""};
 	
@@ -29,7 +29,7 @@ public class AchievementsManager
 	public static final Achievement[][] AchievementsList = new Achievement[HEIGHT][WIDTH];
 			
 	//确定成就
-	public final void setAchievements(){
+	public final static void setAchievements(){
 		int index = 0;
 		while(index < names.length)
 		for(int i = 0; i<HEIGHT; i++)
@@ -42,12 +42,13 @@ public class AchievementsManager
 
 	//读档
 	public static void getAchieveCondition() {
+		String line = new String();
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(
 					"src/achievements/achieveCondition.txt"));
-			while(br.readLine() != null){
-			String tem = br.readLine();
-			String[] spl = tem.split("@");
+			while((line = br.readLine()) != null){
+
+			String[] spl = line.split("@");
 			
 
 			for (int i = 0; i < ACHIEVEMENT_NUMBER; i++) 
@@ -55,9 +56,13 @@ public class AchievementsManager
 				for(int n = 0; n < WIDTH; n++)
 				
 				if(Integer.parseInt(spl[i]) == 1)
+				{
 					AchievementsList[m][n].setAchieved(true);
+				}
 				else
+					{
 					AchievementsList[m][n].setAchieved(false);
+					}
 			
 			
 //				System.out.println(achieveCondition[i]);

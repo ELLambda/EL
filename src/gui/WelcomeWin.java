@@ -42,6 +42,7 @@ public class WelcomeWin extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
 		Calculator.initialize();
+		AchievementsManager.setAchievements();
 		AchievementsManager.getAchieveCondition();
 		musics();
 		rootPan=FXMLLoader.load(getClass().getResource("WelcomeWin.fxml"));
