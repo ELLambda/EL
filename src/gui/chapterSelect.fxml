@@ -23,7 +23,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="chaoter4" layoutX="328.0" layoutY="693.0" mnemonicParsing="false" onAction="#onChapter4Clicked" prefHeight="40.0" prefWidth="51.0" text="4">
+      <Button fx:id="chapter4" layoutX="328.0" layoutY="693.0" mnemonicParsing="false" onAction="#onChapter4Clicked" prefHeight="40.0" prefWidth="51.0" text="4">
          <font>
             <Font size="18.0" />
          </font>
@@ -57,12 +57,12 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="chaoter6" layoutX="285.0" layoutY="478.0" mnemonicParsing="false" onAction="#onChapter6Clicked" prefHeight="37.0" prefWidth="51.0" text="6">
+      <Button fx:id="chapter6" layoutX="285.0" layoutY="478.0" mnemonicParsing="false" onAction="#onChapter6Clicked" prefHeight="37.0" prefWidth="51.0" text="6">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="chaoter7" layoutX="445.0" layoutY="383.0" mnemonicParsing="false" onAction="#onChapter7Clicked" prefHeight="40.0" prefWidth="51.0" text="7">
+      <Button fx:id="chapter7" layoutX="445.0" layoutY="383.0" mnemonicParsing="false" onAction="#onChapter7Clicked" prefHeight="40.0" prefWidth="51.0" text="7">
          <font>
             <Font size="18.0" />
          </font>
@@ -72,7 +72,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="chaoter12" layoutX="310.0" layoutY="228.0" mnemonicParsing="false" onAction="#onChapter12Clicked" prefHeight="37.0" prefWidth="51.0" text="12">
+      <Button fx:id="chapter12" layoutX="310.0" layoutY="228.0" mnemonicParsing="false" onAction="#onChapter12Clicked" prefHeight="37.0" prefWidth="51.0" text="12">
          <font>
             <Font size="18.0" />
          </font>
