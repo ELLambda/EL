@@ -33,6 +33,5 @@
         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
       </padding>
     </VBox>
-    <Button id="exitBtn" mnemonicParsing="false" onAction="#onExitBtnClick" text="" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
   </children>
 </AnchorPane>

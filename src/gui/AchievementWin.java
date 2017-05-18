@@ -28,10 +28,10 @@ public class AchievementWin extends Stage{
     public static final int toolUsedNum=99;
     public static final int stepsUsedNum=10086;
     public static final int scoreGot=5201314;
-    public String[] tips=new String[]{"ÏûÃð"+String.valueOf(starElementedNum)+"¸ö¸ÃÐÇÐÇ£¬µãÁÁ¸ÃÑ«ÕÂ",
-            "Ê¹ÓÃÁË"+String.valueOf(toolUsedNum)+"´Î¸ÃµÀ¾ß£¬µãÁÁ¸ÃÑ«ÕÂ",
-            "×Ü²½Êý³¬¹ýÁË"+String.valueOf(stepsUsedNum)+"²½£¬µãÁÁ¸ÃÑ«ÕÂ",
-            "×Ü·ÖÊý³¬¹ýÁË"+String.valueOf(scoreGot)+"·Ö£¬µãÁÁ¸ÃÑ«ÕÂ"};
+    public String[] tips=new String[]{"æ¶ˆç­"+String.valueOf(starElementedNum)+"ä¸ªè¯¥æ˜Ÿæ˜Ÿï¼Œç‚¹äº®è¯¥å‹‹ç« ",
+            "ä½¿ç”¨äº†"+String.valueOf(toolUsedNum)+"æ¬¡è¯¥é“å…·ï¼Œç‚¹äº®è¯¥å‹‹ç« ",
+            "æ€»æ­¥æ•°è¶…è¿‡äº†"+String.valueOf(stepsUsedNum)+"æ­¥ï¼Œç‚¹äº®è¯¥å‹‹ç« ",
+            "æ€»åˆ†æ•°è¶…è¿‡äº†"+String.valueOf(scoreGot)+"åˆ†ï¼Œç‚¹äº®è¯¥å‹‹ç« "};
 
     public AchievementWin(){
         root=new AnchorPane();
@@ -120,7 +120,7 @@ public class AchievementWin extends Stage{
         circle.setStrokeWidth(5);
         circle.setCursor(Cursor.HAND);
 
-        //µã»÷Ô²ÐÎ¹Ø±Õ´°¿Ú
+        //ç‚¹å‡»åœ†å½¢å…³é—­çª—å£
         circle.setOnMouseClicked(e->{
             this.close();
         });
@@ -131,7 +131,7 @@ public class AchievementWin extends Stage{
 
         root.getChildren().add(circle);
 
-        //Ëõ·Å¶¯»­
+        //ç¼©æ”¾åŠ¨ç”»
         ScaleTransition st=new  ScaleTransition(Duration.millis(2000),circle);
         st.setByX(0.4);
         st.setByY(0.4);

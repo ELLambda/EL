@@ -71,10 +71,6 @@ public class MessageWin extends Stage{
 			new GameWin();
 			this.close();
 		});
-				
-//		ImageView circle2=new ImageView(new Image("img\\circle2.png"));
-//		circle2.setLayoutX(x);
-//		circle2.setLayoutY(y);
 		
 		root.getChildren().add(circle);
 		

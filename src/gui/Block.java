@@ -10,9 +10,9 @@ public class Block extends Button{
 
 	//private int[] position=new int[2];
 	private int x;
-	private  int y;//�洢������Ϣ
+	private  int y;
 	private String color="0";
-	private boolean isPressed=false;//��¼�����Ƿ񱻰���
+	private boolean isPressed=false;
 	private boolean Descended=false;
 	private String specialType = "null";
 
