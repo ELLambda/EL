@@ -90,8 +90,11 @@ public class ShopController {
 			p_1++;
 			md1_price.setText("         " + p_1*price_1);
 
-			i_sum.setText(String.valueOf("         " + i_1 + i_2 + i_3));
-			p_sum.setText(String.valueOf("         " + p_1 * price_1 + p_2 * price_2 + p_3 * price_3));
+			int sum_1 = i_1 + i_2 + i_3;
+			int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
+
+			i_sum.setText(String.valueOf("           " + String.valueOf(sum_1)));
+			p_sum.setText(String.valueOf("         " + String.valueOf(sum_2)));
 		}
 	
 	@FXML
@@ -101,8 +104,12 @@ public class ShopController {
 
 		p_2++;
 		md2_price.setText("         " + p_2*price_2);
-		i_sum.setText(String.valueOf("         " + i_1 + i_2 + i_3));
-		p_sum.setText(String.valueOf("         " + p_1 * price_1 + p_2 * price_2 + p_3 * price_3));
+
+        int sum_1 = i_1 + i_2 + i_3;
+        int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
+
+		i_sum.setText(String.valueOf("           " + String.valueOf(sum_1)));
+		p_sum.setText(String.valueOf("         " + String.valueOf(sum_2)));
 	}
 	
 	@FXML
@@ -112,8 +119,12 @@ public class ShopController {
 
 			p_3++;
 			md3_price.setText("         " + p_3*price_3);
-			i_sum.setText("           " + String.valueOf(i_1 + i_2 + i_3));
-			p_sum.setText("         " + String.valueOf(p_1 * price_1 + p_2 * price_2 + p_3 * price_3));
+
+            int sum_1 = i_1 + i_2 + i_3;
+            int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
+
+			i_sum.setText("           " + String.valueOf(sum_1));
+			p_sum.setText("         " + String.valueOf(sum_2));
 	}
 
 }
