@@ -56,13 +56,20 @@ public class AchievementWin extends Stage{
         box2.setSpacing(spacing);
         box2.setPadding(new Insets(5));
         for(int i=0;i< AchievementsManager.WIDTH;i++){
-            box2.getChildren().add(AchievementsManager.AchievementsList[1][i]);
-            AchievementsManager.AchievementsList[1][i].setBackground(new Background(
+            Achievement achievement=AchievementsManager.AchievementsList[1][i];
+            box2.getChildren().add(achievement);
+            achievement.setBackground(new Background(
                     new BackgroundImage(new Image("gui/img/achievement/"+String.valueOf(i+6)+".png"),
                             BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,
                             BackgroundPosition.CENTER,BackgroundSize.DEFAULT)
             ));
-            AchievementsManager.AchievementsList[1][i].setMinSize(100,120);
+            achievement.setMinSize(100,120);
+            if(i<3){
+                achievement.setTooltip(new Tooltip(tips[1]));
+            }else {
+                achievement.setTooltip(new Tooltip(tips[i-1]));
+            }
+
         }
 
         VBox box=new VBox();
