@@ -170,7 +170,9 @@ public class Data {
             case 13:
             	targetScore = STORY_CHAPTER13_SCORE;
             	totalstpes = STORY_CHAPTER13_STEP;
+            	break;
         }
+        	break;
         case 1:
         	switch(n){
             case 1:
@@ -222,6 +224,7 @@ public class Data {
                 totalstpes=BIRTHDAY_CHAPTER12_STEP;
                 break;
         }
+        	break;
         case 2:
         	switch(n){
         	
@@ -275,8 +278,10 @@ public class Data {
                 break;
             case 13:
             	targetScore = -1;
-            	totalstpes = SHOP_CHAPTER13_STEP;     
+            	totalstpes = SHOP_CHAPTER13_STEP;
+            	break;
            }
+        	break;
         	
         case 3:
         	targetScore = -1;
