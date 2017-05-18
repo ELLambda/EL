@@ -1,6 +1,7 @@
 .root{
 	-fx-background-color: transparent ;
-	-fx-background-image: url(img/main_win_bg.png);
+	-fx-background-image: url(img/main_win_bg.jpg);
+	-fx-background-radius: 50;
 }
 .button{
 	-fx-background-color: rgba(255,255,255,0.4);
@@ -24,4 +25,10 @@
 }
 #exitBtn:hover{
 	-fx-background-image: url(img/exit_hover.png);
+}
+#box{
+	-fx-background-color: rgba(255,255,255,0.3);
+	-fx-background-radius: 50;
+	-fx-spacing: 50;
+	-fx-padding: 30;
 }

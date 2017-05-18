@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.ModeWinController">
+  <children>
+    <VBox id="VBox" alignment="CENTER" layoutX="219.0" layoutY="154.0" spacing="30.0">
+      <children>
+        <Button fx:id="storyBtn" minWidth="150.0" mnemonicParsing="false" onAction="#onStoryBtnCLick" text="Story">
+          <font>
+            <Font name="Bauhaus 93" size="15.0" fx:id="x1" />
+          </font>
+        </Button>
+        <Button font="$x1" minWidth="150.0" mnemonicParsing="false" onAction="#onBirthdayBtnClick" text="Birthday" />
+        <Button font="$x1" minWidth="150.0" mnemonicParsing="false" onAction="#onEndlessBtnCLick" text="Endless" />
+      </children>
+      <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+      </padding>
+    </VBox>
+  </children>
+</AnchorPane>

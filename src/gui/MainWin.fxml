@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.control.*?>
@@ -11,24 +12,27 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-img:url(img/main_win_bg.png);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.MainWinControllor">
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" style="-fx-background-img:url(img/main_win_bg.png);" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.MainWinControllor">
   <children>
     <ImageView id="main_win_bg.jpg" layoutX="0.0" layoutY="0.0">
       <image>
         <Image url="@img/main_win_bg.jpg" preserveRatio="true" smooth="true" />
       </image>
     </ImageView>
-    <Group id="Group" layoutX="785.0" layoutY="321.0" rotate="0.0" scaleX="1.0" scaleY="1.0">
+    <VBox id="box" layoutX="512.0" layoutY="150.0" spacing="50.0">
       <children>
-        <Button fx:id="startBtn" layoutX="14.0" layoutY="73.0" mnemonicParsing="false" onAction="#onStartBtnClick" prefHeight="47.0" prefWidth="220.0" text="Birthday Mode" textAlignment="CENTER">
+        <Button fx:id="startBtn" mnemonicParsing="false" onAction="#onStartBtnClick" prefHeight="47.0" prefWidth="220.0" text="Start" textAlignment="CENTER">
           <font>
             <Font name="Bauhaus 93" size="25.0" fx:id="x1" />
           </font>
         </Button>
-        <Button font="$x1" layoutX="14.0" layoutY="-26.0" mnemonicParsing="false" onAction="#onStoryBtnClick" prefHeight="47.0" prefWidth="219.0" text="Story Mode" textAlignment="CENTER" />
-        <Button font="$x1" layoutX="14.0" layoutY="171.0" mnemonicParsing="false" onAction="#onAboutBtnClick" prefHeight="47.0" prefWidth="219.0" text="About" textAlignment="CENTER" />
+        <Button font="$x1" mnemonicParsing="false" onAction="#onAchievementBtnClick" prefHeight="47.0" prefWidth="219.0" text="Achievement" textAlignment="CENTER" />
+        <Button font="$x1" mnemonicParsing="false" onAction="#onAboutBtnClick" prefHeight="47.0" prefWidth="219.0" text="About" textAlignment="CENTER" />
       </children>
-    </Group>
-    <Button id="exitBtn" layoutX="28.0" layoutY="700.0" mnemonicParsing="false" onAction="#onExitBtnClick" text="" />
+      <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+      </padding>
+    </VBox>
+    <Button id="exitBtn" mnemonicParsing="false" onAction="#onExitBtnClick" text="" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" />
   </children>
 </AnchorPane>

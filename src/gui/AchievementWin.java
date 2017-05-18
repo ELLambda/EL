@@ -8,6 +8,7 @@ import javafx.animation.Timeline;
 import javafx.geometry.Insets;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -23,6 +24,14 @@ public class AchievementWin extends Stage{
 
     public static final double spacing=15;
     AnchorPane root;
+    public static final int starElementedNum=666;
+    public static final int toolUsedNum=99;
+    public static final int stepsUsedNum=10086;
+    public static final int scoreGot=5201314;
+    public String[] tips=new String[]{"消灭"+String.valueOf(starElementedNum)+"个该星星，点亮该勋章",
+            "使用了"+String.valueOf(toolUsedNum)+"次该道具，点亮该勋章",
+            "总步数超过了"+String.valueOf(stepsUsedNum)+"步，点亮该勋章",
+            "总分数超过了"+String.valueOf(scoreGot)+"分，点亮该勋章"};
 
     public AchievementWin(){
         root=new AnchorPane();
@@ -31,13 +40,16 @@ public class AchievementWin extends Stage{
         box1.setSpacing(spacing);
         box1.setPadding(new Insets(5));
         for(int i=0;i< AchievementsManager.WIDTH;i++){
-            box1.getChildren().add(AchievementsManager.AchievementsList[0][i]);
-            AchievementsManager.AchievementsList[0][i].setBackground(new Background(
+            Achievement achievement=AchievementsManager.AchievementsList[0][i];
+            box1.getChildren().add(achievement);
+            achievement.setBackground(new Background(
                     new BackgroundImage(new Image("gui/img/achievement/"+String.valueOf(i+1)+".png"),
                             BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,
                             BackgroundPosition.CENTER,BackgroundSize.DEFAULT)
             ));
-            AchievementsManager.AchievementsList[0][i].setMinSize(100,120);
+            achievement.setMinSize(100,120);
+            Tooltip tooltip = new Tooltip(tips[0]);
+            achievement.setTooltip(tooltip);
         }
 
         HBox box2=new HBox();
@@ -101,7 +113,7 @@ public class AchievementWin extends Stage{
         circle.setStrokeWidth(5);
         circle.setCursor(Cursor.HAND);
 
-        //鐐瑰嚮鍦嗗舰鍏抽棴绐楀彛
+        //点击圆形关闭窗口
         circle.setOnMouseClicked(e->{
             this.close();
         });
@@ -112,7 +124,7 @@ public class AchievementWin extends Stage{
 
         root.getChildren().add(circle);
 
-        //缂╂斁鍔ㄧ敾
+        //缩放动画
         ScaleTransition st=new  ScaleTransition(Duration.millis(2000),circle);
         st.setByX(0.4);
         st.setByY(0.4);
