@@ -57,6 +57,8 @@ public class GameWinControllor {
 	private static final int ITEMBOUND = 99;
 	private static final int STEPBOUND = 10086;
 	private static final int SCOREBOUND = 5201314;
+	
+	
 
 	
 	//private SimpleIntegerProperty scoreProperty=new SimpleIntegerProperty();
@@ -73,6 +75,13 @@ public class GameWinControllor {
 		
 		steps=Data.totalstpes;
 		score = new SimpleIntegerProperty(0);
+		
+		//使用上一关购买的商品
+		for(int i = 0;i<Shop.selectedList.size();i++)
+			steps = Shop.selectedList.get(i).addStep(steps);
+		
+		for(int i = 0; i<Shop.selectedList.size();i++)
+			score = new SimpleIntegerProperty(Shop.selectedList.get(i).addScore(score.intValue()));
 		
 		//无尽模式
 		if(Data.mode == 3){
@@ -733,7 +742,7 @@ public class GameWinControllor {
 			if(Data.mode == 2){
 				
 				//进入商店
-				Shop shop = new Shop(score.intValue());
+				Shop.coins = score.intValue();
 				
 //				Timer timer = new Timer();
 //				timer.schedule(new TimerTask(){
