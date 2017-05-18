@@ -125,6 +125,7 @@ public class LevelWinControllor {
 	private void onLevelElevenBtnClick(){
 		Platform.runLater(()->{
 			//GameWin game=new GameWin();
+			btn.getScene().getWindow().hide();
 			MessageWin msg=new MessageWin(11);
 			Data.order=11;
 		});

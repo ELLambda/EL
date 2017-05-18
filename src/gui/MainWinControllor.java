@@ -32,21 +32,6 @@ public class MainWinControllor {
 		}
 	}
 
-
-	@FXML
-	private void onExitBtnClick(){
-		Calculator.leaving();
-		AchievementsManager.setAchieveCondition();
-		Timer timer = new Timer();
-		timer.schedule(new TimerTask(){
-			public void run(){
-				Platform.runLater(()->{
-					System.exit(0);
-				});
-			}
-			
-		},1000);
-	}
 	
 	@FXML
 	private void onStartBtnClick(){

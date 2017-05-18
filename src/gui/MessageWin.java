@@ -67,14 +67,10 @@ public class MessageWin extends Stage{
 		//点击圆形关闭消息窗口
 		circle.setOnMouseClicked(e->{
 
-			Data.setLimit(Data.order);
+			Data.setLimit(Data.order,1);
 			new GameWin();
 			this.close();
 		});
-				
-//		ImageView circle2=new ImageView(new Image("img\\circle2.png"));
-//		circle2.setLayoutX(x);
-//		circle2.setLayoutY(y);
 		
 		root.getChildren().add(circle);
 		

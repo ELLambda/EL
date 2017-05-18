@@ -1,30 +1,14 @@
 package gui;
 
-import java.sql.Time;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Timer;
-import java.util.TimerTask;
-
-import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
 import javafx.animation.TranslateTransition;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 import javafx.util.Duration;
 
-import javax.jws.Oneway;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 
 
-/*
- * ������
- */
 public class BlockManager {
 
 	private final static int WIDE = 10;
@@ -68,8 +52,7 @@ public class BlockManager {
 
 	}
 	
-	
-	//����Ѿ����ķ���
+
 	public  void addBlocksToList(Block block){
 		twoBlocks.add(block);
 	}
@@ -136,13 +119,7 @@ public class BlockManager {
 	
 	int[][] erased = new int[HEIGHT*WIDE][2];
 	int length = 0;
-	
-	
-	
-	/*
-    ��������
-    block Ϊ�������
-	 */
+
 	
 	ArrayList<Block> erasableHBlocks = new ArrayList<Block>();
 	ArrayList<Block> erasableVBlocks = new ArrayList<Block>();
@@ -194,9 +171,7 @@ public class BlockManager {
         }
     }
 
-    /*
-    ��������
-     */
+
     public  boolean vSearch(Block block){
         int x=block.getX();
         int y=block.getY();//�������

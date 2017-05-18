@@ -28,10 +28,10 @@ public class AchievementWin extends Stage{
     public static final int toolUsedNum=99;
     public static final int stepsUsedNum=10086;
     public static final int scoreGot=5201314;
-    public String[] tips=new String[]{"ÏûÃğ"+String.valueOf(starElementedNum)+"¸ö¸ÃĞÇĞÇ£¬µãÁÁ¸ÃÑ«ÕÂ",
-            "Ê¹ÓÃÁË"+String.valueOf(toolUsedNum)+"´Î¸ÃµÀ¾ß£¬µãÁÁ¸ÃÑ«ÕÂ",
-            "×Ü²½Êı³¬¹ıÁË"+String.valueOf(stepsUsedNum)+"²½£¬µãÁÁ¸ÃÑ«ÕÂ",
-            "×Ü·ÖÊı³¬¹ıÁË"+String.valueOf(scoreGot)+"·Ö£¬µãÁÁ¸ÃÑ«ÕÂ"};
+    public String[] tips=new String[]{"æ¶ˆç­"+String.valueOf(starElementedNum)+"ä¸ªè¯¥æ˜Ÿæ˜Ÿï¼Œç‚¹äº®è¯¥å‹‹ç« ",
+            "ä½¿ç”¨äº†"+String.valueOf(toolUsedNum)+"æ¬¡è¯¥é“å…·ï¼Œç‚¹äº®è¯¥å‹‹ç« ",
+            "æ€»æ­¥æ•°è¶…è¿‡äº†"+String.valueOf(stepsUsedNum)+"æ­¥ï¼Œç‚¹äº®è¯¥å‹‹ç« ",
+            "æ€»åˆ†æ•°è¶…è¿‡äº†"+String.valueOf(scoreGot)+"åˆ†ï¼Œç‚¹äº®è¯¥å‹‹ç« "};
 
     public AchievementWin(){
         root=new AnchorPane();
@@ -56,13 +56,20 @@ public class AchievementWin extends Stage{
         box2.setSpacing(spacing);
         box2.setPadding(new Insets(5));
         for(int i=0;i< AchievementsManager.WIDTH;i++){
-            box2.getChildren().add(AchievementsManager.AchievementsList[1][i]);
-            AchievementsManager.AchievementsList[1][i].setBackground(new Background(
+            Achievement achievement=AchievementsManager.AchievementsList[1][i];
+            box2.getChildren().add(achievement);
+            achievement.setBackground(new Background(
                     new BackgroundImage(new Image("gui/img/achievement/"+String.valueOf(i+6)+".png"),
                             BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,
                             BackgroundPosition.CENTER,BackgroundSize.DEFAULT)
             ));
-            AchievementsManager.AchievementsList[1][i].setMinSize(100,120);
+            achievement.setMinSize(100,120);
+            if(i<3){
+                achievement.setTooltip(new Tooltip(tips[1]));
+            }else {
+                achievement.setTooltip(new Tooltip(tips[i-1]));
+            }
+
         }
 
         VBox box=new VBox();
@@ -113,7 +120,7 @@ public class AchievementWin extends Stage{
         circle.setStrokeWidth(5);
         circle.setCursor(Cursor.HAND);
 
-        //µã»÷Ô²ĞÎ¹Ø±Õ´°¿Ú
+        //ç‚¹å‡»åœ†å½¢å…³é—­çª—å£
         circle.setOnMouseClicked(e->{
             this.close();
         });
@@ -124,7 +131,7 @@ public class AchievementWin extends Stage{
 
         root.getChildren().add(circle);
 
-        //Ëõ·Å¶¯»­
+        //ç¼©æ”¾åŠ¨ç”»
         ScaleTransition st=new  ScaleTransition(Duration.millis(2000),circle);
         st.setByX(0.4);
         st.setByY(0.4);

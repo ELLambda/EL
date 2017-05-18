@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
+import shop.Shop;
 
 import javax.jws.Oneway;
 
@@ -56,6 +57,8 @@ public class GameWinControllor {
 	private static final int ITEMBOUND = 99;
 	private static final int STEPBOUND = 10086;
 	private static final int SCOREBOUND = 5201314;
+	
+	
 
 	
 	//private SimpleIntegerProperty scoreProperty=new SimpleIntegerProperty();
@@ -72,15 +75,37 @@ public class GameWinControllor {
 		
 		steps=Data.totalstpes;
 		score = new SimpleIntegerProperty(0);
-		if(Data.order == 12){
+		
+		//使用上一关购买的商品
+		for(int i = 0;i<Shop.selectedList.size();i++)
+			steps = Shop.selectedList.get(i).addStep(steps);
+		
+		for(int i = 0; i<Shop.selectedList.size();i++)
+			score = new SimpleIntegerProperty(Shop.selectedList.get(i).addScore(score.intValue()));
+		
+		//无尽模式
+		if(Data.mode == 3){
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 			stepLabel.setText("No steps limit!");
 			stepProgressBar.setProgress(-1);
 			stepLabel.setLayoutX(997);
 		}
-		else{
+		//生日模式
+		else if(Data.mode == 1){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 			stepLabel.setText("Steps Left:"+steps);
+		}
+		//金币模式
+		else if(Data.mode == 2){
+			noticeText.setText("Your score:"+String.valueOf(score.intValue()));
+			stepLabel.setText("Energy Value:"+steps);
+
+		}
+		//剧情模式
+		else if(Data.mode == 0){
+			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+			stepLabel.setText("Health Point:"+steps);
+
 		}
 	}
 
@@ -714,6 +739,25 @@ public class GameWinControllor {
 			if(Calculator.scores >= SCOREBOUND)
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
 			
+			if(Data.mode == 2){
+				
+				//进入商店
+				Shop.coins = score.intValue();
+				
+//				Timer timer = new Timer();
+//				timer.schedule(new TimerTask(){
+//					public void run(){
+//						Platform.runLater(()->{
+//							blockGridPan.getScene().getWindow().hide();
+//							new WarnWin(true);
+//							Data.warnNumber++;
+//						});
+//					}
+//				}, 1000);
+
+				
+			}else{
+			
 			Timer timer = new Timer();
 			timer.schedule(new TimerTask(){
 				public void run(){
@@ -725,6 +769,7 @@ public class GameWinControllor {
 				}
 				
 			},1000);
+			}
 			
 		}
 		

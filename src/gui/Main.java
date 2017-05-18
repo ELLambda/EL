@@ -11,9 +11,6 @@ public class Main extends Application{
 		// TODO Auto-generated method stub
 	
 
-
-
-		//�򿪻�ӭ����
 		Platform.runLater(new Runnable() {			
 			@Override
 			public void run() {
