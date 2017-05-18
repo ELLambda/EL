@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.shape.*?>
@@ -37,11 +38,6 @@
          <font>
             <Font size="18.0" />
          </font></Button>
-      <Button fx:id="back" layoutX="1111.0" layoutY="23.0" mnemonicParsing="false" onAction="#onBackBtnClicked" text="Back" underline="true">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
       <Button fx:id="chapter1" layoutX="1051.0" layoutY="704.0" mnemonicParsing="false" onAction="#onChapter1Clicked" prefHeight="40.0" prefWidth="51.0" text="1">
          <font>
             <Font size="18.0" />
@@ -104,5 +100,11 @@
       <Button layoutX="533.0" layoutY="272.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
       <Button layoutX="391.0" layoutY="245.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
       <Button layoutX="246.0" layoutY="203.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button fx:id="back" layoutX="1096.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackBtnClicked" text="Back" underline="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Button>
+      <Button fx:id="shop" layoutX="1124.0" layoutY="106.0" mnemonicParsing="false" onAction="#onShopBtnClicked" />
    </children>
 </AnchorPane>
