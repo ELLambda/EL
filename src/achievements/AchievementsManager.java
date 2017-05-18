@@ -51,11 +51,11 @@ public class AchievementsManager
 			String[] spl = line.split("@");
 			
 
-			for (int i = 0; i < ACHIEVEMENT_NUMBER; i++) 
+			//for (int i = 0; i < ACHIEVEMENT_NUMBER; i++)
 				for(int m = 0; m < HEIGHT;m++)
 				for(int n = 0; n < WIDTH; n++)
 				
-				if(Integer.parseInt(spl[i]) == 1)
+				if(Integer.parseInt(spl[m*WIDTH+n]) == 1)
 				{
 					AchievementsList[m][n].setAchieved(true);
 				}

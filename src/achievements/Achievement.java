@@ -25,6 +25,8 @@ public class Achievement extends Button
 	public Achievement(String name,boolean value){
 		this.name = name;
 		this.achieved = value;
+		this.minHeight(180);
+		this.minWidth(150);
 	}
 	
 	//成就的完成情况

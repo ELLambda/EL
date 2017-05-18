@@ -51,30 +51,20 @@ public class MainWinControllor {
 	@FXML
 	private void onStartBtnClick(){
 
-		Data.mode=1;
 		Platform.runLater(()->{
 			startBtn.getScene().getWindow().hide();
-			Data.mode=1;
-			LevelWin levelWin=new LevelWin();
+			new ModeWin();
 		});
+
+//		Data.mode=1;
+//		Platform.runLater(()->{
+//			startBtn.getScene().getWindow().hide();
+//			Data.mode=1;
+//			LevelWin levelWin=new LevelWin();
+//		});
 
 
 	}
-
-
-    public void onStoryBtnClick(ActionEvent actionEvent) {
-		Data.mode=0;
-    	Platform.runLater(()->{
-			try {
-				startBtn.getScene().getWindow().hide();
-				Data.mode=0;
-				ChapterSelectWin chapter=new ChapterSelectWin();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		});
-    }
 
     public void onAboutBtnClick(ActionEvent actionEvent) {
 		Platform.runLater(()->{
@@ -82,4 +72,11 @@ public class MainWinControllor {
 			new AboutWin();
 		});
     }
+
+
+    public void onAchievementBtnClick(ActionEvent actionEvent) {
+		new AchievementWin();
+    }
+
+
 }
