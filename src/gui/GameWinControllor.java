@@ -83,12 +83,12 @@ public class GameWinControllor {
 		for(int i = 0; i<Shop.selectedList.size();i++)
 			score = new SimpleIntegerProperty(Shop.selectedList.get(i).addScore(score.intValue()));
 		
-		//无尽模式
-		if(Data.mode == 3){
-			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
-			stepLabel.setText("No steps limit!");
-			stepProgressBar.setProgress(-1);
-			stepLabel.setLayoutX(997);
+		
+		//剧情模式
+		if(Data.mode == 0){
+			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+			stepLabel.setText("Health Point:"+steps*100);
+
 		}
 		//生日模式
 		else if(Data.mode == 1){
@@ -97,16 +97,18 @@ public class GameWinControllor {
 		}
 		//金币模式
 		else if(Data.mode == 2){
-			noticeText.setText("Your score:"+String.valueOf(score.intValue()));
-			stepLabel.setText("Energy Value:"+steps);
+			noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+			stepLabel.setText("Energy Value:"+steps*10);
 
 		}
-		//剧情模式
-		else if(Data.mode == 0){
-			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
-			stepLabel.setText("Health Point:"+steps);
-
+		//无尽模式
+		else if(Data.mode == 3){
+			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
+			stepLabel.setText("No steps limit!");
+			stepProgressBar.setProgress(-1);
+			stepLabel.setLayoutX(997);
 		}
+		
 	}
 
 	
@@ -162,10 +164,14 @@ public class GameWinControllor {
 					if(BlockManager.twoBlocks.size()==2){		//已经点了两个块了
 						isMoving = true;
 						if(BlockManager.isNear() == true){		//点的两个块相邻
-							if(Data.order != 12){
+							if(Data.mode != 3){
 								steps--;//步数减1
-								
-								stepLabel.setText("Steps Left:"+steps);
+								if(Data.mode == 0)
+									stepLabel.setText("Health Point:"+steps*100);
+								else if(Data.mode == 1)
+									stepLabel.setText("Steps Left:"+steps);
+								else if(Data.mode == 2)
+									stepLabel.setText("Energy Value:"+steps*10);
 								stepProgressBar.setProgress((double) steps/Data.totalstpes);
 							}
 		
@@ -190,7 +196,7 @@ public class GameWinControllor {
 										t = BlockManager.exchange();
 										BlockManager.twoBlocks.clear();
 										t.setOnFinished(e3 ->{
-											if(Data.order != 12)
+											if(Data.mode != 3)
 												checkIsLose();
 											
 											isMoving = false;
@@ -272,13 +278,19 @@ public class GameWinControllor {
 					break;
 				case "SmallHammer":
 					isMoving = true;
-					if(Data.order != 12){
+					if(Data.mode != 3){
 						steps--;
+						if(Data.mode == 0)
+							stepLabel.setText("Health Point:"+steps*100);
+						else if(Data.mode == 1)
+							stepLabel.setText("Steps Left:"+steps);
+						else if(Data.mode == 2)
+							stepLabel.setText("Energy Value:"+steps*10);
+						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
 					BlockManager.erased[0][0] = btn.getX();
 					BlockManager.erased[0][1] = btn.getY();
 					BlockManager.length = 1;
-					//把小锤子按钮熄灭
 					Calculator.smallHammer++;
 					if(Calculator.smallHammer >= ITEMBOUND)
 						AchievementsManager.AchievementsList[1][0].setAchieved(true);
@@ -289,8 +301,15 @@ public class GameWinControllor {
 					break;
 				case "BigHammer":
 					isMoving = true;
-					if(Data.order != 12){
+					if(Data.mode != 3){
 						steps--;
+						if(Data.mode == 0)
+							stepLabel.setText("Health Point:"+steps*100);
+						else if(Data.mode == 1)
+							stepLabel.setText("Steps Left:"+steps);
+						else if(Data.mode == 2)
+							stepLabel.setText("Energy Value:"+steps*10);
+						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
 					int i = btn.getX();
 					int j = btn.getY();
@@ -323,7 +342,6 @@ public class GameWinControllor {
 						BlockManager.erased[BlockManager.length][1] = block.getY();
 						BlockManager.length++;
 					}
-					//把小锤子熄灭
 					Calculator.bigHammer++;
 					if(Calculator.bigHammer >= ITEMBOUND)
 						AchievementsManager.AchievementsList[1][1].setAchieved(true);
@@ -336,8 +354,15 @@ public class GameWinControllor {
 					
 					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减500分
 				case"Magic":
-					if(Data.order != 12){
+					if(Data.mode != 3){
 						steps--;
+						if(Data.mode == 0)
+							stepLabel.setText("Health Point:"+steps*100);
+						else if(Data.mode == 1)
+							stepLabel.setText("Steps Left:"+steps);
+						else if(Data.mode == 2)
+							stepLabel.setText("Energy Value:"+steps*10);
+						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
 	        		blockGridPan.getChildren().remove(btn);
 	        		
@@ -354,7 +379,11 @@ public class GameWinControllor {
 
 	        		setToolNotSelected(magic);
 					score.set(score.intValue() - 500);		//使用魔力棒技能减500分
-					if(Data.order == 12){
+					if(Data.mode == 2){
+						noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+
+					}
+					else if(Data.mode == 3){
 						noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 					}
 					else{
@@ -392,7 +421,9 @@ public class GameWinControllor {
 			AchievementsManager.AchievementsList[1][3].setAchieved(true);
 
 
-		if(Data.order == 12){
+		if(Data.mode == 2)
+			noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+		else if(Data.mode == 3){
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 		}
 		else{
@@ -679,7 +710,7 @@ public class GameWinControllor {
 		if(h.isEmpty()){		//没有爆炸块
 			erasedTimes = 1;
 			System.out.println("everything finished");
-			if(Data.order != 12)
+			if(Data.mode != 3)
 				checkIsLose();
 			isMoving = false;
 			return;
@@ -701,7 +732,7 @@ public class GameWinControllor {
 	
 	
 	private void checkIsLose(){
-		if(score.intValue()>=Data.targetScore){
+		if(score.intValue() >= Data.targetScore){
 			Calculator.scores += score.intValue();
 			if(Calculator.scores >= SCOREBOUND)
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
@@ -734,7 +765,7 @@ public class GameWinControllor {
 			}
 			
 		}
-		else if(steps==0){
+		else if(steps == 0){
 			Calculator.scores += score.intValue();
 			if(Calculator.scores >= SCOREBOUND)
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
@@ -756,19 +787,19 @@ public class GameWinControllor {
 //				}, 1000);
 
 				
-			}else{
-			
-			Timer timer = new Timer();
-			timer.schedule(new TimerTask(){
-				public void run(){
-					Platform.runLater(()->{
-						blockGridPan.getScene().getWindow().hide();
-						new WarnWin(false);
-						Data.warnNumber++;
-					});
-				}
-				
-			},1000);
+			}
+			else{
+				Timer timer = new Timer();
+				timer.schedule(new TimerTask(){
+					public void run(){
+						Platform.runLater(()->{
+							blockGridPan.getScene().getWindow().hide();
+							new WarnWin(false);
+							Data.warnNumber++;
+						});
+					}
+					
+				},1000);
 			}
 			
 		}
@@ -780,16 +811,35 @@ public class GameWinControllor {
 	public void onRestartBtnClick(ActionEvent actionEvent) {
 		if(isMoving == false){
 			Music.playEffectMusic(2);//click
+			if(Data.mode == 3){
+				Calculator.scores += score.intValue();
+			if(Calculator.scores >= SCOREBOUND)
+				AchievementsManager.AchievementsList[1][4].setAchieved(true);
+			}
 			blockGridPan.getChildren().clear();
 			createBlocks();
 	
 	        noticeText.clear();
 	        noticeText.setText("Restart!");
+	       
+			if(Data.mode != 3){
+		        steps=Data.totalstpes;
+		        if(Data.mode == 0)
+					stepLabel.setText("Health Point:"+steps*100);
+				else if(Data.mode == 1)
+					stepLabel.setText("Steps Left:"+steps);
+				else if(Data.mode == 2)
+					stepLabel.setText("Energy Value:"+steps*10);
+		        stepProgressBar.setProgress(1.0);
+			}
+	        score.set(0);
 	        Timer timer = new Timer();
 			timer.schedule(new TimerTask(){
 				public void run(){
 					Platform.runLater(()->{
-						if(Data.order == 12){
+						if(Data.mode == 2)
+							noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+						else if(Data.mode == 3){
 							noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 						}
 						else{
@@ -799,12 +849,6 @@ public class GameWinControllor {
 				}
 				
 			},1000);
-			if(Data.order != 12){
-		        steps=Data.totalstpes;
-		        stepLabel.setText("Steps Left:"+steps);
-		        stepProgressBar.setProgress(1.0);
-			}
-	        score.set(0);
 		}
 	}
 
@@ -820,13 +864,13 @@ public class GameWinControllor {
 	}
 
 	public void onStoreBtnClick(ActionEvent actionEvent) {
-		BufferedWriter bw = null;
-		try {
-			bw = new BufferedWriter(new FileWriter("src/gui/EndlessModeStore.txt"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
+//		BufferedWriter bw = null;
+//		try {
+//			bw = new BufferedWriter(new FileWriter("src/gui/EndlessModeStore.txt"));
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
 		
 		
 	}
@@ -841,7 +885,9 @@ public class GameWinControllor {
 				timer.schedule(new TimerTask(){
 					public void run(){
 						Platform.runLater(()->{
-							if(Data.order == 12){
+							if(Data.mode == 2)
+								noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+							else if(Data.mode == 3){
 								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 							}
 							else{
@@ -900,7 +946,9 @@ public class GameWinControllor {
 				timer.schedule(new TimerTask(){
 					public void run(){
 						Platform.runLater(()->{
-							if(Data.order == 12){
+							if(Data.mode == 2)
+								noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+							else if(Data.mode == 3){
 								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 							}
 							else{
@@ -947,13 +995,15 @@ public class GameWinControllor {
 		}
 	}
 	public void onMagicBtnClick(ActionEvent actionEvent){
-			if(score.intValue()<250) {
+			if(score.intValue() < 250) {
 				noticeText.setText("Your score is inadequate!");
 				Timer timer = new Timer();
 				timer.schedule(new TimerTask(){
 					public void run(){
 						Platform.runLater(()->{
-							if(Data.order == 12){
+							if(Data.mode == 2)
+								noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+							else if(Data.mode == 3){
 								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 							}
 							else{

@@ -19,9 +19,8 @@ public class ModeWinController {
         Platform.runLater(()->{
             try {
                 storyBtn.getScene().getWindow().hide();
-                ChapterSelectWin chapter=new ChapterSelectWin();
+                new ChapterSelectWin();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         });
@@ -31,10 +30,22 @@ public class ModeWinController {
         Data.mode=1;
 		Platform.runLater(()->{
 			storyBtn.getScene().getWindow().hide();
-			LevelWin levelWin=new LevelWin();
+			new LevelWin();
 		});
     }
 
     public void onEndlessBtnCLick(ActionEvent actionEvent) {
+    	Data.mode=3;
+    	Platform.runLater(()->{
+			storyBtn.getScene().getWindow().hide();
+			new GameWin();
+		});
     }
 }
+
+
+
+
+
+
+
