@@ -71,7 +71,7 @@ public class ChapterWin extends Stage{
 		circle.setOnMouseClicked(e->{
 			if(i == 1){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					StoryWin story=new StoryWin();
 					this.close();
 				} catch (IOException e1) {
@@ -80,7 +80,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 2){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story2Win story2=new Story2Win();
 					this.close();
 				} catch (IOException e1) {
@@ -89,7 +89,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 3){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story3Win story3=new Story3Win();
 					this.close();
 				} catch (IOException e1) {
@@ -98,7 +98,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 4){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story4Win story4=new Story4Win();
 					this.close();
 				} catch (IOException e1) {
@@ -107,7 +107,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 5){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story5Win story5=new Story5Win();
 					this.close();
 				} catch (IOException e1) {
@@ -116,7 +116,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 6){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story6Win story6=new Story6Win();
 					this.close();
 				} catch (IOException e1) {
@@ -125,7 +125,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 7){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story7Win story7=new Story7Win();
 					this.close();
 				} catch (IOException e1) {
@@ -134,7 +134,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 8){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story8Win story8=new Story8Win();
 					this.close();
 				} catch (IOException e1) {
@@ -143,7 +143,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 9){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story9Win story9=new Story9Win();
 					this.close();
 				} catch (IOException e1) {
@@ -152,7 +152,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 10){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story10Win story10=new Story10Win();
 					this.close();
 				} catch (IOException e1) {
@@ -161,7 +161,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 11){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story11Win story11=new Story11Win();
 					this.close();
 				} catch (IOException e1) {
@@ -170,7 +170,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 12){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story12Win story12=new Story12Win();
 					this.close();
 				} catch (IOException e1) {
@@ -179,7 +179,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 13 && StorySelectBox.ending_1){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story13Win story13=new Story13Win();
 					this.close();
 				} catch (IOException e1) {
@@ -188,7 +188,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 13 && StorySelectBox.ending_2){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story14Win story14=new Story14Win();
 					this.close();
 				} catch (IOException e1) {
@@ -197,7 +197,7 @@ public class ChapterWin extends Stage{
 				}
 			}else if(i == 13 && (StorySelectBox.rationality == -2)){
 				try {
-					Data.setLimit(Data.order);
+					Data.setLimit(Data.order,0);
 					Story15Win story15=new Story15Win();
 					this.close();
 				} catch (IOException e1) {
