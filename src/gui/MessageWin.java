@@ -67,7 +67,7 @@ public class MessageWin extends Stage{
 		//点击圆形关闭消息窗口
 		circle.setOnMouseClicked(e->{
 
-			Data.setLimit(Data.order);
+			Data.setLimit(Data.order,1);
 			new GameWin();
 			this.close();
 		});

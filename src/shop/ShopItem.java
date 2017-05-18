@@ -18,6 +18,9 @@ public class ShopItem
 	//可以获得的为亮或者弹出提示框
 	private boolean affordable = false;
 	
+	//玩家是否选中该商品
+	private boolean selected = false;
+	
 	//添加的生命值或精力值
 	private int addedStep;
 	
@@ -68,6 +71,15 @@ public class ShopItem
 		
 		return affordable;
 	}
+	
+	public boolean isSelected()
+	{
+		return selected;
+	}
+//	public void setSelected(boolean selected)
+//	{
+//		this.selected = selected;
+//	}
 
 //	public void setAffordable(boolean affordable)
 //	{

@@ -31,7 +31,7 @@ public class FinishWin extends Stage{
 				));
 		
 		scene.setOnMouseClicked(e->{
-			Data.setLimit(Data.order);
+			Data.setLimit(Data.order,0);
 			MainWin mw = new MainWin();
 			this.close();
 		});
