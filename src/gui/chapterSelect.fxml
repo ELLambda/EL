@@ -52,12 +52,12 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="chapter5" layoutX="120.0" layoutY="496.0" mnemonicParsing="false" onAction="#onChapter5Clicked" prefHeight="40.0" prefWidth="51.0" text="5">
+      <Button fx:id="chapter5" layoutX="95.0" layoutY="495.0" mnemonicParsing="false" onAction="#onChapter5Clicked" prefHeight="40.0" prefWidth="51.0" text="5">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="chapter6" layoutX="285.0" layoutY="478.0" mnemonicParsing="false" onAction="#onChapter6Clicked" prefHeight="37.0" prefWidth="51.0" text="6">
+      <Button fx:id="chapter6" layoutX="309.0" layoutY="485.0" mnemonicParsing="false" onAction="#onChapter6Clicked" prefHeight="37.0" prefWidth="51.0" text="6">
          <font>
             <Font size="18.0" />
          </font>
@@ -67,7 +67,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button fx:id="chapter8" layoutX="680.0" layoutY="390.0" mnemonicParsing="false" onAction="#onChapter8Clicked" prefHeight="40.0" prefWidth="51.0" text="8">
+      <Button fx:id="chapter8" layoutX="698.0" layoutY="427.0" mnemonicParsing="false" onAction="#onChapter8Clicked" prefHeight="40.0" prefWidth="51.0" text="8">
          <font>
             <Font size="18.0" />
          </font>
@@ -87,5 +87,22 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Button layoutX="834.0" layoutY="650.0" mnemonicParsing="false" style="-fx-background-image: url(img/pic2.png);" text="Button">
+         <effect>
+            <ImageInput />
+         </effect>
+      </Button>
+      <Button layoutX="863.0" layoutY="731.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="788.0" layoutY="604.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="483.0" layoutY="699.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="170.0" layoutY="643.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="221.0" layoutY="501.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="366.0" layoutY="434.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="559.0" layoutY="453.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="735.0" layoutY="356.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="684.0" layoutY="283.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="533.0" layoutY="272.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="391.0" layoutY="245.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button layoutX="246.0" layoutY="203.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
    </children>
 </AnchorPane>
