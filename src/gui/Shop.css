@@ -21,3 +21,8 @@
 	-fx-border-radius: 23;
 	-fx-background-radius: 23;
 }
+.root{
+	-fx-background-radius: 23;
+	-fx-spacing: 50;
+	-fx-padding: 30;
+}

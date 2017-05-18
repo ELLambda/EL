@@ -55,7 +55,7 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="            1" textFill="#1e1d1d" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="md1" onMouseClicked="#onMed1Clicked" text="            0" textFill="#1e1d1d" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="19.0" />
                </font>
@@ -65,17 +65,17 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="            1" textFill="#5e5757" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="md2" onMouseClicked="#onMed2Clicked" text="            0" textFill="#5e5757" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="       200" textFill="#222121" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label fx:id="md1_price" text="       0" textFill="#222121" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="       300" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label fx:id="md2_price" text="       0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="19.0" />
                </font>
@@ -85,45 +85,27 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label text="            1" textFill="#0d0d0d" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="md3" onMouseClicked="#onMed3Clicked" text="            0" textFill="#0d0d0d" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="       500" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Label fx:id="md3_price" text="       0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <MenuButton fx:id="mb1" mnemonicParsing="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
-              <items>
-                <MenuItem mnemonicParsing="false" text="+" />
-                <MenuItem mnemonicParsing="false" text="-" />
-              </items>
-            </MenuButton>
-            <MenuButton fx:id="mb2" layoutX="147.0" layoutY="63.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="+" />
-                  <MenuItem mnemonicParsing="false" text="-" />
-               </items>
-            </MenuButton>
-            <MenuButton fx:id="mb3" layoutX="147.0" layoutY="63.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="+" />
-                  <MenuItem mnemonicParsing="false" text="-" />
-               </items>
-            </MenuButton>
             <Label text="       TOTAL" GridPane.rowIndex="4">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="            3" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <Label fx:id="i_sum" text="            0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="      1000" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label fx:id="p_sum" text="      0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="19.0" />
                </font>
@@ -140,7 +122,6 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <ScrollBar fx:id="scrollBar" layoutX="513.0" layoutY="82.0" orientation="VERTICAL" prefHeight="220.0" prefWidth="17.0" visible="false" />
-      <Label fx:id="coin" layoutX="13.0" layoutY="13.0" onMouseClicked="#onCoinClicked" text="当前积分:      " />
+      <Label fx:id="coin" layoutX="13.0" layoutY="13.0" text="当前积分:      " />
    </children>
 </AnchorPane>
