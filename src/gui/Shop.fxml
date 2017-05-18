@@ -13,7 +13,7 @@
    <children>
       <ImageView fx:id="Shop" fitHeight="408.0" fitWidth="607.0" layoutY="-1.0">
          <image>
-            <Image url="@img/shop.jpeg" />
+            <Image url="@img/shop.png" />
          </image>
       </ImageView>
       <Label fx:id="label" layoutX="260.0" layoutY="37.0" text="SHOP" textFill="#222120">
@@ -135,7 +135,7 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <Button fx:id="ok" layoutX="490.0" layoutY="331.0" mnemonicParsing="false" onAction="#onOKBtnClicked" prefHeight="45.0" prefWidth="95.0" text="OK">
+      <Button fx:id="ok" layoutX="490.0" layoutY="345.0" mnemonicParsing="false" onAction="#onOKBtnClicked" prefHeight="31.0" prefWidth="95.0" text="OK">
          <font>
             <Font size="19.0" />
          </font>
