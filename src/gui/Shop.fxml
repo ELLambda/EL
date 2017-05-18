@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ShopController">
+   <children>
+      <ImageView fx:id="Shop" fitHeight="408.0" fitWidth="607.0" layoutY="-1.0">
+         <image>
+            <Image url="@img/shop.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="label" layoutX="260.0" layoutY="37.0" text="SHOP" textFill="#222120">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <GridPane fx:id="shopPane" layoutX="96.0" layoutY="80.0" prefHeight="246.0" prefWidth="409.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="51.56672668457031" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="84.0" minHeight="10.0" prefHeight="47.43327331542969" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="114.0" minHeight="10.0" prefHeight="49.49516296386719" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="45.61895751953125" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="52.38104248046875" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="         物品" textFill="#141414">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="         数量" textFill="#070707" GridPane.columnIndex="1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="       价格" textFill="#141414" GridPane.columnIndex="2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="       金创药" textFill="#111010" GridPane.rowIndex="1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="            1" textFill="#1e1d1d" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="       还神丹" textFill="#111010" GridPane.rowIndex="2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="            1" textFill="#5e5757" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="       200" textFill="#222121" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="       300" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="     天香续命露" textFill="#111010" GridPane.rowIndex="3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="            1" textFill="#0d0d0d" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="       500" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <MenuButton fx:id="mb1" mnemonicParsing="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <items>
+                <MenuItem mnemonicParsing="false" text="+" />
+                <MenuItem mnemonicParsing="false" text="-" />
+              </items>
+            </MenuButton>
+            <MenuButton fx:id="mb2" layoutX="147.0" layoutY="63.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="+" />
+                  <MenuItem mnemonicParsing="false" text="-" />
+               </items>
+            </MenuButton>
+            <MenuButton fx:id="mb3" layoutX="147.0" layoutY="63.0" mnemonicParsing="false" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="+" />
+                  <MenuItem mnemonicParsing="false" text="-" />
+               </items>
+            </MenuButton>
+            <Label text="       TOTAL" GridPane.rowIndex="4">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="            3" GridPane.columnIndex="1" GridPane.rowIndex="4">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label text="      1000" GridPane.columnIndex="2" GridPane.rowIndex="4">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+         </children>
+      </GridPane>
+      <Button fx:id="exit" layoutX="513.0" layoutY="8.0" mnemonicParsing="false" onAction="#onExitBtnClicked" prefHeight="38.0" prefWidth="73.0" text="Exit" underline="true">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <Button fx:id="ok" layoutX="490.0" layoutY="345.0" mnemonicParsing="false" onAction="#onOKBtnClicked" prefHeight="31.0" prefWidth="95.0" text="OK">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Button>
+      <ScrollBar fx:id="scrollBar" layoutX="513.0" layoutY="82.0" orientation="VERTICAL" prefHeight="220.0" prefWidth="17.0" visible="false" />
+      <Label fx:id="coin" layoutX="13.0" layoutY="13.0" onMouseClicked="#onCoinClicked" text="当前积分:      " />
+   </children>
+</AnchorPane>
