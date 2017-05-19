@@ -163,6 +163,12 @@ public class BlockManager {
         		if(x > 0 && blocks[x-1][y] != null && blocks[x-1][y].getColor().equals(block.getColor()))
         			blocks[x-1][y].setSpecialType("null");
         	}
+        	else if(count == 4){
+        		block.setSpecialType("horizon");
+        		if(x > 0 && blocks[x-1][y] != null && blocks[x-1][y].getColor().equals(block.getColor())
+        		&& blocks[x-1][y].getSpecialType().equals("horizon"))
+        			blocks[x-1][y].setSpecialType("null");
+        	}
         		erasableHBlocks.add(block);//����㷽��Ҳ����
             return true;
         }else{
@@ -211,6 +217,12 @@ public class BlockManager {
         		if(y > 0 && blocks[x][y-1] != null && blocks[x][y-1].getColor().equals(block.getColor()))   //让五个连着的中只有1个变身成MagicBird
         			blocks[x][y-1].setSpecialType("null");
         	}
+        	else if(count == 4){
+        		block.setSpecialType("vertical");
+        		if(y > 0 && blocks[x][y-1] != null && blocks[x][y-1].getColor().equals(block.getColor())
+        		&& blocks[x][y-1].getSpecialType().equals("vertical"))
+        			blocks[x][y-1].setSpecialType("null");
+        	}
         	erasableVBlocks.add(block);
             return true;
         }else{
@@ -226,6 +238,8 @@ public class BlockManager {
     public  boolean erasable(Block block){
 
         Boolean isErasable = hSearch(block)|vSearch(block);
+        if(isErasable == false)
+        	return false;
         
         HashSet<Block> h = new HashSet<Block>();
         h.addAll(erasableHBlocks);
@@ -239,7 +253,7 @@ public class BlockManager {
         	length++;
         }
         if(h.size() >= 5){
-        	if(block.getSpecialType().equals("null"))
+        	if(!block.getSpecialType().equals("MagicBird"))
         		block.setSpecialType("Bomb");
         }
 
@@ -248,7 +262,7 @@ public class BlockManager {
         
         System.out.println("after erasable(block x,y): "+block.getX()+" , "+block.getY());
         System.out.println("length : "+ length);
-        return isErasable;
+        return true;
     }
    
     //清空数组

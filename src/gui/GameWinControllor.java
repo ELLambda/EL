@@ -176,8 +176,8 @@ public class GameWinControllor {
 								stepProgressBar.setProgress((double) steps/Data.totalstpes);
 							}
 		
-							if(BlockManager.twoBlocks.get(0).getSpecialType().equals("null") && 
-							   BlockManager.twoBlocks.get(1).getSpecialType().equals("null")){
+							if(!(BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird")) && 
+							   !(BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird"))){
 								System.out.println("start exchanging");
 								Transition transition = BlockManager.exchange();	//交换
 								transition.setOnFinished(e2 ->{
@@ -434,10 +434,14 @@ public class GameWinControllor {
 		 Music.playEffectMusic(1);//eliminate
 		
 		 System.out.println("start erasing");
+		 FadeTransition transition = null;
+		 HashSet<Block> h = new HashSet<Block>();
 		 
 		for(int i = 0;i < BlockManager.length;i++){
 			
 			Block block = BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]];
+			if(block == null)
+				continue;
 			switch(block.getColor()){
 			case("1"):
 				Calculator.first++;
@@ -472,19 +476,11 @@ public class GameWinControllor {
 			}
 			BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]] = null;
 			//消失的动画
-	        FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
+	        transition = new FadeTransition(Duration.seconds(SECOND),block);
 	        transition.setFromValue(1);
 	        transition.setToValue(0);
 	        if(block.getSpecialType().equals("null")){		//不变成特效块
-		        if(i == BlockManager.length - 1)
-			        transition.setOnFinished(e->{
-			        	blockGridPan.getChildren().remove(block);
-		
-			        	 descend();
-			          
-			        });
 		        
-		        else
 		        	transition.setOnFinished(e->{
 		        		
 		        		blockGridPan.getChildren().remove(block);
@@ -492,52 +488,31 @@ public class GameWinControllor {
 			        });
 		    }
 	        else if(block.getSpecialType().equals("MagicBird")){			//变成魔力鸟
-	        	if(i == BlockManager.length - 1)
-			        transition.setOnFinished(e->{
-			        	blockGridPan.getChildren().remove(block);
-			        	
-			        	createOneBlock(block.getX(),block.getY());
-		        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
-		        		magicBirdBlock.setSpecialType("MagicBird");
-		        		magicBirdBlock.setBackgroundColor("MagicBird");
-		        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
-		        		
-		        		
-			        	 descend();
-			          
-			        });
-		        
-		        else
-		        	transition.setOnFinished(e->{
-		        		
-		        		blockGridPan.getChildren().remove(block);
-		        		
-		        		createOneBlock(block.getX(),block.getY());
-		        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
-		        		magicBirdBlock.setSpecialType("MagicBird");
-		        		magicBirdBlock.setBackgroundColor("MagicBird");
-		        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
-		        		
-			        });
+	        	if(block.getColor().equals("MagicBird")){
+	        		 
+	 		        	transition.setOnFinished(e->{
+	 		        		
+	 		        		blockGridPan.getChildren().remove(block);
+	 		        		
+	 			        });
+	        	}
+	        	else{	
+		        	
+			        	transition.setOnFinished(e->{
+			        		
+			        		blockGridPan.getChildren().remove(block);
+			        		
+			        		createOneBlock(block.getX(),block.getY());
+			        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
+			        		magicBirdBlock.setSpecialType("MagicBird");
+			        		magicBirdBlock.setBackgroundColor("MagicBird");
+			        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
+			        		
+				        });
+	        	}
 	        }
 	        else if(block.getSpecialType().equals("Bomb")){			//变成爆炸块
-	        	if(i == BlockManager.length - 1)
-			        transition.setOnFinished(e->{
-			        	blockGridPan.getChildren().remove(block);
-			        	
-			        	createOneBlock(block.getX(),block.getY());
-		        		Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
-		        		bombBlock.setSpecialType("Bomb");
-		        		bombBlock.setBackgroundColor("Bomb");
-//		        		bombBlock.setBombColor("Bomb");
-		        		blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
-		        		
-		        		
-			        	 descend();
-			          
-			        });
-		        
-		        else
+	        	
 		        	transition.setOnFinished(e->{
 		        		
 		        		blockGridPan.getChildren().remove(block);
@@ -551,15 +526,83 @@ public class GameWinControllor {
 		        		
 			        });
 	        }
+	        else if(block.getSpecialType().equals("horizon")){
+	        	if(block.getPattern().equals("horizon")){
+	        		 for(int j = 0;j < 10;j++){
+	        			 if(BlockManager.blocks[j][block.getY()] != null)
+	        				 h.add(BlockManager.blocks[j][block.getY()]);
+	        		 }
+	 		        	transition.setOnFinished(e->{
+	 		        		
+	 		        		blockGridPan.getChildren().remove(block);
+	 		        		
+	 			        });
+	        	}
+	        	else{
+	        		
+			        	transition.setOnFinished(e->{
+			        		
+			        		blockGridPan.getChildren().remove(block);
+			        		
+			        		createOneBlock(block.getX(),block.getY());
+			        		Block b = BlockManager.blocks[block.getX()][block.getY()];
+			        		b.setSpecialType("horizon");
+			        		b.setBackgroundColor(block.getColor());
+			        		b.setPattern("horizon");
+			        		blockGridPan.add(b, b.getX(), b.getY());
+			        		
+				        });
+	        	}
+	        }
+	        else if(block.getSpecialType().equals("vertical")){
+	        	if(block.getPattern().equals("vertical")){
+	        		 for(int j = 0;j < 10;j++){
+	        			 if(BlockManager.blocks[block.getX()][j] != null)
+	        				 h.add(BlockManager.blocks[block.getX()][j]);
+	        		 }
+	 		        	transition.setOnFinished(e->{
+	 		        		
+	 		        		blockGridPan.getChildren().remove(block);
+	 		        		
+	 			        });
+	        	}
+	        	else{
+	        		
+			        	transition.setOnFinished(e->{
+			        		
+			        		blockGridPan.getChildren().remove(block);
+			        		
+			        		createOneBlock(block.getX(),block.getY());
+			        		Block b = BlockManager.blocks[block.getX()][block.getY()];
+			        		b.setSpecialType("vertical");
+			        		b.setBackgroundColor(block.getColor());
+			        		b.setPattern("vertical");
+			        		blockGridPan.add(b, b.getX(), b.getY());
+			        		
+				        });
+	        	}
+	        }
+	        
 	        
 	        transition.play();
 	        
 		}
-	//	        ChangeListener<? super EventHandler<ActionEvent>> listener =
-//			null;
-//	        eraseOnFinished = transition.getOnFinished();
-	       
-	        	
+		if(h.isEmpty())
+	    transition.setOnFinished(e->{
+		    descend();
+	    });    
+		else{
+			BlockManager.resetArrays();
+			Iterator<Block> iterator = h.iterator();
+			while(iterator.hasNext()){
+	        	Block b = iterator.next();
+	        	BlockManager.erased[BlockManager.length][0] = b.getX();
+	        	BlockManager.erased[BlockManager.length][1] = b.getY();
+	        	BlockManager.length++;
+	        }
+			erase();
+		}
+			
 	        
 	}
 

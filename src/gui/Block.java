@@ -15,7 +15,7 @@ public class Block extends Button{
 	private boolean isPressed=false;
 	private boolean Descended=false;
 	private String specialType = "null";
-
+	private String pattern = "null";
 
 	public Block(int x,int y) {
 		super();
@@ -105,5 +105,17 @@ public class Block extends Button{
 
 	public void setSpecialType(String specialType) {
 		this.specialType = specialType;
+	}
+
+	public String getPattern() {
+		return pattern;
+	}
+
+	public void setPattern(String pattern) {
+		this.pattern = pattern;
+		if(pattern.equals("horizon"))
+			this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,0,0,1),8,0.8,0,0) ;");
+		if(pattern.equals("vertical"))
+			this.setStyle("-fx-effect: dropshadow(gaussian,rgba(0,255,0,1),8,0.8,0,0) ;");
 	}
 }
