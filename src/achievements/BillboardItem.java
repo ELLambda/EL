@@ -15,6 +15,32 @@ public class BillboardItem implements Comparable<Object>
 	//分数
 	public int score;
 	//时间
+<<<<<<< HEAD
+
+	public int time;
+	//大名
+	public String name;
+
+//	public int getScore()
+//	{
+//		return score;
+//	}
+//
+//	public void setScore(int score)
+//	{
+//		this.score = score;
+//	}
+//
+//	public int getTime()
+//	{
+//		return time;
+//	}
+//
+//	public void setTime(int time)
+//	{
+//		this.time = time;
+//	}
+=======
 
 	public String time;
 
@@ -40,6 +66,11 @@ public class BillboardItem implements Comparable<Object>
 		this.time = time;
 	}
 
+<<<<<<< HEAD
+=======
+>>>>>>> 2d576e7ba2db7b610733c745555448b6ae848652
+
+>>>>>>> f66200cd568bf0e15cac4ab6ef6255f349b8eea2
 	
 	//构造体，获取高分信息
 	public BillboardItem(String input){
@@ -48,9 +79,19 @@ public class BillboardItem implements Comparable<Object>
 			//时间在前分数在后
 			String[] temp = input.split("&");
 
+<<<<<<< HEAD
+			this.name=temp[0];
+			this.time = Integer.valueOf(temp[1]);
+			this.score = Integer.valueOf(temp[2]);
+=======
 			this.time = temp[0];
 			this.score = Integer.valueOf(temp[1]);
 			this.name = temp[2];
+<<<<<<< HEAD
+=======
+			
+>>>>>>> 2d576e7ba2db7b610733c745555448b6ae848652
+>>>>>>> f66200cd568bf0e15cac4ab6ef6255f349b8eea2
 
 			}
 	}
