@@ -1,11 +1,7 @@
 package gui;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
 
-import achievements.Billboard;
 import achievements.Calculator;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -23,22 +19,22 @@ public class GameWin extends Stage{
 
 	Parent root;
 
-	
-	
+
+
 	public GameWin() {
 		// TODO Auto-generated constructor stub
 		Music.playBgMusic(13);//bgm
 		try {
 			this.initStyle(StageStyle.TRANSPARENT);
-			
+
 			root=FXMLLoader.load(getClass().getResource("GameWin.fxml"));
-			
+
 			Scene scene=new Scene(root, 1200, 800);
 			scene.setFill(Color.TRANSPARENT);
 			scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
 			scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
 
-			
+
 			//��lookup����λ�ؼ�
 			Button exitBtn=(Button) root.lookup("#exitBtn");
 			exitBtn.setOnAction(e->{
@@ -59,14 +55,6 @@ public class GameWin extends Stage{
 							new LevelWin();
 							break;
 						case 3:
-							
-							Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
-						    String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());  
-							Billboard.scorelist[Billboard.RANK].setTime(str);
-							
-							Arrays.sort(Billboard.scorelist);
-							for(int i = 0 ; i < Billboard.RANK+1 ; i++)
-								System.out.println(Billboard.scorelist[i]);
 							new MainWin();
 							break;
 					}
