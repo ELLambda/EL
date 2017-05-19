@@ -122,6 +122,6 @@
             <Font size="19.0" />
          </font>
       </Button>
-      <Label fx:id="coin" layoutX="13.0" layoutY="13.0" text="当前积分:      " />
+      <Label fx:id="coin" layoutX="13.0" layoutY="13.0" text="金币持有量:      " />
    </children>
 </AnchorPane>

@@ -27,8 +27,8 @@ public class ShopItem
 	//玩家是否选中该商品
 	private boolean selected = false;
 	
-	//添加的生命值或精力值
-	private int addedStep;
+	//添加的生命值或精力值（gyb将此变为静态）
+	private static int addedStep;
 	
 	//添加的分数
 	private int addedScore;
@@ -42,8 +42,8 @@ public class ShopItem
 		this.addedScore = addedScore;
 	}
 
-	//添加生命值或精力值
-	public int addStep(int step){
+	//添加生命值或精力值(gyb将此变为静态）
+	public static int addStep(int step){
 		return step+addedStep;
 	}
 

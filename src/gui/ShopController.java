@@ -10,6 +10,8 @@ import javafx.scene.layout.GridPane;
 import shop.Shop;
 import shop.ShopItem;
 
+import java.util.ArrayList;
+
 public class ShopController {
 	@FXML
 	public AnchorPane root;
@@ -58,6 +60,7 @@ public class ShopController {
 	public String item_1;
 	public String item_2;
 	public String item_3;
+	//ArrayList<ShopItem> selectedList= new ArrayList<ShopItem>();
 	
 	@FXML
 	public void onExitBtnClicked(){
@@ -70,11 +73,15 @@ public class ShopController {
 	public void onOKBtnClicked(){
 		Platform.runLater(()->{
 			//some store and compute
-            //if( Shop.coins >= p_sum.getText();
-//            if(Shop.coins >= p_sum.getText()){
-//
-//            }
-			root.getScene().getWindow().hide();
+            int total = Integer.parseInt(p_sum.getText().replaceAll(" ",""));
+            if(shop.Shop.coins >=total){
+                shop.Shop.coins = shop.Shop.coins - total;
+                //new TipsWin 提示购买成功窗口
+                root.getScene().getWindow().hide();
+            }else{
+                //new TipsWin 提示金币不够
+                label.setText("金币数量不够哦~");
+            }
 		});
 	}
 	@FXML
@@ -102,6 +109,7 @@ public class ShopController {
 			p_sum.setText(String.valueOf("         " + String.valueOf(sum_2)));
 
         ShopItem S_1 = new ShopItem(item_1, price_1, i_1, price_1,0);
+        shop.Shop.selectedList.add(S_1);
 		}
 	
 	@FXML
@@ -119,6 +127,7 @@ public class ShopController {
 		p_sum.setText(String.valueOf("         " + String.valueOf(sum_2)));
 
         ShopItem S_2 = new ShopItem(item_2, price_2, i_2, price_2,0);
+        shop.Shop.selectedList.add(S_2);
 	}
 	
 	@FXML
@@ -136,6 +145,7 @@ public class ShopController {
 			p_sum.setText("         " + String.valueOf(sum_2));
 
         ShopItem S_3 = new ShopItem(item_3, price_3, i_3, price_3,0);
+        shop.Shop.selectedList.add(S_3);
 	}
 
 }
