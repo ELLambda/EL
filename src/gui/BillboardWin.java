@@ -34,7 +34,7 @@ public class BillboardWin extends Stage {
 
 
         //Billboard.scorelist[0].setBillboardItem("1000&100");
-        Billboard.getBillboardCondition();
+//        Billboard.getBillboardCondition();
 
         BillboardItem[] items=new BillboardItem[Billboard.getRank()];
         for(int i=0;i<Billboard.getRank();i++){
