@@ -17,11 +17,7 @@ public class Main extends Application{
 				// TODO Auto-generated method stub
 				try {
 					new WelcomeWin().start(new Stage());
-<<<<<<< HEAD
-					new BillboardWin();
-=======
-//					new BillboardWin();
->>>>>>> 9cc66c875785da7ac38d3c944a1d3f88c577c696
+
 					//new ShopWin();
 					//new AchievementWin();
 //					Data.setLimit(12);

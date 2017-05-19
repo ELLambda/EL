@@ -36,6 +36,8 @@ public class BillboardWin extends Stage {
         //Billboard.scorelist[0].setBillboardItem("1000&100");
 //        Billboard.getBillboardCondition();
 
+        Billboard.getBillboardCondition();
+
         BillboardItem[] items=new BillboardItem[Billboard.getRank()];
         for(int i=0;i<Billboard.getRank();i++){
             items[i]=Billboard.scorelist[i];
@@ -45,10 +47,10 @@ public class BillboardWin extends Stage {
 //        for(int i=0;i<Billboard.getRank()-1;i++){
 //           list.add(Billboard.scorelist[i].getBillboardItem());
 //        }
-        listView.setMinWidth(320);
+        listView.setMinWidth(400);
         listView.setPrefHeight(320);
         listView.setItems(list);
-        listView.setLayoutX(250);
+        listView.setLayoutX(170);
         listView.setLayoutY(40);
 
         root.getChildren().add(listView);

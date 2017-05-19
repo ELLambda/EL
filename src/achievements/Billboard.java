@@ -33,9 +33,9 @@ public class Billboard
 //	public static void main(String args[]){
 //		getBillboardCondition();
 //	}
-	static{
+//	static{
 	//读高分榜
-//	public static void getBillboardCondition() {
+	public static void getBillboardCondition() {
 		String line = new String();
 		
 		try {
@@ -49,11 +49,16 @@ public class Billboard
 			String[] spl = line.split("@");
 			
 
-			for (int i = 0; i < RANK + 1; i++) {
-				//System.out.println(i);
+			for (int i = 0; i < spl.length; i++) {
+				System.out.println(i);
 
 //				scorelist[i].setBillboardItem(spl[i]);
 				scorelist[i]=new BillboardItem(spl[i]);
+				System.out.println(scorelist[i]);
+			}
+			//长于spl长度的，也就是没有记录的BillboardItem也要初始化
+			for(int i=spl.length;i<RANK+1;i++){
+				scorelist[i]=new BillboardItem(" &0& ");
 				System.out.println(scorelist[i]);
 			}
 			}
@@ -72,14 +77,15 @@ public class Billboard
 	
 	
 	//存高分榜
+	//写入的时候调用了getBillboardItem方法
 	public static void setBillboardCondition() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(
 					"src/achievements/Billboard.txt",false));
-			for(int i=0;i<RANK-1;i++){
-				bw.write(scorelist[i]+"@");
+			for(int i=0;i<RANK;i++){
+				bw.write(scorelist[i].getBillboardItem()+"@");
 			}
-			bw.write(scorelist[RANK-1]+"");
+			bw.write(scorelist[RANK].getBillboardItem()+"");
 			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();

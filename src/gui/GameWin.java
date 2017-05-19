@@ -42,7 +42,7 @@ public class GameWin extends Stage{
 			//��lookup����λ�ؼ�
 			Button exitBtn=(Button) root.lookup("#exitBtn");
 			exitBtn.setOnAction(e->{
-				this.close();
+
 				Calculator.scores += GameWinControllor.score.intValue();
 				Music.stopBgMusic();
 				Platform.runLater(()->{
@@ -67,9 +67,13 @@ public class GameWin extends Stage{
 							Arrays.sort(Billboard.scorelist);
 							for(int i = 0 ; i < Billboard.RANK+1 ; i++)
 								System.out.println(Billboard.scorelist[i]);
+
+							Billboard.setBillboardCondition();
+
 							new MainWin();
 							break;
 					}
+					this.close();
 				});
 			});
 			

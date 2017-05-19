@@ -15,32 +15,10 @@ public class BillboardItem implements Comparable<Object>
 	//分数
 	public int score;
 	//时间
-<<<<<<< HEAD
-	public int time;
-	//大名
-	public String name;
 
-//	public int getScore()
-//	{
-//		return score;
-//	}
-//
-//	public void setScore(int score)
-//	{
-//		this.score = score;
-//	}
-//
-//	public int getTime()
-//	{
-//		return time;
-//	}
-//
-//	public void setTime(int time)
-//	{
-//		this.time = time;
-//	}
-=======
 	public String time;
+
+	public String name;
 
 	public int getScore()
 	{
@@ -61,34 +39,31 @@ public class BillboardItem implements Comparable<Object>
 	{
 		this.time = time;
 	}
->>>>>>> 9cc66c875785da7ac38d3c944a1d3f88c577c696
+
 
 	
 	//构造体，获取高分信息
 	public BillboardItem(String input){
 		if(input != null){
-			//文件中用&分隔了玩家大名和时间和分数
+			//文件中用&分隔了时间和分数
 			//时间在前分数在后
 			String[] temp = input.split("&");
-<<<<<<< HEAD
-			this.name=temp[0];
-			this.time = Integer.valueOf(temp[1]);
-			this.score = Integer.valueOf(temp[2]);
-=======
+
 			this.time = temp[0];
 			this.score = Integer.valueOf(temp[1]);
+			this.name = temp[2];
 			
->>>>>>> 9cc66c875785da7ac38d3c944a1d3f88c577c696
+
 			}
 	}
 	
 	public String getBillboardItem(){
-		return this.time + "&" + this.score;
+		return this.time + "&" + this.score+"&"+this.name;
 	}
 
 
 
-	//override toString
+//	//override toString
 	@Override
 	public String toString(){
 		return "Name:"+this.name+"    Score:"+this.score+"    Time:"+this.time;
