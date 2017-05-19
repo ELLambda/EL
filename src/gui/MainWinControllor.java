@@ -60,6 +60,7 @@ public class MainWinControllor {
 
 
     public void onAchievementBtnClick(ActionEvent actionEvent) {
+		startBtn.getScene().getWindow().hide();
 		new AchievementWin();
     }
 

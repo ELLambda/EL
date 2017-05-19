@@ -31,7 +31,7 @@ public class AchievementWin extends Stage{
     public String[] tips=new String[]{"消灭"+String.valueOf(starElementedNum)+"个该星星，点亮该勋章",
             "使用了"+String.valueOf(toolUsedNum)+"次该道具，点亮该勋章",
             "总步数超过了"+String.valueOf(stepsUsedNum)+"步，点亮该勋章",
-            "总分数超过了"+String.valueOf(scoreGot)+"分，点亮该勋章"};
+            "总分数超过了"+String.valueOf(scoreGot)+"分，点亮该勋章","\n点击该勋章可查看积分榜"};
 
     public AchievementWin(){
         root=new AnchorPane();
@@ -66,9 +66,16 @@ public class AchievementWin extends Stage{
             achievement.setMinSize(100,120);
             if(i<3){
                 achievement.setTooltip(new Tooltip(tips[1]));
+            }else if(i==4){
+                achievement.setTooltip(new Tooltip((tips[3]+tips[4])));
+                achievement.setOnAction(e->{
+                    achievement.getScene().getWindow().hide();
+                    new BillboardWin();
+                });
             }else {
                 achievement.setTooltip(new Tooltip(tips[i-1]));
             }
+
 
         }
 
@@ -123,6 +130,7 @@ public class AchievementWin extends Stage{
         //点击圆形关闭窗口
         circle.setOnMouseClicked(e->{
             this.close();
+            new MainWin();
         });
 
 //		ImageView circle2=new ImageView(new Image("img\\circle2.png"));
