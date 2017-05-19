@@ -18,8 +18,11 @@ public class Main extends Application{
 				try {
 					new WelcomeWin().start(new Stage());
 
+<<<<<<< HEAD
 					new BillboardWin();
 
+=======
+>>>>>>> 2d576e7ba2db7b610733c745555448b6ae848652
 					//new ShopWin();
 					//new AchievementWin();
 //					Data.setLimit(12);

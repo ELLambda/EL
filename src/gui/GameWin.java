@@ -38,7 +38,7 @@ public class GameWin extends Stage{
 			//��lookup����λ�ؼ�
 			Button exitBtn=(Button) root.lookup("#exitBtn");
 			exitBtn.setOnAction(e->{
-				this.close();
+
 				Calculator.scores += GameWinControllor.score.intValue();
 				Music.stopBgMusic();
 				Platform.runLater(()->{
@@ -55,9 +55,24 @@ public class GameWin extends Stage{
 							new LevelWin();
 							break;
 						case 3:
+<<<<<<< HEAD
+=======
+							
+							Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
+						    String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());  
+							Billboard.scorelist[Billboard.RANK].setTime(str);
+							
+							Arrays.sort(Billboard.scorelist);
+							for(int i = 0 ; i < Billboard.RANK+1 ; i++)
+								System.out.println(Billboard.scorelist[i]);
+
+							Billboard.setBillboardCondition();
+
+>>>>>>> 2d576e7ba2db7b610733c745555448b6ae848652
 							new MainWin();
 							break;
 					}
+					this.close();
 				});
 			});
 			
