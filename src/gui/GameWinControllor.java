@@ -295,6 +295,9 @@ public class GameWinControllor {
 					Calculator.smallHammer++;
 					if(Calculator.smallHammer >= ITEMBOUND)
 						AchievementsManager.AchievementsList[1][0].setAchieved(true);
+					else
+						AchievementsManager.AchievementsList[1][0].setRate((double)Calculator.smallHammer/(double)ITEMBOUND);
+
 					setToolNotSelected(smallHammer);
 					score.set(score.intValue() - 20);		//使用小锤子技能要减20分
 					itemSelected="null";
@@ -346,6 +349,9 @@ public class GameWinControllor {
 					Calculator.bigHammer++;
 					if(Calculator.bigHammer >= ITEMBOUND)
 						AchievementsManager.AchievementsList[1][1].setAchieved(true);
+					else
+						AchievementsManager.AchievementsList[1][1].setRate((double)Calculator.bigHammer/(double)ITEMBOUND);
+
 
 					setToolNotSelected(bigHammer);
 					score.set(score.intValue() - 200);		//使用大锤子技能减200分
@@ -377,6 +383,9 @@ public class GameWinControllor {
 	        		Calculator.magic++;
 					if(Calculator.magic >= ITEMBOUND)
 						AchievementsManager.AchievementsList[1][2].setAchieved(true);
+					else
+						AchievementsManager.AchievementsList[1][2].setRate((double)Calculator.magic/(double)ITEMBOUND);
+
 
 	        		setToolNotSelected(magic);
 					score.set(score.intValue() - 500);		//使用魔力棒技能减500分
@@ -420,6 +429,9 @@ public class GameWinControllor {
 		Calculator.steps += erasedTimes;
 		if(Calculator.steps>= STEPBOUND)
 			AchievementsManager.AchievementsList[1][3].setAchieved(true);
+		else
+				AchievementsManager.AchievementsList[1][3].setRate((double)Calculator.steps/(double)STEPBOUND);
+
 
 
 		if(Data.mode == 2)
@@ -441,32 +453,48 @@ public class GameWinControllor {
 			switch(block.getColor()){
 			case("1"):
 				Calculator.first++;
+
 			if(Calculator.first >= BLOCKBOUND)
 					AchievementsManager.AchievementsList[0][0].setAchieved(true);
+			else
+				AchievementsManager.AchievementsList[0][0].setRate((double)Calculator.first/(double)BLOCKBOUND);
+					
 
 			break;
 			case("2"):
 				Calculator.second++;
 			if(Calculator.second >= BLOCKBOUND)
 				AchievementsManager.AchievementsList[0][1].setAchieved(true);
+			else
+				AchievementsManager.AchievementsList[0][1].setRate((double)Calculator.second/(double)BLOCKBOUND);
+
 
 			break;
 			case("3"):
 				Calculator.third++;
 			if(Calculator.third >= BLOCKBOUND)
 				AchievementsManager.AchievementsList[0][2].setAchieved(true);
+			else
+					AchievementsManager.AchievementsList[0][2].setRate((double)Calculator.third/(double)BLOCKBOUND);
+
 
 			break;
 			case("4"):
 				Calculator.fourth++;
 			if(Calculator.fourth >= BLOCKBOUND)
 				AchievementsManager.AchievementsList[0][3].setAchieved(true);
+			else
+				AchievementsManager.AchievementsList[0][3].setRate((double)Calculator.fourth/(double)BLOCKBOUND);
+
 
 			break;
 			case("5"):
 				Calculator.fifth++;
 			if(Calculator.fifth >= BLOCKBOUND)
 				AchievementsManager.AchievementsList[0][4].setAchieved(true);
+			else
+				AchievementsManager.AchievementsList[0][4].setRate((double)Calculator.fifth/(double)BLOCKBOUND);
+
 
 			break;
 			}
@@ -737,6 +765,9 @@ public class GameWinControllor {
 			Calculator.scores += score.intValue();
 			if(Calculator.scores >= SCOREBOUND)
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
+			else
+				AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/(double)ITEMBOUND);
+
 
 			Timer timer = new Timer();
 			timer.schedule(new TimerTask(){
@@ -770,6 +801,9 @@ public class GameWinControllor {
 			Calculator.scores += score.intValue();
 			if(Calculator.scores >= SCOREBOUND)
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
+			else
+				AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/(double)ITEMBOUND);
+
 			
 			if(Data.mode == 2){
 				

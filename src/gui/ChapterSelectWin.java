@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import shop.Shop;
 /**
  * 选关界面
  * @author julia98
@@ -18,6 +19,8 @@ public class ChapterSelectWin extends Stage {
 	AnchorPane root;
 
 	public ChapterSelectWin() throws IOException {
+		Shop.getCoinsCondition();
+
 		Music.playBgMusic(4);
 		root= FXMLLoader.load(getClass().getResource("chapterSelect.fxml"));
 

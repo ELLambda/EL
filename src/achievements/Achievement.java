@@ -19,6 +19,8 @@ public class Achievement extends Button
 	public String name = null;
 	//成就是否完成
 	public boolean achieved = false;
+	//现在得分的比例
+	public double rate = 0.0;
 	
 	
 	//构造体
@@ -55,4 +57,19 @@ public class Achievement extends Button
 	public void setOnNotPressed(){
 		
 	}
+	
+	//现在得分的比例
+	public double getRate()
+	{
+		return rate;
+	}
+
+	public void setRate(double rate)
+	{
+		
+		this.rate = rate;
+	}
+	
+	
+	
 }
