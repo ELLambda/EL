@@ -12,11 +12,12 @@ import achievements.BillboardItem;
 
 /**  
 * 商店
-* 
+* 在chapterselectwin里做了初始化
 *  
 * @author Andy
 * @version  
 */
+
 
 public class Shop
 {
@@ -51,7 +52,9 @@ public class Shop
 //	public Shop(int coins){
 //		this.coins = coins;
 //	}
-	static{
+	public static void getCoinsCondition()
+
+	{
 		String line = new String();
 		
 		try {
@@ -60,7 +63,8 @@ public class Shop
 
 			if((line = br.readLine()) != null){
 				coins = Integer.valueOf(line);
-			}		
+			}
+			System.out.println(coins+"");
 			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -98,10 +102,8 @@ public class Shop
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}
-}
 	
 	
 	
 	
-
+	}}

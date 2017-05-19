@@ -86,7 +86,7 @@ public class ShopController {
 	}
 	@FXML
 	void init(){
-		coin.setText("现有金币："+ coins);
+		coin.setText("现有金币："+ shop.Shop.coins);
 		md1.setText(String.valueOf(i_1));
 		md2.setText(String.valueOf(i_2));
 		md3.setText(String.valueOf(i_3));
