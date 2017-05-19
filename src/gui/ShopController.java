@@ -80,6 +80,7 @@ public class ShopController {
                 root.getScene().getWindow().hide();
             }else{
                 //new TipsWin 提示金币不够
+            	shop.Shop.selectedList.clear();
                 label.setText("金币数量不够哦~");
             }
 		});
