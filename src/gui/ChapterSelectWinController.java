@@ -1,9 +1,14 @@
 package gui;
 
 
+
+import java.io.IOException;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -40,6 +45,8 @@ public class ChapterSelectWinController {
 	@FXML
 	public Button ending;
 	@FXML
+	public Button shop;
+	@FXML 
 	public Button back;
 	
 	
@@ -227,5 +234,19 @@ public class ChapterSelectWinController {
 			});
 		}
 	}
+	
+	@FXML
+	public void onShopBtnClicked(){
+			Platform.runLater(()->{
+				//shopWindow
+				try {
+					ShopWin shop = new ShopWin();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			});
+	}
+
 
 }

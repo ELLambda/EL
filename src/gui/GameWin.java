@@ -23,7 +23,7 @@ public class GameWin extends Stage{
 	
 	public GameWin() {
 		// TODO Auto-generated constructor stub
-		Music.playBgMusic(9);//bgm
+		Music.playBgMusic(13);//bgm
 		try {
 			this.initStyle(StageStyle.TRANSPARENT);
 			
@@ -44,6 +44,7 @@ public class GameWin extends Stage{
 				Platform.runLater(()->{
 					switch (Data.mode){
 						case 0:
+						case 2:
 							try {
 								new ChapterSelectWin();
 							} catch (IOException e1) {
@@ -52,6 +53,9 @@ public class GameWin extends Stage{
 							break;
 						case 1:
 							new LevelWin();
+							break;
+						case 3:
+							new MainWin();
 							break;
 					}
 				});

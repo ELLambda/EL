@@ -1,5 +1,8 @@
 package shop;
-/**  
+
+import gui.ShopController;
+
+/**
 * 类说明   
 *  
 * @author Andy
@@ -13,6 +16,9 @@ public class ShopItem
 
 	//商品价格
 	private int price;
+
+	//所选商品数量
+	private int num;
 	
 	//商品是否可获得
 	//可以获得的为亮或者弹出提示框
@@ -21,21 +27,23 @@ public class ShopItem
 	//玩家是否选中该商品
 	private boolean selected = false;
 	
-	//添加的生命值或精力值
-	private int addedStep;
+	//添加的生命值或精力值（gyb将此变为静态）
+	private static int addedStep;
 	
 	//添加的分数
 	private int addedScore;
 	
 	//构造体
-	public ShopItem(String name ,int price, int addedStep, int addedScore){
+	public ShopItem(String name ,int price, int num, int addedStep, int addedScore){
 		this.name = name;
 		this.price = price;
+		this.num = num;
 		this.addedStep = addedStep;
 		this.addedScore = addedScore;
 	}
-	//添加生命值或精力值
-	public int addStep(int step){
+
+	//添加生命值或精力值(gyb将此变为静态）
+	public static int addStep(int step){
 		return step+addedStep;
 	}
 

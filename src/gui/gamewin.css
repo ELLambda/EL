@@ -38,7 +38,7 @@
 	-fx-text-fill: white;
 }
 .progress-bar{
-	-fx-accent:green;
+	-fx-accent:red;/*把血槽颜色改成红的了。。*/
 }
 #smallHammer{
 	-fx-background-image: url("img/hammer.png");

@@ -23,15 +23,16 @@
 #back:pressed{
 	-fx-background-color: rgba(255,255,255,0.5);
 }
-#pic1{
-	-fx-background-color: rgba(255,255,255,0.5);
-	/*-fx-effect: dropshadow(gaussian,rgba(0,233,222,0.2),5,5,0,0) ; */
-	-fx-border-radius: 23;
-	-fx-background-radius: 23;
+#shop{
+	-fx-border-radius: 0;
+	-fx-background-radius: 0;
+	-fx-pref-width: 60;
+	-fx-pref-height: 60;
+	-fx-background-color: transparent ;
+	-fx-background-image: url(img/store1.png);
 }
-#pic1:hover{
-	-fx-background-color: rgba(255,255,255,1);
-}
-#pic1:pressed{
-	-fx-background-color: rgba(255,255,255,0.5);
+#shop:hover{
+	-fx-pref-width: 63;
+	-fx-pref-height: 63;
+	-fx-background-image: url(img/store.png);
 }

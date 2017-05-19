@@ -85,6 +85,7 @@ public class Data {
     private static final int SHOP_CHAPTER11_STEP = 35;
     private static final int SHOP_CHAPTER12_STEP = 30;
     private static final int SHOP_CHAPTER13_STEP = 20;
+	private static final int NEVER_REACHED = 2147483647;
 
 
     //读文件
@@ -170,7 +171,9 @@ public class Data {
             case 13:
             	targetScore = STORY_CHAPTER13_SCORE;
             	totalstpes = STORY_CHAPTER13_STEP;
+            	break;
         }
+        	break;
         case 1:
         	switch(n){
             case 1:
@@ -222,61 +225,64 @@ public class Data {
                 totalstpes=BIRTHDAY_CHAPTER12_STEP;
                 break;
         }
+        	break;
         case 2:
         	switch(n){
         	
             case 1:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER1_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER1_STEP;
                 break;
             case 2:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER2_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER2_STEP;
                 break;
             case 3:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER3_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER3_STEP;
                break;
             case 4:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER4_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER4_STEP;
                break;
             case 5:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER5_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER5_STEP;
                 break;
             case 6:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER6_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER6_STEP;
                 break;
             case 7:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER7_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER7_STEP;
                break;
             case 8:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER8_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER8_STEP;
                 break;
             case 9:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER9_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER9_STEP;
                 break;
             case 10:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER10_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER10_STEP;
                 break;
             case 11:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER11_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER11_STEP;
                 break;
             case 12:
-            	targetScore=-1;
-                totalstpes=SHOP_CHAPTER12_STEP;
+            	targetScore = NEVER_REACHED;
+                totalstpes = SHOP_CHAPTER12_STEP;
                 break;
             case 13:
-            	targetScore = -1;
-            	totalstpes = SHOP_CHAPTER13_STEP;     
+            	targetScore = NEVER_REACHED;
+            	totalstpes = SHOP_CHAPTER13_STEP;
+            	break;
            }
+        	break;
         	
         case 3:
         	targetScore = -1;
