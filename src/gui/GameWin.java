@@ -18,6 +18,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import achievements.Billboard;
+import achievements.BillboardItem;
 
 public class GameWin extends Stage{
 
@@ -27,7 +29,7 @@ public class GameWin extends Stage{
 
 	public GameWin() {
 		// TODO Auto-generated constructor stub
-		Music.playBgMusic(13);//bgm
+		Music.playBgMusic(15);//bgm
 		try {
 			this.initStyle(StageStyle.TRANSPARENT);
 
@@ -59,8 +61,11 @@ public class GameWin extends Stage{
 							new LevelWin();
 							break;
 						case 3:
+
 							Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
-						    String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());  
+						    String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
+
+
 							Billboard.scorelist[Billboard.RANK].setTime(str);
 							
 							Arrays.sort(Billboard.scorelist);
@@ -68,7 +73,6 @@ public class GameWin extends Stage{
 								System.out.println(Billboard.scorelist[i]);
 
 							Billboard.setBillboardCondition();
-
 
 							new MainWin();
 							break;

@@ -25,13 +25,15 @@ public class Music {
 	private static final MediaPlayer BG11 = MusicManager.getMediaPlayer("../music/bgm11.mp3"); 
 	private static final MediaPlayer BG12 = MusicManager.getMediaPlayer("../music/bgm12.mp3");
 	private static final MediaPlayer BG13 = MusicManager.getMediaPlayer("../music/effect4.mp3");
-	private static final MediaPlayer EFFECT1 = MusicManager.getMediaPlayer("../music/effect1.mp3");
+	private static final MediaPlayer BG14 = MusicManager.getMediaPlayer("../music/effect1.mp3");
+	private static final MediaPlayer BG15 = MusicManager.getMediaPlayer("../music/bgm15.mp3");
+	private static final MediaPlayer EFFECT1 = MusicManager.getMediaPlayer("../music/effect.mp3");
 	private static final MediaPlayer EFFECT2 = MusicManager.getMediaPlayer("../music/eliminate1.mp3");
 	private static final MediaPlayer EFFECT3 = MusicManager.getMediaPlayer("../music/change.mp3");
 	//private static final MediaPlayer EFFECT4 = MusicManager.getMediaPlayer("../music/open.mp3");
 	
 	private static final MediaPlayer[] effectMusic = {EFFECT1, EFFECT2, EFFECT3};
-	private static final MediaPlayer[] bgMusic = {THEME, BG1, BG2, BG3, BG4, BG5, BG6, BG7, BG8, BG9, BG10, BG11, BG12, BG13};	
+	private static final MediaPlayer[] bgMusic = {THEME, BG1, BG2, BG3, BG4, BG5, BG6, BG7, BG8, BG9, BG10, BG11, BG12, BG13, BG14, BG15};
 	
 //public static void main(String[] args) {
 //	playBgMusic(12);
