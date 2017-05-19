@@ -87,7 +87,7 @@ public class GameWinControllor {
 		//剧情模式
 		if(Data.mode == 0){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
-			stepLabel.setText("Health Point:"+steps*100);
+			stepLabel.setText("HP:"+steps*100);
 
 		}
 		//生日模式

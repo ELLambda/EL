@@ -18,7 +18,7 @@ public class Shop
 
 	//创建商品
 	//构造体顺序为名字，价格，添加的步数，添加的分数
-	list.add(new ShopItem("",0,0,0));
+	list.add(new ShopItem("",0,0,0,0));
 	
 //	//被选择的商品清单，后期可以实现背包或队伍在剧情主关卡的可视化
 //	static ArrayList<ShopItem> selectedList = new ArrayList<ShopItem>();
@@ -30,7 +30,7 @@ public class Shop
 	
 	//上一关获得的分数在上一关的界面中改成金币数
 	//上一关结束的时候把分数转为金币数
-	public static int coins;
+	public static int coins = 0;
 	
 	
 	//被选择的商品清单，后期可以实现背包或队伍在剧情主关卡的可视化
