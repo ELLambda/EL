@@ -17,7 +17,8 @@ public class Main extends Application{
 				// TODO Auto-generated method stub
 				try {
 					new WelcomeWin().start(new Stage());
-					new BillboardWin();
+					//new BillboardWin();
+					//new ShopWin();
 					//new AchievementWin();
 //					Data.setLimit(12);
 //					new GameWin();
