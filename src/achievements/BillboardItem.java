@@ -40,7 +40,6 @@ public class BillboardItem implements Comparable<Object>
 		this.time = time;
 	}
 
-
 	
 	//构造体，获取高分信息
 	public BillboardItem(String input){
@@ -52,7 +51,6 @@ public class BillboardItem implements Comparable<Object>
 			this.time = temp[0];
 			this.score = Integer.valueOf(temp[1]);
 			this.name = temp[2];
-			
 
 			}
 	}
