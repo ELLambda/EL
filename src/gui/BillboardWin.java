@@ -45,9 +45,11 @@ public class BillboardWin extends Stage {
 //        for(int i=0;i<Billboard.getRank()-1;i++){
 //           list.add(Billboard.scorelist[i].getBillboardItem());
 //        }
+        listView.setMinWidth(320);
+        listView.setPrefHeight(320);
         listView.setItems(list);
-        listView.setLayoutX(300);
-        listView.setLayoutY(24);
+        listView.setLayoutX(250);
+        listView.setLayoutY(40);
 
         root.getChildren().add(listView);
         root.setBackground(new Background(new BackgroundImage(new Image("gui/img/achievement/billboard.jpg"),

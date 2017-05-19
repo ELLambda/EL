@@ -16,6 +16,8 @@ public class BillboardItem implements Comparable<Object>
 	public int score;
 	//时间
 	public int time;
+	//大名
+	public String name;
 
 //	public int getScore()
 //	{
@@ -41,12 +43,12 @@ public class BillboardItem implements Comparable<Object>
 	//构造体，获取高分信息
 	public BillboardItem(String input){
 		if(input != null){
-			//文件中用&分隔了时间和分数
+			//文件中用&分隔了玩家大名和时间和分数
 			//时间在前分数在后
 			String[] temp = input.split("&");
-			this.time = Integer.valueOf(temp[0]);
-			this.score = Integer.valueOf(temp[1]);
-			
+			this.name=temp[0];
+			this.time = Integer.valueOf(temp[1]);
+			this.score = Integer.valueOf(temp[2]);
 			}
 	}
 	
@@ -59,7 +61,7 @@ public class BillboardItem implements Comparable<Object>
 	//override toString
 	@Override
 	public String toString(){
-		return "Score:"+this.score+"    Time:"+this.time;
+		return "Name:"+this.name+"    Score:"+this.score+"    Time:"+this.time;
 	}
 
 	//降序排列

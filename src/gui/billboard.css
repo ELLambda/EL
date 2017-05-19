@@ -2,9 +2,8 @@
 .list-view{
     -fx-background-color: rgba(255,255,255,0.2);
     -fx-background-radius: 30;
-    -fx-padding:30;
+    -fx-padding:20;
     -fx-pref-rows: 10;
-    -fx-pref-height: 350;
 }
 .list-cell{
     -fx-background-color: transparent;
