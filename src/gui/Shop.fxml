@@ -16,13 +16,14 @@
             <Image url="@img/shop.png" />
          </image>
       </ImageView>
-      <Label fx:id="label" layoutX="260.0" layoutY="37.0" text="SHOP" textFill="#222120">
+      <Label fx:id="label" layoutX="179.0" layoutY="28.0" text="         SHOP" textFill="#222120">
          <font>
             <Font size="30.0" />
          </font>
       </Label>
       <GridPane fx:id="shopPane" layoutX="96.0" layoutY="80.0" prefHeight="246.0" prefWidth="409.0">
         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -35,79 +36,94 @@
             <RowConstraints maxHeight="72.0" minHeight="10.0" prefHeight="52.38104248046875" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label text="         物品" textFill="#141414">
+            <Label text="物品" textFill="#141414">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label text="数量" textFill="#070707" GridPane.columnIndex="2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label text="价格" textFill="#141414" GridPane.columnIndex="3">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="md1" onMouseClicked="#onMed1Clicked" text="            0" textFill="#1e1d1d" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="         数量" textFill="#070707" GridPane.columnIndex="1">
+            <Label fx:id="md2" onMouseClicked="#onMed2Clicked" text="            0" textFill="#5e5757" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="       价格" textFill="#141414" GridPane.columnIndex="2">
+            <Label fx:id="md1_price" text="       0" textFill="#222121" GridPane.columnIndex="3" GridPane.rowIndex="1">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="       金创药" textFill="#111010" GridPane.rowIndex="1">
+            <Label fx:id="md2_price" text="       0" GridPane.columnIndex="3" GridPane.rowIndex="2">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label fx:id="md1" onMouseClicked="#onMed1Clicked" text="            0" textFill="#1e1d1d" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="md3" onMouseClicked="#onMed3Clicked" text="            0" textFill="#0d0d0d" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label text="       还神丹" textFill="#111010" GridPane.rowIndex="2">
+            <Label fx:id="md3_price" text="       0" GridPane.columnIndex="3" GridPane.rowIndex="3">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label fx:id="md2" onMouseClicked="#onMed2Clicked" text="            0" textFill="#5e5757" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label text=" TOTAL" GridPane.rowIndex="4">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="i_sum" text=" 0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label fx:id="md1_price" text="       0" textFill="#222121" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label fx:id="p_sum" text="0" GridPane.columnIndex="3" GridPane.rowIndex="4">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
-            <Label fx:id="md2_price" text="       0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <ImageView fitHeight="56.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <image>
+                  <Image url="@img/med1.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="86.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@img/med2.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="86.0" fitWidth="88.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="3">
+               <image>
+                  <Image url="@img/med3.png" />
+               </image>
+            </ImageView>
+            <Label text="金创药" GridPane.rowIndex="1">
                <font>
-                  <Font size="19.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
-            <Label text="     天香续命露" textFill="#111010" GridPane.rowIndex="3">
+            <Label text="还神丹" GridPane.rowIndex="2">
                <font>
-                  <Font size="18.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="md3" onMouseClicked="#onMed3Clicked" text="            0" textFill="#0d0d0d" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label text="天香续命露" GridPane.rowIndex="3">
                <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="md3_price" text="       0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label text="       TOTAL" GridPane.rowIndex="4">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="i_sum" text="            0" GridPane.columnIndex="1" GridPane.rowIndex="4">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label fx:id="p_sum" text="      0" GridPane.columnIndex="2" GridPane.rowIndex="4">
-               <font>
-                  <Font size="19.0" />
+                  <Font size="15.0" />
                </font>
             </Label>
          </children>
