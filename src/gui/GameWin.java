@@ -1,7 +1,11 @@
 package gui;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Calendar;
 
+import achievements.Billboard;
 import achievements.Calculator;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -55,6 +59,14 @@ public class GameWin extends Stage{
 							new LevelWin();
 							break;
 						case 3:
+							
+							Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
+						    String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());  
+							Billboard.scorelist[Billboard.RANK].setTime(str);
+							
+							Arrays.sort(Billboard.scorelist);
+							for(int i = 0 ; i < Billboard.RANK+1 ; i++)
+								System.out.println(Billboard.scorelist[i]);
 							new MainWin();
 							break;
 					}

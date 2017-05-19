@@ -232,6 +232,7 @@ public class BlockManager {
         h.addAll(erasableVBlocks);
         Iterator<Block> iterator = h.iterator();
         
+        
         while(iterator.hasNext()){
         	Block b = iterator.next();
         	erased[length][0] = b.getX();

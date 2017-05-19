@@ -17,8 +17,11 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
+import shop.Shop;
 
 import java.io.IOException;
+
+import achievements.Billboard;
 
 public class MainWin extends Stage{
 
@@ -64,6 +67,8 @@ public class MainWin extends Stage{
 
 		//点击圆形退出程序
 		circle.setOnMouseClicked(e->{
+			Billboard.setBillboardCondition();
+			Shop.setCoinsCondition();
 			System.exit(0);
 		});
 

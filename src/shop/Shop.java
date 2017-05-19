@@ -1,6 +1,14 @@
 package shop;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+
+import achievements.BillboardItem;
 
 /**  
 * 商店
@@ -43,7 +51,21 @@ public class Shop
 //	public Shop(int coins){
 //		this.coins = coins;
 //	}
-	
+	static{
+		String line = new String();
+		
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(
+					"src/shop/coins.txt"));
+
+			if((line = br.readLine()) != null){
+				coins = Integer.valueOf(line);
+			}		
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 	//购买此商品
 	public  static void buy(ShopItem s){
 		if(selectedList.size()<=SIZE_LIMIT)
@@ -64,6 +86,22 @@ public class Shop
 		
 	}
 	
-	
-	
+	public static void setCoinsCondition() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(
+					"src/shop/coins.txt",false));
+
+				bw.write(coins + "");
+			
+		
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }
+	
+	
+	
+	
+
