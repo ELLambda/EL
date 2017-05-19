@@ -168,7 +168,7 @@ public class GameWinControllor {
 							if(Data.mode != 3){
 								steps--;//步数减1
 								if(Data.mode == 0)
-									stepLabel.setText("Health Point:"+steps*100);
+									stepLabel.setText("HP:"+steps*100);
 								else if(Data.mode == 1)
 									stepLabel.setText("Steps Left:"+steps);
 								else if(Data.mode == 2)
@@ -282,7 +282,7 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("Health Point:"+steps*100);
+							stepLabel.setText("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
@@ -305,7 +305,7 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("Health Point:"+steps*100);
+							stepLabel.setText("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
@@ -358,7 +358,7 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("Health Point:"+steps*100);
+							stepLabel.setText("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
@@ -826,7 +826,7 @@ public class GameWinControllor {
 			if(Data.mode != 3){
 		        steps=Data.totalstpes;
 		        if(Data.mode == 0)
-					stepLabel.setText("Health Point:"+steps*100);
+					stepLabel.setText("HP:"+steps*100);
 				else if(Data.mode == 1)
 					stepLabel.setText("Steps Left:"+steps);
 				else if(Data.mode == 2)
