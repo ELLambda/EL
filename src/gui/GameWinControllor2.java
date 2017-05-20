@@ -17,7 +17,7 @@ import javafx.fxml.FXML;
 import javafx.util.Duration;
 
 /**  
-* 玩家点击三种块分别作为两个加数和和
+* 玩家点击四种块分别作为两个加数和和中的两个加数
 * 等式平衡且各项都不为零时游戏结束
 *   
 *  
