@@ -107,6 +107,7 @@ public class AchievementWin extends Stage{
         }
 
         Scene scene = new Scene(root,800,600);
+       // scene.getStylesheets().add(getClass().getResource("achievementwin.css").toExternalForm());
 
         circleAnimation();
 

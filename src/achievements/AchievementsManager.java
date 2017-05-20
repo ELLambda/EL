@@ -123,6 +123,8 @@ public class AchievementsManager
 			e.printStackTrace();
 		}
 
+		System.out.println("成就存档成功");
+
 	}
 //	public static void setAchieveCondition() {
 //		try {

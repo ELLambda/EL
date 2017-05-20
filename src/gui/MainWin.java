@@ -5,6 +5,7 @@
 package gui;
 
 import achievements.AchievementsManager;
+import achievements.Calculator;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
@@ -70,6 +71,7 @@ public class MainWin extends Stage{
 		circle.setOnMouseClicked(e->{
 			AchievementsManager.setAchieveCondition();
 			Billboard.setBillboardCondition();
+			Calculator.leaving();
 			Shop.setCoinsCondition();
 			System.exit(0);
 		});
