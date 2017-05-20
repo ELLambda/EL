@@ -41,6 +41,7 @@ public class AchievementsManager
 	}
 
 	//读档
+	//读rate
 	public static void getAchieveCondition() {
 		String line = new String();
 		try {
@@ -48,62 +49,110 @@ public class AchievementsManager
 					"src/achievements/achieveCondition.txt"));
 			while((line = br.readLine()) != null){
 
-			String[] spl = line.split("@");
-			
+				String[] spl = line.split("@");
 
-			//for (int i = 0; i < ACHIEVEMENT_NUMBER; i++)
+
+				//for (int i = 0; i < ACHIEVEMENT_NUMBER; i++)
 				for(int m = 0; m < HEIGHT;m++)
-				for(int n = 0; n < WIDTH; n++)
-				
-				if(Integer.parseInt(spl[m*WIDTH+n]) == 1)
-				{
-					AchievementsList[m][n].setAchieved(true);
-				}
-				else
-					{
-					AchievementsList[m][n].setAchieved(false);
-					}
-			
-			
+					for(int n = 0; n < WIDTH; n++)
+
+
+						AchievementsList[m][n].setRate(Double.parseDouble(spl[m*WIDTH+n]));
+
 //				System.out.println(achieveCondition[i]);
 			}
-			
+
 //			br.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
+//	public static void getAchieveCondition() {
+//		String line = new String();
+//		try {
+//			BufferedReader br = new BufferedReader(new FileReader(
+//					"src/achievements/achieveCondition.txt"));
+//			while((line = br.readLine()) != null){
+//
+//			String[] spl = line.split("@");
+//
+//
+//			//for (int i = 0; i < ACHIEVEMENT_NUMBER; i++)
+//				for(int m = 0; m < HEIGHT;m++)
+//				for(int n = 0; n < WIDTH; n++)
+//
+//				if(Integer.parseInt(spl[m*WIDTH+n]) == 1)
+//				{
+//					AchievementsList[m][n].setAchieved(true);
+//				}
+//				else
+//					{
+//					AchievementsList[m][n].setAchieved(false);
+//					}
+//
+//
+////				System.out.println(achieveCondition[i]);
+//			}
+//
+////			br.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	//存档
+	//存rate
 	public static void setAchieveCondition() {
 		try {
 			BufferedWriter bw = new BufferedWriter(new FileWriter(
 					"src/achievements/achieveCondition.txt",false));
 
-				for(int m = 0; m < HEIGHT; m++)
-					for(int n = 0; n < WIDTH; n++)
-						if(!((m == (HEIGHT-1)) && (n == (WIDTH - 1)))){
-						if(AchievementsList[m][n].getAchieved() == true)
-				bw.write("1"+"@");
-						else
-							bw.write("0"+"@");
-						}else
-						{
-							if(AchievementsList[m][n].getAchieved() == true)
-								bw.write("1");
-										else
-											bw.write("0");
+			for(int m = 0; m < HEIGHT; m++)
+				for(int n = 0; n < WIDTH; n++)
+					if(!((m == (HEIGHT-1)) && (n == (WIDTH - 1)))){
+						bw.write(String.valueOf(AchievementsList[m][n].getRate())+"@");
+					}else
+					{
+						bw.write(String.valueOf(AchievementsList[m][n].getRate()));
+					}
 
-						}
-			
 
-			
+
 			bw.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 	}
+//	public static void setAchieveCondition() {
+//		try {
+//			BufferedWriter bw = new BufferedWriter(new FileWriter(
+//					"src/achievements/achieveCondition.txt",false));
+//
+//				for(int m = 0; m < HEIGHT; m++)
+//					for(int n = 0; n < WIDTH; n++)
+//						if(!((m == (HEIGHT-1)) && (n == (WIDTH - 1)))){
+//						if(AchievementsList[m][n].getAchieved() == true)
+//				bw.write("1"+"@");
+//						else
+//							bw.write("0"+"@");
+//						}else
+//						{
+//							if(AchievementsList[m][n].getAchieved() == true)
+//								bw.write("1");
+//										else
+//											bw.write("0");
+//
+//						}
+//
+//
+//
+//			bw.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//	}
 }
 
 

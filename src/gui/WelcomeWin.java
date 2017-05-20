@@ -1,6 +1,7 @@
 package gui;
 
 import achievements.AchievementsManager;
+import achievements.Billboard;
 import achievements.Calculator;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
@@ -44,6 +45,7 @@ public class WelcomeWin extends Application{
 		Calculator.initialize();
 		AchievementsManager.setAchievements();
 		AchievementsManager.getAchieveCondition();
+		Billboard.getBillboardCondition();
 		musics();
 		rootPan=FXMLLoader.load(getClass().getResource("WelcomeWin.fxml"));
 		Scene scene=new Scene(rootPan,600,400);

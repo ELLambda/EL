@@ -50,6 +50,9 @@ public class AchievementWin extends Stage{
             achievement.setMinSize(100,120);
             Tooltip tooltip = new Tooltip(tips[0]);
             achievement.setTooltip(tooltip);
+
+//            VBox vbox=new VBox(10);
+//            vbox.getChildren().addAll()
         }
 
         HBox box2=new HBox();
@@ -98,9 +101,7 @@ public class AchievementWin extends Stage{
         for(int i=0;i<AchievementsManager.HEIGHT;i++){
             for(int j=0;j<AchievementsManager.WIDTH;j++){
                 Achievement achievement =AchievementsManager.AchievementsList[i][j];
-                if(!achievement.getAchieved()){
-                    achievement.setOpacity(0.2);
-                }
+                achievement.setOpacity(achievement.getRate());
 
             }
         }
