@@ -54,6 +54,7 @@ public class Block extends Button{
 	}
 	public void setNotSelected(){
 		this.setStyle("-fx-effect: null;");
+		setPattern(pattern);
 		//this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,255,255,1),8,0.2,0,0) ;");
 	}
 	

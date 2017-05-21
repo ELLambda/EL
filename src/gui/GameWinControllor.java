@@ -434,7 +434,7 @@ public class GameWinControllor {
 		 Music.playEffectMusic(1);//eliminate
 		
 		 System.out.println("start erasing");
-		 FadeTransition transition = null;
+		 
 		 HashSet<Block> h = new HashSet<Block>();
 		 
 		for(int i = 0;i < BlockManager.length;i++){
@@ -475,8 +475,11 @@ public class GameWinControllor {
 			break;
 			}
 			BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]] = null;
+			
+			final int iFinal = i;
+			
 			//消失的动画
-	        transition = new FadeTransition(Duration.seconds(SECOND),block);
+	        FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
 	        transition.setFromValue(1);
 	        transition.setToValue(0);
 	        if(block.getSpecialType().equals("null")){		//不变成特效块
@@ -484,7 +487,29 @@ public class GameWinControllor {
 		        	transition.setOnFinished(e->{
 		        		
 		        		blockGridPan.getChildren().remove(block);
-		        		
+		        		if(iFinal == BlockManager.length-1){
+		        			Iterator<Block> t = h.iterator();
+		        			while(t.hasNext()){
+		        				Block bk = t.next();
+		        				if(BlockManager.blocks[bk.getX()][bk.getY()] ==null)
+		        					h.remove(bk);
+		        			}
+		        			if(h.isEmpty())
+		        				descend();
+		        			else{
+		        				BlockManager.resetArrays();
+		        				Iterator<Block> iterator = h.iterator();
+		        				while(iterator.hasNext()){
+		        		        	Block b = iterator.next();
+		        		        	BlockManager.erased[BlockManager.length][0] = b.getX();
+		        		        	BlockManager.erased[BlockManager.length][1] = b.getY();
+		        		        	BlockManager.length++;
+		        		        }
+		        				h.clear();
+		        				erase();
+		        			}
+		        			
+		        		}
 			        });
 		    }
 	        else if(block.getSpecialType().equals("MagicBird")){			//变成魔力鸟
@@ -493,7 +518,29 @@ public class GameWinControllor {
 	 		        	transition.setOnFinished(e->{
 	 		        		
 	 		        		blockGridPan.getChildren().remove(block);
-	 		        		
+	 		        		if(iFinal == BlockManager.length-1){
+	 		        			Iterator<Block> t = h.iterator();
+			        			while(t.hasNext()){
+			        				Block bk = t.next();
+			        				if(BlockManager.blocks[bk.getX()][bk.getY()] ==null)
+			        					h.remove(bk);
+			        			}
+			        			if(h.isEmpty())
+			        				descend();
+			        			else{
+			        				BlockManager.resetArrays();
+			        				Iterator<Block> iterator = h.iterator();
+			        				while(iterator.hasNext()){
+			        		        	Block b = iterator.next();
+			        		        	BlockManager.erased[BlockManager.length][0] = b.getX();
+			        		        	BlockManager.erased[BlockManager.length][1] = b.getY();
+			        		        	BlockManager.length++;
+			        		        }
+			        				h.clear();
+			        				erase();
+			        			}
+			        			
+			        		}
 	 			        });
 	        	}
 	        	else{	
@@ -507,7 +554,29 @@ public class GameWinControllor {
 			        		magicBirdBlock.setSpecialType("MagicBird");
 			        		magicBirdBlock.setBackgroundColor("MagicBird");
 			        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
-			        		
+			        		if(iFinal == BlockManager.length-1){
+			        			Iterator<Block> t = h.iterator();
+			        			while(t.hasNext()){
+			        				Block bk = t.next();
+			        				if(BlockManager.blocks[bk.getX()][bk.getY()] ==null)
+			        					h.remove(bk);
+			        			}
+			        			if(h.isEmpty())
+			        				descend();
+			        			else{
+			        				BlockManager.resetArrays();
+			        				Iterator<Block> iterator = h.iterator();
+			        				while(iterator.hasNext()){
+			        		        	Block b = iterator.next();
+			        		        	BlockManager.erased[BlockManager.length][0] = b.getX();
+			        		        	BlockManager.erased[BlockManager.length][1] = b.getY();
+			        		        	BlockManager.length++;
+			        		        }
+			        				h.clear();
+			        				erase();
+			        			}
+			        			
+			        		}
 				        });
 	        	}
 	        }
@@ -524,6 +593,29 @@ public class GameWinControllor {
 //		        		bombBlock.setBombColor("Bomb");
 		        		blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
 		        		
+		        		if(iFinal == BlockManager.length-1){
+		        			Iterator<Block> t = h.iterator();
+		        			while(t.hasNext()){
+		        				Block bk = t.next();
+		        				if(BlockManager.blocks[bk.getX()][bk.getY()] ==null)
+		        					h.remove(bk);
+		        			}
+		        			if(h.isEmpty())
+		        				descend();
+		        			else{
+		        				BlockManager.resetArrays();
+		        				Iterator<Block> iterator = h.iterator();
+		        				while(iterator.hasNext()){
+		        		        	Block b = iterator.next();
+		        		        	BlockManager.erased[BlockManager.length][0] = b.getX();
+		        		        	BlockManager.erased[BlockManager.length][1] = b.getY();
+		        		        	BlockManager.length++;
+		        		        }
+		        				h.clear();
+		        				erase();
+		        			}
+		        			
+		        		}
 			        });
 	        }
 	        else if(block.getSpecialType().equals("horizon")){
@@ -536,6 +628,29 @@ public class GameWinControllor {
 	 		        		
 	 		        		blockGridPan.getChildren().remove(block);
 	 		        		
+	 		        		if(iFinal == BlockManager.length-1){
+	 		        			Iterator<Block> t = h.iterator();
+			        			while(t.hasNext()){
+			        				Block bk = t.next();
+			        				if(BlockManager.blocks[bk.getX()][bk.getY()] ==null)
+			        					h.remove(bk);
+			        			}
+			        			if(h.isEmpty())
+			        				descend();
+			        			else{
+			        				BlockManager.resetArrays();
+			        				Iterator<Block> iterator = h.iterator();
+			        				while(iterator.hasNext()){
+			        		        	Block b = iterator.next();
+			        		        	BlockManager.erased[BlockManager.length][0] = b.getX();
+			        		        	BlockManager.erased[BlockManager.length][1] = b.getY();
+			        		        	BlockManager.length++;
+			        		        }
+			        				h.clear();
+			        				erase();
+			        			}
+			        			
+			        		}
 	 			        });
 	        	}
 	        	else{
@@ -545,11 +660,35 @@ public class GameWinControllor {
 			        		blockGridPan.getChildren().remove(block);
 			        		
 			        		createOneBlock(block.getX(),block.getY());
-			        		Block b = BlockManager.blocks[block.getX()][block.getY()];
-			        		b.setSpecialType("horizon");
-			        		b.setBackgroundColor(block.getColor());
-			        		b.setPattern("horizon");
-			        		blockGridPan.add(b, b.getX(), b.getY());
+			        		Block nb = BlockManager.blocks[block.getX()][block.getY()];
+			        		nb.setSpecialType("horizon");
+			        		nb.setBackgroundColor(block.getColor());
+			        		nb.setPattern("horizon");
+			        		blockGridPan.add(nb, nb.getX(), nb.getY());
+			        		
+			        		if(iFinal == BlockManager.length-1){
+			        			Iterator<Block> t = h.iterator();
+			        			while(t.hasNext()){
+			        				Block bk = t.next();
+			        				if(BlockManager.blocks[bk.getX()][bk.getY()] ==null)
+			        					h.remove(bk);
+			        			}
+			        			if(h.isEmpty())
+			        				descend();
+			        			else{
+			        				BlockManager.resetArrays();
+			        				Iterator<Block> iterator = h.iterator();
+			        				while(iterator.hasNext()){
+			        		        	Block b = iterator.next();
+			        		        	BlockManager.erased[BlockManager.length][0] = b.getX();
+			        		        	BlockManager.erased[BlockManager.length][1] = b.getY();
+			        		        	BlockManager.length++;
+			        		        }
+			        				h.clear();
+			        				erase();
+			        			}
+			        			
+			        		}
 			        		
 				        });
 	        	}
@@ -564,6 +703,30 @@ public class GameWinControllor {
 	 		        		
 	 		        		blockGridPan.getChildren().remove(block);
 	 		        		
+	 		        		if(iFinal == BlockManager.length-1){
+	 		        			Iterator<Block> t = h.iterator();
+			        			while(t.hasNext()){
+			        				Block bk = t.next();
+			        				if(BlockManager.blocks[bk.getX()][bk.getY()] ==null)
+			        					h.remove(bk);
+			        			}
+			        			if(h.isEmpty())
+			        				descend();
+			        			else{
+			        				BlockManager.resetArrays();
+			        				Iterator<Block> iterator = h.iterator();
+			        				while(iterator.hasNext()){
+			        		        	Block b = iterator.next();
+			        		        	BlockManager.erased[BlockManager.length][0] = b.getX();
+			        		        	BlockManager.erased[BlockManager.length][1] = b.getY();
+			        		        	BlockManager.length++;
+			        		        }
+			        				h.clear();
+			        				erase();
+			        			}
+			        			
+			        		}
+	 		        		
 	 			        });
 	        	}
 	        	else{
@@ -573,11 +736,35 @@ public class GameWinControllor {
 			        		blockGridPan.getChildren().remove(block);
 			        		
 			        		createOneBlock(block.getX(),block.getY());
-			        		Block b = BlockManager.blocks[block.getX()][block.getY()];
-			        		b.setSpecialType("vertical");
-			        		b.setBackgroundColor(block.getColor());
-			        		b.setPattern("vertical");
-			        		blockGridPan.add(b, b.getX(), b.getY());
+			        		Block nb = BlockManager.blocks[block.getX()][block.getY()];
+			        		nb.setSpecialType("vertical");
+			        		nb.setBackgroundColor(block.getColor());
+			        		nb.setPattern("vertical");
+			        		blockGridPan.add(nb, nb.getX(), nb.getY());
+			        		
+			        		if(iFinal == BlockManager.length-1){
+			        			Iterator<Block> t = h.iterator();
+			        			while(t.hasNext()){
+			        				Block bk = t.next();
+			        				if(BlockManager.blocks[bk.getX()][bk.getY()] ==null)
+			        					h.remove(bk);
+			        			}
+			        			if(h.isEmpty())
+			        				descend();
+			        			else{
+			        				BlockManager.resetArrays();
+			        				Iterator<Block> iterator = h.iterator();
+			        				while(iterator.hasNext()){
+			        		        	Block b = iterator.next();
+			        		        	BlockManager.erased[BlockManager.length][0] = b.getX();
+			        		        	BlockManager.erased[BlockManager.length][1] = b.getY();
+			        		        	BlockManager.length++;
+			        		        }
+			        				h.clear();
+			        				erase();
+			        			}
+			        			
+			        		}
 			        		
 				        });
 	        	}
@@ -587,24 +774,11 @@ public class GameWinControllor {
 	        transition.play();
 	        
 		}
-		if(h.isEmpty())
-	    transition.setOnFinished(e->{
-		    descend();
-	    });    
-		else{
-			BlockManager.resetArrays();
-			Iterator<Block> iterator = h.iterator();
-			while(iterator.hasNext()){
-	        	Block b = iterator.next();
-	        	BlockManager.erased[BlockManager.length][0] = b.getX();
-	        	BlockManager.erased[BlockManager.length][1] = b.getY();
-	        	BlockManager.length++;
-	        }
-			erase();
-		}
 			
 	        
 	}
+	
+
 
 	
 	//下降
