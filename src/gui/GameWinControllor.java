@@ -170,7 +170,7 @@ public class GameWinControllor {
 							if(Data.mode != 3){
 								steps--;//步数减1
 								if(Data.mode == 0)
-									stepLabel.setText("Health Point:"+steps*100);
+									stepLabel.setText("HP:"+steps*100);
 								else if(Data.mode == 1)
 									stepLabel.setText("Steps Left:"+steps);
 								else if(Data.mode == 2)
@@ -178,8 +178,8 @@ public class GameWinControllor {
 								stepProgressBar.setProgress((double) steps/Data.totalstpes);
 							}
 		
-							if(BlockManager.twoBlocks.get(0).getSpecialType().equals("null") && 
-							   BlockManager.twoBlocks.get(1).getSpecialType().equals("null")){
+							if(!(BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird")) && 
+							   !(BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird"))){
 								System.out.println("start exchanging");
 								Transition transition = BlockManager.exchange();	//交换
 								transition.setOnFinished(e2 ->{
@@ -252,14 +252,29 @@ public class GameWinControllor {
 									BlockManager.twoBlocks.get(0).setColor(color);
 									BlockManager.twoBlocks.get(1).setColor(color);
 									BlockManager.twoBlocks.clear();
+									
+									HashSet<Block> h = new HashSet<Block>();
 									for(int i = 0; i < 10;i++)
 										for(int j = 0; j < 10;j++){
 											if(BlockManager.blocks[i][j].getColor().equals(color)){
-												BlockManager.erased[BlockManager.length][0] = i;
-												BlockManager.erased[BlockManager.length][1] = j;
-												BlockManager.length++;
+												h.add(BlockManager.blocks[i][j]);
+												
+
 											}
 										}
+									while(true){
+							        	int size = h.size();
+							        	h = BlockManager.checkLineSpecial(h);
+							        	if(size == h.size())
+							        		break;
+							        }
+									Iterator<Block> iterator = h.iterator();
+									while(iterator.hasNext()){
+										Block b = iterator.next();
+										BlockManager.erased[BlockManager.length][0] = b.getX();
+										BlockManager.erased[BlockManager.length][1] = b.getY();
+										BlockManager.length++;
+									}
 									erase();
 							
 									
@@ -268,6 +283,108 @@ public class GameWinControllor {
 								
 								
 								
+							}
+							else if((BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird") &&
+									BlockManager.twoBlocks.get(1).getSpecialType().equals("horizon")) | 
+									(BlockManager.twoBlocks.get(0).getSpecialType().equals("horizon") &&
+									BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird"))){
+								Transition transition = BlockManager.exchange();	
+								transition.setOnFinished(e2 ->{
+									BlockManager.twoBlocks.get(0).setNotSelected();
+									BlockManager.twoBlocks.get(1).setNotSelected();
+									BlockManager.twoBlocks.get(0).setIsPressed(false);
+									BlockManager.twoBlocks.get(1).setIsPressed(false);
+									int line = BlockManager.twoBlocks.get(0).getY();
+									String color = BlockManager.twoBlocks.get(0).getColor();		//将要消掉的颜色
+									if(BlockManager.twoBlocks.get(0).getColor().equals("MagicBird")){
+										color = BlockManager.twoBlocks.get(1).getColor();
+										line = BlockManager.twoBlocks.get(1).getY();
+									}
+									BlockManager.twoBlocks.get(0).setSpecialType("null");
+									BlockManager.twoBlocks.get(1).setSpecialType("null");
+									BlockManager.twoBlocks.get(0).setColor(color);
+									BlockManager.twoBlocks.get(1).setColor(color);
+									BlockManager.twoBlocks.clear();
+									
+									HashSet<Block> h = new HashSet<Block>();
+									for(int i = 0; i < 10;i++)
+										for(int j = 0; j < 10;j++){
+											if(BlockManager.blocks[i][j].getColor().equals(color)){
+												h.add(BlockManager.blocks[i][j]);
+											}
+										}
+									for(int i = 0;i < 10;i++){
+										h.add(BlockManager.blocks[i][line]);
+									}
+									while(true){
+							        	int size = h.size();
+							        	h = BlockManager.checkLineSpecial(h);
+							        	if(size == h.size())
+							        		break;
+							        }
+									Iterator<Block> iterator = h.iterator();
+									while(iterator.hasNext()){
+										Block b = iterator.next();
+										BlockManager.erased[BlockManager.length][0] = b.getX();
+										BlockManager.erased[BlockManager.length][1] = b.getY();
+										BlockManager.length++;
+									}
+									erase();
+							
+									
+									
+								});
+							}
+							else if((BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird") &&
+									BlockManager.twoBlocks.get(1).getSpecialType().equals("vertical")) | 
+									(BlockManager.twoBlocks.get(0).getSpecialType().equals("vertical") &&
+									BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird"))){
+								Transition transition = BlockManager.exchange();	
+								transition.setOnFinished(e2 ->{
+									BlockManager.twoBlocks.get(0).setNotSelected();
+									BlockManager.twoBlocks.get(1).setNotSelected();
+									BlockManager.twoBlocks.get(0).setIsPressed(false);
+									BlockManager.twoBlocks.get(1).setIsPressed(false);
+									int line = BlockManager.twoBlocks.get(0).getX();
+									String color = BlockManager.twoBlocks.get(0).getColor();		//将要消掉的颜色
+									if(BlockManager.twoBlocks.get(0).getColor().equals("MagicBird")){
+										color = BlockManager.twoBlocks.get(1).getColor();
+										line = BlockManager.twoBlocks.get(1).getX();
+									}
+									BlockManager.twoBlocks.get(0).setSpecialType("null");
+									BlockManager.twoBlocks.get(1).setSpecialType("null");
+									BlockManager.twoBlocks.get(0).setColor(color);
+									BlockManager.twoBlocks.get(1).setColor(color);
+									BlockManager.twoBlocks.clear();
+									
+									HashSet<Block> h = new HashSet<Block>();
+									for(int i = 0; i < 10;i++)
+										for(int j = 0; j < 10;j++){
+											if(BlockManager.blocks[i][j].getColor().equals(color)){
+												h.add(BlockManager.blocks[i][j]);
+											}
+										}
+									for(int i = 0;i < 10;i++){
+										h.add(BlockManager.blocks[line][i]);
+									}
+									while(true){
+							        	int size = h.size();
+							        	h = BlockManager.checkLineSpecial(h);
+							        	if(size == h.size())
+							        		break;
+							        }
+									Iterator<Block> iterator = h.iterator();
+									while(iterator.hasNext()){
+										Block b = iterator.next();
+										BlockManager.erased[BlockManager.length][0] = b.getX();
+										BlockManager.erased[BlockManager.length][1] = b.getY();
+										BlockManager.length++;
+									}
+									erase();
+							
+									
+									
+								});
 							}
 						}
 						else{												//点的两个块不相邻
@@ -284,16 +401,30 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("Health Point:"+steps*100);
+							stepLabel.setText("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
 							stepLabel.setText("Energy Value:"+steps*10);
 						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
-					BlockManager.erased[0][0] = btn.getX();
-					BlockManager.erased[0][1] = btn.getY();
-					BlockManager.length = 1;
+					
+					HashSet<Block> h2 = new HashSet<Block>();
+					h2.add(btn);
+					while(true){
+			        	int size = h2.size();
+			        	h2 = BlockManager.checkLineSpecial(h2);
+			        	if(size == h2.size())
+			        		break;
+			        }
+			        Iterator<Block> iterator2 = h2.iterator();
+			        while(iterator2.hasNext()){
+			        	Block b = iterator2.next();
+			        	BlockManager.erased[BlockManager.length][0] = b.getX();
+			        	BlockManager.erased[BlockManager.length][1] = b.getY();
+			        	BlockManager.length++;
+			        }
+					
 					Calculator.smallHammer++;
 					if(Calculator.smallHammer >= ITEMBOUND)
 						AchievementsManager.AchievementsList[1][0].setAchieved(true);
@@ -310,7 +441,7 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("Health Point:"+steps*100);
+							stepLabel.setText("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
@@ -341,6 +472,13 @@ public class GameWinControllor {
 							h.add(BlockManager.blocks[i+1][j+1]);
 					}
 					
+					while(true){
+			        	int size = h.size();
+			        	h = BlockManager.checkLineSpecial(h);
+			        	if(size == h.size())
+			        		break;
+			        }
+					
 					Iterator<Block> iterator = h.iterator();
 					while(iterator.hasNext()){
 						Block block = iterator.next();
@@ -363,10 +501,12 @@ public class GameWinControllor {
 					
 					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减500分
 				case"Magic":
+					if(btn.getSpecialType().equals("MagicBird"))
+						break;
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("Health Point:"+steps*100);
+							stepLabel.setText("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
@@ -379,7 +519,12 @@ public class GameWinControllor {
 	        		Block specialBlock = BlockManager.blocks[btn.getX()][btn.getY()];
 	        		String specialType = BlockManager.getBlockSpecialTypeRandom();
 	        		specialBlock.setSpecialType(specialType);
-	        		specialBlock.setBackgroundColor(specialType);
+	        		if(specialType.equals("MagicBird") || specialType.equals("Bomb"))
+	        			specialBlock.setBackgroundColor(specialType);
+	        		else{
+	        			specialBlock.setBackgroundColor(btn.getColor());
+	        			specialBlock.setPattern(specialType);
+	        		}
 	        		blockGridPan.add(specialBlock, specialBlock.getX(), specialBlock.getY());
 
 	        		Calculator.magic++;
@@ -447,10 +592,12 @@ public class GameWinControllor {
 		 Music.playEffectMusic(1);//eliminate
 		
 		 System.out.println("start erasing");
-		 
+		 		 
 		for(int i = 0;i < BlockManager.length;i++){
 			
 			Block block = BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]];
+			if(block == null)
+				continue;
 			switch(block.getColor()){
 			case("1"):
 				Calculator.first++;
@@ -495,73 +642,54 @@ public class GameWinControllor {
 			break;
 			}
 			BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]] = null;
+			
+			final int iFinal = i;
+			
 			//消失的动画
 	        FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
 	        transition.setFromValue(1);
 	        transition.setToValue(0);
 	        if(block.getSpecialType().equals("null")){		//不变成特效块
-		        if(i == BlockManager.length - 1)
-			        transition.setOnFinished(e->{
-			        	blockGridPan.getChildren().remove(block);
-		
-			        	 descend();
-			          
-			        });
 		        
-		        else
 		        	transition.setOnFinished(e->{
 		        		
 		        		blockGridPan.getChildren().remove(block);
-		        		
+		        		if(iFinal == BlockManager.length-1){
+		        			descend();
+		        		}
 			        });
 		    }
 	        else if(block.getSpecialType().equals("MagicBird")){			//变成魔力鸟
-	        	if(i == BlockManager.length - 1)
-			        transition.setOnFinished(e->{
-			        	blockGridPan.getChildren().remove(block);
-			        	
-			        	createOneBlock(block.getX(),block.getY());
-		        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
-		        		magicBirdBlock.setSpecialType("MagicBird");
-		        		magicBirdBlock.setBackgroundColor("MagicBird");
-		        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
-		        		
-		        		
-			        	 descend();
-			          
-			        });
-		        
-		        else
-		        	transition.setOnFinished(e->{
-		        		
-		        		blockGridPan.getChildren().remove(block);
-		        		
-		        		createOneBlock(block.getX(),block.getY());
-		        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
-		        		magicBirdBlock.setSpecialType("MagicBird");
-		        		magicBirdBlock.setBackgroundColor("MagicBird");
-		        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
-		        		
-			        });
+	        	if(block.getColor().equals("MagicBird")){
+	        		 
+	 		        	transition.setOnFinished(e->{
+	 		        		
+	 		        		blockGridPan.getChildren().remove(block);
+	 		        		if(iFinal == BlockManager.length-1){
+	 		        			descend();
+			        			
+			        		}
+	 			        });
+	        	}
+	        	else{	
+		        	
+			        	transition.setOnFinished(e->{
+			        		
+			        		blockGridPan.getChildren().remove(block);
+			        		
+			        		createOneBlock(block.getX(),block.getY());
+			        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
+			        		magicBirdBlock.setSpecialType("MagicBird");
+			        		magicBirdBlock.setBackgroundColor("MagicBird");
+			        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
+			        		if(iFinal == BlockManager.length-1){
+			        			descend();
+			        		}
+				        });
+	        	}
 	        }
 	        else if(block.getSpecialType().equals("Bomb")){			//变成爆炸块
-	        	if(i == BlockManager.length - 1)
-			        transition.setOnFinished(e->{
-			        	blockGridPan.getChildren().remove(block);
-			        	
-			        	createOneBlock(block.getX(),block.getY());
-		        		Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
-		        		bombBlock.setSpecialType("Bomb");
-		        		bombBlock.setBackgroundColor("Bomb");
-//		        		bombBlock.setBombColor("Bomb");
-		        		blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
-		        		
-		        		
-			        	 descend();
-			          
-			        });
-		        
-		        else
+	        	
 		        	transition.setOnFinished(e->{
 		        		
 		        		blockGridPan.getChildren().remove(block);
@@ -573,19 +701,87 @@ public class GameWinControllor {
 //		        		bombBlock.setBombColor("Bomb");
 		        		blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
 		        		
+		        		if(iFinal == BlockManager.length-1){
+		        			descend();
+		        		}
 			        });
 	        }
+	        else if(block.getSpecialType().equals("horizon")){
+	        	if(block.getPattern().equals("horizon")){
+	        		
+	 		        	transition.setOnFinished(e->{
+	 		        		
+	 		        		blockGridPan.getChildren().remove(block);
+	 		        		
+	 		        		if(iFinal == BlockManager.length-1){
+	 		        			descend();
+			        		}
+	 			        });
+	        	}
+	        	else{
+	        		
+			        	transition.setOnFinished(e->{
+			        		
+			        		blockGridPan.getChildren().remove(block);
+			        		
+			        		createOneBlock(block.getX(),block.getY());
+			        		Block nb = BlockManager.blocks[block.getX()][block.getY()];
+			        		nb.setSpecialType("horizon");
+			        		nb.setBackgroundColor(block.getColor());
+			        		nb.setPattern("horizon");
+			        		blockGridPan.add(nb, nb.getX(), nb.getY());
+			        		
+			        		if(iFinal == BlockManager.length-1){
+			        			descend();
+			        		}
+			        		
+				        });
+	        	}
+	        }
+	        else if(block.getSpecialType().equals("vertical")){
+	        	if(block.getPattern().equals("vertical")){
+	        		
+	 		        	transition.setOnFinished(e->{
+	 		        		
+	 		        		blockGridPan.getChildren().remove(block);
+	 		        		
+	 		        		if(iFinal == BlockManager.length-1){
+	 		        			descend();
+			        		}
+	 		        		
+	 			        });
+	        	}
+	        	else{
+	        		
+			        	transition.setOnFinished(e->{
+			        		
+			        		blockGridPan.getChildren().remove(block);
+			        		
+			        		createOneBlock(block.getX(),block.getY());
+			        		Block nb = BlockManager.blocks[block.getX()][block.getY()];
+			        		nb.setSpecialType("vertical");
+			        		nb.setBackgroundColor(block.getColor());
+			        		nb.setPattern("vertical");
+			        		blockGridPan.add(nb, nb.getX(), nb.getY());
+			        		
+			        		if(iFinal == BlockManager.length-1){
+			        			descend();
+			        			
+			        		}
+			        		
+				        });
+	        	}
+	        }
+	        
 	        
 	        transition.play();
 	        
 		}
-	//	        ChangeListener<? super EventHandler<ActionEvent>> listener =
-//			null;
-//	        eraseOnFinished = transition.getOnFinished();
-	       
-	        	
+			
 	        
 	}
+	
+
 
 	
 	//下降
@@ -740,6 +936,13 @@ public class GameWinControllor {
 			isMoving = false;
 			return;
 		}
+		
+		while(true){
+        	int size = h.size();
+        	h = BlockManager.checkLineSpecial(h);
+        	if(size == h.size())
+        		break;
+        }
 			
 		
 		Iterator<Block> iterator = h.iterator();
@@ -856,7 +1059,7 @@ public class GameWinControllor {
 			if(Data.mode != 3){
 		        steps=Data.totalstpes;
 		        if(Data.mode == 0)
-					stepLabel.setText("Health Point:"+steps*100);
+					stepLabel.setText("HP:"+steps*100);
 				else if(Data.mode == 1)
 					stepLabel.setText("Steps Left:"+steps);
 				else if(Data.mode == 2)

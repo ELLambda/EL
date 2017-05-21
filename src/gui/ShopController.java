@@ -44,8 +44,7 @@ public class ShopController {
 	public Label i_sum;
 	@FXML
 	public Label p_sum;
-	
-	int coins;
+
 	public int i_1 = 0;
 	public int i_2 = 0;
 	public int i_3 = 0;
@@ -87,8 +86,9 @@ public class ShopController {
 		});
 	}
 	@FXML
-	void init(){
+	void initialize(){
 		coin.setText("现有金币："+ shop.Shop.coins);
+        System.out.println("coins = " + shop.Shop.coins);
 		md1.setText(String.valueOf(i_1));
 		md2.setText(String.valueOf(i_2));
 		md3.setText(String.valueOf(i_3));
@@ -99,10 +99,10 @@ public class ShopController {
 	@FXML
 	public void onMed1Clicked(){
 			i_1++;
-			md1.setText("           " + i_1);
+			md1.setText("        " + i_1);
 
 			p_1++;
-			md1_price.setText("         " + p_1*price_1);
+			md1_price.setText("      " + p_1*price_1);
 
 			int sum_1 = i_1 + i_2 + i_3;
 			int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
@@ -117,16 +117,16 @@ public class ShopController {
 	@FXML
 	public void onMed2Clicked() {
 		i_2++;
-		md2.setText("           " + i_2);
+		md2.setText("        " + i_2);
 
 		p_2++;
-		md2_price.setText("         " + p_2*price_2);
+		md2_price.setText("      " + p_2*price_2);
 
         int sum_1 = i_1 + i_2 + i_3;
         int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
 
-		i_sum.setText(String.valueOf("           " + String.valueOf(sum_1)));
-		p_sum.setText(String.valueOf("         " + String.valueOf(sum_2)));
+		i_sum.setText(String.valueOf("        " + String.valueOf(sum_1)));
+		p_sum.setText(String.valueOf("      " + String.valueOf(sum_2)));
 
         ShopItem S_2 = new ShopItem(item_2, price_2, i_2, price_2,0);
         shop.Shop.selectedList.add(S_2);
@@ -135,16 +135,16 @@ public class ShopController {
 	@FXML
 	public void onMed3Clicked(){
 			i_3++;
-			md3.setText("           " + i_3);
+			md3.setText("        " + i_3);
 
 			p_3++;
-			md3_price.setText("         " + p_3*price_3);
+			md3_price.setText("      " + p_3*price_3);
 
             int sum_1 = i_1 + i_2 + i_3;
             int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
 
-			i_sum.setText("           " + String.valueOf(sum_1));
-			p_sum.setText("         " + String.valueOf(sum_2));
+			i_sum.setText("        " + String.valueOf(sum_1));
+			p_sum.setText("      " + String.valueOf(sum_2));
 
         ShopItem S_3 = new ShopItem(item_3, price_3, i_3, price_3,0);
         shop.Shop.selectedList.add(S_3);

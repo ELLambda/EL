@@ -23,7 +23,7 @@ public class BlockManager {
 	//static HashMap<String,Block> blockHashMap=new HashMap<>();
 
 //	EventHandler <ActionEvent> exchangeOnFinished = null;
-	private static final String[] specialTypes = {"MagicBird","Bomb"};
+	private static final String[] specialTypes = {"MagicBird","Bomb","horizon","vertical"};
 
 	public void setBlockBackgroundColor(Block block) {
 
@@ -117,7 +117,7 @@ public class BlockManager {
 
 
 	
-	int[][] erased = new int[HEIGHT*WIDE][2];
+	int[][] erased = new int[5*HEIGHT*WIDE][2];
 	int length = 0;
 
 	
@@ -161,6 +161,12 @@ public class BlockManager {
         	if(count >= 5){  //产生一个魔力鸟
         		block.setSpecialType("MagicBird");
         		if(x > 0 && blocks[x-1][y] != null && blocks[x-1][y].getColor().equals(block.getColor()))
+        			blocks[x-1][y].setSpecialType("null");
+        	}
+        	else if(count == 4){
+        		block.setSpecialType("horizon");
+        		if(x > 0 && blocks[x-1][y] != null && blocks[x-1][y].getColor().equals(block.getColor())
+        		&& blocks[x-1][y].getSpecialType().equals("horizon"))
         			blocks[x-1][y].setSpecialType("null");
         	}
         		erasableHBlocks.add(block);//����㷽��Ҳ����
@@ -211,6 +217,12 @@ public class BlockManager {
         		if(y > 0 && blocks[x][y-1] != null && blocks[x][y-1].getColor().equals(block.getColor()))   //让五个连着的中只有1个变身成MagicBird
         			blocks[x][y-1].setSpecialType("null");
         	}
+        	else if(count == 4){
+        		block.setSpecialType("vertical");
+        		if(y > 0 && blocks[x][y-1] != null && blocks[x][y-1].getColor().equals(block.getColor())
+        		&& blocks[x][y-1].getSpecialType().equals("vertical"))
+        			blocks[x][y-1].setSpecialType("null");
+        	}
         	erasableVBlocks.add(block);
             return true;
         }else{
@@ -226,31 +238,63 @@ public class BlockManager {
     public  boolean erasable(Block block){
 
         Boolean isErasable = hSearch(block)|vSearch(block);
+        if(isErasable == false)
+        	return false;
         
         HashSet<Block> h = new HashSet<Block>();
         h.addAll(erasableHBlocks);
         h.addAll(erasableVBlocks);
+       
+        if(h.size() >= 5){
+        	if(!block.getSpecialType().equals("MagicBird"))
+        		block.setSpecialType("Bomb");
+        }
+        
+        while(true){
+        	int size = h.size();
+        	h = checkLineSpecial(h);
+        	if(size == h.size())
+        		break;
+        }
         Iterator<Block> iterator = h.iterator();
-        
-        
         while(iterator.hasNext()){
         	Block b = iterator.next();
         	erased[length][0] = b.getX();
         	erased[length][1] = b.getY();
         	length++;
         }
-        if(h.size() >= 5){
-        	if(block.getSpecialType().equals("null"))
-        		block.setSpecialType("Bomb");
-        }
+        
 
         erasableVBlocks.clear();
         erasableHBlocks.clear();
         
         System.out.println("after erasable(block x,y): "+block.getX()+" , "+block.getY());
         System.out.println("length : "+ length);
-        return isErasable;
+        return true;
     }
+    
+    public HashSet<Block> checkLineSpecial(HashSet<Block> h){
+    	HashSet<Block> htemp = new HashSet<Block>();
+    	Iterator<Block> iterator = h.iterator();
+    	while(iterator.hasNext()){
+    		Block block = iterator.next();
+    		if(block.getPattern().equals("horizon")){
+    			for(int j = 0;j < 10;j++){
+    				if(blocks[j][block.getY()] != null)
+    					htemp.add(blocks[j][block.getY()]);
+    			}
+    		}
+    		if(block.getPattern().equals("vertical")){
+    			for(int j = 0;j < 10;j++){
+    				if(blocks[block.getX()][j] != null)
+    					htemp.add(blocks[block.getX()][j]);
+    			}
+    		}
+    	}
+    	h.addAll(htemp);
+    	return h;
+    }
+    
    
     //清空数组
     public  void resetArrays(){
