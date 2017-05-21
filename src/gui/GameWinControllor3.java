@@ -14,7 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-import jdk.nashorn.internal.runtime.UnwarrantedOptimismException;
+//import jdk.nashorn.internal.runtime.UnwarrantedOptimismException;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
