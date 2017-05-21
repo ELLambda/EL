@@ -580,8 +580,10 @@ public class GameWinControllor {
 
 
 
-		if(Data.mode == 2)
-			noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+		if(Data.mode == 2) {
+			Shop.coins = score.intValue();
+			noticeText.setText("      coins:      " + String.valueOf(score.intValue()));
+		}
 		else if(Data.mode == 3){
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 		}
