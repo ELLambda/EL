@@ -27,7 +27,9 @@ public class GameWin extends Stage{
 
 	public GameWin() {
 		// TODO Auto-generated constructor stub
-		Music.playBgMusic(15);//bgm
+		if(Data.mode!=1) {
+			Music.playBgMusic(15);//bgm
+			 }
 		try {
 			this.initStyle(StageStyle.TRANSPARENT);
 
