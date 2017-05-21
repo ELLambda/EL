@@ -29,9 +29,6 @@ public class Block extends Button{
 		//ͨ��ʹ��css���ñ���
 		//gui/img/star/1.png
 		String path="gui/img/star/"+this.color+".png";
-		//this.setStyle("-fx-background-color: red;");
-		//this.setStyle("-fx-border-color: white;-fx-border-radius: 5px;");
-		//this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,255,255,1),8,0.2,0,0) ;");
 		this.setBackground(new Background(new BackgroundImage(new Image(path),
 				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 	}
@@ -50,11 +47,15 @@ public class Block extends Button{
 	
 	//���鱻ѡ�к�������Ӿ�Ч��
 	public void setSelected() {
+//		this.setStyle("-fx-border-width: 2,0;-fx-border-color: white;-fx-border-style: solid,hidden;");
 		this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,255,255,1),8,0.8,0,0) ;");
+
 	}
 	public void setNotSelected(){
 		this.setStyle("-fx-effect: null;");
-		setPattern(pattern);
+		if(pattern.equals("vertical")||pattern.equals("horizon")){
+			setPattern(pattern);
+		}
 		//this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,255,255,1),8,0.2,0,0) ;");
 	}
 	
@@ -114,9 +115,13 @@ public class Block extends Button{
 
 	public void setPattern(String pattern) {
 		this.pattern = pattern;
-		if(pattern.equals("horizon"))
-			this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,0,0,1),8,0.8,0,0) ;");
-		if(pattern.equals("vertical"))
-			this.setStyle("-fx-effect: dropshadow(gaussian,rgba(0,255,0,1),8,0.8,0,0) ;");
+		String path="gui/img/star/"+this.color+this.pattern+".png";
+
+		this.setBackground(new Background(new BackgroundImage(new Image(path),
+				BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT,
+				BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+		this.setStyle("-fx-effect: dropshadow(gaussian,rgba(0,0,255,0.8),8,0.8,0,0) ;");
+
+			//this.setStyle("-fx-effect: dropshadow(gaussian,rgba(255,255,0,0.8),8,0.8,0,0) ;");
 	}
 }
