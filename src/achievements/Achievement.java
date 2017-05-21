@@ -66,8 +66,13 @@ public class Achievement extends Button
 
 	public void setRate(double rate)
 	{
-		
-		this.rate = rate;
+		if(rate<0.1){//如果rate太小，为了防止看不购见该成就，所以设置最低值为0.01
+			this.rate=0.1;
+		}else if(rate >1.0){
+			this.rate=1.0;
+		}else{
+			this.rate = rate;
+		}
 	}
 	
 	

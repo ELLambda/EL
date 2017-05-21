@@ -101,6 +101,7 @@ public class AchievementWin extends Stage{
         for(int i=0;i<AchievementsManager.HEIGHT;i++){
             for(int j=0;j<AchievementsManager.WIDTH;j++){
                 Achievement achievement =AchievementsManager.AchievementsList[i][j];
+                System.out.println(achievement.getRate());
                 achievement.setOpacity(achievement.getRate());
 
             }

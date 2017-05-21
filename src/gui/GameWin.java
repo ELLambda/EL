@@ -5,8 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 
-import achievements.Billboard;
-import achievements.Calculator;
+import achievements.*;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +18,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import achievements.Billboard;
-import achievements.BillboardItem;
 
 public class GameWin extends Stage{
 
@@ -73,6 +71,8 @@ public class GameWin extends Stage{
 								System.out.println(Billboard.scorelist[i]);
 
 							Billboard.setBillboardCondition();
+
+							AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/GameWinControllor.SCOREBOUND);
 
 							new MainWin();
 							break;

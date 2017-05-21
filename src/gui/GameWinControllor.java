@@ -431,8 +431,7 @@ public class GameWinControllor {
 		Calculator.steps += erasedTimes;
 		if(Calculator.steps>= STEPBOUND)
 			AchievementsManager.AchievementsList[1][3].setAchieved(true);
-		else
-				AchievementsManager.AchievementsList[1][3].setRate((double)Calculator.steps/(double)STEPBOUND);
+		AchievementsManager.AchievementsList[1][3].setRate((double)Calculator.steps/(double)STEPBOUND);
 
 
 
@@ -458,7 +457,6 @@ public class GameWinControllor {
 
 			if(Calculator.first >= BLOCKBOUND)
 					AchievementsManager.AchievementsList[0][0].setAchieved(true);
-			else
 				AchievementsManager.AchievementsList[0][0].setRate((double)Calculator.first/(double)BLOCKBOUND);
 					
 
@@ -467,8 +465,7 @@ public class GameWinControllor {
 				Calculator.second++;
 			if(Calculator.second >= BLOCKBOUND)
 				AchievementsManager.AchievementsList[0][1].setAchieved(true);
-			else
-				AchievementsManager.AchievementsList[0][1].setRate((double)Calculator.second/(double)BLOCKBOUND);
+			AchievementsManager.AchievementsList[0][1].setRate((double)Calculator.second/(double)BLOCKBOUND);
 
 
 			break;
@@ -476,8 +473,7 @@ public class GameWinControllor {
 				Calculator.third++;
 			if(Calculator.third >= BLOCKBOUND)
 				AchievementsManager.AchievementsList[0][2].setAchieved(true);
-			else
-					AchievementsManager.AchievementsList[0][2].setRate((double)Calculator.third/(double)BLOCKBOUND);
+			AchievementsManager.AchievementsList[0][2].setRate((double)Calculator.third/(double)BLOCKBOUND);
 
 
 			break;
@@ -485,8 +481,7 @@ public class GameWinControllor {
 				Calculator.fourth++;
 			if(Calculator.fourth >= BLOCKBOUND)
 				AchievementsManager.AchievementsList[0][3].setAchieved(true);
-			else
-				AchievementsManager.AchievementsList[0][3].setRate((double)Calculator.fourth/(double)BLOCKBOUND);
+			AchievementsManager.AchievementsList[0][3].setRate((double)Calculator.fourth/(double)BLOCKBOUND);
 
 
 			break;
@@ -494,8 +489,7 @@ public class GameWinControllor {
 				Calculator.fifth++;
 			if(Calculator.fifth >= BLOCKBOUND)
 				AchievementsManager.AchievementsList[0][4].setAchieved(true);
-			else
-				AchievementsManager.AchievementsList[0][4].setRate((double)Calculator.fifth/(double)BLOCKBOUND);
+			AchievementsManager.AchievementsList[0][4].setRate((double)Calculator.fifth/(double)BLOCKBOUND);
 
 
 			break;
@@ -767,8 +761,8 @@ public class GameWinControllor {
 			Calculator.scores += score.intValue();
 			if(Calculator.scores >= SCOREBOUND)
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
-			else
-				AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/(double)ITEMBOUND);
+
+			AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/(double)SCOREBOUND);
 
 
 			Timer timer = new Timer();
@@ -803,8 +797,8 @@ public class GameWinControllor {
 			Calculator.scores += score.intValue();
 			if(Calculator.scores >= SCOREBOUND)
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
-			else
-				AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/(double)ITEMBOUND);
+
+			AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/(double)SCOREBOUND);
 
 			
 			if(Data.mode == 2){
