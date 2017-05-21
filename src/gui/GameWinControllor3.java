@@ -1,6 +1,7 @@
 package gui;
 
 import achievements.AchievementsManager;
+import achievements.Billboard;
 import achievements.Calculator;
 import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
@@ -15,6 +16,8 @@ import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import jdk.nashorn.internal.runtime.UnwarrantedOptimismException;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**  
@@ -51,7 +54,7 @@ public class GameWinControllor3 extends GameWinControllor
 	//blockGridPan.setGridLinesVisible(true);
 	//blockGridPan.set
 	createBlocks();
-
+	number=0;
 	btns=new ArrayList<>();
 	for(int i=0;i<4;i++){
 		Block btn=new Block(-1,-1);
@@ -604,8 +607,12 @@ public void onRestartBtnClick(ActionEvent actionEvent) {
 		}
 		blockGridPan.getChildren().clear();
 		createBlocks();
+		number=0;
+		for(Block  block : btns){
+			block.setStyle("-fx-background-color: transparent;-fx-background-image: null;");
+		}
 
-        noticeText.clear();
+        //noticeText.clear();
         noticeText.setText("Restart!");
        
 		if(Data.mode != 3){
@@ -661,4 +668,43 @@ public void checkIsLose(){
 			},1000);
 		}
 }
+
+	public void onExitBtnClick(ActionEvent actionEvent) {
+		Calculator.scores += GameWinControllor.score.intValue();
+//		number=0;
+		Music.stopBgMusic();
+		Platform.runLater(()->{
+			switch (Data.mode){
+				case 0:
+				case 2:
+					try {
+						new ChapterSelectWin();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					break;
+				case 1:
+					new LevelWin();
+					break;
+				case 3:
+
+					Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
+					String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
+
+
+					Billboard.scorelist[Billboard.RANK].setTime(str);
+
+					Arrays.sort(Billboard.scorelist);
+					for(int i = 0 ; i < Billboard.RANK+1 ; i++)
+						System.out.println(Billboard.scorelist[i]);
+
+					Billboard.setBillboardCondition();
+
+					new MainWin();
+					break;
+			}
+			blockGridPan.getScene().getWindow().hide();
+		});
+
+	}
 }
