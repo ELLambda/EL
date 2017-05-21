@@ -1,20 +1,21 @@
 package gui;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Timer;
-import java.util.TimerTask;
-
 import achievements.AchievementsManager;
 import achievements.Calculator;
 import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import jdk.nashorn.internal.runtime.UnwarrantedOptimismException;
+
+import java.util.*;
 
 /**  
 * 玩家点击四个块，其中前两个块相克，后两个块相克
@@ -40,6 +41,8 @@ public class GameWinControllor3 extends GameWinControllor
 	
 	//点击到了第几个块
 	public static int number;
+	public VBox slideVBox;
+	ArrayList<Block> btns;
 
 	
 @Override
@@ -48,6 +51,30 @@ public class GameWinControllor3 extends GameWinControllor
 	//blockGridPan.setGridLinesVisible(true);
 	//blockGridPan.set
 	createBlocks();
+
+	btns=new ArrayList<>();
+	for(int i=0;i<4;i++){
+		Block btn=new Block(-1,-1);
+		btn.setPrefSize(50,50);
+		btn.setStyle("-fx-background-color: transparent");
+		btn.setMouseTransparent(true);
+		btns.add(btn);
+	}
+
+	VBox vBox=new VBox(30);
+	slideVBox.getChildren().add(vBox);
+
+	for(int i=0;i<2;i++){
+		HBox hBox=new HBox(20);
+		hBox.setPadding(new Insets(10));
+		hBox.setStyle("-fx-border-color: rgba(255,255,0,0.8);-fx-border-width: 2;-fx-border-radius: 15;");
+		for(int j=i*2;j<i*2+2;j++){
+			hBox.getChildren().add(btns.get(j));
+		}
+		vBox.getChildren().add(hBox);
+	}
+
+
 	
 	steps=Data.totalstpes;
 	score = new SimpleIntegerProperty(0);
@@ -96,21 +123,25 @@ public  void createOneBlock(int x,int y){
 	btn.getStyleClass().add("block");
 	btn.setOnMouseClicked(e->{
 		if(number == 0){
+			btns.get(number).setBackgroundColor(btn.getColor());
 			adder1block = btn.getColor();
 			number++;
 			System.out.println("adder1"+adder1block);
 		}
 		else if(number == 1){
+			btns.get(number).setBackgroundColor(btn.getColor());
 			adder2block = btn.getColor();
 			number++;
 			System.out.println("adder2"+adder2block);
 		}
 		else if(number == 2){
+			btns.get(number).setBackgroundColor(btn.getColor());
 			sumadder1block = btn.getColor();
 			number++;		
 			System.out.println("sumadder1"+sumadder1block);
 		}
 		else if(number == 3){
+			btns.get(number).setBackgroundColor(btn.getColor());
 			sumadder2block = btn.getColor();
 			number++;
 			System.out.println("sumadder2"+sumadder2block);
