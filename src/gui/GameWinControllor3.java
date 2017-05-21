@@ -514,6 +514,8 @@ public  void createOneBlock(int x,int y){
 				
 				//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减500分
 			case"Magic":
+				if(btn.getSpecialType().equals("MagicBird"))
+					break;
 				if(Data.mode != 3){
 					steps--;
 					if(Data.mode == 0)
