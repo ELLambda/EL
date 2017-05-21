@@ -1,6 +1,7 @@
 package gui;
 
 import achievements.AchievementsManager;
+import achievements.Billboard;
 import achievements.Calculator;
 import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
@@ -13,8 +14,10 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-import jdk.nashorn.internal.runtime.UnwarrantedOptimismException;
+//import jdk.nashorn.internal.runtime.UnwarrantedOptimismException;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**  
@@ -51,7 +54,7 @@ public class GameWinControllor3 extends GameWinControllor
 	//blockGridPan.setGridLinesVisible(true);
 	//blockGridPan.set
 	createBlocks();
-
+	number=0;
 	btns=new ArrayList<>();
 	for(int i=0;i<4;i++){
 		Block btn=new Block(-1,-1);
@@ -180,7 +183,7 @@ public  void createOneBlock(int x,int y){
 						if(Data.mode != 3){
 							steps--;//步数减1
 							if(Data.mode == 0)
-								stepLabel.setText("Health Point:"+steps*100);
+								stepLabel.setText("HP:"+steps*100);
 							else if(Data.mode == 1)
 								stepLabel.setText("Steps Left:"+steps);
 							else if(Data.mode == 2)
@@ -188,8 +191,8 @@ public  void createOneBlock(int x,int y){
 							stepProgressBar.setProgress((double) steps/Data.totalstpes);
 						}
 	
-						if(BlockManager.twoBlocks.get(0).getSpecialType().equals("null") && 
-						   BlockManager.twoBlocks.get(1).getSpecialType().equals("null")){
+						if(!BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird") &&
+						   !BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird")){
 							System.out.println("start exchanging");
 							Transition transition = BlockManager.exchange();	//交换
 							transition.setOnFinished(e2 ->{
@@ -262,15 +265,31 @@ public  void createOneBlock(int x,int y){
 								BlockManager.twoBlocks.get(0).setColor(color);
 								BlockManager.twoBlocks.get(1).setColor(color);
 								BlockManager.twoBlocks.clear();
-								for(int i = 0; i < 10;i++)
-									for(int j = 0; j < 10;j++){
-										if(BlockManager.blocks[i][j].getColor().equals(color)){
-											BlockManager.erased[BlockManager.length][0] = i;
-											BlockManager.erased[BlockManager.length][1] = j;
-											BlockManager.length++;
-										}
-									}
-								erase();
+                                HashSet<Block> h = new HashSet<Block>();
+                                for(int i = 0; i < 10;i++)
+                                    for(int j = 0; j < 10;j++){
+                                        if(BlockManager.blocks[i][j].getColor().equals(color)){
+                                            h.add(BlockManager.blocks[i][j]);
+                                            
+                                            
+                                        }
+                                    }
+                                while(true){
+                                    int size = h.size();
+                                    h = BlockManager.checkLineSpecial(h);
+                                    if(size == h.size())
+                                        break;
+                                }
+                                Iterator<Block> iterator = h.iterator();
+                                while(iterator.hasNext()){
+                                    Block b = iterator.next();
+                                    BlockManager.erased[BlockManager.length][0] = b.getX();
+                                    BlockManager.erased[BlockManager.length][1] = b.getY();
+                                    BlockManager.length++;
+                                }
+                                erase();
+                                
+
 						
 								
 								
@@ -279,6 +298,108 @@ public  void createOneBlock(int x,int y){
 							
 							
 						}
+                        else if((BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird") &&
+                                 BlockManager.twoBlocks.get(1).getSpecialType().equals("horizon")) |
+                                (BlockManager.twoBlocks.get(0).getSpecialType().equals("horizon") &&
+                                 BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird"))){
+                                    Transition transition = BlockManager.exchange();
+                                    transition.setOnFinished(e2 ->{
+                                        BlockManager.twoBlocks.get(0).setNotSelected();
+                                        BlockManager.twoBlocks.get(1).setNotSelected();
+                                        BlockManager.twoBlocks.get(0).setIsPressed(false);
+                                        BlockManager.twoBlocks.get(1).setIsPressed(false);
+                                        int line = BlockManager.twoBlocks.get(0).getY();
+                                        String color = BlockManager.twoBlocks.get(0).getColor();		//将要消掉的颜色
+                                        if(BlockManager.twoBlocks.get(0).getColor().equals("MagicBird")){
+                                            color = BlockManager.twoBlocks.get(1).getColor();
+                                            line = BlockManager.twoBlocks.get(1).getY();
+                                        }
+                                        BlockManager.twoBlocks.get(0).setSpecialType("null");
+                                        BlockManager.twoBlocks.get(1).setSpecialType("null");
+                                        BlockManager.twoBlocks.get(0).setColor(color);
+                                        BlockManager.twoBlocks.get(1).setColor(color);
+                                        BlockManager.twoBlocks.clear();
+                                        
+                                        HashSet<Block> h = new HashSet<Block>();
+                                        for(int i = 0; i < 10;i++)
+                                            for(int j = 0; j < 10;j++){
+                                                if(BlockManager.blocks[i][j].getColor().equals(color)){
+                                                    h.add(BlockManager.blocks[i][j]);
+                                                }
+                                            }
+                                        for(int i = 0;i < 10;i++){
+                                            h.add(BlockManager.blocks[i][line]);
+                                        }
+                                        while(true){
+                                            int size = h.size();
+                                            h = BlockManager.checkLineSpecial(h);
+                                            if(size == h.size())
+                                                break;
+                                        }
+                                        Iterator<Block> iterator = h.iterator();
+                                        while(iterator.hasNext()){
+                                            Block b = iterator.next();
+                                            BlockManager.erased[BlockManager.length][0] = b.getX();
+                                            BlockManager.erased[BlockManager.length][1] = b.getY();
+                                            BlockManager.length++;
+                                        }
+                                        erase();
+                                        
+                                        
+                                        
+                                    });
+                                }
+                        else if((BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird") &&
+                                 BlockManager.twoBlocks.get(1).getSpecialType().equals("vertical")) |
+                                (BlockManager.twoBlocks.get(0).getSpecialType().equals("vertical") &&
+                                 BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird"))){
+                                    Transition transition = BlockManager.exchange();
+                                    transition.setOnFinished(e2 ->{
+                                        BlockManager.twoBlocks.get(0).setNotSelected();
+                                        BlockManager.twoBlocks.get(1).setNotSelected();
+                                        BlockManager.twoBlocks.get(0).setIsPressed(false);
+                                        BlockManager.twoBlocks.get(1).setIsPressed(false);
+                                        int line = BlockManager.twoBlocks.get(0).getX();
+                                        String color = BlockManager.twoBlocks.get(0).getColor();		//将要消掉的颜色
+                                        if(BlockManager.twoBlocks.get(0).getColor().equals("MagicBird")){
+                                            color = BlockManager.twoBlocks.get(1).getColor();
+                                            line = BlockManager.twoBlocks.get(1).getX();
+                                        }
+                                        BlockManager.twoBlocks.get(0).setSpecialType("null");
+                                        BlockManager.twoBlocks.get(1).setSpecialType("null");
+                                        BlockManager.twoBlocks.get(0).setColor(color);
+                                        BlockManager.twoBlocks.get(1).setColor(color);
+                                        BlockManager.twoBlocks.clear();
+                                        
+                                        HashSet<Block> h = new HashSet<Block>();
+                                        for(int i = 0; i < 10;i++)
+                                            for(int j = 0; j < 10;j++){
+                                                if(BlockManager.blocks[i][j].getColor().equals(color)){
+                                                    h.add(BlockManager.blocks[i][j]);
+                                                }
+                                            }
+                                        for(int i = 0;i < 10;i++){
+                                            h.add(BlockManager.blocks[line][i]);
+                                        }
+                                        while(true){
+                                            int size = h.size();
+                                            h = BlockManager.checkLineSpecial(h);
+                                            if(size == h.size())
+                                                break;
+                                        }
+                                        Iterator<Block> iterator = h.iterator();
+                                        while(iterator.hasNext()){
+                                            Block b = iterator.next();
+                                            BlockManager.erased[BlockManager.length][0] = b.getX();
+                                            BlockManager.erased[BlockManager.length][1] = b.getY();
+                                            BlockManager.length++;
+                                        }
+                                        erase();
+                                        
+                                        
+                                        
+                                    });
+                                }
 					}
 					else{												//点的两个块不相邻
 						Block b = BlockManager.twoBlocks.get(0);		//把第一个点的熄灭
@@ -294,16 +415,30 @@ public  void createOneBlock(int x,int y){
 				if(Data.mode != 3){
 					steps--;
 					if(Data.mode == 0)
-						stepLabel.setText("Health Point:"+steps*100);
+						stepLabel.setText("HP:"+steps*100);
 					else if(Data.mode == 1)
 						stepLabel.setText("Steps Left:"+steps);
 					else if(Data.mode == 2)
 						stepLabel.setText("Energy Value:"+steps*10);
 					stepProgressBar.setProgress((double) steps/Data.totalstpes);
 				}
-				BlockManager.erased[0][0] = btn.getX();
-				BlockManager.erased[0][1] = btn.getY();
-				BlockManager.length = 1;
+				
+                    HashSet<Block> h2 = new HashSet<Block>();
+                    h2.add(btn);
+                    while(true){
+                        int size = h2.size();
+                        h2 = BlockManager.checkLineSpecial(h2);
+                        if(size == h2.size())
+                            break;
+                    }
+                    Iterator<Block> iterator2 = h2.iterator();
+                    while(iterator2.hasNext()){
+                        Block b = iterator2.next();
+                        BlockManager.erased[BlockManager.length][0] = b.getX();
+                        BlockManager.erased[BlockManager.length][1] = b.getY();
+                        BlockManager.length++;
+                    }
+
 				Calculator.smallHammer++;
 				if(Calculator.smallHammer >= ITEMBOUND)
 					AchievementsManager.AchievementsList[1][0].setAchieved(true);
@@ -320,7 +455,7 @@ public  void createOneBlock(int x,int y){
 				if(Data.mode != 3){
 					steps--;
 					if(Data.mode == 0)
-						stepLabel.setText("Health Point:"+steps*100);
+						stepLabel.setText("HP:"+steps*100);
 					else if(Data.mode == 1)
 						stepLabel.setText("Steps Left:"+steps);
 					else if(Data.mode == 2)
@@ -351,6 +486,12 @@ public  void createOneBlock(int x,int y){
 						h.add(BlockManager.blocks[i+1][j+1]);
 				}
 				
+                    while(true){
+                        int size = h.size();
+                        h = BlockManager.checkLineSpecial(h);
+                        if(size == h.size())
+                            break;
+                    }
 				Iterator<Block> iterator = h.iterator();
 				while(iterator.hasNext()){
 					Block block = iterator.next();
@@ -385,12 +526,17 @@ public  void createOneBlock(int x,int y){
 				}
         		blockGridPan.getChildren().remove(btn);
         		
-        		createOneBlock(btn.getX(),btn.getY());
-        		Block specialBlock = BlockManager.blocks[btn.getX()][btn.getY()];
-        		String specialType = BlockManager.getBlockSpecialTypeRandom();
-        		specialBlock.setSpecialType(specialType);
-        		specialBlock.setBackgroundColor(specialType);
-        		blockGridPan.add(specialBlock, specialBlock.getX(), specialBlock.getY());
+                    createOneBlock(btn.getX(),btn.getY());
+                    Block specialBlock = BlockManager.blocks[btn.getX()][btn.getY()];
+                    String specialType = BlockManager.getBlockSpecialTypeRandom();
+                    specialBlock.setSpecialType(specialType);
+                    if(specialType.equals("MagicBird") || specialType.equals("Bomb"))
+                        specialBlock.setBackgroundColor(specialType);
+                    else{
+                        specialBlock.setBackgroundColor(btn.getColor());
+                        specialBlock.setPattern(specialType);
+                    }
+                    blockGridPan.add(specialBlock, specialBlock.getX(), specialBlock.getY());
 
         		Calculator.magic++;
 				if(Calculator.magic >= ITEMBOUND)
@@ -502,94 +648,138 @@ public  void erase(){
 		break;
 		}
 		BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]] = null;
-		//消失的动画
+        final int iFinal = i;
+        //消失的动画
         FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
         transition.setFromValue(1);
         transition.setToValue(0);
         if(block.getSpecialType().equals("null")){		//不变成特效块
-	        if(i == BlockManager.length - 1)
-		        transition.setOnFinished(e->{
-		        	blockGridPan.getChildren().remove(block);
-	
-		        	 descend();
-		          
-		        });
-	        
-	        else
-	        	transition.setOnFinished(e->{
-	        		
-	        		blockGridPan.getChildren().remove(block);
-	        		
-		        });
-	    }
+            
+            transition.setOnFinished(e->{
+                
+                blockGridPan.getChildren().remove(block);
+                if(iFinal == BlockManager.length-1){
+                    descend();
+                }
+            });
+        }
         else if(block.getSpecialType().equals("MagicBird")){			//变成魔力鸟
-        	if(i == BlockManager.length - 1)
-		        transition.setOnFinished(e->{
-		        	blockGridPan.getChildren().remove(block);
-		        	
-		        	createOneBlock(block.getX(),block.getY());
-	        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
-	        		magicBirdBlock.setSpecialType("MagicBird");
-	        		magicBirdBlock.setBackgroundColor("MagicBird");
-	        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
-	        		
-	        		
-		        	 descend();
-		          
-		        });
-	        
-	        else
-	        	transition.setOnFinished(e->{
-	        		
-	        		blockGridPan.getChildren().remove(block);
-	        		
-	        		createOneBlock(block.getX(),block.getY());
-	        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
-	        		magicBirdBlock.setSpecialType("MagicBird");
-	        		magicBirdBlock.setBackgroundColor("MagicBird");
-	        		blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
-	        		
-		        });
+            if(block.getColor().equals("MagicBird")){
+                
+                transition.setOnFinished(e->{
+                    
+                    blockGridPan.getChildren().remove(block);
+                    if(iFinal == BlockManager.length-1){
+                        descend();
+                        
+                    }
+                });
+            }
+            else{
+                
+                transition.setOnFinished(e->{
+                    
+                    blockGridPan.getChildren().remove(block);
+                    
+                    createOneBlock(block.getX(),block.getY());
+                    Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
+                    magicBirdBlock.setSpecialType("MagicBird");
+                    magicBirdBlock.setBackgroundColor("MagicBird");
+                    blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
+                    if(iFinal == BlockManager.length-1){
+                        descend();
+                    }
+                });
+            }
         }
         else if(block.getSpecialType().equals("Bomb")){			//变成爆炸块
-        	if(i == BlockManager.length - 1)
-		        transition.setOnFinished(e->{
-		        	blockGridPan.getChildren().remove(block);
-		        	
-		        	createOneBlock(block.getX(),block.getY());
-	        		Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
-	        		bombBlock.setSpecialType("Bomb");
-	        		bombBlock.setBackgroundColor("Bomb");
-//	        		bombBlock.setBombColor("Bomb");
-	        		blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
-	        		
-	        		
-		        	 descend();
-		          
-		        });
-	        
-	        else
-	        	transition.setOnFinished(e->{
-	        		
-	        		blockGridPan.getChildren().remove(block);
-	        		
-	        		createOneBlock(block.getX(),block.getY());
-	        		Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
-	        		bombBlock.setSpecialType("Bomb");
-	        		bombBlock.setBackgroundColor("Bomb");
-//	        		bombBlock.setBombColor("Bomb");
-	        		blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
-	        		
-		        });
+            
+            transition.setOnFinished(e->{
+                
+                blockGridPan.getChildren().remove(block);
+                
+                createOneBlock(block.getX(),block.getY());
+                Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
+                bombBlock.setSpecialType("Bomb");
+                bombBlock.setBackgroundColor("Bomb");
+                //		        		bombBlock.setBombColor("Bomb");
+                blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
+                
+                if(iFinal == BlockManager.length-1){
+                    descend();
+                }
+            });
+        }
+        else if(block.getSpecialType().equals("horizon")){
+            if(block.getPattern().equals("horizon")){
+                
+                transition.setOnFinished(e->{
+                    
+                    blockGridPan.getChildren().remove(block);
+                    
+                    if(iFinal == BlockManager.length-1){
+                        descend();
+                    }
+                });
+            }
+            else{
+                
+                transition.setOnFinished(e->{
+                    
+                    blockGridPan.getChildren().remove(block);
+                    
+                    createOneBlock(block.getX(),block.getY());
+                    Block nb = BlockManager.blocks[block.getX()][block.getY()];
+                    nb.setSpecialType("horizon");
+                    nb.setBackgroundColor(block.getColor());
+                    nb.setPattern("horizon");
+                    blockGridPan.add(nb, nb.getX(), nb.getY());
+                    
+                    if(iFinal == BlockManager.length-1){
+                        descend();
+                    }
+                    
+                });
+            }
+        }
+        else if(block.getSpecialType().equals("vertical")){
+            if(block.getPattern().equals("vertical")){
+                
+                transition.setOnFinished(e->{
+                    
+                    blockGridPan.getChildren().remove(block);
+                    
+                    if(iFinal == BlockManager.length-1){
+                        descend();
+                    }
+                    
+                });
+            }
+            else{
+                
+                transition.setOnFinished(e->{
+                    
+                    blockGridPan.getChildren().remove(block);
+                    
+                    createOneBlock(block.getX(),block.getY());
+                    Block nb = BlockManager.blocks[block.getX()][block.getY()];
+                    nb.setSpecialType("vertical");
+                    nb.setBackgroundColor(block.getColor());
+                    nb.setPattern("vertical");
+                    blockGridPan.add(nb, nb.getX(), nb.getY());
+                    
+                    if(iFinal == BlockManager.length-1){
+                        descend();
+                        
+                    }
+                    
+                });
+            }
         }
         
-        transition.play();
         
-	}
-//	        ChangeListener<? super EventHandler<ActionEvent>> listener =
-//		null;
-//        eraseOnFinished = transition.getOnFinished();
-       
+        transition.play();
+    }
         	
         
 }
@@ -604,8 +794,12 @@ public void onRestartBtnClick(ActionEvent actionEvent) {
 		}
 		blockGridPan.getChildren().clear();
 		createBlocks();
+		number=0;
+		for(Block  block : btns){
+			block.setStyle("-fx-background-color: transparent;-fx-background-image: null;");
+		}
 
-        noticeText.clear();
+        //noticeText.clear();
         noticeText.setText("Restart!");
        
 		if(Data.mode != 3){
@@ -661,4 +855,43 @@ public void checkIsLose(){
 			},1000);
 		}
 }
+
+	public void onExitBtnClick(ActionEvent actionEvent) {
+		Calculator.scores += GameWinControllor.score.intValue();
+//		number=0;
+		Music.stopBgMusic();
+		Platform.runLater(()->{
+			switch (Data.mode){
+				case 0:
+				case 2:
+					try {
+						new ChapterSelectWin();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					break;
+				case 1:
+					new LevelWin();
+					break;
+				case 3:
+
+					Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
+					String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
+
+
+					Billboard.scorelist[Billboard.RANK].setTime(str);
+
+					Arrays.sort(Billboard.scorelist);
+					for(int i = 0 ; i < Billboard.RANK+1 ; i++)
+						System.out.println(Billboard.scorelist[i]);
+
+					Billboard.setBillboardCondition();
+
+					new MainWin();
+					break;
+			}
+			blockGridPan.getScene().getWindow().hide();
+		});
+
+	}
 }

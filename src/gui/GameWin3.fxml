@@ -54,7 +54,7 @@
             <Tooltip style="-fx-background-color:rgba(255,255,255,0.5);&#10;-fx-text-fill:white;" text="重玩" textAlignment="CENTER" />
           </tooltip>
         </Button>
-        <Button fx:id="exitBtn" alignment="BOTTOM_CENTER" font="$x1" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" styleClass="menuBtn" text="Exit" textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="exitBtn" onAction="#onExitBtnClick" alignment="BOTTOM_CENTER" font="$x1" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0" styleClass="menuBtn" text="Exit" textAlignment="CENTER" textFill="WHITE">
           <tooltip>
             <Tooltip style="-fx-background-color:rgba(255,255,255,0.5);&#10;-fx-text-fill:white;" text="退出此关" textAlignment="CENTER" />
           </tooltip>

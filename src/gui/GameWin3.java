@@ -41,46 +41,13 @@ public class GameWin3 extends Stage{
 			scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
 
 
-			//��lookup����λ�ؼ�
-			Button exitBtn=(Button) root.lookup("#exitBtn");
-			exitBtn.setOnAction(e->{
-
-				Calculator.scores += GameWinControllor.score.intValue();
-				Music.stopBgMusic();
-				Platform.runLater(()->{
-					switch (Data.mode){
-						case 0:
-						case 2:
-							try {
-								new ChapterSelectWin();
-							} catch (IOException e1) {
-								e1.printStackTrace();
-							}
-							break;
-						case 1:
-							new LevelWin();
-							break;
-						case 3:
-
-							Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
-						    String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
-
-
-							Billboard.scorelist[Billboard.RANK].setTime(str);
-							
-							Arrays.sort(Billboard.scorelist);
-							for(int i = 0 ; i < Billboard.RANK+1 ; i++)
-								System.out.println(Billboard.scorelist[i]);
-
-							Billboard.setBillboardCondition();
-
-							new MainWin();
-							break;
-					}
-					this.close();
-				});
-			});
-			
+//			//��lookup����λ�ؼ�
+//			Button exitBtn=(Button) root.lookup("#exitBtn");
+//			exitBtn.setOnAction(e->{
+//
+//
+//			});
+//
 			this.setScene(scene);
 			this.show();
 			
