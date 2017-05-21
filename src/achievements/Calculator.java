@@ -109,7 +109,7 @@ public class Calculator
 
 		list[8] = steps;
 		list[9] = scores;
-		System.out.println(list[0]);
+		//System.out.println(list[0]);
 
 		setCalculatorCondition();
 
