@@ -41,7 +41,7 @@ public class Data {
     private static final int BIRTHDAY_CHAPTER10_STEP = 25;
     private static final int BIRTHDAY_CHAPTER11_SCORE = 5500;
     private static final int BIRTHDAY_CHAPTER11_STEP = 30;
-    private static final int BIRTHDAY_CHAPTER12_SCORE = 1000;
+    private static final int BIRTHDAY_CHAPTER12_SCORE = 10000;
     private static final int BIRTHDAY_CHAPTER12_STEP = 15;
     
     private static final int STORY_CHAPTER1_SCORE = 1500;
