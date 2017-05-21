@@ -23,7 +23,7 @@ public class BlockManager {
 	//static HashMap<String,Block> blockHashMap=new HashMap<>();
 
 //	EventHandler <ActionEvent> exchangeOnFinished = null;
-	private static final String[] specialTypes = {"MagicBird","Bomb"};
+	private static final String[] specialTypes = {"MagicBird","Bomb","horizon","vertical"};
 
 	public void setBlockBackgroundColor(Block block) {
 
@@ -244,18 +244,26 @@ public class BlockManager {
         HashSet<Block> h = new HashSet<Block>();
         h.addAll(erasableHBlocks);
         h.addAll(erasableVBlocks);
-        Iterator<Block> iterator = h.iterator();
+       
+        if(h.size() >= 5){
+        	if(!block.getSpecialType().equals("MagicBird"))
+        		block.setSpecialType("Bomb");
+        }
         
+        while(true){
+        	int size = h.size();
+        	h = checkLineSpecial(h);
+        	if(size == h.size())
+        		break;
+        }
+        Iterator<Block> iterator = h.iterator();
         while(iterator.hasNext()){
         	Block b = iterator.next();
         	erased[length][0] = b.getX();
         	erased[length][1] = b.getY();
         	length++;
         }
-        if(h.size() >= 5){
-        	if(!block.getSpecialType().equals("MagicBird"))
-        		block.setSpecialType("Bomb");
-        }
+        
 
         erasableVBlocks.clear();
         erasableHBlocks.clear();
@@ -264,6 +272,29 @@ public class BlockManager {
         System.out.println("length : "+ length);
         return true;
     }
+    
+    public HashSet<Block> checkLineSpecial(HashSet<Block> h){
+    	HashSet<Block> htemp = new HashSet<Block>();
+    	Iterator<Block> iterator = h.iterator();
+    	while(iterator.hasNext()){
+    		Block block = iterator.next();
+    		if(block.getPattern().equals("horizon")){
+    			for(int j = 0;j < 10;j++){
+    				if(blocks[j][block.getY()] != null)
+    					htemp.add(blocks[j][block.getY()]);
+    			}
+    		}
+    		if(block.getPattern().equals("vertical")){
+    			for(int j = 0;j < 10;j++){
+    				if(blocks[block.getX()][j] != null)
+    					htemp.add(blocks[block.getX()][j]);
+    			}
+    		}
+    	}
+    	h.addAll(htemp);
+    	return h;
+    }
+    
    
     //清空数组
     public  void resetArrays(){
