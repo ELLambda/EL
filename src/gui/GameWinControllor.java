@@ -581,7 +581,6 @@ public class GameWinControllor {
 
 
 		if(Data.mode == 2) {
-			Shop.coins = score.intValue();
 			noticeText.setText("      coins:      " + String.valueOf(score.intValue()));
 		}
 		else if(Data.mode == 3){
@@ -590,7 +589,11 @@ public class GameWinControllor {
 		else{
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 		}
-		
+
+		//金币换算 + 测试金币
+		Shop.coins = score.intValue()/10000;
+		System.out.println("in gameWin coins = " + Shop.coins);
+
 		 Music.playEffectMusic(1);//eliminate
 		
 		 System.out.println("start erasing");
