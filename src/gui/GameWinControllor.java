@@ -33,6 +33,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
 
+
+//为了方便继承修改了作用域
 public class GameWinControllor {
 	public static BlockManager BlockManager = new BlockManager();
 	public Label stepLabel;
@@ -40,23 +42,23 @@ public class GameWinControllor {
 	public Button smallHammer;
 	public Button bigHammer;
 	public Button magic;
-	@FXML private GridPane blockGridPan;
-	@FXML private AnchorPane root;
-	@FXML private TextField noticeText;
-	private final static int HEIGHT = 10;
-	private final static int WIDE = 10;
+	@FXML public GridPane blockGridPan;
+	@FXML public AnchorPane root;
+	@FXML public TextField noticeText;
+	protected final static int HEIGHT = 10;
+	protected final static int WIDE = 10;
 	public static final double SECOND = 0.5;
 	//public static int score=0;
 	public static IntegerProperty score;
-	private static int erasedTimes = 1;
-	private static boolean isMoving = false;
-	private static int steps=Data.totalstpes;
-	private static String itemSelected = "null";
+	protected static int erasedTimes = 1;
+	protected static boolean isMoving = false;
+	protected static int steps=Data.totalstpes;
+	protected static String itemSelected = "null";
 	
-	private static final int BLOCKBOUND = 666;
-	private static final int ITEMBOUND = 99;
-	private static final int STEPBOUND = 10086;
-	private static final int SCOREBOUND = 5201314;
+	protected static final int BLOCKBOUND = 666;
+	protected static final int ITEMBOUND = 99;
+	protected static final int STEPBOUND = 10086;
+	protected static final int SCOREBOUND = 5201314;
 	
 	
 
@@ -760,7 +762,7 @@ public class GameWinControllor {
 	}
 	
 	
-	private void checkIsLose(){
+	public void checkIsLose(){
 		if(score.intValue() >= Data.targetScore){
 			Calculator.scores += score.intValue();
 			if(Calculator.scores >= SCOREBOUND)
