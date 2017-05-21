@@ -117,7 +117,7 @@ public class BlockManager {
 
 
 	
-	int[][] erased = new int[HEIGHT*WIDE][2];
+	int[][] erased = new int[5*HEIGHT*WIDE][2];
 	int length = 0;
 
 	
