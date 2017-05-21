@@ -12,6 +12,8 @@ import shop.Shop;
 import shop.ShopItem;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ShopController {
 	@FXML
@@ -81,7 +83,7 @@ public class ShopController {
 				System.out.println("还剩多少钱： " + shop.Shop.coins);
                 //new TipsWin 提示购买成功窗口
 				label.setText("购买成功！");
-                root.getScene().getWindow().hide();
+                //root.getScene().getWindow().hide();
             }else{
                 //new TipsWin 提示金币不够
             	shop.Shop.selectedList.clear();

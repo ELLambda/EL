@@ -3,7 +3,10 @@ package gui;
 
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -12,6 +15,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.util.Duration;
 
 public class ChapterSelectWinController {
 	@FXML
@@ -96,11 +102,25 @@ public class ChapterSelectWinController {
 	
 	@FXML
 	public void onChapter1Clicked(){
-		Platform.runLater(()->{
+		//Platform.runLater(()->{
 			//main
-			ChapterWin chapter=new ChapterWin(1);
-			root.getScene().getWindow().hide();
-		});
+			//ChapterWin chapter=new ChapterWin(1);
+
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask() {
+				public void run() {
+					Circle circle = new Circle(chapter1.getLayoutX(),chapter1.getLayoutY(),20);
+					circle.setFill(Color.FLORALWHITE);
+					circle.setVisible(true);
+					TranslateTransition translateTransition=new TranslateTransition(Duration.millis(2000), circle);
+					translateTransition.setFromX(chapter1.getLayoutX());
+					//translateTransition.setFromY(chapter1.getLayoutY());
+					translateTransition.setToX(chapter2.getLayoutX());
+					//translateTransition.setToY(chapter2.getLayoutY());
+				}
+			}, 10000, 1000);
+		root.getScene().getWindow().hide();
+		//});
 	}
 	
 	@FXML
