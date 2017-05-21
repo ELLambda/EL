@@ -591,8 +591,9 @@ public class GameWinControllor {
 		}
 
 		//金币换算 + 测试金币
-		Shop.coins = score.intValue()/10000;
+		Shop.coins = score.intValue()/1000;
 		System.out.println("in gameWin coins = " + Shop.coins);
+		shop.Shop.setCoinsCondition();
 
 		 Music.playEffectMusic(1);//eliminate
 		
