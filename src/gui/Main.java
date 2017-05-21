@@ -1,5 +1,8 @@
 package gui;
 
+import achievements.AchievementsManager;
+import achievements.Billboard;
+import achievements.BillboardItem;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -9,7 +12,7 @@ public class Main extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		// TODO Auto-generated method stub
-	
+
 
 		Platform.runLater(new Runnable() {			
 			@Override
@@ -18,7 +21,7 @@ public class Main extends Application{
 				try {
 					new WelcomeWin().start(new Stage());
 
-					new BillboardWin();
+					//new BillboardWin();
 
 					//new ShopWin();
 					//new AchievementWin();

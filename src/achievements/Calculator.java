@@ -95,18 +95,18 @@ public class Calculator
 		}
 
 	}
-	
+
 	public static void leaving(){
 		list[0] = first;
 		list[1] = second;
 		list[2] = third;
 		list[3] = fourth;
 		list[4] = fifth;
-		
+
 		list[5] = smallHammer;
 		list[6] = bigHammer;
 		list[7] = magic;
-		
+
 		list[8] = steps;
 		list[9] = scores;
 		System.out.println(list[0]);
@@ -114,4 +114,5 @@ public class Calculator
 		setCalculatorCondition();
 
 	}
+
 }

@@ -1,3 +1,4 @@
+
 package gui;
 
 import javafx.application.Platform;
@@ -43,16 +44,17 @@ public class ShopController {
 	public Label i_sum;
 	@FXML
 	public Label p_sum;
-
+	
+	int coins;
 	public int i_1 = 0;
 	public int i_2 = 0;
 	public int i_3 = 0;
 	public int p_1 = 0;
 	public int p_2 = 0;
 	public int p_3 = 0;
-	public static int price_1 = 2;//金创药单价
-	public static int price_2 = 3;//还神丹单价
-	public static int price_3 = 5;//天香续命露
+	public static int price_1 = 200;//金创药单价
+	public static int price_2 = 300;//还神丹单价
+	public static int price_3 = 500;//天香续命露
 	public int med_1_remain = 0;//之前剩余的
 	public int med_2_remain = 0;
 	public int med_3_remain = 0;
@@ -79,12 +81,13 @@ public class ShopController {
                 root.getScene().getWindow().hide();
             }else{
                 //new TipsWin 提示金币不够
+            	shop.Shop.selectedList.clear();
                 label.setText("金币数量不够哦~");
             }
 		});
 	}
 	@FXML
-	void initialize(){
+	void init(){
 		coin.setText("现有金币："+ shop.Shop.coins);
 		md1.setText(String.valueOf(i_1));
 		md2.setText(String.valueOf(i_2));
