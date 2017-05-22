@@ -70,6 +70,7 @@ public class Shop
 			e.printStackTrace();
 		}
 	}
+
 	//购买此商品
 	public  static void buy(ShopItem s){
 		if(selectedList.size()<=SIZE_LIMIT)
@@ -95,7 +96,7 @@ public class Shop
 			BufferedWriter bw = new BufferedWriter(new FileWriter(
 					"src/shop/coins.txt",false));
 
-				bw.write(coins + "");
+				bw.write("" + coins);
 			
 		
 			bw.close();

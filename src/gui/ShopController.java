@@ -12,6 +12,8 @@ import shop.Shop;
 import shop.ShopItem;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class ShopController {
 	@FXML
@@ -51,9 +53,9 @@ public class ShopController {
 	public int p_1 = 0;
 	public int p_2 = 0;
 	public int p_3 = 0;
-	public static int price_1 = 200;//金创药单价
-	public static int price_2 = 300;//还神丹单价
-	public static int price_3 = 500;//天香续命露
+	public static int price_1 = 2;//金创药单价
+	public static int price_2 = 3;//还神丹单价
+	public static int price_3 = 5;//天香续命露
 	public int med_1_remain = 0;//之前剩余的
 	public int med_2_remain = 0;
 	public int med_3_remain = 0;
@@ -74,10 +76,14 @@ public class ShopController {
 		Platform.runLater(()->{
 			//some store and compute
             int total = Integer.parseInt(p_sum.getText().replaceAll(" ",""));
+            System.out.println("应付多少钱： " + total);
             if(shop.Shop.coins >=total){
                 shop.Shop.coins = shop.Shop.coins - total;
+                shop.Shop.setCoinsCondition();
+				System.out.println("还剩多少钱： " + shop.Shop.coins);
                 //new TipsWin 提示购买成功窗口
-                root.getScene().getWindow().hide();
+				label.setText("购买成功！");
+                //root.getScene().getWindow().hide();
             }else{
                 //new TipsWin 提示金币不够
             	shop.Shop.selectedList.clear();
@@ -87,6 +93,7 @@ public class ShopController {
 	}
 	@FXML
 	void initialize(){
+		shop.Shop.getCoinsCondition();
 		coin.setText("现有金币："+ shop.Shop.coins);
         System.out.println("coins = " + shop.Shop.coins);
 		md1.setText(String.valueOf(i_1));
@@ -99,16 +106,16 @@ public class ShopController {
 	@FXML
 	public void onMed1Clicked(){
 			i_1++;
-			md1.setText("        " + i_1);
+			md1.setText("     " + i_1);
 
 			p_1++;
-			md1_price.setText("      " + p_1*price_1);
+			md1_price.setText("   " + p_1*price_1);
 
 			int sum_1 = i_1 + i_2 + i_3;
 			int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
 
-			i_sum.setText(String.valueOf("           " + String.valueOf(sum_1)));
-			p_sum.setText(String.valueOf("         " + String.valueOf(sum_2)));
+			i_sum.setText(String.valueOf("        " + String.valueOf(sum_1)));
+			p_sum.setText(String.valueOf("      " + String.valueOf(sum_2)));
 
         ShopItem S_1 = new ShopItem(item_1, price_1, i_1, price_1,0);
         shop.Shop.selectedList.add(S_1);
@@ -117,16 +124,16 @@ public class ShopController {
 	@FXML
 	public void onMed2Clicked() {
 		i_2++;
-		md2.setText("        " + i_2);
+		md2.setText("     " + i_2);
 
 		p_2++;
-		md2_price.setText("      " + p_2*price_2);
+		md2_price.setText("   " + p_2*price_2);
 
         int sum_1 = i_1 + i_2 + i_3;
         int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
 
-		i_sum.setText(String.valueOf("        " + String.valueOf(sum_1)));
-		p_sum.setText(String.valueOf("      " + String.valueOf(sum_2)));
+		i_sum.setText(String.valueOf("     " + String.valueOf(sum_1)));
+		p_sum.setText(String.valueOf("   " + String.valueOf(sum_2)));
 
         ShopItem S_2 = new ShopItem(item_2, price_2, i_2, price_2,0);
         shop.Shop.selectedList.add(S_2);
@@ -135,16 +142,16 @@ public class ShopController {
 	@FXML
 	public void onMed3Clicked(){
 			i_3++;
-			md3.setText("        " + i_3);
+			md3.setText("     " + i_3);
 
 			p_3++;
-			md3_price.setText("      " + p_3*price_3);
+			md3_price.setText("   " + p_3*price_3);
 
             int sum_1 = i_1 + i_2 + i_3;
             int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
 
-			i_sum.setText("        " + String.valueOf(sum_1));
-			p_sum.setText("      " + String.valueOf(sum_2));
+			i_sum.setText("     " + String.valueOf(sum_1));
+			p_sum.setText("   " + String.valueOf(sum_2));
 
         ShopItem S_3 = new ShopItem(item_3, price_3, i_3, price_3,0);
         shop.Shop.selectedList.add(S_3);
