@@ -32,3 +32,6 @@
 	-fx-spacing: 50;
 	-fx-padding: 30;
 }
+.button{
+	-fx-font-size: 25;
+}

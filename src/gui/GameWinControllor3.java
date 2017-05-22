@@ -822,13 +822,13 @@ public void onRestartBtnClick(ActionEvent actionEvent) {
 @Override
 public void checkIsLose(){
 	if(score.intValue()>=Data.targetScore){
-//		Calculator.scores += score.intValue();
-//		if(Calculator.scores >= SCOREBOUND)
-//			AchievementsManager.AchievementsList[1][4].setAchieved(true);
-//		else
-//			AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/(double)ITEMBOUND);
-//
-//
+		Calculator.scores += score.intValue();
+		if(Calculator.scores >= SCOREBOUND)
+			AchievementsManager.AchievementsList[1][4].setAchieved(true);
+
+		AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/(double)SCOREBOUND);
+
+
 		Timer timer = new Timer();
 		timer.schedule(new TimerTask(){
 			public void run(){
@@ -876,6 +876,8 @@ public void checkIsLose(){
 					new LevelWin();
 					break;
 				case 3:
+
+					AchievementsManager.AchievementsList[1][4].setRate(score.doubleValue()/SCOREBOUND);
 
 					Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
 					String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());

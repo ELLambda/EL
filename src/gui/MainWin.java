@@ -38,6 +38,7 @@ public class MainWin extends Stage{
 			root=FXMLLoader.load(getClass().getResource("MainWin.fxml"));
 			Scene scene=new Scene(root,900,600);
 			scene.getStylesheets().add(getClass().getResource("mainwin.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("/fontstyle.css").toExternalForm());
 			this.initStyle(StageStyle.TRANSPARENT);
 			this.setScene(scene);
 

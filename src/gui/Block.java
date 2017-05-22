@@ -26,7 +26,6 @@ public class Block extends Button{
 	
 	public void setBackgroundColor(String color){
 		this.color=color;
-		//ͨ��ʹ��css���ñ���
 		//gui/img/star/1.png
 		String path="gui/img/star/"+this.color+".png";
 		this.setBackground(new Background(new BackgroundImage(new Image(path),
