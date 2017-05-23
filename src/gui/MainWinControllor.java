@@ -23,6 +23,9 @@ public class MainWinControllor {
 
 	public Button startBtn;
 
+	@FXML
+	public Button help;
+
 	public static void changeScene(AnchorPane root, URL url){
 		try {
 			root= FXMLLoader.load(url);
@@ -49,6 +52,18 @@ public class MainWinControllor {
 //		});
 
 
+	}
+	
+	@FXML
+	public void onHelpBtnClicked(ActionEvent actionEvent){
+		Platform.runLater(()->{
+		    try{
+                new Helper();
+            }catch(Exception e){
+		        e.printStackTrace();
+            }
+        });
+		
 	}
 
     public void onAboutBtnClick(ActionEvent actionEvent) {

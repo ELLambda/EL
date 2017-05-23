@@ -12,11 +12,11 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="gui.MainWinControllor">
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MainWinControllor">
   <children>
     <ImageView id="main_win_bg.jpg" layoutX="0.0" layoutY="0.0">
       <image>
-        <Image url="@img/main_win_bg.jpg" preserveRatio="true" smooth="true" />
+        <Image preserveRatio="true" smooth="true" url="@img/main_win_bg.jpg" />
       </image>
     </ImageView>
     <VBox id="box" layoutX="512.0" layoutY="150.0" spacing="50.0">
@@ -24,11 +24,12 @@
         <Button fx:id="startBtn" mnemonicParsing="false" onAction="#onStartBtnClick" prefHeight="47.0" prefWidth="220.0" text="Start" textAlignment="CENTER">
         </Button>
         <Button mnemonicParsing="false" onAction="#onAchievementBtnClick" prefHeight="47.0" prefWidth="219.0" text="Achievement" textAlignment="CENTER" />
-        <Button  mnemonicParsing="false" onAction="#onAboutBtnClick" prefHeight="47.0" prefWidth="219.0" text="About" textAlignment="CENTER" />
+        <Button mnemonicParsing="false" onAction="#onAboutBtnClick" prefHeight="47.0" prefWidth="219.0" text="About" textAlignment="CENTER" />
       </children>
       <padding>
         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
       </padding>
     </VBox>
+      <Button fx:id="help" layoutX="763.0" layoutY="26.0" mnemonicParsing="false" onAction="#onHelpBtnClicked" text="Helper" underline="true" />
   </children>
 </AnchorPane>
