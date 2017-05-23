@@ -750,6 +750,58 @@ public  void erase(){
         	
         
 }
+
+
+@Override
+public void onSmallHammerBtnClick(ActionEvent actionEvent){
+	if(isMoving == false){
+		noticeText.setText("Can not use it in this mode!");
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask(){
+			public void run(){
+				Platform.runLater(()->{
+					noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
+				});
+			}
+			
+		},1000);
+	}
+}
+
+@Override
+public void onBigHammerBtnClick(ActionEvent actionEvent){
+	if(isMoving == false){
+		noticeText.setText("Can not use it in this mode!");
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask(){
+			public void run(){
+				Platform.runLater(()->{
+					noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
+				});
+			}
+			
+		},1000);
+	}
+}
+
+@Override
+public void onMagicBtnClick(ActionEvent actionEvent){
+	if(isMoving == false){
+		noticeText.setText("Can not use it in this mode!");
+		Timer timer = new Timer();
+		timer.schedule(new TimerTask(){
+			public void run(){
+				Platform.runLater(()->{
+					noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
+				});
+			}
+			
+		},1000);
+	}
+}
+
+
+
 @Override
 public void onRestartBtnClick(ActionEvent actionEvent) {
 	if(isMoving == false){
@@ -760,8 +812,8 @@ public void onRestartBtnClick(ActionEvent actionEvent) {
 			AchievementsManager.AchievementsList[1][4].setAchieved(true);
 		}
 		blockGridPan.getChildren().clear();
+		BlockManager.twoBlocks.clear();
 		createBlocks();
-
         noticeText.clear();
         noticeText.setText("Restart!");
        

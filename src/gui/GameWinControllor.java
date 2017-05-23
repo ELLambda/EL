@@ -1012,7 +1012,6 @@ public class GameWinControllor {
 			
 			if(Data.mode == 2){
 				
-				//进入商店
 				Shop.coins = score.intValue();
 				
 				Timer timer = new Timer();
@@ -1060,8 +1059,8 @@ public class GameWinControllor {
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
 			}
 			blockGridPan.getChildren().clear();
+			BlockManager.twoBlocks.clear();
 			createBlocks();
-	
 	        noticeText.clear();
 	        noticeText.setText("Restart!");
 	       

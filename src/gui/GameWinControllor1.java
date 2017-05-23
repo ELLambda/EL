@@ -53,7 +53,7 @@ public class GameWinControllor1 extends GameWinControllor
 		//blockGridPan.set
 		createBlocks();
 		
-		steps=Data.totalstpes;
+		steps = Data.totalstpes;
 		number = new SimpleIntegerProperty(0);
 //		
 //		//使用上一关购买的商品
@@ -119,12 +119,9 @@ public class GameWinControllor1 extends GameWinControllor
 						if(BlockManager.isNear() == true){		//点的两个块相邻
 							if(Data.mode != 3){
 								steps--;//步数减1
-								if(Data.mode == 0)
-									stepLabel.setText("HP:"+steps*100);
-								else if(Data.mode == 1)
-									stepLabel.setText("Steps Left:"+steps);
-								else if(Data.mode == 2)
-									stepLabel.setText("Energy Value:"+steps*10);
+								
+								stepLabel.setText("Steps Left:"+steps);
+								
 								stepProgressBar.setProgress((double) steps/Data.totalstpes);
 							}
 		
@@ -351,12 +348,7 @@ public class GameWinControllor1 extends GameWinControllor
 					isMoving = true;
 					if(Data.mode != 3){
 						steps--;
-						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
-						else if(Data.mode == 1)
-							stepLabel.setText("Steps Left:"+steps);
-						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
+						stepLabel.setText("Steps Left:"+steps);
 						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
                         HashSet<Block> h2 = new HashSet<Block>();
@@ -390,12 +382,7 @@ public class GameWinControllor1 extends GameWinControllor
 					isMoving = true;
 					if(Data.mode != 3){
 						steps--;
-						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
-						else if(Data.mode == 1)
-							stepLabel.setText("Steps Left:"+steps);
-						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
+						stepLabel.setText("Steps Left:"+steps);
 						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
 					int i = btn.getX();
@@ -454,12 +441,7 @@ public class GameWinControllor1 extends GameWinControllor
 						break;
 					if(Data.mode != 3){
 						steps--;
-						if(Data.mode == 0)
-							stepLabel.setText("Health Point:"+steps*100);
-						else if(Data.mode == 1)
-							stepLabel.setText("Steps Left:"+steps);
-						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
+						stepLabel.setText("Steps Left:"+steps);
 						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
 	        		blockGridPan.getChildren().remove(btn);
@@ -729,6 +711,55 @@ public class GameWinControllor1 extends GameWinControllor
 	        	
 	        
 	}
+	
+	@Override
+	public void onSmallHammerBtnClick(ActionEvent actionEvent){
+		if(isMoving == false){
+			noticeText.setText("Can not use it in this mode!");
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask(){
+				public void run(){
+					Platform.runLater(()->{
+						noticeText.setText("Your saved: "+number.intValue()+" stars"+"    Target:"+TARGET);
+					});
+				}
+				
+			},1000);
+		}
+	}
+	
+	@Override
+	public void onBigHammerBtnClick(ActionEvent actionEvent){
+		if(isMoving == false){
+			noticeText.setText("Can not use it in this mode!");
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask(){
+				public void run(){
+					Platform.runLater(()->{
+						noticeText.setText("Your saved: "+number.intValue()+" stars"+"    Target:"+TARGET);
+					});
+				}
+				
+			},1000);
+		}
+	}
+	
+	@Override
+	public void onMagicBtnClick(ActionEvent actionEvent){
+		if(isMoving == false){
+			noticeText.setText("Can not use it in this mode!");
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask(){
+				public void run(){
+					Platform.runLater(()->{
+						noticeText.setText("Your saved: "+number.intValue()+" stars"+"    Target:"+TARGET);
+					});
+				}
+				
+			},1000);
+		}
+	}
+	
 	@Override
 	public void onRestartBtnClick(ActionEvent actionEvent) {
 		if(isMoving == false){
@@ -739,11 +770,20 @@ public class GameWinControllor1 extends GameWinControllor
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
 			}
 			blockGridPan.getChildren().clear();
+			BlockManager.twoBlocks.clear();
 			createBlocks();
-	
 	        noticeText.clear();
 	        noticeText.setText("Restart!");
-	       
+	        Timer timer = new Timer();
+			timer.schedule(new TimerTask(){
+				public void run(){
+					Platform.runLater(()->{
+						noticeText.setText("Your saved: "+number.intValue()+" stars"+"    Target:"+TARGET);
+					});
+				}
+				
+			},1000);
+	        
 			if(Data.mode != 3){
 		        steps=Data.totalstpes;
 //		        if(Data.mode == 0)
