@@ -1015,16 +1015,19 @@ public class GameWinControllor {
 				//进入商店
 				Shop.coins = score.intValue();
 				
-//				Timer timer = new Timer();
-//				timer.schedule(new TimerTask(){
-//					public void run(){
-//						Platform.runLater(()->{
-//							blockGridPan.getScene().getWindow().hide();
-//							new WarnWin(true);
-//							Data.warnNumber++;
-//						});
-//					}
-//				}, 1000);
+				Timer timer = new Timer();
+				timer.schedule(new TimerTask(){
+					public void run(){
+						Platform.runLater(()->{
+							blockGridPan.getScene().getWindow().hide();;
+							try {
+								new ChapterSelectWin();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						});
+					}
+				}, 1000);
 
 				
 			}
