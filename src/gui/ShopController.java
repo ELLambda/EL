@@ -114,8 +114,8 @@ public class ShopController {
 			int sum_1 = i_1 + i_2 + i_3;
 			int sum_2 = p_1 * price_1 + p_2 * price_2 + p_3 * price_3;
 
-			i_sum.setText(String.valueOf("        " + String.valueOf(sum_1)));
-			p_sum.setText(String.valueOf("      " + String.valueOf(sum_2)));
+			i_sum.setText(String.valueOf("     " + String.valueOf(sum_1)));
+			p_sum.setText(String.valueOf("   " + String.valueOf(sum_2)));
 
         ShopItem S_1 = new ShopItem(item_1, price_1, i_1, price_1,0);
         shop.Shop.selectedList.add(S_1);
