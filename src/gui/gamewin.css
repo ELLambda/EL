@@ -75,3 +75,10 @@
 	-fx-font-size: 25;
 	-fx-text-fill:darkred;
 }
+
+.sign{
+	-fx-min-height: 50;
+	-fx-font-family: 'Bauhaus 93';
+	-fx-font-size: 20;
+	-fx-text-fill: white;
+}

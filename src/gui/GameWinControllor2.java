@@ -1,9 +1,6 @@
 package gui;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 import achievements.AchievementsManager;
 import achievements.Calculator;
@@ -14,6 +11,12 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 
 /**  
@@ -39,8 +42,11 @@ public class GameWinControllor2 extends GameWinControllor
 
 	//选中了的数目
 	private static int number = 0;
+	ArrayList<String> selectedBlocksColor=new ArrayList<>();
+	Block[] selectedBlock=new Block[4];//被选中的方块
+	public VBox slide;
 
-@Override
+	@Override
 @FXML  void initialize(){
 
 	//blockGridPan.setGridLinesVisible(true);
@@ -52,6 +58,38 @@ public class GameWinControllor2 extends GameWinControllor
 	adder2 = new SimpleIntegerProperty(0);
 	sumadder1 = new SimpleIntegerProperty(0);
 	sumadder2 = new SimpleIntegerProperty(0);
+
+//	one=new Block(-1,-1);
+//	two=new Block(-1,-1);
+//	Block three=new Block(-1,-1);
+//	Block four=new Block(-1,-1);
+		for(int i=0;i<4;i++){
+			selectedBlock[i]=new Block(-1,-1);
+			selectedBlock[i].setStyle("-fx-background-color: transparent;");
+			selectedBlock[i].setMouseTransparent(true);//对鼠标动作无反应
+		}
+
+	VBox selectedBox=new VBox();
+		selectedBox.setAlignment(Pos.CENTER);
+	selectedBox.setSpacing(10);
+	selectedBox.setPadding(new Insets(10));
+	selectedBox.setStyle("-fx-border-width: 3;-fx-border-color: white;-fx-border-radius: 15;");
+
+	HBox left=new HBox();
+		Label addSign1=new Label("+");
+		addSign1.getStyleClass().add("sign");
+	left.getChildren().addAll(selectedBlock[0],addSign1,selectedBlock[1]);
+
+	Label equalSign=new Label("=");
+	equalSign.getStyleClass().add("sign");
+
+		HBox right=new HBox();
+		Label addSign2=new Label("+");
+		addSign2.getStyleClass().add("sign");
+		right.getChildren().addAll(selectedBlock[2],addSign2,selectedBlock[3]);
+
+		selectedBox.getChildren().addAll(left,equalSign,right);
+		slide.getChildren().add(selectedBox);
 //	//使用上一关购买的商品
 //	for(int i = 0;i<Shop.selectedList.size();i++)
 //		steps = Shop.selectedList.get(i).addStep(steps);
@@ -95,23 +133,39 @@ public  void createOneBlock(int x,int y){
 	btn.setOnMouseClicked(e->{
 		if(number == 0){
 			adder1block = btn.getColor();
-			number++;
-			System.out.println("adder1"+adder1block);
+			if(!selectedBlocksColor.contains(adder1block)){
+				selectedBlocksColor.add(adder1block);
+				selectedBlock[number].setBackgroundColor(adder1block);
+				number++;
+				System.out.println("adder1"+adder1block);
+			}
 		}
 		else if(number == 1){
 			adder2block = btn.getColor();
-			number++;
-			System.out.println("adder2"+adder2block);
+			if(!selectedBlocksColor.contains(adder2block)){
+				selectedBlocksColor.add(adder2block);
+				selectedBlock[number].setBackgroundColor(adder2block);
+				number++;
+				System.out.println("adder2"+adder2block);
+			}
 		}
 		else if(number == 2){
 			sumadder1block = btn.getColor();
-			number++;		
-			System.out.println("sumadder1"+sumadder1block);
+			if(!selectedBlocksColor.contains(sumadder1block)){
+				selectedBlocksColor.add(sumadder1block);
+				selectedBlock[number].setBackgroundColor(sumadder1block);
+				number++;
+				System.out.println("sumadder1block"+sumadder1block);
+			}
 		}
 		else if(number == 3){
 			sumadder2block = btn.getColor();
-			number++;
-			System.out.println("sumadder2"+sumadder2block);
+			if(!selectedBlocksColor.contains(sumadder2block)){
+				selectedBlocksColor.add(sumadder2block);
+				selectedBlock[number].setBackgroundColor(sumadder2block);
+				number++;
+				System.out.println("sumadder2block"+sumadder2block);
+			}
 		}
 		
 	else if(isMoving == false && (( number == 4))){
@@ -555,11 +609,11 @@ public  void erase(){
 		
 		if(block.getColor().equals(adder1block))
 			adder1.set(adder1.intValue()+1);
-		else if(block.getColor().equals(adder2block))
+		if(block.getColor().equals(adder2block))
 		adder2.set(adder2.intValue()+1);
-		else if(block.getColor().equals(sumadder1block))
+		if(block.getColor().equals(sumadder1block))
 		sumadder1.set(sumadder1.intValue()+1);
-		else if(block.getColor().equals(sumadder2block))
+		if(block.getColor().equals(sumadder2block))
 		sumadder2.set(sumadder2.intValue()+1);
 			switch(block.getColor()){
 		case("1"):
@@ -832,6 +886,7 @@ public void onRestartBtnClick(ActionEvent actionEvent) {
         adder2 = new SimpleIntegerProperty(0);
         sumadder1 = new SimpleIntegerProperty(0);
         sumadder2 = new SimpleIntegerProperty(0);
+        number=4;//不允许重新选择等式两边
 	}
 
 }
