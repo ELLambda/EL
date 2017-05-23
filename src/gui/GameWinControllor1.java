@@ -45,12 +45,12 @@ public class GameWinControllor1 extends GameWinControllor
 	//获得该星星的颜色
 	public static String LockedStar;
 	
-	static{
-		
-			int ramdonNum=(int)(Math.random()*5)+1;
-			LockedStar =  String.valueOf(ramdonNum);
-		
-	}
+//	static{
+//		
+//			int ramdonNum=(int)(Math.random()*5)+1;
+//			LockedStar =  String.valueOf(ramdonNum);
+//		
+//	}
 
 	public javafx.scene.layout.VBox VBox;
 
@@ -60,6 +60,9 @@ public class GameWinControllor1 extends GameWinControllor
 		//blockGridPan.setGridLinesVisible(true);
 		//blockGridPan.set
 		createBlocks();
+		
+		int ramdonNum=(int)(Math.random()*5)+1;
+		LockedStar =  String.valueOf(ramdonNum);
 		
 		steps = Data.totalstpes;
 		number = new SimpleIntegerProperty(0);
@@ -796,6 +799,21 @@ public class GameWinControllor1 extends GameWinControllor
 			blockGridPan.getChildren().clear();
 			BlockManager.twoBlocks.clear();
 			createBlocks();
+			
+			
+			int ramdonNum=(int)(Math.random()*5)+1;
+			LockedStar =  String.valueOf(ramdonNum);
+			HBox hBox=new HBox();
+			VBox.getChildren().remove(5);
+			VBox.getChildren().add(hBox);
+
+			hBox.setPadding(new Insets(20));
+			hBox.setStyle("-fx-border-color: darkred;-fx-border-width: 2");
+			hBox.setAlignment(Pos.CENTER);
+			Block block=new Block(-1,-1);//被锁定块
+			block.setBackgroundColor(LockedStar);
+			hBox.getChildren().add(block);
+			
 	        noticeText.clear();
 	        noticeText.setText("Restart!");
 	        Timer timer = new Timer();

@@ -21,7 +21,7 @@ public class Main extends Application{
 				try {
 					new WelcomeWin().start(new Stage());
 					
-					//new GameWin3();
+//					new GameWin3();
 					//new BillboardWin();
 
 					//new ShopWin();
