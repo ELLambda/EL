@@ -30,18 +30,18 @@ import javafx.util.Duration;
 
 public class GameWinControllor2 extends GameWinControllor
 {
-	public static IntegerProperty adder1;
-	public static IntegerProperty adder2;
-	public static IntegerProperty sumadder1;
-	public static IntegerProperty sumadder2;
+	public IntegerProperty adder1;
+	public IntegerProperty adder2;
+	public IntegerProperty sumadder1;
+	public IntegerProperty sumadder2;
 	
-	public static String adder1block;
-	public static String adder2block;
-	public static String sumadder1block;
-	public static String sumadder2block;
+	public String adder1block;
+	public String adder2block;
+	public String sumadder1block;
+	public String sumadder2block;
 
 	//选中了的数目
-	private static int number = 0;
+	private int number = 0;
 	ArrayList<String> selectedBlocksColor=new ArrayList<>();
 	Block[] selectedBlock=new Block[4];//被选中的方块
 	public VBox slide;
@@ -90,39 +90,7 @@ public class GameWinControllor2 extends GameWinControllor
 
 		selectedBox.getChildren().addAll(left,equalSign,right);
 		slide.getChildren().add(selectedBox);
-//	//使用上一关购买的商品
-//	for(int i = 0;i<Shop.selectedList.size();i++)
-//		steps = Shop.selectedList.get(i).addStep(steps);
-//	
-//	for(int i = 0; i<Shop.selectedList.size();i++)
-//		score = new SimpleIntegerProperty(Shop.selectedList.get(i).addScore(score.intValue()));
-//	
-//	
-//	//剧情模式
-//	if(Data.mode == 0){
-//		noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
-//		stepLabel.setLayoutX(980);
-//		stepLabel.setText("HP:"+steps*100);
-//
-//	}
-//	//生日模式
-//	else if(Data.mode == 1){
-//		noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
-//		stepLabel.setText("Steps Left:"+steps);
-//	}
-//	//金币模式
-//	else if(Data.mode == 2){
-//		noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
-//		stepLabel.setText("Energy Value:"+steps*10);
-//
-//	}
-//	//无尽模式
-//	else if(Data.mode == 3){
-//		noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
-//		stepLabel.setText("No steps limit!");
-//		stepProgressBar.setProgress(-1);
-//		stepLabel.setLayoutX(997);
-//	}
+
 	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
 	stepLabel.setText("Steps Left:"+steps);
 }
@@ -596,8 +564,6 @@ public  void erase(){
 	else
 			AchievementsManager.AchievementsList[1][3].setRate((double)Calculator.steps/(double)STEPBOUND);
 
-		noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
-	
 	
 	 Music.playEffectMusic(1);//eliminate
 	
@@ -675,7 +641,9 @@ public  void erase(){
                 
                 blockGridPan.getChildren().remove(block);
                 if(iFinal == BlockManager.length-1){
+                	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                     descend();
+                    
                 }
             });
         }
@@ -686,6 +654,7 @@ public  void erase(){
                     
                     blockGridPan.getChildren().remove(block);
                     if(iFinal == BlockManager.length-1){
+                    	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                         descend();
                         
                     }
@@ -703,6 +672,7 @@ public  void erase(){
                     magicBirdBlock.setBackgroundColor("MagicBird");
                     blockGridPan.add(magicBirdBlock, magicBirdBlock.getX(), magicBirdBlock.getY());
                     if(iFinal == BlockManager.length-1){
+                    	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                         descend();
                     }
                 });
@@ -722,6 +692,7 @@ public  void erase(){
                 blockGridPan.add(bombBlock, bombBlock.getX(),bombBlock.getY());
                 
                 if(iFinal == BlockManager.length-1){
+                	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                     descend();
                 }
             });
@@ -734,6 +705,7 @@ public  void erase(){
                     blockGridPan.getChildren().remove(block);
                     
                     if(iFinal == BlockManager.length-1){
+                    	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                         descend();
                     }
                 });
@@ -752,6 +724,7 @@ public  void erase(){
                     blockGridPan.add(nb, nb.getX(), nb.getY());
                     
                     if(iFinal == BlockManager.length-1){
+                    	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                         descend();
                     }
                     
@@ -766,6 +739,7 @@ public  void erase(){
                     blockGridPan.getChildren().remove(block);
                     
                     if(iFinal == BlockManager.length-1){
+                    	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                         descend();
                     }
                     
@@ -785,6 +759,7 @@ public  void erase(){
                     blockGridPan.add(nb, nb.getX(), nb.getY());
                     
                     if(iFinal == BlockManager.length-1){
+                    	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                         descend();
                         
                     }
