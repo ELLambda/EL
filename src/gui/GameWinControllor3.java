@@ -795,6 +795,7 @@ public void onRestartBtnClick(ActionEvent actionEvent) {
 			AchievementsManager.AchievementsList[1][4].setAchieved(true);
 		}
 		blockGridPan.getChildren().clear();
+		BlockManager.twoBlocks.clear();
 		createBlocks();
 		number=0;
 		for(Block  block : btns){

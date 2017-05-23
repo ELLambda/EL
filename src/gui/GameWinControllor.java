@@ -1012,19 +1012,21 @@ public class GameWinControllor {
 			
 			if(Data.mode == 2){
 				
-				//进入商店
 				Shop.coins = score.intValue();
 				
-//				Timer timer = new Timer();
-//				timer.schedule(new TimerTask(){
-//					public void run(){
-//						Platform.runLater(()->{
-//							blockGridPan.getScene().getWindow().hide();
-//							new WarnWin(true);
-//							Data.warnNumber++;
-//						});
-//					}
-//				}, 1000);
+				Timer timer = new Timer();
+				timer.schedule(new TimerTask(){
+					public void run(){
+						Platform.runLater(()->{
+							blockGridPan.getScene().getWindow().hide();;
+							try {
+								new ChapterSelectWin();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						});
+					}
+				}, 1000);
 
 				
 			}
@@ -1057,8 +1059,8 @@ public class GameWinControllor {
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
 			}
 			blockGridPan.getChildren().clear();
+			BlockManager.twoBlocks.clear();
 			createBlocks();
-	
 	        noticeText.clear();
 	        noticeText.setText("Restart!");
 	       

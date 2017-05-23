@@ -40,7 +40,7 @@ public class GameWin1 extends Stage{
 			scene.setFill(Color.TRANSPARENT);
 			scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
 			scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
-
+			//scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
 
 			//��lookup����λ�ؼ�
 			Button exitBtn=(Button) root.lookup("#exitBtn");

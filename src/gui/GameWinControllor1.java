@@ -17,6 +17,11 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import shop.Shop;
 
@@ -40,12 +45,15 @@ public class GameWinControllor1 extends GameWinControllor
 	//获得该星星的颜色
 	public static String LockedStar;
 	
-	static{
-		
-			int ramdonNum=(int)(Math.random()*5)+1;
-			LockedStar =  String.valueOf(ramdonNum);
-		
-	}
+//	static{
+//		
+//			int ramdonNum=(int)(Math.random()*5)+1;
+//			LockedStar =  String.valueOf(ramdonNum);
+//		
+//	}
+
+	public javafx.scene.layout.VBox VBox;
+
 	@Override
 	@FXML  void initialize(){
 
@@ -53,8 +61,27 @@ public class GameWinControllor1 extends GameWinControllor
 		//blockGridPan.set
 		createBlocks();
 		
-		steps=Data.totalstpes;
+		int ramdonNum=(int)(Math.random()*5)+1;
+		LockedStar =  String.valueOf(ramdonNum);
+		
+		steps = Data.totalstpes;
 		number = new SimpleIntegerProperty(0);
+
+		Label lockLabel=new Label("Locked Star");
+		lockLabel.getStyleClass().add("locked");
+		VBox.getChildren().add(lockLabel);
+
+
+		HBox hBox=new HBox();
+		VBox.getChildren().add(hBox);
+
+		hBox.setPadding(new Insets(20));
+		hBox.setStyle("-fx-border-color: darkred;-fx-border-width: 2");
+		hBox.setAlignment(Pos.CENTER);
+		Block block=new Block(-1,-1);//被锁定块
+		block.setBackgroundColor(LockedStar);
+		hBox.getChildren().add(block);
+
 //		
 //		//使用上一关购买的商品
 //		for(int i = 0;i<Shop.selectedList.size();i++)
@@ -119,12 +146,9 @@ public class GameWinControllor1 extends GameWinControllor
 						if(BlockManager.isNear() == true){		//点的两个块相邻
 							if(Data.mode != 3){
 								steps--;//步数减1
-								if(Data.mode == 0)
-									stepLabel.setText("HP:"+steps*100);
-								else if(Data.mode == 1)
-									stepLabel.setText("Steps Left:"+steps);
-								else if(Data.mode == 2)
-									stepLabel.setText("Energy Value:"+steps*10);
+								
+								stepLabel.setText("Steps Left:"+steps);
+								
 								stepProgressBar.setProgress((double) steps/Data.totalstpes);
 							}
 		
@@ -351,12 +375,7 @@ public class GameWinControllor1 extends GameWinControllor
 					isMoving = true;
 					if(Data.mode != 3){
 						steps--;
-						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
-						else if(Data.mode == 1)
-							stepLabel.setText("Steps Left:"+steps);
-						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
+						stepLabel.setText("Steps Left:"+steps);
 						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
                         HashSet<Block> h2 = new HashSet<Block>();
@@ -390,12 +409,7 @@ public class GameWinControllor1 extends GameWinControllor
 					isMoving = true;
 					if(Data.mode != 3){
 						steps--;
-						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
-						else if(Data.mode == 1)
-							stepLabel.setText("Steps Left:"+steps);
-						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
+						stepLabel.setText("Steps Left:"+steps);
 						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
 					int i = btn.getX();
@@ -454,12 +468,7 @@ public class GameWinControllor1 extends GameWinControllor
 						break;
 					if(Data.mode != 3){
 						steps--;
-						if(Data.mode == 0)
-							stepLabel.setText("Health Point:"+steps*100);
-						else if(Data.mode == 1)
-							stepLabel.setText("Steps Left:"+steps);
-						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
+						stepLabel.setText("Steps Left:"+steps);
 						stepProgressBar.setProgress((double) steps/Data.totalstpes);
 					}
 	        		blockGridPan.getChildren().remove(btn);
@@ -729,6 +738,55 @@ public class GameWinControllor1 extends GameWinControllor
 	        	
 	        
 	}
+	
+	@Override
+	public void onSmallHammerBtnClick(ActionEvent actionEvent){
+		if(isMoving == false){
+			noticeText.setText("Can not use it in this mode!");
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask(){
+				public void run(){
+					Platform.runLater(()->{
+						noticeText.setText("Your saved: "+number.intValue()+" stars"+"    Target:"+TARGET);
+					});
+				}
+				
+			},1000);
+		}
+	}
+	
+	@Override
+	public void onBigHammerBtnClick(ActionEvent actionEvent){
+		if(isMoving == false){
+			noticeText.setText("Can not use it in this mode!");
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask(){
+				public void run(){
+					Platform.runLater(()->{
+						noticeText.setText("Your saved: "+number.intValue()+" stars"+"    Target:"+TARGET);
+					});
+				}
+				
+			},1000);
+		}
+	}
+	
+	@Override
+	public void onMagicBtnClick(ActionEvent actionEvent){
+		if(isMoving == false){
+			noticeText.setText("Can not use it in this mode!");
+			Timer timer = new Timer();
+			timer.schedule(new TimerTask(){
+				public void run(){
+					Platform.runLater(()->{
+						noticeText.setText("Your saved: "+number.intValue()+" stars"+"    Target:"+TARGET);
+					});
+				}
+				
+			},1000);
+		}
+	}
+	
 	@Override
 	public void onRestartBtnClick(ActionEvent actionEvent) {
 		if(isMoving == false){
@@ -739,11 +797,35 @@ public class GameWinControllor1 extends GameWinControllor
 				AchievementsManager.AchievementsList[1][4].setAchieved(true);
 			}
 			blockGridPan.getChildren().clear();
+			BlockManager.twoBlocks.clear();
 			createBlocks();
-	
+			
+			
+			int ramdonNum=(int)(Math.random()*5)+1;
+			LockedStar =  String.valueOf(ramdonNum);
+			HBox hBox=new HBox();
+			VBox.getChildren().remove(5);
+			VBox.getChildren().add(hBox);
+
+			hBox.setPadding(new Insets(20));
+			hBox.setStyle("-fx-border-color: darkred;-fx-border-width: 2");
+			hBox.setAlignment(Pos.CENTER);
+			Block block=new Block(-1,-1);//被锁定块
+			block.setBackgroundColor(LockedStar);
+			hBox.getChildren().add(block);
+			
 	        noticeText.clear();
 	        noticeText.setText("Restart!");
-	       
+	        Timer timer = new Timer();
+			timer.schedule(new TimerTask(){
+				public void run(){
+					Platform.runLater(()->{
+						noticeText.setText("Your saved: "+number.intValue()+" stars"+"    Target:"+TARGET);
+					});
+				}
+				
+			},1000);
+	        
 			if(Data.mode != 3){
 		        steps=Data.totalstpes;
 //		        if(Data.mode == 0)

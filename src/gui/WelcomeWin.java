@@ -50,7 +50,7 @@ public class WelcomeWin extends Application{
 		rootPan=FXMLLoader.load(getClass().getResource("WelcomeWin.fxml"));
 		Scene scene=new Scene(rootPan,600,400);
 		scene.getStylesheets().add(getClass().getResource("welcome.css").toExternalForm());
-		scene.getStylesheets().add(getClass().getResource("/fontstyle.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
 		scene.setFill(Color.TRANSPARENT);
 		
 		for(int i=0;i<6;i++){

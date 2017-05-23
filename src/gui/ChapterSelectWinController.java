@@ -49,6 +49,30 @@ public class ChapterSelectWinController {
 	@FXML
 	public Button chapter12;
 	@FXML
+	public Button gold1;
+	@FXML
+	public Button gold2;
+	@FXML
+	public Button gold3;
+	@FXML
+	public Button gold4;
+	@FXML
+	public Button gold5;
+	@FXML
+	public Button gold6;
+	@FXML
+	public Button gold7;
+	@FXML
+	public Button gold8;
+	@FXML
+	public Button gold9;
+	@FXML
+	public Button gold10;
+	@FXML
+	public Button gold11;
+	@FXML
+	public Button gold12;
+	@FXML
 	public Button ending;
 	@FXML
 	public Button shop;
@@ -61,30 +85,43 @@ public class ChapterSelectWinController {
 		switch(Data.chapterReached){
 		case 13:
 			ending.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold12.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 12:
 			chapter12.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold11.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 11:
 			chapter11.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold10.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 10:
 			chapter10.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold9.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 9:
 			chapter9.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold8.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 8:
 			chapter8.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold7.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 7:
 			chapter7.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold6.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 6:
 			chapter6.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold5.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 5:
 			chapter5.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold4.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 4:
 			chapter4.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold3.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 3:
 			chapter3.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold2.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 2:
 			chapter2.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			gold1.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
 		case 1:
 			chapter1.setStyle("-fx-effect: dropshadow(gaussian, white, 8, 0.8, 0, 0)");
+			
 		
 			
 		}
@@ -250,6 +287,127 @@ public class ChapterSelectWinController {
 			Platform.runLater(()->{
 				//main
 				ChapterWin chapter=new ChapterWin(13);
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	
+	public void ongold1Clicked(){
+		if(Data.chapterReached >= 2){
+			Platform.runLater(()->{
+				Data.setLimit(1,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold2Clicked(){
+		if(Data.chapterReached >= 3){
+			Platform.runLater(()->{
+				Data.setLimit(2,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold3Clicked(){
+		if(Data.chapterReached >= 4){
+			Platform.runLater(()->{
+				Data.setLimit(3,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold4Clicked(){
+		if(Data.chapterReached >= 5){
+			Platform.runLater(()->{
+				Data.setLimit(4,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold5Clicked(){
+		if(Data.chapterReached >= 6){
+			Platform.runLater(()->{
+				Data.setLimit(5,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold6Clicked(){
+		if(Data.chapterReached >= 7){
+			Platform.runLater(()->{
+				Data.setLimit(6,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold7Clicked(){
+		if(Data.chapterReached >= 8){
+			Platform.runLater(()->{
+				Data.setLimit(7,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold8Clicked(){
+		if(Data.chapterReached >= 9){
+			Platform.runLater(()->{
+				Data.setLimit(8,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold9Clicked(){
+		if(Data.chapterReached >= 10){
+			Platform.runLater(()->{
+				Data.setLimit(9,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold10Clicked(){
+		if(Data.chapterReached >= 11){
+			Platform.runLater(()->{
+				Data.setLimit(10,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold11Clicked(){
+		if(Data.chapterReached >= 12){
+			Platform.runLater(()->{
+				Data.setLimit(11,2);
+				new GameWin();
+				root.getScene().getWindow().hide();
+			});
+		}
+	}
+	
+	public void ongold12Clicked(){
+		if(Data.chapterReached >= 13){
+			Platform.runLater(()->{
+				Data.setLimit(12,2);
+				new GameWin();
 				root.getScene().getWindow().hide();
 			});
 		}

@@ -88,18 +88,18 @@
             <ImageInput />
          </effect>
       </Button>
-      <Button layoutX="863.0" layoutY="731.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="788.0" layoutY="604.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="483.0" layoutY="699.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="170.0" layoutY="643.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="221.0" layoutY="501.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="366.0" layoutY="434.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="559.0" layoutY="453.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="735.0" layoutY="356.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="684.0" layoutY="283.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="533.0" layoutY="272.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="391.0" layoutY="245.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
-      <Button layoutX="246.0" layoutY="203.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" />
+      <Button fx:id="gold1" layoutX="863.0" layoutY="731.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold1Clicked"/>
+      <Button fx:id="gold2" layoutX="788.0" layoutY="604.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold2Clicked"/>
+      <Button fx:id="gold3" layoutX="483.0" layoutY="699.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold3Clicked"/>
+      <Button fx:id="gold4" layoutX="170.0" layoutY="643.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold4Clicked"/>
+      <Button fx:id="gold5" layoutX="221.0" layoutY="501.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold5Clicked"/>
+      <Button fx:id="gold6" layoutX="366.0" layoutY="434.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold6Clicked"/>
+      <Button fx:id="gold7" layoutX="559.0" layoutY="453.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold7Clicked"/>
+      <Button fx:id="gold8" layoutX="735.0" layoutY="356.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold8Clicked"/>
+      <Button fx:id="gold9" layoutX="684.0" layoutY="283.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold9Clicked"/>
+      <Button fx:id="gold10" layoutX="533.0" layoutY="272.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold10Clicked"/>
+      <Button fx:id="gold11" layoutX="391.0" layoutY="245.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold11Clicked"/>
+      <Button fx:id="gold12" layoutX="246.0" layoutY="203.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="27.0" onAction="#ongold12Clicked"/>
       <Button fx:id="back" layoutX="1096.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackBtnClicked" text="Back" underline="true">
          <font>
             <Font size="25.0" />

@@ -277,10 +277,10 @@ public class Data {
             	targetScore = NEVER_REACHED;
                 totalstpes = SHOP_CHAPTER12_STEP;
                 break;
-            case 13:
-            	targetScore = NEVER_REACHED;
-            	totalstpes = SHOP_CHAPTER13_STEP;
-            	break;
+//            case 13:
+//            	targetScore = NEVER_REACHED;
+//            	totalstpes = SHOP_CHAPTER13_STEP;
+//            	break;
            }
         	break;
         	
