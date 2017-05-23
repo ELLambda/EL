@@ -76,7 +76,7 @@ public class GameWinControllor1 extends GameWinControllor
 		VBox.getChildren().add(hBox);
 
 		hBox.setPadding(new Insets(20));
-		hBox.setStyle("-fx-border-color: darkred;-fx-border-width: 2");
+		hBox.setStyle("-fx-border-color: darkred;-fx-border-width: 3;-fx-border-radius: 15;");
 		hBox.setAlignment(Pos.CENTER);
 		Block block=new Block(-1,-1);//被锁定块
 		block.setBackgroundColor(LockedStar);

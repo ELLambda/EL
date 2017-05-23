@@ -41,7 +41,6 @@ public class GameWin2 extends Stage{
 			scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
 			scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
 
-
 			//��lookup����λ�ؼ�
 			Button exitBtn=(Button) root.lookup("#exitBtn");
 			exitBtn.setOnAction(e->{

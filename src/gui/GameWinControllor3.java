@@ -10,7 +10,6 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
-import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
@@ -41,6 +40,8 @@ public class GameWinControllor3 extends GameWinControllor
 	public static String adder2block;
 	public static String sumadder1block;
 	public static String sumadder2block;
+	ArrayList<String> opposite=new ArrayList<>();
+//	ArrayList<String> opposite2=new ArrayList<>();
 	
 	//点击到了第几个块
 	public static int number;
@@ -126,28 +127,41 @@ public  void createOneBlock(int x,int y){
 	btn.getStyleClass().add("block");
 	btn.setOnMouseClicked(e->{
 		if(number == 0){
-			btns.get(number).setBackgroundColor(btn.getColor());
+
 			adder1block = btn.getColor();
-			number++;
-			System.out.println("adder1"+adder1block);
+			if(!opposite.contains(adder1block)){
+				btns.get(number).setBackgroundColor(adder1block);
+				opposite.add(adder1block);
+				number++;
+			}
 		}
 		else if(number == 1){
-			btns.get(number).setBackgroundColor(btn.getColor());
+
 			adder2block = btn.getColor();
-			number++;
-			System.out.println("adder2"+adder2block);
+			if(!opposite.contains(adder2block)){
+				btns.get(number).setBackgroundColor(adder2block);
+				opposite.add(adder2block);
+				number++;
+			}
+
 		}
 		else if(number == 2){
-			btns.get(number).setBackgroundColor(btn.getColor());
+
 			sumadder1block = btn.getColor();
-			number++;		
-			System.out.println("sumadder1"+sumadder1block);
+			if(!opposite.contains(sumadder1block)){
+				btns.get(number).setBackgroundColor(sumadder1block);
+				opposite.add(sumadder1block);
+				number++;
+			}
 		}
 		else if(number == 3){
-			btns.get(number).setBackgroundColor(btn.getColor());
+
 			sumadder2block = btn.getColor();
-			number++;
-			System.out.println("sumadder2"+sumadder2block);
+			if(!opposite.contains(sumadder2block)){
+				btns.get(number).setBackgroundColor(sumadder2block);
+				opposite.add(sumadder2block);
+				number++;
+			}
 		}
 		
 	else if(isMoving == false && (( number == 4))){

@@ -22,6 +22,7 @@ public class Block extends Button{
 		this.setMinSize(50, 50);
 		this.x=x;
 		this.y=y;
+//		this.setStyle("-fx-background-color: transparent;");
 	}
 	
 	public void setBackgroundColor(String color){

@@ -69,8 +69,14 @@ public class MessageWin extends Stage{
 
 			Data.setLimit(Data.order,1);
 //			new GameWin();
+<<<<<<< HEAD
 			new GameWin();
 			//new GameWin3();
+=======
+//			new GameWin1();
+			new GameWin2();
+//			new GameWin3();
+>>>>>>> 642a6a94c8ca02226f9e4dbaf80c40fd33b9de86
 			this.close();
 		});
 		

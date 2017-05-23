@@ -101,6 +101,7 @@ public class GameWinControllor {
 		//金币模式
 		else if(Data.mode == 2){
 			noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+			stepLabel.setLayoutX(980);
 			stepLabel.setText("Energy Value:"+steps*10);
 
 		}
