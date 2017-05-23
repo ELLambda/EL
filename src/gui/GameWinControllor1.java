@@ -17,6 +17,11 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import shop.Shop;
 
@@ -46,6 +51,9 @@ public class GameWinControllor1 extends GameWinControllor
 			LockedStar =  String.valueOf(ramdonNum);
 		
 	}
+
+	public javafx.scene.layout.VBox VBox;
+
 	@Override
 	@FXML  void initialize(){
 
@@ -55,6 +63,22 @@ public class GameWinControllor1 extends GameWinControllor
 		
 		steps = Data.totalstpes;
 		number = new SimpleIntegerProperty(0);
+
+		Label lockLabel=new Label("Locked Star");
+		lockLabel.getStyleClass().add("locked");
+		VBox.getChildren().add(lockLabel);
+
+
+		HBox hBox=new HBox();
+		VBox.getChildren().add(hBox);
+
+		hBox.setPadding(new Insets(20));
+		hBox.setStyle("-fx-border-color: darkred;-fx-border-width: 2");
+		hBox.setAlignment(Pos.CENTER);
+		Block block=new Block(-1,-1);//被锁定块
+		block.setBackgroundColor(LockedStar);
+		hBox.getChildren().add(block);
+
 //		
 //		//使用上一关购买的商品
 //		for(int i = 0;i<Shop.selectedList.size();i++)
