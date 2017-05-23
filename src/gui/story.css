@@ -1,3 +1,8 @@
+@font-face {
+	/*font-family: 'ITCBLKAD';*/
+	src: url('resources/fonts/MyFont3.otf');
+}
+
 .button{
 	-fx-background-color: rgba(255,255,255,0.4);
 	-fx-effect: dropshadow(gaussian,rgba(0,233,222,0.2),5,5,0,0) ; 
@@ -9,4 +14,8 @@
 }
 .button:pressed{
 	-fx-background-color: rgba(255,255,255,0.5);
+}
+
+.label{
+	-fx-font-family: 'HanziPen SC Bold';
 }
