@@ -25,6 +25,7 @@ public class ChapterSelectWin extends Stage {
 
 		 Scene scene=new Scene(root,1200,800);
 		 scene.setFill(Color.TRANSPARENT);
+		 //scene.getStylesheets().add(getClass().getResource("/fontstyle2.css").toExternalForm());
 		 scene.getStylesheets().add(getClass().getResource("chapterSelect.css").toExternalForm());
 		 this.setScene(scene);
 		 
