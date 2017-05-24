@@ -23,7 +23,7 @@ public class Main extends Application{
 					
 //					new GameWin3();
 					//new BillboardWin();
-					//new Pack();
+					new Pack();
 
 					//new ShopWin();
 					//new AchievementWin();
