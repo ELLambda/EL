@@ -39,9 +39,9 @@ public class PackCtr {
     @FXML
     public Button ok;
 
-    public static int num1 = ShopController.med_1_remain;
-    public static int num2 = ShopController.med_2_remain;
-    public static int num3 = ShopController.med_3_remain;
+    public static int num1 = shop.Shop.getPack1Condition();
+    public static int num2 = shop.Shop.getPack2Condition();
+    public static int num3 = shop.Shop.getPack3Condition();
 
     public int use1 = 0;
     public int use2 = 0;
@@ -86,14 +86,17 @@ public class PackCtr {
     }
 
     @FXML void initialize(){
-        med1now.setText("现有：" + String.valueOf(getmed1now()));
-        med2now.setText("现有: " + String.valueOf(getmed2now()));
-        med3now.setText("现有: " + String.valueOf(getmed3now()));
+        med1now.setText("现有:" + num1);
+        med2now.setText("现有:" + num2);
+        med3now.setText("现有:" + num3);
+        System.out.println("现有物品1数量：" + num1);
+        System.out.println("现有物品2数量：" + num2);
+        System.out.println("现有物品3数量：" + num3);
     }
 
     @FXML
     public void onMed1BtnClicked(){
-        if(num1 < 0) {
+        if(num1 <= 0) {
             pack.setText("药品不够啦~");
         }else{
             setmed1now();
@@ -106,7 +109,7 @@ public class PackCtr {
 
     @FXML
     public void onMed2BtnClicked(){
-        if(num2 < 0) {
+        if(num2 <= 0) {
             pack.setText("药品不够啦~");
         }else{
             setmed2now();
@@ -118,7 +121,7 @@ public class PackCtr {
 
     @FXML
     public void onMed3BtnClicked(){
-        if(num3 < 0) {
+        if(num3 <= 0) {
             pack.setText("药品不够啦~");
         }else{
             setmed3now();
