@@ -68,9 +68,16 @@ public class MessageWin extends Stage{
 		circle.setOnMouseClicked(e->{
 
 			Data.setLimit(Data.order,1);
-//			new GameWin();
-			new GameWin();
-			//new GameWin3();
+			if(Data.order<4){
+				new GameWin();
+			}else if(Data.order<7){
+				new GameWin1();
+			}else if(Data.order<10){
+				new GameWin2();
+			}else{
+				new GameWin3();
+			}
+
 			this.close();
 		});
 		

@@ -30,6 +30,6 @@
         <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
       </padding>
     </VBox>
-      <Button fx:id="help" layoutX="763.0" layoutY="26.0" mnemonicParsing="false" onAction="#onHelpBtnClicked" text="Helper" underline="true" />
+      <Button fx:id="help"  AnchorPane.topAnchor="20" AnchorPane.rightAnchor="20" mnemonicParsing="false" onAction="#onHelpBtnClicked" text="?" />
   </children>
 </AnchorPane>

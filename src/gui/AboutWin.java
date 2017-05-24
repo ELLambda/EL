@@ -41,7 +41,7 @@ public class AboutWin extends Stage {
     public void circleAnimation(){
 
         int x=300;
-        int y=320;
+        int y=330;
 
         Circle circle=new Circle(x, y, 20);
         circle.setFill(Color.TRANSPARENT);
