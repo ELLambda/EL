@@ -47,18 +47,18 @@ public class ShopController {
 	@FXML
 	public Label p_sum;
 
-	public int i_1 = 0;
-	public int i_2 = 0;
-	public int i_3 = 0;
+	public static int i_1 = 0;
+	public static int i_2 = 0;
+	public static int i_3 = 0;
 	public int p_1 = 0;
 	public int p_2 = 0;
 	public int p_3 = 0;
 	public static int price_1 = 2;//金创药单价
 	public static int price_2 = 3;//还神丹单价
 	public static int price_3 = 5;//天香续命露
-	public int med_1_remain = 0;//之前剩余的
-	public int med_2_remain = 0;
-	public int med_3_remain = 0;
+	public static int med_1_remain = 0;//应该在pack中出现的物品1
+	public static int med_2_remain = 0;//应该在pack中出现的物品2
+	public static int med_3_remain = 0;//应该在pack中出现的物品3
 	public String item_1;
 	public String item_2;
 	public String item_3;
@@ -77,7 +77,22 @@ public class ShopController {
 			//some store and compute
             int total = Integer.parseInt(p_sum.getText().replaceAll(" ",""));
             System.out.println("应付多少钱： " + total);
+
             if(shop.Shop.coins >=total){
+                //j将购买内容存储在remain里方便pack调用
+            	med_1_remain += i_1;
+				med_2_remain += i_2;
+				med_3_remain += i_3;
+				System.out.println("pack中应有物品1：" + med_1_remain);
+				System.out.println("pack中应有物品2：" + med_2_remain);
+				System.out.println("pack中应有物品3：" + med_3_remain);
+				shop.Shop.setPack1Condition();
+				shop.Shop.setPack2Condition();
+				shop.Shop.setPack3Condition();
+				System.out.println("此时文件中拥有物品1:" + shop.Shop.getPack1Condition());
+				System.out.println("此时文件中拥有物品2:" + shop.Shop.getPack2Condition());
+				System.out.println("此时文件中拥有物品3:" + shop.Shop.getPack3Condition());
+
                 shop.Shop.coins = shop.Shop.coins - total;
                 shop.Shop.setCoinsCondition();
 				System.out.println("还剩多少钱： " + shop.Shop.coins);

@@ -40,6 +40,9 @@ public class Shop
 	//上一关获得的分数在上一关的界面中改成金币数
 	//上一关结束的时候把分数转为金币数
 	public static int coins;
+	public static int med_1_remain;
+	public static int med_2_remain;
+	public static int med_3_remain;
 	
 	
 	//被选择的商品清单，后期可以实现背包或队伍在剧情主关卡的可视化
@@ -103,8 +106,110 @@ public class Shop
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
-	
-	
-	
-	}}
+	}
+
+	public static void setPack1Condition() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(
+					"src/shop/pack1.txt", false));
+
+			bw.write("" + med_1_remain);
+
+
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void setPack2Condition() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(
+					"src/shop/pack2.txt",false));
+
+			bw.write("" + med_2_remain);
+
+
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public static void setPack3Condition() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(
+					"src/shop/pack3.txt",false));
+
+			bw.write("" + med_3_remain);
+
+
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public static int getPack1Condition()
+
+	{
+		String line = new String();
+
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(
+					"src/shop/pack1.txt"));
+
+			if((line = br.readLine()) != null){
+				med_1_remain = Integer.valueOf(line);
+			}
+			System.out.println("pack中实际有物品1：" + med_1_remain);
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return med_1_remain;
+	}
+
+	public static int getPack2Condition()
+
+	{
+		String line = new String();
+
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(
+					"src/shop/pack2.txt"));
+
+			if((line = br.readLine()) != null){
+				med_2_remain = Integer.valueOf(line);
+			}
+			System.out.println("pack中实际有物品2：" + med_2_remain);
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return med_2_remain;
+	}
+
+	public static int getPack3Condition()
+
+	{
+		String line = new String();
+
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(
+					"src/shop/pack3.txt"));
+
+			if((line = br.readLine()) != null){
+				med_3_remain = Integer.valueOf(line);
+			}
+			System.out.println("pack中实际有物品3：" + med_3_remain);
+			br.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return med_3_remain;
+	}
+
+}
