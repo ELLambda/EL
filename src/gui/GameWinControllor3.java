@@ -82,42 +82,7 @@ public class GameWinControllor3 extends GameWinControllor
 	
 	steps=Data.totalstpes;
 	score = new SimpleIntegerProperty(0);
-//	adder2 = new SimpleIntegerProperty(0);
-//	sumadder1 = new SimpleIntegerProperty(0);
-//	sumadder2 = new SimpleIntegerProperty(0);
-//	//使用上一关购买的商品
-//	for(int i = 0;i<Shop.selectedList.size();i++)
-//		steps = Shop.selectedList.get(i).addStep(steps);
-//	
-//	for(int i = 0; i<Shop.selectedList.size();i++)
-//		score = new SimpleIntegerProperty(Shop.selectedList.get(i).addScore(score.intValue()));
-//	
-//	
-//	//剧情模式
-//	if(Data.mode == 0){
-//		noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
-//		stepLabel.setLayoutX(980);
-//		stepLabel.setText("HP:"+steps*100);
-//
-//	}
-//	//生日模式
-//	else if(Data.mode == 1){
-//		noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
-//		stepLabel.setText("Steps Left:"+steps);
-//	}
-//	//金币模式
-//	else if(Data.mode == 2){
-//		noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
-//		stepLabel.setText("Energy Value:"+steps*10);
-//
-//	}
-//	//无尽模式
-//	else if(Data.mode == 3){
-//		noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
-//		stepLabel.setText("No steps limit!");
-//		stepProgressBar.setProgress(-1);
-//		stepLabel.setLayoutX(997);
-//	}
+
 	noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 	stepLabel.setText("Steps Left:"+steps);
 }
