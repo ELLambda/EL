@@ -33,6 +33,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
 
+import static shop.Shop.coins;
+
 
 //为了方便继承修改了作用域
 public class GameWinControllor {
@@ -77,13 +79,15 @@ public class GameWinControllor {
 		
 		steps=Data.totalstpes;
 		score = new SimpleIntegerProperty(0);
-		
-		//使用上一关购买的商品
-		for(int i = 0;i<Shop.selectedList.size();i++)
-			steps = Shop.selectedList.get(i).addStep(steps);
-		
-		for(int i = 0; i<Shop.selectedList.size();i++)
-			score = new SimpleIntegerProperty(Shop.selectedList.get(i).addScore(score.intValue()));
+
+		//在OK键后生效使用道具
+		//steps += PackCtr.addedStep;
+		//使用上一关购买的商品 （此方法只能满足于买下药品只能在下一关使用，所以被注释）
+//		for(int i = 0;i<Shop.selectedList.size();i++)
+//			steps = Shop.selectedList.get(i).addStep(steps);
+//
+//		for(int i = 0; i<Shop.selectedList.size();i++)
+//			score = new SimpleIntegerProperty(Shop.selectedList.get(i).addScore(score.intValue()));
 		
 		
 		//剧情模式
@@ -538,7 +542,7 @@ public class GameWinControllor {
 	        		setToolNotSelected(magic);
 					score.set(score.intValue() - 500);		//使用魔力棒技能减500分
 					if(Data.mode == 2){
-						noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+						noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 
 					}
 					else if(Data.mode == 3){
@@ -592,8 +596,8 @@ public class GameWinControllor {
 		}
 
 		//金币换算 + 测试金币
-		Shop.coins = score.intValue()/1000;
-		System.out.println("in gameWin coins = " + Shop.coins);
+		coins += score.intValue()/1000;
+		System.out.println("in gameWin coins = " + coins);
 		shop.Shop.setCoinsCondition();
 
 		 Music.playEffectMusic(1);//eliminate
@@ -1013,7 +1017,7 @@ public class GameWinControllor {
 			
 			if(Data.mode == 2){
 				
-				Shop.coins = score.intValue();
+				coins = score.intValue();
 				
 				Timer timer = new Timer();
 				timer.schedule(new TimerTask(){

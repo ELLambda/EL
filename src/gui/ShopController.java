@@ -111,12 +111,12 @@ public class ShopController {
 		shop.Shop.getCoinsCondition();
 		coin.setText("现有金币："+ shop.Shop.coins);
         System.out.println("coins = " + shop.Shop.coins);
-		md1.setText(String.valueOf(i_1));
-		md2.setText(String.valueOf(i_2));
-		md3.setText(String.valueOf(i_3));
-		md1_price.setText(String.valueOf(price_1));
-		md2_price.setText(String.valueOf(price_2));
-		md3_price.setText(String.valueOf(price_3));
+		md1.setText("0");
+		md2.setText("0");
+		md3.setText("0");
+		md1_price.setText("0");
+		md2_price.setText("0");
+		md3_price.setText("0");
 	}
 	@FXML
 	public void onMed1Clicked(){
