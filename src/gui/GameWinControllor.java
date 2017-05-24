@@ -1113,8 +1113,11 @@ public class GameWinControllor {
 //		} catch (IOException e) {
 //			e.printStackTrace();
 //		}
-//		
-		
+//
+			Platform.runLater(()->{
+				new Pack();
+			});
+
 		
 	}
 	
