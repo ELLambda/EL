@@ -82,7 +82,7 @@ public class ShopController {
                 shop.Shop.setCoinsCondition();
 				System.out.println("还剩多少钱： " + shop.Shop.coins);
                 //new TipsWin 提示购买成功窗口
-				label.setText("购买成功！");
+				label.setText("     购买成功！");
                 //root.getScene().getWindow().hide();
             }else{
                 //new TipsWin 提示金币不够

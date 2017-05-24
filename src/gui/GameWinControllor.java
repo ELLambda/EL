@@ -100,7 +100,7 @@ public class GameWinControllor {
 		}
 		//金币模式
 		else if(Data.mode == 2){
-			noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 			stepLabel.setLayoutX(980);
 			stepLabel.setText("Energy Value:"+steps*10);
 
@@ -582,7 +582,7 @@ public class GameWinControllor {
 
 
 		if(Data.mode == 2) {
-			noticeText.setText("      coins:      " + String.valueOf(score.intValue()));
+			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 		}
 		else if(Data.mode == 3){
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
@@ -1081,7 +1081,7 @@ public class GameWinControllor {
 				public void run(){
 					Platform.runLater(()->{
 						if(Data.mode == 2)
-							noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 						else if(Data.mode == 3){
 							noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 						}
@@ -1129,7 +1129,7 @@ public class GameWinControllor {
 					public void run(){
 						Platform.runLater(()->{
 							if(Data.mode == 2)
-								noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 							else if(Data.mode == 3){
 								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 							}
@@ -1190,7 +1190,7 @@ public class GameWinControllor {
 					public void run(){
 						Platform.runLater(()->{
 							if(Data.mode == 2)
-								noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 							else if(Data.mode == 3){
 								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 							}
@@ -1245,7 +1245,7 @@ public class GameWinControllor {
 					public void run(){
 						Platform.runLater(()->{
 							if(Data.mode == 2)
-								noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 							else if(Data.mode == 3){
 								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 							}
