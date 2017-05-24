@@ -835,33 +835,40 @@ public void onMagicBtnClick(ActionEvent actionEvent){
 public void onRestartBtnClick(ActionEvent actionEvent) {
 	if(isMoving == false){
 		Music.playEffectMusic(2);//click
-		if(Data.mode == 3){
-			Calculator.scores += score.intValue();
-		if(Calculator.scores >= SCOREBOUND)
-			AchievementsManager.AchievementsList[1][4].setAchieved(true);
-		}
+//		if(Data.mode == 3){
+//			Calculator.scores += score.intValue();
+//		if(Calculator.scores >= SCOREBOUND)
+//			AchievementsManager.AchievementsList[1][4].setAchieved(true);
+//		}
 		blockGridPan.getChildren().clear();
 		BlockManager.twoBlocks.clear();
 		createBlocks();
         noticeText.clear();
         noticeText.setText("Restart!");
+        Timer timer = new Timer();
+		timer.schedule(new TimerTask(){
+			public void run(){
+				Platform.runLater(()->{
+					noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
+				});
+			}
+			
+		},1000);
        
-		if(Data.mode != 3){
 	        steps=Data.totalstpes;
-//	        if(Data.mode == 0)
-//				stepLabel.setText("Health Point:"+steps*100);
-//			else if(Data.mode == 1)
-//				stepLabel.setText("Steps Left:"+steps);
-//			else if(Data.mode == 2)
-//				stepLabel.setText("Energy Value:"+steps*10);
 	        stepLabel.setText("Steps Left:"+steps);
 	        stepProgressBar.setProgress(1.0);
-		}
-        adder1 = new SimpleIntegerProperty(0);
+
+	    adder1 = new SimpleIntegerProperty(0);
         adder2 = new SimpleIntegerProperty(0);
         sumadder1 = new SimpleIntegerProperty(0);
         sumadder2 = new SimpleIntegerProperty(0);
-        number=4;//不允许重新选择等式两边
+        
+        for(int i=0;i<4;i++){
+			selectedBlock[i].setStyle("-fx-background-color: transparent;-fx-background-image: null;");
+		}
+        number = 0;
+        selectedBlocksColor.clear();
 	}
 
 }

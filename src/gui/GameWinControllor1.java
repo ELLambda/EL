@@ -804,7 +804,7 @@ public class GameWinControllor1 extends GameWinControllor
 			int ramdonNum=(int)(Math.random()*5)+1;
 			LockedStar =  String.valueOf(ramdonNum);
 			HBox hBox=new HBox();
-			VBox.getChildren().remove(5);
+			VBox.getChildren().remove(VBox.getChildren().size() - 1);
 			VBox.getChildren().add(hBox);
 
 			hBox.setPadding(new Insets(20));

@@ -1238,7 +1238,7 @@ public class GameWinControllor {
 		}
 	}
 	public void onMagicBtnClick(ActionEvent actionEvent){
-			if(score.intValue() < 250) {
+			if(score.intValue() < 500) {
 				noticeText.setText("Your score is inadequate!");
 				Timer timer = new Timer();
 				timer.schedule(new TimerTask(){
