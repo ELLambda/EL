@@ -123,6 +123,7 @@ public class GameWinControllor {
 			stepLabel.setLayoutX(997);
 		}
 		
+		
 	}
 
 	
@@ -181,7 +182,8 @@ public class GameWinControllor {
 							if(Data.mode != 3){
 								steps--;//步数减1
 								if(Data.mode == 0)
-									stepLabel.setText("HP:"+steps*100);
+//									stepLabel.setText("HP:"+steps*100);
+									s_battle.set("HP:"+String.valueOf(steps*100));
 								else if(Data.mode == 1)
 									stepLabel.setText("Steps Left:"+steps);
 								else if(Data.mode == 2)
@@ -412,7 +414,8 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
+//							stepLabel.setText("HP:"+steps*100);
+							s_battle.set("HP:"+String.valueOf(steps*100));
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
@@ -452,7 +455,8 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
+//							stepLabel.setText("HP:"+steps*100);
+							s_battle.set("HP:"+String.valueOf(steps*100));						
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
@@ -517,7 +521,8 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
+//							stepLabel.setText("HP:"+steps*100);
+							s_battle.set("HP:"+String.valueOf(steps*100));
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
@@ -1097,7 +1102,8 @@ public class GameWinControllor {
 			if(Data.mode != 3){
 		        steps=Data.totalstpes;
 		        if(Data.mode == 0)
-					stepLabel.setText("HP:"+steps*100);
+//					stepLabel.setText("HP:"+steps*100);
+					s_battle.set("HP:"+String.valueOf(steps*100));
 				else if(Data.mode == 1)
 					stepLabel.setText("Steps Left:"+steps);
 				else if(Data.mode == 2)
@@ -1135,14 +1141,7 @@ public class GameWinControllor {
 		});
 	}
 
-	public void onStoreBtnClick(ActionEvent actionEvent) {
-//		BufferedWriter bw = null;
-//		try {
-//			bw = new BufferedWriter(new FileWriter("src/gui/EndlessModeStore.txt"));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//
+	public void onPackBtnClick(ActionEvent actionEvent) {
 			Platform.runLater(()->{
 				new Pack();
 			});

@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import static gui.ShopController.med_1_remain;
 import static gui.ShopController.med_2_remain;
 import static gui.ShopController.med_3_remain;
@@ -50,11 +53,13 @@ public class PackCtr {
     public int use2 = 0;
     public int use3 = 0;
 
-    public static int med1addedStep = 2;
-    public static int med2addedStep = 3;
-    public static int med3addedStep = 5;
+    public static final int med1addedStep = 2;
+    public static final int med2addedStep = 3;
+    public static final int med3addedStep = 5;
 
     public static int addedStep = 0;
+    
+    private boolean hasUsed = false;
 
 
     public int getmed1now(){
@@ -113,6 +118,9 @@ public class PackCtr {
 
     @FXML
     public void onMed1BtnClicked(){
+    	med1btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
+    	med2btn.setStyle(null);
+    	med3btn.setStyle(null);
         if(num1 <= 0) {
             pack.setText("药品不够啦~");
         }else{
@@ -120,12 +128,17 @@ public class PackCtr {
             setmed1use();
             med1now.setText("现有:" + getmed1now());
             med1use.setText("使用:" + getmed1use());
+            hasUsed = true;
         }
 
     }
 
     @FXML
     public void onMed2BtnClicked(){
+    	med2btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
+    	med1btn.setStyle(null);
+    	med3btn.setStyle(null);
+
         if(num2 <= 0) {
             pack.setText("药品不够啦~");
             //System.out.println("我是输出2");
@@ -134,11 +147,16 @@ public class PackCtr {
             setmed2use();
             med2now.setText("现有:" + getmed2now());
             med2use.setText("使用:" + getmed2use());
+            hasUsed = true;
         }
     }
 
     @FXML
     public void onMed3BtnClicked(){
+    	med3btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
+    	med1btn.setStyle(null);
+    	med2btn.setStyle(null);
+
         if(num3 <= 0) {
             pack.setText("药品不够啦~");
         }else{
@@ -146,17 +164,14 @@ public class PackCtr {
             setmed3use();
             med3now.setText("现有:" + getmed3now());
             med3use.setText("使用:" + getmed3use());
+            hasUsed = true;
         }
     }
 
     @FXML
     public void onBackBtnClicked(){
         Platform.runLater(()->{
-        	if(GameWinControllor.s_coins != null)
-            GameWinControllor.s_coins.setValue("Energy Value:"+GameWinControllor.steps*10);
-        	if(GameWinControllor.s_battle != null)
-            GameWinControllor.s_battle.setValue("HP:"+GameWinControllor.steps*100);
-           root.getScene().getWindow().hide();
+        	root.getScene().getWindow().hide();
         });
     }
 
@@ -167,7 +182,23 @@ public class PackCtr {
         shop.Shop.setPack1Condition();
         shop.Shop.setPack2Condition();
         shop.Shop.setPack3Condition();
+        if(GameWinControllor.s_coins != null)
+			GameWinControllor.s_coins.setValue("Energy Value:"+GameWinControllor.steps*10);
+        if(GameWinControllor.s_battle != null)
+            GameWinControllor.s_battle.setValue("HP:"+GameWinControllor.steps*100);
+//        GameWinControllor.stepProgressBar.setProgress((double) GameWinControllor.steps/Data.totalstpes);    不能把stepprogressbar给static
         pack.setText("使用成功~");
+        new Timer().schedule(new TimerTask(){
+
+			@Override
+			public void run() {
+				 Platform.runLater(()->{
+			        	root.getScene().getWindow().hide();
+			     });
+			}
+        	
+        },800);
+        
     }
 
 
