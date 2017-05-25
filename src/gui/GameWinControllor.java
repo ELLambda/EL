@@ -4,6 +4,7 @@ import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -56,7 +57,7 @@ public class GameWinControllor {
 	protected final static int HEIGHT = 10;
 	protected final static int WIDE = 10;
 	public static final double SECOND = 0.5;
-	public static final double ZOOMSECOND = 0.2;
+	public static final double ZOOMSECOND = 0.5;
 	//public static int score=0;
 	public static IntegerProperty score;
 	public static StringProperty s_coins;
@@ -72,6 +73,8 @@ public class GameWinControllor {
 	protected static final int ITEMBOUND = 99;
 	protected static final int STEPBOUND = 10086;
 	protected static final int SCOREBOUND = 5201314;
+	
+	private static final int MAGIC_BIRD_SCORD = 500;  //使用魔力鸟所需的分数
 
 	
 	
@@ -91,6 +94,7 @@ public class GameWinControllor {
 		
 		steps=Data.totalstpes;
 		score = new SimpleIntegerProperty(0);
+		s_bar = new SimpleDoubleProperty(0);
 
 		//在OK键后生效使用道具
 		//steps += PackCtr.addedStep;
@@ -533,7 +537,7 @@ public class GameWinControllor {
 					erase();
 					break;
 					
-					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减500分
+					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减MAGIC_BIRD_SCORD分
 				case"Magic":
 					if(btn.getSpecialType().equals("MagicBird"))
 						break;
@@ -569,7 +573,7 @@ public class GameWinControllor {
 
 
 	        		setToolNotSelected(magic);
-					score.set(score.intValue() - 500);		//使用魔力棒技能减500分
+					score.set(score.intValue() - MAGIC_BIRD_SCORD);		//使用魔力棒技能减500分
 					if(Data.mode == 2){
 						noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 
@@ -1191,19 +1195,12 @@ public class GameWinControllor {
 		});
 	}
 
-	public void onStoreBtnClick(ActionEvent actionEvent) {
-//		BufferedWriter bw = null;
-//		try {
-//			bw = new BufferedWriter(new FileWriter("src/gui/EndlessModeStore.txt"));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//
+	public void onPackBtnClick(ActionEvent actionEvent) {
+
 			Platform.runLater(()->{
 				new Pack();
 			});
 
-		
 	}
 	
 	public void onSmallHammerBtnClick(ActionEvent actionEvent) {
@@ -1326,7 +1323,7 @@ public class GameWinControllor {
 		}
 	}
 	public void onMagicBtnClick(ActionEvent actionEvent){
-			if(score.intValue() < 250) {
+			if(score.intValue() < MAGIC_BIRD_SCORD) {
 				noticeText.setText("Your score is inadequate!");
 				Timer timer = new Timer();
 				timer.schedule(new TimerTask(){
