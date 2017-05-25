@@ -109,7 +109,7 @@ public class ShopController {
 	@FXML
 	void initialize(){
 		shop.Shop.getCoinsCondition();
-		coin.setText("现有金币："+ shop.Shop.coins);
+		coin.setText("   现有星星："+ shop.Shop.coins);
         System.out.println("coins = " + shop.Shop.coins);
 		md1.setText("0");
 		md2.setText("0");

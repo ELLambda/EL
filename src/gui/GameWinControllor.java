@@ -59,14 +59,14 @@ public class GameWinControllor {
 	public static final double SECOND = 0.5;
 	public static final double ZOOMSECOND = 0.5;
 	//public static int score=0;
-	public static IntegerProperty score;
-	public static StringProperty s_coins;
-	public static StringProperty s_battle;
-	public static DoubleProperty s_bar;
+	public static IntegerProperty score = new SimpleIntegerProperty(0);
+	public static StringProperty s_coins = new SimpleStringProperty("");
+	public static StringProperty s_battle = new SimpleStringProperty("");
+	public static DoubleProperty s_bar = new SimpleDoubleProperty(0);;
 	
 	protected static int erasedTimes = 1;
 	protected static boolean isMoving = false;
-	protected static int steps=Data.totalstpes;
+	protected static int steps = Data.totalstpes;
 	protected static String itemSelected = "null";
 	
 	protected static final int BLOCKBOUND = 666;
@@ -93,9 +93,7 @@ public class GameWinControllor {
 		createBlocks();
 		
 		steps=Data.totalstpes;
-		score = new SimpleIntegerProperty(0);
-		s_bar = new SimpleDoubleProperty(0);
-		s_coins = new SimpleStringProperty("");
+		
 
 		//在OK键后生效使用道具
 		//steps += PackCtr.addedStep;
@@ -124,7 +122,7 @@ public class GameWinControllor {
 		}
 		//金币模式
 		else if(Data.mode == 2){
-			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
+			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Stars:"+String.valueOf(score.intValue()/1000));
 			stepLabel.setLayoutX(980);
 			s_coins.set("Energy Value:"+steps*10);
 			stepLabel.textProperty().bind(s_coins);
@@ -1305,7 +1303,7 @@ public class GameWinControllor {
 				public void run(){
 					Platform.runLater(()->{
 						if(Data.mode == 2)
-							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
+							noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Stars:"+String.valueOf(score.intValue()/1000));
 						else if(Data.mode == 3){
 							noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 						}
@@ -1331,11 +1329,11 @@ public class GameWinControllor {
 	}
 
 	public void onPackBtnClick(ActionEvent actionEvent) {
-
+		if(Data.mode == 0){
 			Platform.runLater(()->{
 				new Pack();
 			});
-
+		}	
 	}
 	
 	public void onSmallHammerBtnClick(ActionEvent actionEvent) {
@@ -1349,7 +1347,7 @@ public class GameWinControllor {
 					public void run(){
 						Platform.runLater(()->{
 							if(Data.mode == 2)
-								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
+								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Stars:"+String.valueOf(score.intValue()/1000));
 							else if(Data.mode == 3){
 								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 							}
@@ -1410,7 +1408,7 @@ public class GameWinControllor {
 					public void run(){
 						Platform.runLater(()->{
 							if(Data.mode == 2)
-								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
+								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Stars:"+String.valueOf(score.intValue()/1000));
 							else if(Data.mode == 3){
 								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 							}
@@ -1465,7 +1463,7 @@ public class GameWinControllor {
 					public void run(){
 						Platform.runLater(()->{
 							if(Data.mode == 2)
-								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
+								noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Stars:"+String.valueOf(score.intValue()/1000));
 							else if(Data.mode == 3){
 								noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 							}
