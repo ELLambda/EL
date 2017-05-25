@@ -125,6 +125,12 @@ public class GameWinControllor {
 			stepProgressBar.setProgress(-1);
 			stepLabel.setLayoutX(997);
 		}
+
+		stepProgressBar.progressProperty().addListener((observable, oldValue, newValue) -> {
+			if(newValue.doubleValue()<0.3){
+				stepProgressBar.setStyle("-fx-accent:red;");
+			}
+		});
 		
 	}
 
@@ -1388,7 +1394,9 @@ public class GameWinControllor {
 	public void setToolNotSelected(Button tool){
 		tool.setStyle("-fx-effect: null");
 	}
-	
+
+	public void onPackBtnClick(ActionEvent actionEvent) {
+	}
 }
 
 		
