@@ -141,7 +141,7 @@ public class ChapterSelectWinController {
 	public void onChapter1Clicked(){
 		//Platform.runLater(()->{
 			//main
-			//ChapterWin chapter=new ChapterWin(1);
+			ChapterWin chapter=new ChapterWin(1);
 
 			Timer timer = new Timer();
 			timer.schedule(new TimerTask() {

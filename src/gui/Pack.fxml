@@ -100,19 +100,19 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button fx:id="med1btn" layoutX="142.0" layoutY="125.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="28.0" />
+      <Button fx:id="med1btn" layoutX="142.0" layoutY="125.0" mnemonicParsing="false" onAction="#onMed1BtnClicked" prefHeight="26.0" prefWidth="28.0" />
       <ImageView fitHeight="116.0" fitWidth="95.0" layoutX="169.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/med1.png" />
          </image>
       </ImageView>
-      <Button fx:id="med2btn" layoutX="84.0" layoutY="210.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="28.0" />
+      <Button fx:id="med2btn" layoutX="84.0" layoutY="210.0" mnemonicParsing="false" onAction="#onMed2BtnClicked" prefHeight="27.0" prefWidth="28.0" />
       <ImageView fitHeight="131.0" fitWidth="117.0" layoutX="112.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/med2.png" />
          </image>
       </ImageView>
-      <Button fx:id="med3btn" layoutX="46.0" layoutY="293.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="28.0" />
+      <Button fx:id="med3btn" layoutX="46.0" layoutY="293.0" mnemonicParsing="false" onAction="#onMed3BtnClicked" prefHeight="27.0" prefWidth="28.0" />
       <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="71.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@img/med3.png" />

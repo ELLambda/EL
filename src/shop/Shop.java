@@ -7,8 +7,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import gui.ShopController;
 
 import achievements.BillboardItem;
+
+import static gui.ShopController.med_1_remain;
+import static gui.ShopController.med_2_remain;
+import static gui.ShopController.med_3_remain;
+
 
 /**  
 * 商店
@@ -40,9 +46,9 @@ public class Shop
 	//上一关获得的分数在上一关的界面中改成金币数
 	//上一关结束的时候把分数转为金币数
 	public static int coins;
-	public static int med_1_remain;
-	public static int med_2_remain;
-	public static int med_3_remain;
+//	public static int med_1_remain;
+//	public static int med_2_remain;
+//	public static int med_3_remain;
 	
 	
 	//被选择的商品清单，后期可以实现背包或队伍在剧情主关卡的可视化
