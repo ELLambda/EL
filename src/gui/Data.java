@@ -12,13 +12,6 @@ import java.io.IOException;
  */
 public class Data {
 
-    public static int totalstpes=0;
-    public static int targetScore=0;
-    public static int order;//第几关
-    public static int warnNumber=0;
-    public static int mode;//0代表故事模式，1代表生日模式,2代表商店模式,3代表无尽模式
-    public static int chapterReached = 1; //存档中最高到了第几关
-    
     private static final int BIRTHDAY_CHAPTER1_SCORE = 1500;
     private static final int BIRTHDAY_CHAPTER1_STEP = 15;
     private static final int BIRTHDAY_CHAPTER2_SCORE = 6000;
@@ -43,7 +36,6 @@ public class Data {
     private static final int BIRTHDAY_CHAPTER11_STEP = 30;
     private static final int BIRTHDAY_CHAPTER12_SCORE = 10000;
     private static final int BIRTHDAY_CHAPTER12_STEP = 15;
-    
     private static final int STORY_CHAPTER1_SCORE = 1500;
     private static final int STORY_CHAPTER1_STEP = 15;
     private static final int STORY_CHAPTER2_SCORE = 8000;
@@ -70,8 +62,6 @@ public class Data {
     private static final int STORY_CHAPTER12_STEP = 15;
     private static final int STORY_CHAPTER13_SCORE = 5000;
     private static final int STORY_CHAPTER13_STEP = 5;
- 
-    
     private static final int SHOP_CHAPTER1_STEP = 5;
     private static final int SHOP_CHAPTER2_STEP = 10;
     private static final int SHOP_CHAPTER3_STEP = 15;
@@ -85,208 +75,216 @@ public class Data {
     private static final int SHOP_CHAPTER11_STEP = 35;
     private static final int SHOP_CHAPTER12_STEP = 30;
     private static final int SHOP_CHAPTER13_STEP = 20;
-	private static final int NEVER_REACHED = 2147483647;
-
+    private static final int NEVER_REACHED = 2147483647;
+    public static int totalstpes = 0;
+    public static int targetScore = 0;
+    public static int order;//第几关
+    public static int warnNumber = 0;
+    public static int mode;//0代表故事模式，1代表生日模式,2代表商店模式,3代表无尽模式
+    public static int chapterReached = 1; //存档中最高到了第几关
+    public static int scoreToBeSet = 0;
+    public static String nameToBeSet = "无名小卒";
+    public static String timeToBeSet = "猴年马月";
 
     //读文件
-    static{
-  
-	    	BufferedReader br = null;
-	    	try {
-				br = new BufferedReader(new FileReader("src/gui/StoryMoodStore.txt"));
-			} catch (FileNotFoundException e) {
-			}
-	    	String in = null;
-	    	if(br != null)
-		    	try {
-					in = br.readLine();
-					if(in != null)
-						chapterReached = Integer.parseInt(in.substring(15));
-				} catch (IOException e) {
-				}
-    	
-   
+    static {
+
+        BufferedReader br = null;
+        try {
+            br = new BufferedReader(new FileReader("src/gui/StoryMoodStore.txt"));
+        } catch (FileNotFoundException e) {
+        }
+        String in = null;
+        if (br != null)
+            try {
+                in = br.readLine();
+                if (in != null)
+                    chapterReached = Integer.parseInt(in.substring(15));
+            } catch (IOException e) {
+            }
+
+
     }
-    
+
     /*
     为关卡设置限制
     @param n 为第几关 
     @param m 为所在的模式,0代表故事模式，1代表生日模式，2代表商店模式,3代表无尽模式
      */
-    public static void setLimit(int n,int m){
+    public static void setLimit(int n, int m) {
         order = n;
         mode = m;
-        warnNumber=0;
-        switch (m){
-        case 0:
-        	switch(n){
+        warnNumber = 0;
+        switch (m) {
+            case 0:
+                switch (n) {
+                    case 1:
+                        targetScore = STORY_CHAPTER1_SCORE;
+                        totalstpes = STORY_CHAPTER1_STEP;
+                        break;
+                    case 2:
+                        targetScore = STORY_CHAPTER2_SCORE;
+                        totalstpes = STORY_CHAPTER2_STEP;
+                        break;
+                    case 3:
+                        targetScore = STORY_CHAPTER3_SCORE;
+                        totalstpes = STORY_CHAPTER3_STEP;
+                        break;
+                    case 4:
+                        targetScore = STORY_CHAPTER4_SCORE;
+                        totalstpes = STORY_CHAPTER4_STEP;
+                        break;
+                    case 5:
+                        targetScore = STORY_CHAPTER5_SCORE;
+                        totalstpes = STORY_CHAPTER5_STEP;
+                        break;
+                    case 6:
+                        targetScore = STORY_CHAPTER6_SCORE;
+                        totalstpes = STORY_CHAPTER6_STEP;
+                        break;
+                    case 7:
+                        targetScore = STORY_CHAPTER7_SCORE;
+                        totalstpes = STORY_CHAPTER7_STEP;
+                        break;
+                    case 8:
+                        targetScore = STORY_CHAPTER8_SCORE;
+                        totalstpes = STORY_CHAPTER8_STEP;
+                        break;
+                    case 9:
+                        targetScore = STORY_CHAPTER9_SCORE;
+                        totalstpes = STORY_CHAPTER9_STEP;
+                        break;
+                    case 10:
+                        targetScore = STORY_CHAPTER10_SCORE;
+                        totalstpes = STORY_CHAPTER10_STEP;
+                        break;
+                    case 11:
+                        targetScore = STORY_CHAPTER11_SCORE;
+                        totalstpes = STORY_CHAPTER11_STEP;
+                        break;
+                    case 12:
+                        targetScore = STORY_CHAPTER12_SCORE;
+                        totalstpes = STORY_CHAPTER12_STEP;
+                        break;
+                    case 13:
+                        targetScore = STORY_CHAPTER13_SCORE;
+                        totalstpes = STORY_CHAPTER13_STEP;
+                        break;
+                }
+                break;
             case 1:
-                targetScore=STORY_CHAPTER1_SCORE;
-                totalstpes=STORY_CHAPTER1_STEP;
+                switch (n) {
+                    case 1:
+                        targetScore = BIRTHDAY_CHAPTER1_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER1_STEP;
+                        break;
+                    case 2:
+                        targetScore = BIRTHDAY_CHAPTER2_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER2_STEP;
+                        break;
+                    case 3:
+                        targetScore = BIRTHDAY_CHAPTER3_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER3_STEP;
+                        break;
+                    case 4:
+                        targetScore = BIRTHDAY_CHAPTER4_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER4_STEP;
+                        break;
+                    case 5:
+                        targetScore = BIRTHDAY_CHAPTER5_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER5_STEP;
+                        break;
+                    case 6:
+                        targetScore = BIRTHDAY_CHAPTER6_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER6_STEP;
+                        break;
+                    case 7:
+                        targetScore = BIRTHDAY_CHAPTER7_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER7_STEP;
+                        break;
+                    case 8:
+                        targetScore = BIRTHDAY_CHAPTER8_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER8_STEP;
+                        break;
+                    case 9:
+                        targetScore = BIRTHDAY_CHAPTER9_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER9_STEP;
+                        break;
+                    case 10:
+                        targetScore = BIRTHDAY_CHAPTER10_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER10_STEP;
+                        break;
+                    case 11:
+                        targetScore = BIRTHDAY_CHAPTER11_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER11_STEP;
+                        break;
+                    case 12:
+                        targetScore = BIRTHDAY_CHAPTER12_SCORE;
+                        totalstpes = BIRTHDAY_CHAPTER12_STEP;
+                        break;
+                }
                 break;
             case 2:
-                targetScore=STORY_CHAPTER2_SCORE;
-                totalstpes=STORY_CHAPTER2_STEP;
-                break;
-            case 3:
-                targetScore=STORY_CHAPTER3_SCORE;
-                totalstpes=STORY_CHAPTER3_STEP;
-                break;
-            case 4:
-                targetScore=STORY_CHAPTER4_SCORE;
-                totalstpes=STORY_CHAPTER4_STEP;
-                break;
-            case 5:
-                targetScore=STORY_CHAPTER5_SCORE;
-                totalstpes=STORY_CHAPTER5_STEP;
-                break;
-            case 6:
-                targetScore=STORY_CHAPTER6_SCORE;
-                totalstpes=STORY_CHAPTER6_STEP;
-                break;
-            case 7:
-                targetScore=STORY_CHAPTER7_SCORE;
-                totalstpes=STORY_CHAPTER7_STEP;
-                break;
-            case 8:
-                targetScore=STORY_CHAPTER8_SCORE;
-                totalstpes=STORY_CHAPTER8_STEP;
-                break;
-            case 9:
-                targetScore=STORY_CHAPTER9_SCORE;
-                totalstpes=STORY_CHAPTER9_STEP;
-                break;
-            case 10:
-                targetScore=STORY_CHAPTER10_SCORE;
-                totalstpes=STORY_CHAPTER10_STEP;
-                break;
-            case 11:
-                targetScore=STORY_CHAPTER11_SCORE;
-                totalstpes=STORY_CHAPTER11_STEP;
-                break;
-            case 12:
-                targetScore=STORY_CHAPTER12_SCORE;
-                totalstpes=STORY_CHAPTER12_STEP;
-                break;
-            case 13:
-            	targetScore = STORY_CHAPTER13_SCORE;
-            	totalstpes = STORY_CHAPTER13_STEP;
-            	break;
-        }
-        	break;
-        case 1:
-        	switch(n){
-            case 1:
-                targetScore=BIRTHDAY_CHAPTER1_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER1_STEP;
-                break;
-            case 2:
-                targetScore=BIRTHDAY_CHAPTER2_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER2_STEP;
-                break;
-            case 3:
-                targetScore=BIRTHDAY_CHAPTER3_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER3_STEP;
-                break;
-            case 4:
-                targetScore=BIRTHDAY_CHAPTER4_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER4_STEP;
-                break;
-            case 5:
-                targetScore=BIRTHDAY_CHAPTER5_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER5_STEP;
-                break;
-            case 6:
-                targetScore=BIRTHDAY_CHAPTER6_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER6_STEP;
-                break;
-            case 7:
-                targetScore=BIRTHDAY_CHAPTER7_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER7_STEP;
-                break;
-            case 8:
-                targetScore=BIRTHDAY_CHAPTER8_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER8_STEP;
-                break;
-            case 9:
-                targetScore=BIRTHDAY_CHAPTER9_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER9_STEP;
-                break;
-            case 10:
-                targetScore=BIRTHDAY_CHAPTER10_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER10_STEP;
-                break;
-            case 11:
-                targetScore=BIRTHDAY_CHAPTER11_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER11_STEP;
-                break;
-            case 12:
-                targetScore=BIRTHDAY_CHAPTER12_SCORE;
-                totalstpes=BIRTHDAY_CHAPTER12_STEP;
-                break;
-        }
-        	break;
-        case 2:
-        	switch(n){
-        	
-            case 1:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER1_STEP;
-                break;
-            case 2:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER2_STEP;
-                break;
-            case 3:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER3_STEP;
-               break;
-            case 4:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER4_STEP;
-               break;
-            case 5:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER5_STEP;
-                break;
-            case 6:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER6_STEP;
-                break;
-            case 7:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER7_STEP;
-               break;
-            case 8:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER8_STEP;
-                break;
-            case 9:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER9_STEP;
-                break;
-            case 10:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER10_STEP;
-                break;
-            case 11:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER11_STEP;
-                break;
-            case 12:
-            	targetScore = NEVER_REACHED;
-                totalstpes = SHOP_CHAPTER12_STEP;
-                break;
+                switch (n) {
+
+                    case 1:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER1_STEP;
+                        break;
+                    case 2:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER2_STEP;
+                        break;
+                    case 3:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER3_STEP;
+                        break;
+                    case 4:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER4_STEP;
+                        break;
+                    case 5:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER5_STEP;
+                        break;
+                    case 6:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER6_STEP;
+                        break;
+                    case 7:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER7_STEP;
+                        break;
+                    case 8:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER8_STEP;
+                        break;
+                    case 9:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER9_STEP;
+                        break;
+                    case 10:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER10_STEP;
+                        break;
+                    case 11:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER11_STEP;
+                        break;
+                    case 12:
+                        targetScore = NEVER_REACHED;
+                        totalstpes = SHOP_CHAPTER12_STEP;
+                        break;
 //            case 13:
 //            	targetScore = NEVER_REACHED;
 //            	totalstpes = SHOP_CHAPTER13_STEP;
 //            	break;
-           }
-        	break;
-        	
-        case 3:
-        	targetScore = -1;
-        	totalstpes = -1;
+                }
+                break;
+
+            case 3:
+                targetScore = -1;
+                totalstpes = -1;
 
         }
     }

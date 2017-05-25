@@ -2,15 +2,19 @@
     /*font-family: 'ITCBLKAD';*/
     src: url('fonts/MyFont.ttf');
 }
-.button{
+
+.button {
     -fx-font-family: 'Bauhaus 93';
 }
-.label{
+
+.label {
     -fx-font-family: 'Bauhaus 93';
 }
-.text-field{
+
+.text-field {
     -fx-font-family: 'Bauhaus 93';
 }
-.text{
+
+.text {
     -fx-font-family: 'Bauhaus 93';
 }

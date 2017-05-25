@@ -1,38 +1,45 @@
-.button{
-	-fx-background-color: rgba(255,255,255,0.4);
-	-fx-effet: dropshadow(gaussian,rgba(0,233,222,0.2),5,5,0,0) ; 
-	-fx-border-radius: 23;
-	-fx-background-radius: 23;
-	
+.button {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+    -fx-effet: dropshadow(gaussian, rgba(0, 233, 222, 0.2), 5, 5, 0, 0);
+    -fx-border-radius: 23;
+    -fx-background-radius: 23;
+
 }
- .button:hover{
-	-fx-background-color: rgba(255,255,255,1);
+
+.button:hover {
+    -fx-background-color: rgba(255, 255, 255, 1);
 }
-.button:pressed{
-	-fx-background-color: rgba(255,255,255,0.5);
+
+.button:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
 }
-#back{
-	-fx-background-color: rgba(255,255,255,0.4);
-	-fx-effect: dropshadow(gaussian,rgba(0,233,222,0.2),5,5,0,0) ; 
-	-fx-border-radius: 23;
-	-fx-background-radius: 23;
+
+#back {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+    -fx-effect: dropshadow(gaussian, rgba(0, 233, 222, 0.2), 5, 5, 0, 0);
+    -fx-border-radius: 23;
+    -fx-background-radius: 23;
 }
-#back:hover{
-	-fx-background-color: rgba(255,255,255,1);
+
+#back:hover {
+    -fx-background-color: rgba(255, 255, 255, 1);
 }
-#back:pressed{
-	-fx-background-color: rgba(255,255,255,0.5);
+
+#back:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
 }
-#shop{
-	-fx-border-radius: 0;
-	-fx-background-radius: 0;
-	-fx-pref-width: 60;
-	-fx-pref-height: 60;
-	-fx-background-color: transparent ;
-	-fx-background-image: url(img/store1.png);
+
+#shop {
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-pref-width: 60;
+    -fx-pref-height: 60;
+    -fx-background-color: transparent;
+    -fx-background-image: url(img/store1.png);
 }
-#shop:hover{
-	-fx-pref-width: 63;
-	-fx-pref-height: 63;
-	-fx-background-image: url(img/store.png);
+
+#shop:hover {
+    -fx-pref-width: 63;
+    -fx-pref-height: 63;
+    -fx-background-image: url(img/store.png);
 }

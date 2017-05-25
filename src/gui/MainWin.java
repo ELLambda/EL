@@ -5,6 +5,7 @@
 package gui;
 
 import achievements.AchievementsManager;
+import achievements.Billboard;
 import achievements.Calculator;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
@@ -23,74 +24,71 @@ import shop.Shop;
 
 import java.io.IOException;
 
-import achievements.Billboard;
+public class MainWin extends Stage {
 
-public class MainWin extends Stage{
-
-	@FXML
-	AnchorPane root;
-
-	
-	public MainWin() {
-		// TODO Auto-generated constructor stub
-
-		try {
-			root=FXMLLoader.load(getClass().getResource("MainWin.fxml"));
-			Scene scene=new Scene(root,900,600);
-			scene.getStylesheets().add(getClass().getResource("mainwin.css").toExternalForm());
-			scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
-			this.initStyle(StageStyle.TRANSPARENT);
-			this.setScene(scene);
+    @FXML
+    AnchorPane root;
 
 
-			circleAnimation();
+    public MainWin() {
+        // TODO Auto-generated constructor stub
+
+        try {
+            root = FXMLLoader.load(getClass().getResource("MainWin.fxml"));
+            Scene scene = new Scene(root, 900, 600);
+            scene.getStylesheets().add(getClass().getResource("mainwin.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
+            this.initStyle(StageStyle.TRANSPARENT);
+            this.setScene(scene);
 
 
-			this.show();
+            circleAnimation();
 
 
-			
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	public void circleAnimation(){
+            this.show();
 
-		int x=60;
-		int y=300;
 
-		Circle circle=new Circle(x, y, 20);
-		circle.setFill(Color.TRANSPARENT);
-		circle.setStroke(Color.web("rgba(255,255,255,0.8);"));
-		circle.setStrokeWidth(5);
-		circle.setCursor(Cursor.HAND);
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-		//点击圆形退出程序
-		circle.setOnMouseClicked(e->{
-			AchievementsManager.setAchieveCondition();
-			Billboard.setBillboardCondition();
-			Calculator.leaving();
-			Shop.setCoinsCondition();
-			System.exit(0);
-		});
+    }
 
-		root.getChildren().add(circle);
+    public void circleAnimation() {
 
-		//缩放动画
-		ScaleTransition st=new  ScaleTransition(Duration.millis(2000),circle);
-		st.setByX(0.4);
-		st.setByY(0.4);
-		st.setCycleCount(Timeline.INDEFINITE);
-		st.play();
+        int x = 60;
+        int y = 300;
 
-		FadeTransition ft=new FadeTransition(Duration.millis(2000), circle);
-		ft.setCycleCount(Timeline.INDEFINITE);
-		ft.setFromValue(1);
-		ft.setToValue(0.1);
-		ft.play();
+        Circle circle = new Circle(x, y, 20);
+        circle.setFill(Color.TRANSPARENT);
+        circle.setStroke(Color.web("rgba(255,255,255,0.8);"));
+        circle.setStrokeWidth(5);
+        circle.setCursor(Cursor.HAND);
 
-	}
+        //点击圆形退出程序
+        circle.setOnMouseClicked(e -> {
+            AchievementsManager.setAchieveCondition();
+            Billboard.setBillboardCondition();
+            Calculator.leaving();
+            Shop.setCoinsCondition();
+            System.exit(0);
+        });
+
+        root.getChildren().add(circle);
+
+        //缩放动画
+        ScaleTransition st = new ScaleTransition(Duration.millis(2000), circle);
+        st.setByX(0.4);
+        st.setByY(0.4);
+        st.setCycleCount(Timeline.INDEFINITE);
+        st.play();
+
+        FadeTransition ft = new FadeTransition(Duration.millis(2000), circle);
+        ft.setCycleCount(Timeline.INDEFINITE);
+        ft.setFromValue(1);
+        ft.setToValue(0.1);
+        ft.play();
+
+    }
 }

@@ -1,142 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane fx:id="root" prefHeight="580" prefWidth="328" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.PackCtr">
-   <children>
-      <ImageView fitHeight="562.0" fitWidth="759.0" layoutX="-52.0" layoutY="-29.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/pack.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="pack" layoutX="274.0" layoutY="52.0" text="Pack">
-         <font>
-            <Font size="33.0" />
-         </font>
-      </Label>
-      <Button fx:id="back" layoutX="611.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackBtnClicked" prefHeight="44.0" prefWidth="73.0" text="Back" underline="true" wrapText="true">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Button>
-      <GridPane layoutX="156.0" layoutY="113.0" prefHeight="221.0" prefWidth="376.0" visible="false">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <Label text="药品种类">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label text="金创药" GridPane.rowIndex="1">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label text="还神丹" GridPane.rowIndex="2">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label text="天香续命露" GridPane.rowIndex="3">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label text="数量" GridPane.columnIndex="2">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label text="0" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label text="0" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <Label text="0" GridPane.columnIndex="2" GridPane.rowIndex="3">
-               <font>
-                  <Font size="19.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="107.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <image>
-                  <Image url="@img/med1.png" />
-               </image>
-            </ImageView>
-         </children>
-      </GridPane>
-      <Label fx:id="med1now" layoutX="260.0" layoutY="126.0" text="现有:0 ">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="med2now" layoutX="216.0" layoutY="212.0" text="现有:0 ">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="med3now" layoutX="195.0" layoutY="295.0" text="现有:0 ">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Button fx:id="med1btn" layoutX="142.0" layoutY="125.0" mnemonicParsing="false" onAction="#onMed1BtnClicked" prefHeight="26.0" prefWidth="28.0" />
-      <ImageView fitHeight="116.0" fitWidth="95.0" layoutX="169.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/med1.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="med2btn" layoutX="84.0" layoutY="210.0" mnemonicParsing="false" onAction="#onMed2BtnClicked" prefHeight="27.0" prefWidth="28.0" />
-      <ImageView fitHeight="131.0" fitWidth="117.0" layoutX="112.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/med2.png" />
-         </image>
-      </ImageView>
-      <Button fx:id="med3btn" layoutX="46.0" layoutY="293.0" mnemonicParsing="false" onAction="#onMed3BtnClicked" prefHeight="27.0" prefWidth="28.0" />
-      <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="71.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@img/med3.png" />
-         </image>
-      </ImageView>
-      <Label fx:id="med1use" layoutX="319.0" layoutY="126.0" text="使用:0">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="med2use" layoutX="277.0" layoutY="212.0" text="使用:0">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="med3use" layoutX="256.0" layoutY="295.0" text="使用:0">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Button fx:id="ok" layoutX="589.0" layoutY="320.0" mnemonicParsing="false" onAction="#onOKBtnClicked" prefHeight="40.0" prefWidth="95.0" text="OK">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Button>
-   </children>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" prefHeight="580" prefWidth="328"
+            xmlns="http://javafx.com/javafx/8" fx:controller="gui.PackCtr">
+    <children>
+        <ImageView fitHeight="562.0" fitWidth="759.0" layoutX="-52.0" layoutY="-29.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@img/pack.png"/>
+            </image>
+        </ImageView>
+        <Label fx:id="pack" layoutX="274.0" layoutY="52.0" text="Pack">
+            <font>
+                <Font size="33.0"/>
+            </font>
+        </Label>
+        <Button fx:id="back" layoutX="611.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackBtnClicked"
+                prefHeight="44.0" prefWidth="73.0" text="Back" underline="true" wrapText="true">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Button>
+        <GridPane layoutX="156.0" layoutY="113.0" prefHeight="221.0" prefWidth="376.0" visible="false">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <Label text="药品种类">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <Label text="金创药" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <Label text="还神丹" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <Label text="天香续命露" GridPane.rowIndex="3">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <Label text="数量" GridPane.columnIndex="2">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <Label text="0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <Label text="0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <Label text="0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                    <font>
+                        <Font size="19.0"/>
+                    </font>
+                </Label>
+                <ImageView fitHeight="107.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true"
+                           GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <image>
+                        <Image url="@img/med1.png"/>
+                    </image>
+                </ImageView>
+            </children>
+        </GridPane>
+        <Label fx:id="med1now" layoutX="260.0" layoutY="126.0" text="现有:0 ">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <Label fx:id="med2now" layoutX="216.0" layoutY="212.0" text="现有:0 ">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <Label fx:id="med3now" layoutX="195.0" layoutY="295.0" text="现有:0 ">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <Button fx:id="med1btn" layoutX="142.0" layoutY="125.0" mnemonicParsing="false" onAction="#onMed1BtnClicked"
+                prefHeight="26.0" prefWidth="28.0"/>
+        <ImageView fitHeight="116.0" fitWidth="95.0" layoutX="169.0" layoutY="91.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@img/med1.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="med2btn" layoutX="84.0" layoutY="210.0" mnemonicParsing="false" onAction="#onMed2BtnClicked"
+                prefHeight="27.0" prefWidth="28.0"/>
+        <ImageView fitHeight="131.0" fitWidth="117.0" layoutX="112.0" layoutY="165.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@img/med2.png"/>
+            </image>
+        </ImageView>
+        <Button fx:id="med3btn" layoutX="46.0" layoutY="293.0" mnemonicParsing="false" onAction="#onMed3BtnClicked"
+                prefHeight="27.0" prefWidth="28.0"/>
+        <ImageView fitHeight="140.0" fitWidth="140.0" layoutX="71.0" layoutY="235.0" pickOnBounds="true"
+                   preserveRatio="true">
+            <image>
+                <Image url="@img/med3.png"/>
+            </image>
+        </ImageView>
+        <Label fx:id="med1use" layoutX="319.0" layoutY="126.0" text="使用:0">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <Label fx:id="med2use" layoutX="277.0" layoutY="212.0" text="使用:0">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <Label fx:id="med3use" layoutX="256.0" layoutY="295.0" text="使用:0">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Label>
+        <Button fx:id="ok" layoutX="589.0" layoutY="320.0" mnemonicParsing="false" onAction="#onOKBtnClicked"
+                prefHeight="40.0" prefWidth="95.0" text="OK">
+            <font>
+                <Font size="19.0"/>
+            </font>
+        </Button>
+    </children>
 </AnchorPane>

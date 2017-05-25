@@ -15,8 +15,8 @@ public class ModeWinController {
     public Button storyBtn;
 
     public void onStoryBtnCLick(ActionEvent actionEvent) {
-        Data.mode=0;
-        Platform.runLater(()->{
+        Data.mode = 0;
+        Platform.runLater(() -> {
             try {
                 storyBtn.getScene().getWindow().hide();
                 new ChapterSelectWin();
@@ -27,19 +27,19 @@ public class ModeWinController {
     }
 
     public void onBirthdayBtnClick(ActionEvent actionEvent) {
-        Data.mode=1;
-		Platform.runLater(()->{
-			storyBtn.getScene().getWindow().hide();
-			new LevelWin();
-		});
+        Data.mode = 1;
+        Platform.runLater(() -> {
+            storyBtn.getScene().getWindow().hide();
+            new LevelWin();
+        });
     }
 
     public void onEndlessBtnCLick(ActionEvent actionEvent) {
-    	Data.mode=3;
-    	Platform.runLater(()->{
-			storyBtn.getScene().getWindow().hide();
-			new GameWin();
-		});
+        Data.mode = 3;
+        Platform.runLater(() -> {
+            storyBtn.getScene().getWindow().hide();
+            new GameWin();
+        });
     }
 }
 

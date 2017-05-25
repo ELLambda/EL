@@ -1,11 +1,12 @@
 
-.root{
-	-fx-background-image:url(img/welcome_win_bg.png);
+.root {
+    -fx-background-image: url(img/welcome_win_bg.png);
 }
 
-#l2{
-	-fx-font-size: 50.0;
+#l2 {
+    -fx-font-size: 50.0;
 }
-#l3{
-	-fx-font-size: 20.0;
+
+#l3 {
+    -fx-font-size: 20.0;
 }

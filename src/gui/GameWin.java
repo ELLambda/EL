@@ -1,96 +1,82 @@
 package gui;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
-
-import achievements.*;
+import achievements.AchievementsManager;
+import achievements.Calculator;
 import javafx.application.Platform;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DialogPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import achievements.Billboard;
 
-public class GameWin extends Stage{
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
-	Parent root;
+public class GameWin extends Stage {
 
-
-
-	public GameWin() {
-		// TODO Auto-generated constructor stub
-		if(Data.mode!=1) {
-			Music.playBgMusic(15);//bgm
-			 }
-		try {
-			this.initStyle(StageStyle.TRANSPARENT);
-
-			root=FXMLLoader.load(getClass().getResource("GameWin.fxml"));
-
-			Scene scene=new Scene(root, 1200, 800);
-			scene.setFill(Color.TRANSPARENT);
-			scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
-			scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
+    Parent root;
 
 
-			//��lookup����λ�ؼ�
-			Button exitBtn=(Button) root.lookup("#exitBtn");
-			exitBtn.setOnAction(e->{
+    public GameWin() {
+        // TODO Auto-generated constructor stub
+        if (Data.mode != 1) {
+            Music.playBgMusic(15);//bgm
+        }
+        try {
+            this.initStyle(StageStyle.TRANSPARENT);
 
-				Calculator.scores += GameWinControllor.score.intValue();
-				Music.stopBgMusic();
-				Platform.runLater(()->{
-					switch (Data.mode){
-						case 0:
-						case 2:
-							try {
-								new ChapterSelectWin();
-							} catch (IOException e1) {
-								e1.printStackTrace();
-							}
-							break;
-						case 1:
-							new LevelWin();
-							break;
-						case 3:
+            root = FXMLLoader.load(getClass().getResource("GameWin.fxml"));
 
-							Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
-						    String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
+            Scene scene = new Scene(root, 1200, 800);
+            scene.setFill(Color.TRANSPARENT);
+            scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
 
 
-							Billboard.scorelist[Billboard.RANK].setTime(str);
-							
-							Arrays.sort(Billboard.scorelist);
-							for(int i = 0 ; i < Billboard.RANK+1 ; i++)
-								System.out.println(Billboard.scorelist[i]);
+            //��lookup����λ�ؼ�
+            Button exitBtn = (Button) root.lookup("#exitBtn");
+            exitBtn.setOnAction(e -> {
 
-							Billboard.setBillboardCondition();
+                Calculator.scores += GameWinControllor.score.intValue();
+                Music.stopBgMusic();
+                Platform.runLater(() -> {
+                    switch (Data.mode) {
+                        case 0:
+                        case 2:
+                            try {
+                                new ChapterSelectWin();
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+                            break;
+                        case 1:
+                            new LevelWin();
+                            break;
+                        case 3:
 
-							AchievementsManager.AchievementsList[1][4].setRate((double)Calculator.scores/GameWinControllor.SCOREBOUND);
+                            Data.scoreToBeSet = GameWinControllor.score.intValue();
+                            Data.timeToBeSet = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
+                            AchievementsManager.AchievementsList[1][4].setRate((double) Calculator.scores / GameWinControllor.SCOREBOUND);
 
-							new MainWin();
-							break;
-					}
-					this.close();
-				});
-			});
-			
-			this.setScene(scene);
-			this.show();
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-	}
-	
+                            new InputNameWin();
+
+                            break;
+                    }
+                    this.close();
+                });
+            });
+
+            this.setScene(scene);
+            this.show();
+
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+    }
+
 }

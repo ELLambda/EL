@@ -6,18 +6,22 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static gui.ShopController.med_1_remain;
-import static gui.ShopController.med_2_remain;
-import static gui.ShopController.med_3_remain;
+import static gui.ShopController.*;
 
 /**
  * Created by julia98 on 2017/5/24.
  */
 public class PackCtr {
+    public static final int med1addedStep = 2;
+    public static final int med2addedStep = 3;
+    public static final int med3addedStep = 5;
+    public static int num1;
+    public static int num2;
+    public static int num3;
+    public static int addedStep = 0;
     @FXML
     public AnchorPane root;
     @FXML
@@ -44,65 +48,65 @@ public class PackCtr {
     public Button back;
     @FXML
     public Button ok;
-
-    public static int num1;
-    public static int num2;
-    public static int num3;
-
     public int use1 = 0;
     public int use2 = 0;
     public int use3 = 0;
-
-    public static final int med1addedStep = 2;
-    public static final int med2addedStep = 3;
-    public static final int med3addedStep = 5;
-
-    public static int addedStep = 0;
-    
     private boolean hasUsed = false;
 
 
-    public int getmed1now(){
+    public int getmed1now() {
         return num1;
     }
-    public int getmed2now(){
+
+    public int getmed2now() {
         return num2;
     }
-    public int getmed3now(){
+
+    public int getmed3now() {
         return num3;
     }
-    public int getmed1use(){
+
+    public int getmed1use() {
         return use1;
     }
-    public int getmed2use(){
+
+    public int getmed2use() {
         return use2;
     }
-    public int getmed3use(){
+
+    public int getmed3use() {
         return use3;
     }
-    public void setmed1now(){
+
+    public void setmed1now() {
         med_1_remain--;
         num1--;
     }
-    public void setmed2now(){
+
+    public void setmed2now() {
         med_2_remain--;
         num2--;
     }
-    public void setmed3now(){
+
+    public void setmed3now() {
         med_3_remain--;
         num3--;
     }
-    public void setmed1use(){
+
+    public void setmed1use() {
         use1++;
     }
-    public void setmed2use(){
+
+    public void setmed2use() {
         use2++;
     }
-    public void setmed3use(){
+
+    public void setmed3use() {
         use3++;
     }
 
-    @FXML void initialize(){
+    @FXML
+    void initialize() {
 
         num1 = shop.Shop.getPack1Condition();
         num2 = shop.Shop.getPack2Condition();
@@ -117,13 +121,13 @@ public class PackCtr {
     }
 
     @FXML
-    public void onMed1BtnClicked(){
-    	med1btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
-    	med2btn.setStyle(null);
-    	med3btn.setStyle(null);
-        if(num1 <= 0) {
+    public void onMed1BtnClicked() {
+        med1btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
+        med2btn.setStyle(null);
+        med3btn.setStyle(null);
+        if (num1 <= 0) {
             pack.setText("药品不够啦~");
-        }else{
+        } else {
             setmed1now();
             setmed1use();
             med1now.setText("现有:" + getmed1now());
@@ -134,15 +138,15 @@ public class PackCtr {
     }
 
     @FXML
-    public void onMed2BtnClicked(){
-    	med2btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
-    	med1btn.setStyle(null);
-    	med3btn.setStyle(null);
+    public void onMed2BtnClicked() {
+        med2btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
+        med1btn.setStyle(null);
+        med3btn.setStyle(null);
 
-        if(num2 <= 0) {
+        if (num2 <= 0) {
             pack.setText("药品不够啦~");
             //System.out.println("我是输出2");
-        }else{
+        } else {
             setmed2now();
             setmed2use();
             med2now.setText("现有:" + getmed2now());
@@ -152,14 +156,14 @@ public class PackCtr {
     }
 
     @FXML
-    public void onMed3BtnClicked(){
-    	med3btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
-    	med1btn.setStyle(null);
-    	med2btn.setStyle(null);
+    public void onMed3BtnClicked() {
+        med3btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
+        med1btn.setStyle(null);
+        med2btn.setStyle(null);
 
-        if(num3 <= 0) {
+        if (num3 <= 0) {
             pack.setText("药品不够啦~");
-        }else{
+        } else {
             setmed3now();
             setmed3use();
             med3now.setText("现有:" + getmed3now());
@@ -169,37 +173,37 @@ public class PackCtr {
     }
 
     @FXML
-    public void onBackBtnClicked(){
-        Platform.runLater(()->{
-        	root.getScene().getWindow().hide();
+    public void onBackBtnClicked() {
+        Platform.runLater(() -> {
+            root.getScene().getWindow().hide();
         });
     }
 
     @FXML
-    public void onOKBtnClicked(){
-        addedStep = getmed1use()*med1addedStep + getmed2use()*med2addedStep + getmed3use()*med3addedStep;
+    public void onOKBtnClicked() {
+        addedStep = getmed1use() * med1addedStep + getmed2use() * med2addedStep + getmed3use() * med3addedStep;
         GameWinControllor.steps += addedStep;
         shop.Shop.setPack1Condition();
         shop.Shop.setPack2Condition();
         shop.Shop.setPack3Condition();
-        if(GameWinControllor.s_coins != null)
-			GameWinControllor.s_coins.setValue("Energy Value:"+GameWinControllor.steps*10);
-        if(GameWinControllor.s_battle != null)
-            GameWinControllor.s_battle.setValue("HP:"+GameWinControllor.steps*100);
+        if (GameWinControllor.s_coins != null)
+            GameWinControllor.s_coins.setValue("Energy Value:" + GameWinControllor.steps * 10);
+        if (GameWinControllor.s_battle != null)
+            GameWinControllor.s_battle.setValue("HP:" + GameWinControllor.steps * 100);
 //        GameWinControllor.stepProgressBar.setProgress((double) GameWinControllor.steps/Data.totalstpes);    不能把stepprogressbar给static
-        GameWinControllor.s_bar.set((double) GameWinControllor.steps/Data.totalstpes);
+        GameWinControllor.s_bar.set((double) GameWinControllor.steps / Data.totalstpes);
         pack.setText("使用成功~");
-        new Timer().schedule(new TimerTask(){
+        new Timer().schedule(new TimerTask() {
 
-			@Override
-			public void run() {
-				 Platform.runLater(()->{
-			        	root.getScene().getWindow().hide();
-			     });
-			}
-        	
-        },800);
-        
+            @Override
+            public void run() {
+                Platform.runLater(() -> {
+                    root.getScene().getWindow().hide();
+                });
+            }
+
+        }, 800);
+
     }
 
 

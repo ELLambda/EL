@@ -16,14 +16,14 @@ public class ModeWin extends Stage {
 
     AnchorPane root;
 
-    public ModeWin(){
+    public ModeWin() {
         try {
-            root= FXMLLoader.load(getClass().getResource("ModeWin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("ModeWin.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        Scene scene=new Scene(root, 600,400);
+        Scene scene = new Scene(root, 600, 400);
         scene.getStylesheets().add(getClass().getResource("modewin.css").toExternalForm());
         scene.setFill(Color.TRANSPARENT);
 

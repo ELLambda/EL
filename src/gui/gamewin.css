@@ -1,84 +1,89 @@
-.root{
-	-fx-background-color: transparent ;
-	-fx-background-image: url(img/game_bg.png);
+.root {
+    -fx-background-color: transparent;
+    -fx-background-image: url(img/game_bg.png);
 }
 
-#blockGridPan{
-	-fx-border-color: rgba(255,255,255,0.8);
-	-fx-border-width: 3;
-	-fx-effect: dropshadow(gaussian,rgba(0,0,0,0.8),10,0.1,5,5);
-	-fx-background-color: rgba(0,0,0,0.2);
+#blockGridPan {
+    -fx-border-color: rgba(255, 255, 255, 0.8);
+    -fx-border-width: 3;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.8), 10, 0.1, 5, 5);
+    -fx-background-color: rgba(0, 0, 0, 0.2);
 }
 
-#noticeText{
-	-fx-background-color: transparent ;
-	-fx-border-color: white;
-	-fx-border-radius: 20;
-	-fx-border-width: 2;
+#noticeText {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 20;
+    -fx-border-width: 2;
 }
 
 /*#restartBtn,#exitBtn,#storeBtn{*/
-	/*-fx-text-fill: rgba(255,255,255,0.5);*/
-	/*-fx-text-alignment: center ;*/
-	/*-fx-border-color: rgba(255,255,255,0.5);*/
-	/*-fx-border-radius: 20;*/
-	/*-fx-border-width: 2;*/
-	/*-fx-background-color: transparent ;*/
+/*-fx-text-fill: rgba(255,255,255,0.5);*/
+/*-fx-text-alignment: center ;*/
+/*-fx-border-color: rgba(255,255,255,0.5);*/
+/*-fx-border-radius: 20;*/
+/*-fx-border-width: 2;*/
+/*-fx-background-color: transparent ;*/
 /*}*/
 /*#restartBtn:hover,#exitBtn:hover,#storeBtn:hover{*/
-	/*-fx-text-fill: white;*/
-	/*-fx-border-color: rgba(255,255,255,0.8);*/
+/*-fx-text-fill: white;*/
+/*-fx-border-color: rgba(255,255,255,0.8);*/
 /*}*/
 /*#restartBtn:pressed,#exitBtn:pressed,#storeBtn:pressed{*/
-	/*-fx-text-fill:  rgba(255,255,255,0.8);*/
-	/*-fx-border-color:  rgba(255,255,255,0.8);*/
-	/*-fx-effect: dropshadow(gaussian,rgba(0,200,220,0.4),2,0.5,0,1); */
+/*-fx-text-fill:  rgba(255,255,255,0.8);*/
+/*-fx-border-color:  rgba(255,255,255,0.8);*/
+/*-fx-effect: dropshadow(gaussian,rgba(0,200,220,0.4),2,0.5,0,1); */
 /*}*/
-.text-field{
-	-fx-text-fill: white;
-}
-.progress-bar{
-	-fx-accent:green;/*把血槽颜色改成红的了。。*/
-}
-#smallHammer{
-	-fx-background-image: url("img/hammer.png");
-	-fx-background-color: transparent;
-}
-#bigHammer{
-	-fx-background-image: url("img/tornado.png");
-	-fx-background-color: transparent;
-}
-#magicStick{
-	-fx-background-color: transparent;
-	-fx-background-image: url("img/magicStick.png");
+.text-field {
+    -fx-text-fill: white;
 }
 
-#tools{
-	-fx-border-color: rgba(255,255,255,0.5);
-	-fx-border-width: 3;
-	-fx-border-radius: 15;
+.progress-bar {
+    -fx-accent: green;
 }
 
-#smallHammerTooltip{
-	
+#smallHammer {
+    -fx-background-image: url("img/hammer.png");
+    -fx-background-color: transparent;
 }
 
-#bigHammerTooltip{
-	
+#bigHammer {
+    -fx-background-image: url("img/tornado.png");
+    -fx-background-color: transparent;
 }
 
-#magicTooltip{
-	
-}
-.locked{
-	-fx-font-family: 'Bauhaus 93';
-	-fx-font-size: 25;
-	-fx-text-fill:darkred;
+#magicStick {
+    -fx-background-color: transparent;
+    -fx-background-image: url("img/magicStick.png");
 }
 
-.sign{
-	-fx-min-height: 50;
-	-fx-font-family: 'Bauhaus 93';
-	-fx-font-size: 20;
-	-fx-text-fill: white;
+#tools {
+    -fx-border-color: rgba(255, 255, 255, 0.5);
+    -fx-border-width: 3;
+    -fx-border-radius: 15;
+}
+
+#smallHammerTooltip {
+
+}
+
+#bigHammerTooltip {
+
+}
+
+#magicTooltip {
+
+}
+
+.locked {
+    -fx-font-family: 'Bauhaus 93';
+    -fx-font-size: 25;
+    -fx-text-fill: darkred;
+}
+
+.sign {
+    -fx-min-height: 50;
+    -fx-font-family: 'Bauhaus 93';
+    -fx-font-size: 20;
+    -fx-text-fill: white;
 }

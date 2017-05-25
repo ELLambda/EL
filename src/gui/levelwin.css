@@ -1,19 +1,21 @@
-.root{
-	/*-fx-background-color: rgba(0,0,0,0.5) ;*/
-	-fx-background-color: transparent;
-	-fx-background-image:url(img/level_bg.png); 
+.root {
+    /*-fx-background-color: rgba(0,0,0,0.5) ;*/
+    -fx-background-color: transparent;
+    -fx-background-image: url(img/level_bg.png);
 }
-.button{
-	-fx-cursor: hand ;
+
+.button {
+    -fx-cursor: hand;
 }
+
 /*.button:hover{*/
-	/*-fx-background-color: transparent ;*/
-	/*-fx-border-color: rgba(255,255,255,1);*/
-	/*-fx-border-width: 0.1;*/
-	/*-fx-effect: dropshadow(gaussian,rgba(255,255,255,0.5),5,1,0,0) ;*/
+/*-fx-background-color: transparent ;*/
+/*-fx-border-color: rgba(255,255,255,1);*/
+/*-fx-border-width: 0.1;*/
+/*-fx-effect: dropshadow(gaussian,rgba(255,255,255,0.5),5,1,0,0) ;*/
 /*}*/
-.button:pressed{
-	-fx-border-color: rgba(255,255,255,1);
-	-fx-border-width: 0.1;
-	-fx-effect: dropshadow(gaussian,rgba(255,255,255,0.1),5,1,0,0) ;
+.button:pressed {
+    -fx-border-color: rgba(255, 255, 255, 1);
+    -fx-border-width: 0.1;
+    -fx-effect: dropshadow(gaussian, rgba(255, 255, 255, 0.1), 5, 1, 0, 0);
 }

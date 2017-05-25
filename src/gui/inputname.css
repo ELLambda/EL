@@ -1,0 +1,24 @@
+@font-face {
+    /*font-family: 'ITCBLKAD';*/
+    src: url('resources/fonts/MyFont3.otf');
+}
+
+.root {
+    -fx-background-image: url("img/settingBg.jpg");
+}
+
+.label {
+    -fx-text-fill: white;
+    -fx-font-family: 'HanziPen SC Bold';
+    -fx-font-size: 25;
+    -fx-text-alignment: center;
+}
+
+.text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: white;
+    -fx-border-radius: 10;
+    -fx-pref-height: 25;
+    -fx-font-size: 18;
+    -fx-text-fill: white;
+}

@@ -1,37 +1,44 @@
-.root{
-	-fx-background-color: transparent ;
-	-fx-background-image: url(img/main_win_bg.jpg);
-	-fx-background-radius: 50;
+.root {
+    -fx-background-color: transparent;
+    -fx-background-image: url(img/main_win_bg.jpg);
+    -fx-background-radius: 50;
 }
-.button{
-	-fx-background-color: rgba(255,255,255,0.4);
-	-fx-effet: dropshadow(gaussian,rgba(0,233,222,0.2),5,5,0,0) ; 
-	-fx-border-radius: 23;
-	-fx-background-radius: 23;
+
+.button {
+    -fx-background-color: rgba(255, 255, 255, 0.4);
+    -fx-effet: dropshadow(gaussian, rgba(0, 233, 222, 0.2), 5, 5, 0, 0);
+    -fx-border-radius: 23;
+    -fx-background-radius: 23;
 }
-.button:hover{
-	-fx-background-color: rgba(255,255,255,1);
+
+.button:hover {
+    -fx-background-color: rgba(255, 255, 255, 1);
 }
-.button:pressed{
-	-fx-background-color: rgba(255,255,255,0.5);
+
+.button:pressed {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
 }
-#exitBtn{
-	-fx-border-radius: 0;
-	-fx-background-radius: 0;
-	-fx-pref-width: 60;
-	-fx-pref-height: 60;
-	-fx-background-color: transparent ;
-	-fx-background-image: url(img/exit.png);
+
+#exitBtn {
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
+    -fx-pref-width: 60;
+    -fx-pref-height: 60;
+    -fx-background-color: transparent;
+    -fx-background-image: url(img/exit.png);
 }
-#exitBtn:hover{
-	-fx-background-image: url(img/exit_hover.png);
+
+#exitBtn:hover {
+    -fx-background-image: url(img/exit_hover.png);
 }
-#box{
-	-fx-background-color: rgba(255,255,255,0.3);
-	-fx-background-radius: 50;
-	-fx-spacing: 50;
-	-fx-padding: 30;
+
+#box {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+    -fx-background-radius: 50;
+    -fx-spacing: 50;
+    -fx-padding: 30;
 }
-.button{
-	-fx-font-size: 25;
+
+.button {
+    -fx-font-size: 25;
 }

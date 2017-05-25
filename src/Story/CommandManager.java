@@ -1,21 +1,18 @@
 package Story;
-/**  
-* 类说明   把命令与UI对接
-*  
-* @author Andy
-* @version  
-*/
 
-public class CommandManager
-{
-	public FileManager filemanager;
+/**
+ * 类说明   把命令与UI对接
+ *
+ * @author Andy
+ */
 
-	public CommandManager(int index)
-	{
-		filemanager = new FileManager(index);
-		
-	}
-	
-	
-	
+public class CommandManager {
+    public FileManager filemanager;
+
+    public CommandManager(int index) {
+        filemanager = new FileManager(index);
+
+    }
+
+
 }

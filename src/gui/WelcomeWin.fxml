@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
-
-<AnchorPane id="AnchorPane" fx:id="rootPan" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color:green;&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2">
-  <children>
-    <Label id="l1" layoutX="261.0" layoutY="276.0" text="Created by" textFill="WHITE" />
-    <Label id="l2" layoutX="211.0" layoutY="291.0" text="lambda" textFill="WHITE">
-      <font>
-        <Font size="50.0" />
-      </font>
-    </Label>
-    <Label id="l3" layoutX="153.0" layoutY="355.0" text="click anywhere to enter the game" textFill="WHITE">
-      <font>
-        <Font size="20.0" />
-      </font>
-    </Label>
-  </children>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="rootPan" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color:green;&#10;" xmlns="http://javafx.com/javafx/2.2">
+    <children>
+        <Label id="l1" layoutX="261.0" layoutY="276.0" text="Created by" textFill="WHITE"/>
+        <Label id="l2" layoutX="211.0" layoutY="291.0" text="lambda" textFill="WHITE">
+            <font>
+                <Font size="50.0"/>
+            </font>
+        </Label>
+        <Label id="l3" layoutX="153.0" layoutY="355.0" text="click anywhere to enter the game" textFill="WHITE">
+            <font>
+                <Font size="20.0"/>
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

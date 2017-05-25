@@ -20,37 +20,37 @@ public class AboutWin extends Stage {
 
     AnchorPane root;
 
-    public AboutWin(){
+    public AboutWin() {
         Music.playBgMusic(14);
 
-        root=new AnchorPane();
+        root = new AnchorPane();
         root.setBackground(new Background(new BackgroundImage(new Image("gui/img/aboutwin.png"),
-                BackgroundRepeat.NO_REPEAT,BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,BackgroundSize.DEFAULT)
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)
         ));
 
 
         circleAnimation();
 
-        Scene scene=new Scene(root,600,400);
+        Scene scene = new Scene(root, 600, 400);
 
         this.setScene(scene);
         this.initStyle(StageStyle.UNDECORATED);
         this.show();
     }
 
-    public void circleAnimation(){
+    public void circleAnimation() {
 
-        int x=300;
-        int y=330;
+        int x = 300;
+        int y = 330;
 
-        Circle circle=new Circle(x, y, 20);
+        Circle circle = new Circle(x, y, 20);
         circle.setFill(Color.TRANSPARENT);
         circle.setStroke(Color.web("rgba(255,255,255,0.8);"));
         circle.setStrokeWidth(5);
         circle.setCursor(Cursor.HAND);
 
         //点击圆形关闭消息窗口
-        circle.setOnMouseClicked(e->{
+        circle.setOnMouseClicked(e -> {
 
             new MainWin();
             this.close();
@@ -59,13 +59,13 @@ public class AboutWin extends Stage {
         root.getChildren().add(circle);
 
         //缩放动画
-        ScaleTransition st=new  ScaleTransition(Duration.millis(2000),circle);
+        ScaleTransition st = new ScaleTransition(Duration.millis(2000), circle);
         st.setByX(0.4);
         st.setByY(0.4);
         st.setCycleCount(Timeline.INDEFINITE);
         st.play();
 
-        FadeTransition ft=new FadeTransition(Duration.millis(2000), circle);
+        FadeTransition ft = new FadeTransition(Duration.millis(2000), circle);
         ft.setCycleCount(Timeline.INDEFINITE);
         ft.setFromValue(1);
         ft.setToValue(0.1);
