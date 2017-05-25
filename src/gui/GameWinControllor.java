@@ -54,7 +54,8 @@ public class GameWinControllor {
 	public static final double SECOND = 0.5;
 	//public static int score=0;
 	public static IntegerProperty score;
-	public static StringProperty s;
+	public static StringProperty s_coins;
+	public static StringProperty s_battle;
 	protected static int erasedTimes = 1;
 	protected static boolean isMoving = false;
 	protected static int steps=Data.totalstpes;
@@ -97,8 +98,8 @@ public class GameWinControllor {
 		if(Data.mode == 0){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 			stepLabel.setLayoutX(980);
-			s = new SimpleStringProperty("HP:"+steps*100);
-			stepLabel.textProperty().bind(s);
+			s_battle = new SimpleStringProperty("HP:"+steps*100);
+			stepLabel.textProperty().bind(s_battle);
 
 		}
 		//生日模式
@@ -110,8 +111,8 @@ public class GameWinControllor {
 		else if(Data.mode == 2){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 			stepLabel.setLayoutX(980);
-			s = new SimpleStringProperty("Energy Value:"+steps*10);
-			stepLabel.textProperty().bind(s);
+			s_coins = new SimpleStringProperty("Energy Value:"+steps*10);
+			stepLabel.textProperty().bind(s_coins);
 
 		}
 		//无尽模式
