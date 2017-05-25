@@ -12,8 +12,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
+import javafx.scene.shape.CubicCurveTo;
+import javafx.scene.shape.MoveTo;
+import javafx.scene.shape.Path;
 import javafx.util.Duration;
 import shop.Shop;
 
@@ -52,6 +55,7 @@ public class GameWinControllor {
 	protected final static int HEIGHT = 10;
 	protected final static int WIDE = 10;
 	public static final double SECOND = 0.5;
+	public static final double ZOOMSECOND = 0.2;
 	//public static int score=0;
 	public static IntegerProperty score;
 	public static StringProperty s;
@@ -64,6 +68,7 @@ public class GameWinControllor {
 	protected static final int ITEMBOUND = 99;
 	protected static final int STEPBOUND = 10086;
 	protected static final int SCOREBOUND = 5201314;
+
 	
 	
 
@@ -227,8 +232,8 @@ public class GameWinControllor {
 									BlockManager.twoBlocks.get(1).setNotSelected();
 									BlockManager.twoBlocks.get(0).setIsPressed(false);
 									BlockManager.twoBlocks.get(1).setIsPressed(false);
-									BlockManager.twoBlocks.get(0).setSpecialType("null");
-									BlockManager.twoBlocks.get(1).setSpecialType("null");
+//									BlockManager.twoBlocks.get(0).setSpecialType("null");
+//									BlockManager.twoBlocks.get(1).setSpecialType("null");
 									BlockManager.twoBlocks.clear();
 									for(int i = 0; i < 10;i++)
 										for(int j = 0; j< 10;j++){
@@ -249,6 +254,8 @@ public class GameWinControllor {
 									BlockManager.twoBlocks.get(1).getSpecialType().equals("MagicBird"))){   //消掉全部相同颜色的
 								Transition transition = BlockManager.exchange();	
 								transition.setOnFinished(e2 ->{
+									HashSet<Block> h = new HashSet<Block>();
+
 									BlockManager.twoBlocks.get(0).setNotSelected();
 									BlockManager.twoBlocks.get(1).setNotSelected();
 									BlockManager.twoBlocks.get(0).setIsPressed(false);
@@ -256,18 +263,27 @@ public class GameWinControllor {
 									String color = BlockManager.twoBlocks.get(0).getColor();		//将要消掉的颜色
 									if(BlockManager.twoBlocks.get(0).getColor().equals("MagicBird"))
 										color = BlockManager.twoBlocks.get(1).getColor();
-									BlockManager.twoBlocks.get(0).setSpecialType("null");
-									BlockManager.twoBlocks.get(1).setSpecialType("null");
+
+//									if(BlockManager.twoBlocks.get(0).getColor().equals("MagicBird")){
+//										color = BlockManager.twoBlocks.get(1).getColor();
+//										h.add(BlockManager.twoBlocks.get(0));
+//									}else{
+//										h.add(BlockManager.twoBlocks.get(1));
+//									}
+
+//									BlockManager.twoBlocks.get(0).setSpecialType("null");
+//									BlockManager.twoBlocks.get(1).setSpecialType("null");
 									BlockManager.twoBlocks.get(0).setColor(color);
 									BlockManager.twoBlocks.get(1).setColor(color);
 									BlockManager.twoBlocks.clear();
-									
-									HashSet<Block> h = new HashSet<Block>();
+
+
+
 									for(int i = 0; i < 10;i++)
 										for(int j = 0; j < 10;j++){
 											if(BlockManager.blocks[i][j].getColor().equals(color)){
 												h.add(BlockManager.blocks[i][j]);
-												
+
 
 											}
 										}
@@ -309,8 +325,8 @@ public class GameWinControllor {
 										color = BlockManager.twoBlocks.get(1).getColor();
 										line = BlockManager.twoBlocks.get(1).getY();
 									}
-									BlockManager.twoBlocks.get(0).setSpecialType("null");
-									BlockManager.twoBlocks.get(1).setSpecialType("null");
+//									BlockManager.twoBlocks.get(0).setSpecialType("null");
+//									BlockManager.twoBlocks.get(1).setSpecialType("null");
 									BlockManager.twoBlocks.get(0).setColor(color);
 									BlockManager.twoBlocks.get(1).setColor(color);
 									BlockManager.twoBlocks.clear();
@@ -360,8 +376,8 @@ public class GameWinControllor {
 										color = BlockManager.twoBlocks.get(1).getColor();
 										line = BlockManager.twoBlocks.get(1).getX();
 									}
-									BlockManager.twoBlocks.get(0).setSpecialType("null");
-									BlockManager.twoBlocks.get(1).setSpecialType("null");
+//									BlockManager.twoBlocks.get(0).setSpecialType("null");
+//									BlockManager.twoBlocks.get(1).setSpecialType("null");
 									BlockManager.twoBlocks.get(0).setColor(color);
 									BlockManager.twoBlocks.get(1).setColor(color);
 									BlockManager.twoBlocks.clear();
@@ -576,7 +592,16 @@ public class GameWinControllor {
 	
 	//消除
 	public  void erase(){
-		
+
+		int baseX=0;
+		int baseY=8;
+
+//		Block baseBlock=BlockManager.blocks[baseX][baseY];
+
+
+
+
+
 		//int temp=score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++);
 		score.set(score.intValue()+ BlockManager.length*BlockManager.length*(erasedTimes++));
 		
@@ -608,12 +633,14 @@ public class GameWinControllor {
 		
 		 System.out.println("start erasing");
 
-		 Block baseBlock=BlockManager.blocks[BlockManager.erased[0][0]][BlockManager.erased[0][1]];
+
+
 		for(int i = 0;i < BlockManager.length;i++){
-			
+
 			Block block = BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]];
 			if(block == null)
 				continue;
+
 			switch(block.getColor()){
 			case("1"):
 				Calculator.first++;
@@ -660,27 +687,49 @@ public class GameWinControllor {
 			BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]] = null;
 			
 			final int iFinal = i;
-			
+
+			block.setBackground(new Background(new BackgroundImage(
+					new Image("gui/img/star/little.png"),
+					BackgroundRepeat.NO_REPEAT,
+					BackgroundRepeat.NO_REPEAT,
+					BackgroundPosition.CENTER,
+					BackgroundSize.DEFAULT
+			)));
+			block.setStyle("-fx-effect: null;");
+
 			//消失的动画
-	        FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
+	        FadeTransition transition = new FadeTransition(Duration.seconds(ZOOMSECOND),block);
 	        transition.setFromValue(1);
 	        transition.setToValue(0);
 	        //变形动画
-	        ScaleTransition scaleTransition=new ScaleTransition(Duration.seconds(SECOND),block);
+	        ScaleTransition scaleTransition=new ScaleTransition(Duration.seconds(ZOOMSECOND),block);
 	        scaleTransition.setFromX(1);
 	        scaleTransition.setToX(2);
 			scaleTransition.setFromY(1);
 			scaleTransition.setToY(2);
 
+			//旋转动画
+			RotateTransition rotateTransition=new RotateTransition(Duration.seconds(SECOND),block);
+			rotateTransition.setFromAngle(0);
+			rotateTransition.setToAngle(60);
+			rotateTransition.setCycleCount(Timeline.INDEFINITE);
+			rotateTransition.setAutoReverse(true);
+			rotateTransition.play();
 			//移动动画
 			TranslateTransition translateTransition=new TranslateTransition(Duration.seconds(SECOND),block);
-			translateTransition.setByX((baseBlock.getX()-block.getX())*60);
-			translateTransition.setByY((baseBlock.getY()-block.getY())*60);
+//			translateTransition.setByX((baseBlock.getX()-block.getX())*60);
+//			translateTransition.setByY((baseBlock.getY()-block.getY())*60);
+			translateTransition.setByX((9-block.getX())*60);
+			translateTransition.setByY((-1.3-block.getY())*60);
 			translateTransition.setOnFinished(e->{
+
 				transition.play();
 				scaleTransition.play();
 			});
 			translateTransition.play();
+
+
+
 
 	        if(block.getSpecialType().equals("null")){		//不变成特效块
 		        
@@ -722,7 +771,7 @@ public class GameWinControllor {
 	        	}
 	        }
 	        else if(block.getSpecialType().equals("Bomb")){			//变成爆炸块
-	        	
+
 		        	transition.setOnFinished(e->{
 		        		
 		        		blockGridPan.getChildren().remove(block);
@@ -805,11 +854,11 @@ public class GameWinControllor {
 				        });
 	        	}
 	        }
-	        
-	        
+
+
 //	        transition.play();
 //	        scaleTransition.play();
-	        
+
 		}
 			
 	        

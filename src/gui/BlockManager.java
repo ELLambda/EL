@@ -259,8 +259,11 @@ public class BlockManager {
         Iterator<Block> iterator = h.iterator();
         while(iterator.hasNext()){
         	Block b = iterator.next();
-        	erased[length][0] = b.getX();
-        	erased[length][1] = b.getY();
+
+
+			erased[length][0] = b.getX();
+			erased[length][1] = b.getY();
+
         	length++;
         }
         

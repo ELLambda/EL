@@ -114,6 +114,7 @@ public class Block extends Button{
 	}
 
 	public void setPattern(String pattern) {
+		//setSpecialType(pattern);
 		this.pattern = pattern;
 		String path="gui/img/star/"+this.color+this.pattern+".png";
 
