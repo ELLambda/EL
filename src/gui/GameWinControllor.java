@@ -603,7 +603,8 @@ public class GameWinControllor {
 		 Music.playEffectMusic(1);//eliminate
 		
 		 System.out.println("start erasing");
-		 		 
+
+		 Block baseBlock=BlockManager.blocks[BlockManager.erased[0][0]][BlockManager.erased[0][1]];
 		for(int i = 0;i < BlockManager.length;i++){
 			
 			Block block = BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]];
@@ -660,6 +661,23 @@ public class GameWinControllor {
 	        FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
 	        transition.setFromValue(1);
 	        transition.setToValue(0);
+	        //变形动画
+	        ScaleTransition scaleTransition=new ScaleTransition(Duration.seconds(SECOND),block);
+	        scaleTransition.setFromX(1);
+	        scaleTransition.setToX(2);
+			scaleTransition.setFromY(1);
+			scaleTransition.setToY(2);
+
+			//移动动画
+			TranslateTransition translateTransition=new TranslateTransition(Duration.seconds(SECOND),block);
+			translateTransition.setByX((baseBlock.getX()-block.getX())*60);
+			translateTransition.setByY((baseBlock.getY()-block.getY())*60);
+			translateTransition.setOnFinished(e->{
+				transition.play();
+				scaleTransition.play();
+			});
+			translateTransition.play();
+
 	        if(block.getSpecialType().equals("null")){		//不变成特效块
 		        
 		        	transition.setOnFinished(e->{
@@ -785,7 +803,8 @@ public class GameWinControllor {
 	        }
 	        
 	        
-	        transition.play();
+//	        transition.play();
+//	        scaleTransition.play();
 	        
 		}
 			

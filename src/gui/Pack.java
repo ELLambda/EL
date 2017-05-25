@@ -23,10 +23,10 @@ public class Pack extends Stage {
 
         try {
             root = FXMLLoader.load(getClass().getResource("Pack.fxml"));
-            Scene scene = new Scene(root, 700, 400);
+            Scene scene = new Scene(root, 580, 328);
             scene.getStylesheets().add(getClass().getResource("story.css").toExternalForm());
             this.initStyle(StageStyle.UNDECORATED);
-            this.setFullScreen(true);
+            this.setFullScreen(false);
             this.setScene(scene);
             this.show();
 
