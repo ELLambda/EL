@@ -47,9 +47,9 @@ public class ShopController {
 	@FXML
 	public Label p_sum;
 
-	public static int i_1 = 0;
-	public static int i_2 = 0;
-	public static int i_3 = 0;
+	public int i_1 = 0;
+	public int i_2 = 0;
+	public int i_3 = 0;
 	public int p_1 = 0;
 	public int p_2 = 0;
 	public int p_3 = 0;
@@ -99,17 +99,44 @@ public class ShopController {
                 //new TipsWin 提示购买成功窗口
 				label.setText("     购买成功！");
                 //root.getScene().getWindow().hide();
+				new Timer().schedule(new TimerTask(){
+
+					@Override
+					public void run() {
+						Platform.runLater(()->{
+							root.getScene().getWindow().hide();
+						});
+						
+					}
+					
+				}, 800);
+				
             }else{
                 //new TipsWin 提示金币不够
             	shop.Shop.selectedList.clear();
                 label.setText("金币数量不够哦~");
+                md1.setText("0");
+        		md2.setText("0");
+        		md3.setText("0");
+        		md1_price.setText("0");
+        		md2_price.setText("0");
+        		md3_price.setText("0");
+        		i_sum.setText(String.valueOf("0"));
+    			p_sum.setText(String.valueOf("0"));
+        		i_1 = 0;
+        		i_2 = 0;
+        		i_3 = 0;
+        		p_1 = 0;
+        		p_2 = 0;
+        		p_3 = 0;
+        		
             }
 		});
 	}
 	@FXML
 	void initialize(){
 		shop.Shop.getCoinsCondition();
-		coin.setText("现有金币："+ shop.Shop.coins);
+		coin.setText("   现有星星："+ shop.Shop.coins);
         System.out.println("coins = " + shop.Shop.coins);
 		md1.setText("0");
 		md2.setText("0");
