@@ -1,5 +1,6 @@
 package gui;
 
+import gui.storyGUI.*;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;

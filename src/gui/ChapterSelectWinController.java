@@ -1,6 +1,7 @@
 package gui;
 
 
+import gui.gamewin.GameWin;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;

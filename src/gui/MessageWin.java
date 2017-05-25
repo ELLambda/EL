@@ -1,6 +1,10 @@
 package gui;
 
 
+import gui.gamewin.GameWin;
+import gui.gamewin.GameWin1;
+import gui.gamewin.GameWin2;
+import gui.gamewin.GameWin3;
 import javafx.animation.FadeTransition;
 import javafx.animation.ScaleTransition;
 import javafx.animation.Timeline;
