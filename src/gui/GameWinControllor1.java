@@ -598,55 +598,15 @@ public class GameWinControllor1 extends GameWinControllor
 			}
 			BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]] = null;
             final int iFinal = i;
-
-			block.setBackground(new Background(new BackgroundImage(
-					new Image("gui/img/star/little.png"),
-					BackgroundRepeat.NO_REPEAT,
-					BackgroundRepeat.NO_REPEAT,
-					BackgroundPosition.CENTER,
-					BackgroundSize.DEFAULT
-			)));
-			block.setStyle("-fx-effect: null;");
-
-			//消失的动画
-			FadeTransition transition = new FadeTransition(Duration.seconds(ZOOMSECOND),block);
-			transition.setFromValue(1);
-			transition.setToValue(0);
-			//变形动画
-			ScaleTransition scaleTransition=new ScaleTransition(Duration.seconds(ZOOMSECOND),block);
-			scaleTransition.setFromX(1);
-			scaleTransition.setToX(2);
-			scaleTransition.setFromY(1);
-			scaleTransition.setToY(2);
-
-			//旋转动画
-			RotateTransition rotateTransition=new RotateTransition(Duration.seconds(SECOND),block);
-			rotateTransition.setFromAngle(0);
-			rotateTransition.setToAngle(60);
-			rotateTransition.setCycleCount(Timeline.INDEFINITE);
-			rotateTransition.setAutoReverse(true);
-			rotateTransition.play();
-			//移动动画
-			TranslateTransition translateTransition=new TranslateTransition(Duration.seconds(SECOND),block);
-//			translateTransition.setByX((baseBlock.getX()-block.getX())*60);
-//			translateTransition.setByY((baseBlock.getY()-block.getY())*60);
-			translateTransition.setByX((9-block.getX())*60);
-			translateTransition.setByY((-1.3-block.getY())*60);
-//			translateTransition.setOnFinished(e->{
-//
-//				transition.play();
-//				scaleTransition.play();
-//			});
-			translateTransition.play();
-
+          //消失的动画
+            FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
+            transition.setFromValue(1);
+            transition.setToValue(0);
             if(block.getSpecialType().equals("null")){		//不变成特效块
                 
-            	translateTransition.setOnFinished(e->{
-	        		transition.play();
-					scaleTransition.play();
-					transition.setOnFinished(e2 -> {
-						blockGridPan.getChildren().remove(block);
-					});
+                transition.setOnFinished(e->{
+                    
+                    blockGridPan.getChildren().remove(block);
                     if(iFinal == BlockManager.length-1){
                         descend();
                     }
@@ -655,12 +615,9 @@ public class GameWinControllor1 extends GameWinControllor
             else if(block.getSpecialType().equals("MagicBird")){			//变成魔力鸟
                 if(block.getColor().equals("MagicBird")){
                     
-                	translateTransition.setOnFinished(e->{
-    	        		transition.play();
-    					scaleTransition.play();
-    					transition.setOnFinished(e2 -> {
-    						blockGridPan.getChildren().remove(block);
-    					});
+                    transition.setOnFinished(e->{
+                        
+                        blockGridPan.getChildren().remove(block);
                         if(iFinal == BlockManager.length-1){
                             descend();
                             
@@ -669,12 +626,9 @@ public class GameWinControllor1 extends GameWinControllor
                 }
                 else{
                     
-                	translateTransition.setOnFinished(e->{
-    	        		transition.play();
-    					scaleTransition.play();
-    					transition.setOnFinished(e2 -> {
-    						blockGridPan.getChildren().remove(block);
-    					});
+                    transition.setOnFinished(e->{
+                        
+                        blockGridPan.getChildren().remove(block);
                         
                         createOneBlock(block.getX(),block.getY());
                         Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
@@ -689,12 +643,9 @@ public class GameWinControllor1 extends GameWinControllor
             }
             else if(block.getSpecialType().equals("Bomb")){			//变成爆炸块
                 
-            	translateTransition.setOnFinished(e->{
-	        		transition.play();
-					scaleTransition.play();
-					transition.setOnFinished(e2 -> {
-						blockGridPan.getChildren().remove(block);
-					});
+                transition.setOnFinished(e->{
+                    
+                    blockGridPan.getChildren().remove(block);
                     
                     createOneBlock(block.getX(),block.getY());
                     Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
@@ -711,12 +662,9 @@ public class GameWinControllor1 extends GameWinControllor
             else if(block.getSpecialType().equals("horizon")){
                 if(block.getPattern().equals("horizon")){
                     
-                	translateTransition.setOnFinished(e->{
-    	        		transition.play();
-    					scaleTransition.play();
-    					transition.setOnFinished(e2 -> {
-    						blockGridPan.getChildren().remove(block);
-    					});
+                    transition.setOnFinished(e->{
+                        
+                        blockGridPan.getChildren().remove(block);
                         
                         if(iFinal == BlockManager.length-1){
                             descend();
@@ -725,12 +673,9 @@ public class GameWinControllor1 extends GameWinControllor
                 }
                 else{
                     
-                	translateTransition.setOnFinished(e->{
-    	        		transition.play();
-    					scaleTransition.play();
-    					transition.setOnFinished(e2 -> {
-    						blockGridPan.getChildren().remove(block);
-    					});
+                    transition.setOnFinished(e->{
+                        
+                        blockGridPan.getChildren().remove(block);
                         
                         createOneBlock(block.getX(),block.getY());
                         Block nb = BlockManager.blocks[block.getX()][block.getY()];
@@ -749,12 +694,9 @@ public class GameWinControllor1 extends GameWinControllor
             else if(block.getSpecialType().equals("vertical")){
                 if(block.getPattern().equals("vertical")){
                     
-                	translateTransition.setOnFinished(e->{
-    	        		transition.play();
-    					scaleTransition.play();
-    					transition.setOnFinished(e2 -> {
-    						blockGridPan.getChildren().remove(block);
-    					});
+                    transition.setOnFinished(e->{
+                        
+                        blockGridPan.getChildren().remove(block);
                         
                         if(iFinal == BlockManager.length-1){
                             descend();
@@ -764,12 +706,9 @@ public class GameWinControllor1 extends GameWinControllor
                 }
                 else{
                     
-                	translateTransition.setOnFinished(e->{
-    	        		transition.play();
-    					scaleTransition.play();
-    					transition.setOnFinished(e2 -> {
-    						blockGridPan.getChildren().remove(block);
-    					});
+                    transition.setOnFinished(e->{
+                        
+                        blockGridPan.getChildren().remove(block);
                         
                         createOneBlock(block.getX(),block.getY());
                         Block nb = BlockManager.blocks[block.getX()][block.getY()];
@@ -790,12 +729,8 @@ public class GameWinControllor1 extends GameWinControllor
             
             transition.play();
 	        
+	        
 		}
-	//	        ChangeListener<? super EventHandler<ActionEvent>> listener =
-//			null;
-//	        eraseOnFinished = transition.getOnFinished();
-	       
-	        	
 	        
 	}
 	
