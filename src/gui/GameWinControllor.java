@@ -97,7 +97,8 @@ public class GameWinControllor {
 		if(Data.mode == 0){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 			stepLabel.setLayoutX(980);
-			stepLabel.setText("HP:"+steps*100);
+			s = new SimpleStringProperty("HP:"+steps*100);
+			stepLabel.textProperty().bind(s);
 
 		}
 		//生日模式
