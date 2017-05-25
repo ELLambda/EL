@@ -2,6 +2,7 @@ package gui;
 
 import javafx.animation.*;
 import javafx.application.Platform;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -58,7 +59,10 @@ public class GameWinControllor {
 	public static final double ZOOMSECOND = 0.2;
 	//public static int score=0;
 	public static IntegerProperty score;
-	public static StringProperty s;
+	public static StringProperty s_coins;
+	public static StringProperty s_battle;
+	public static DoubleProperty s_bar;
+	
 	protected static int erasedTimes = 1;
 	protected static boolean isMoving = false;
 	protected static int steps=Data.totalstpes;
@@ -102,7 +106,10 @@ public class GameWinControllor {
 		if(Data.mode == 0){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 			stepLabel.setLayoutX(980);
-			stepLabel.setText("HP:"+steps*100);
+			s_battle.set("HP:"+steps*100);
+			stepLabel.textProperty().bind(s_battle);
+			s_bar.set((double) steps/Data.totalstpes);
+			stepProgressBar.progressProperty().bind(s_bar);
 
 		}
 		//生日模式
@@ -114,15 +121,17 @@ public class GameWinControllor {
 		else if(Data.mode == 2){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 			stepLabel.setLayoutX(980);
-			s = new SimpleStringProperty("Energy Value:"+steps*10);
-			stepLabel.textProperty().bind(s);
-
+			s_coins.set("Energy Value:"+steps*10);
+			stepLabel.textProperty().bind(s_coins);
+			s_bar.set((double) steps/Data.totalstpes);
+			stepProgressBar.progressProperty().bind(s_bar);
 		}
 		//无尽模式
 		else if(Data.mode == 3){
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 			stepLabel.setText("No steps limit!");
-			stepProgressBar.setProgress(-1);
+			s_bar.set(-1);
+			stepProgressBar.progressProperty().bind(s_bar);
 			stepLabel.setLayoutX(997);
 		}
 		
@@ -184,12 +193,12 @@ public class GameWinControllor {
 							if(Data.mode != 3){
 								steps--;//步数减1
 								if(Data.mode == 0)
-									stepLabel.setText("HP:"+steps*100);
+									s_battle.set("HP:"+steps*100);
 								else if(Data.mode == 1)
 									stepLabel.setText("Steps Left:"+steps);
 								else if(Data.mode == 2)
-									stepLabel.setText("Energy Value:"+steps*10);
-								stepProgressBar.setProgress((double) steps/Data.totalstpes);
+									s_coins.set("Energy Value:"+steps*10);
+								s_bar.set((double) steps/Data.totalstpes);
 							}
 		
 							if(!(BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird")) && 
@@ -426,12 +435,12 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
+							s_battle.set("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
-						stepProgressBar.setProgress((double) steps/Data.totalstpes);
+							s_coins.set("Energy Value:"+steps*10);
+						s_bar.set((double) steps/Data.totalstpes);
 					}
 					
 					HashSet<Block> h2 = new HashSet<Block>();
@@ -466,12 +475,12 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
+							s_battle.set("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
-						stepProgressBar.setProgress((double) steps/Data.totalstpes);
+							s_coins.set("Energy Value:"+steps*10);
+						s_bar.set((double) steps/Data.totalstpes);
 					}
 					int i = btn.getX();
 					int j = btn.getY();
@@ -531,12 +540,12 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
+							s_battle.set("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
-						stepProgressBar.setProgress((double) steps/Data.totalstpes);
+							s_coins.set("Energy Value:"+steps*10);
+						s_bar.set((double) steps/Data.totalstpes);
 					}
 	        		blockGridPan.getChildren().remove(btn);
 	        		
@@ -1144,12 +1153,12 @@ public class GameWinControllor {
 			if(Data.mode != 3){
 		        steps=Data.totalstpes;
 		        if(Data.mode == 0)
-					stepLabel.setText("HP:"+steps*100);
+					s_battle.set("HP:"+steps*100);
 				else if(Data.mode == 1)
 					stepLabel.setText("Steps Left:"+steps);
 				else if(Data.mode == 2)
-					stepLabel.setText("Energy Value:"+steps*10);
-		        stepProgressBar.setProgress(1.0);
+					s_coins.set("Energy Value:"+steps*10);
+		        s_bar.set(1.0);
 			}
 	        score.set(0);
 	        Timer timer = new Timer();
