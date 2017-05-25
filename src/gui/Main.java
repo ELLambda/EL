@@ -20,7 +20,7 @@ public class Main extends Application{
 				// TODO Auto-generated method stub
 				try {
 					new WelcomeWin().start(new Stage());
-					new Pack();
+					//new Pack();
 //					ew GameWin3();
 					//new BillboardWin();
 					//new Pack();
