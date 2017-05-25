@@ -663,17 +663,20 @@ public  void erase(){
 //			translateTransition.setByY((baseBlock.getY()-block.getY())*60);
 		translateTransition.setByX((9-block.getX())*60);
 		translateTransition.setByY((-1.3-block.getY())*60);
-		translateTransition.setOnFinished(e->{
-
-			transition.play();
-			scaleTransition.play();
-		});
+//		translateTransition.setOnFinished(e->{
+//
+//			transition.play();
+//			scaleTransition.play();
+//		});
 		translateTransition.play();
         if(block.getSpecialType().equals("null")){		//不变成特效块
             
-            transition.setOnFinished(e->{
-                
-                blockGridPan.getChildren().remove(block);
+        	translateTransition.setOnFinished(e->{
+        		transition.play();
+				scaleTransition.play();
+				transition.setOnFinished(e2 -> {
+					blockGridPan.getChildren().remove(block);
+				});
                 if(iFinal == BlockManager.length-1){
                 	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                     descend();
@@ -684,9 +687,12 @@ public  void erase(){
         else if(block.getSpecialType().equals("MagicBird")){			//变成魔力鸟
             if(block.getColor().equals("MagicBird")){
                 
-                transition.setOnFinished(e->{
-                    
-                    blockGridPan.getChildren().remove(block);
+            	translateTransition.setOnFinished(e->{
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
                     if(iFinal == BlockManager.length-1){
                     	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
                         descend();
@@ -696,9 +702,12 @@ public  void erase(){
             }
             else{
                 
-                transition.setOnFinished(e->{
-                    
-                    blockGridPan.getChildren().remove(block);
+            	translateTransition.setOnFinished(e->{
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
                     
                     createOneBlock(block.getX(),block.getY());
                     Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
@@ -714,9 +723,12 @@ public  void erase(){
         }
         else if(block.getSpecialType().equals("Bomb")){			//变成爆炸块
             
-            transition.setOnFinished(e->{
-                
-                blockGridPan.getChildren().remove(block);
+        	translateTransition.setOnFinished(e->{
+        		transition.play();
+				scaleTransition.play();
+				transition.setOnFinished(e2 -> {
+					blockGridPan.getChildren().remove(block);
+				});
                 
                 createOneBlock(block.getX(),block.getY());
                 Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
@@ -734,9 +746,12 @@ public  void erase(){
         else if(block.getSpecialType().equals("horizon")){
             if(block.getPattern().equals("horizon")){
                 
-                transition.setOnFinished(e->{
-                    
-                    blockGridPan.getChildren().remove(block);
+            	translateTransition.setOnFinished(e->{
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
                     
                     if(iFinal == BlockManager.length-1){
                     	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
@@ -746,9 +761,12 @@ public  void erase(){
             }
             else{
                 
-                transition.setOnFinished(e->{
-                    
-                    blockGridPan.getChildren().remove(block);
+            	translateTransition.setOnFinished(e->{
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
                     
                     createOneBlock(block.getX(),block.getY());
                     Block nb = BlockManager.blocks[block.getX()][block.getY()];
@@ -768,9 +786,12 @@ public  void erase(){
         else if(block.getSpecialType().equals("vertical")){
             if(block.getPattern().equals("vertical")){
                 
-                transition.setOnFinished(e->{
-                    
-                    blockGridPan.getChildren().remove(block);
+            	translateTransition.setOnFinished(e->{
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
                     
                     if(iFinal == BlockManager.length-1){
                     	noticeText.setText(adder1.intValue()+"+"+adder2.intValue()+"="+sumadder1.intValue()+"+"+sumadder2.intValue());
@@ -781,9 +802,12 @@ public  void erase(){
             }
             else{
                 
-                transition.setOnFinished(e->{
-                    
-                    blockGridPan.getChildren().remove(block);
+            	translateTransition.setOnFinished(e->{
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
                     
                     createOneBlock(block.getX(),block.getY());
                     Block nb = BlockManager.blocks[block.getX()][block.getY()];

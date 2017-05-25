@@ -2,7 +2,9 @@ package gui;
 
 import javafx.animation.*;
 import javafx.application.Platform;
+import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -55,10 +57,13 @@ public class GameWinControllor {
 	protected final static int HEIGHT = 10;
 	protected final static int WIDE = 10;
 	public static final double SECOND = 0.5;
-	public static final double ZOOMSECOND = 0.2;
+	public static final double ZOOMSECOND = 0.5;
 	//public static int score=0;
 	public static IntegerProperty score;
-	public static StringProperty s;
+	public static StringProperty s_coins;
+	public static StringProperty s_battle;
+	public static DoubleProperty s_bar;
+	
 	protected static int erasedTimes = 1;
 	protected static boolean isMoving = false;
 	protected static int steps=Data.totalstpes;
@@ -68,6 +73,8 @@ public class GameWinControllor {
 	protected static final int ITEMBOUND = 99;
 	protected static final int STEPBOUND = 10086;
 	protected static final int SCOREBOUND = 5201314;
+	
+	private static final int MAGIC_BIRD_SCORD = 500;  //使用魔力鸟所需的分数
 
 	
 	
@@ -87,6 +94,7 @@ public class GameWinControllor {
 		
 		steps=Data.totalstpes;
 		score = new SimpleIntegerProperty(0);
+		s_bar = new SimpleDoubleProperty(0);
 
 		//在OK键后生效使用道具
 		//steps += PackCtr.addedStep;
@@ -102,7 +110,10 @@ public class GameWinControllor {
 		if(Data.mode == 0){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 			stepLabel.setLayoutX(980);
-			stepLabel.setText("HP:"+steps*100);
+			s_battle.set("HP:"+steps*100);
+			stepLabel.textProperty().bind(s_battle);
+			s_bar.set((double) steps/Data.totalstpes);
+			stepProgressBar.progressProperty().bind(s_bar);
 
 		}
 		//生日模式
@@ -114,15 +125,17 @@ public class GameWinControllor {
 		else if(Data.mode == 2){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 			stepLabel.setLayoutX(980);
-			s = new SimpleStringProperty("Energy Value:"+steps*10);
-			stepLabel.textProperty().bind(s);
-
+			s_coins.set("Energy Value:"+steps*10);
+			stepLabel.textProperty().bind(s_coins);
+			s_bar.set((double) steps/Data.totalstpes);
+			stepProgressBar.progressProperty().bind(s_bar);
 		}
 		//无尽模式
 		else if(Data.mode == 3){
 			noticeText.setText("    Your score:   "+String.valueOf(score.intValue()));
 			stepLabel.setText("No steps limit!");
-			stepProgressBar.setProgress(-1);
+			s_bar.set(-1);
+			stepProgressBar.progressProperty().bind(s_bar);
 			stepLabel.setLayoutX(997);
 		}
 		
@@ -184,12 +197,12 @@ public class GameWinControllor {
 							if(Data.mode != 3){
 								steps--;//步数减1
 								if(Data.mode == 0)
-									stepLabel.setText("HP:"+steps*100);
+									s_battle.set("HP:"+steps*100);
 								else if(Data.mode == 1)
 									stepLabel.setText("Steps Left:"+steps);
 								else if(Data.mode == 2)
-									stepLabel.setText("Energy Value:"+steps*10);
-								stepProgressBar.setProgress((double) steps/Data.totalstpes);
+									s_coins.set("Energy Value:"+steps*10);
+								s_bar.set((double) steps/Data.totalstpes);
 							}
 		
 							if(!(BlockManager.twoBlocks.get(0).getSpecialType().equals("MagicBird")) && 
@@ -426,12 +439,12 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
+							s_battle.set("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
-						stepProgressBar.setProgress((double) steps/Data.totalstpes);
+							s_coins.set("Energy Value:"+steps*10);
+						s_bar.set((double) steps/Data.totalstpes);
 					}
 					
 					HashSet<Block> h2 = new HashSet<Block>();
@@ -466,12 +479,12 @@ public class GameWinControllor {
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
+							s_battle.set("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
-						stepProgressBar.setProgress((double) steps/Data.totalstpes);
+							s_coins.set("Energy Value:"+steps*10);
+						s_bar.set((double) steps/Data.totalstpes);
 					}
 					int i = btn.getX();
 					int j = btn.getY();
@@ -524,19 +537,19 @@ public class GameWinControllor {
 					erase();
 					break;
 					
-					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减500分
+					//使用魔力棒将点击的块改变为一个特殊块儿，使用此技能减MAGIC_BIRD_SCORD分
 				case"Magic":
 					if(btn.getSpecialType().equals("MagicBird"))
 						break;
 					if(Data.mode != 3){
 						steps--;
 						if(Data.mode == 0)
-							stepLabel.setText("HP:"+steps*100);
+							s_battle.set("HP:"+steps*100);
 						else if(Data.mode == 1)
 							stepLabel.setText("Steps Left:"+steps);
 						else if(Data.mode == 2)
-							stepLabel.setText("Energy Value:"+steps*10);
-						stepProgressBar.setProgress((double) steps/Data.totalstpes);
+							s_coins.set("Energy Value:"+steps*10);
+						s_bar.set((double) steps/Data.totalstpes);
 					}
 	        		blockGridPan.getChildren().remove(btn);
 	        		
@@ -560,7 +573,7 @@ public class GameWinControllor {
 
 
 	        		setToolNotSelected(magic);
-					score.set(score.intValue() - 500);		//使用魔力棒技能减500分
+					score.set(score.intValue() - MAGIC_BIRD_SCORD);		//使用魔力棒技能减500分
 					if(Data.mode == 2){
 						noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 
@@ -721,11 +734,11 @@ public class GameWinControllor {
 //			translateTransition.setByY((baseBlock.getY()-block.getY())*60);
 			translateTransition.setByX((9-block.getX())*60);
 			translateTransition.setByY((-1.3-block.getY())*60);
-			translateTransition.setOnFinished(e->{
-
-				transition.play();
-				scaleTransition.play();
-			});
+//			translateTransition.setOnFinished(e->{
+//
+//				transition.play();
+//				scaleTransition.play();
+//			});
 			translateTransition.play();
 
 
@@ -733,9 +746,12 @@ public class GameWinControllor {
 
 	        if(block.getSpecialType().equals("null")){		//不变成特效块
 		        
-		        	transition.setOnFinished(e->{
-		        		
-		        		blockGridPan.getChildren().remove(block);
+	        	translateTransition.setOnFinished(e->{
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
 		        		if(iFinal == BlockManager.length-1){
 		        			descend();
 		        		}
@@ -744,9 +760,12 @@ public class GameWinControllor {
 	        else if(block.getSpecialType().equals("MagicBird")){			//变成魔力鸟
 	        	if(block.getColor().equals("MagicBird")){
 	        		 
-	 		        	transition.setOnFinished(e->{
-	 		        		
-	 		        		blockGridPan.getChildren().remove(block);
+	        		translateTransition.setOnFinished(e->{
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 	 		        		if(iFinal == BlockManager.length-1){
 	 		        			descend();
 			        			
@@ -755,9 +774,13 @@ public class GameWinControllor {
 	        	}
 	        	else{	
 		        	
-			        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 			        		
-			        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 			        		
 			        		createOneBlock(block.getX(),block.getY());
 			        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
@@ -772,9 +795,13 @@ public class GameWinControllor {
 	        }
 	        else if(block.getSpecialType().equals("Bomb")){			//变成爆炸块
 
-		        	transition.setOnFinished(e->{
+	        	translateTransition.setOnFinished(e->{
 		        		
-		        		blockGridPan.getChildren().remove(block);
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
 		        		
 		        		createOneBlock(block.getX(),block.getY());
 		        		Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
@@ -791,20 +818,28 @@ public class GameWinControllor {
 	        else if(block.getSpecialType().equals("horizon")){
 	        	if(block.getPattern().equals("horizon")){
 	        		
-	 		        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 	 		        		
-	 		        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 	 		        		
-	 		        		if(iFinal == BlockManager.length-1){
-	 		        			descend();
-			        		}
-	 			        });
+						if(iFinal == BlockManager.length-1){
+	 		        		descend();
+			        	}
+	 			    });
 	        	}
 	        	else{
 	        		
-			        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 			        		
-			        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 			        		
 			        		createOneBlock(block.getX(),block.getY());
 			        		Block nb = BlockManager.blocks[block.getX()][block.getY()];
@@ -823,9 +858,13 @@ public class GameWinControllor {
 	        else if(block.getSpecialType().equals("vertical")){
 	        	if(block.getPattern().equals("vertical")){
 	        		
-	 		        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 	 		        		
-	 		        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 	 		        		
 	 		        		if(iFinal == BlockManager.length-1){
 	 		        			descend();
@@ -835,9 +874,13 @@ public class GameWinControllor {
 	        	}
 	        	else{
 	        		
-			        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 			        		
-			        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 			        		
 			        		createOneBlock(block.getX(),block.getY());
 			        		Block nb = BlockManager.blocks[block.getX()][block.getY()];
@@ -1144,12 +1187,12 @@ public class GameWinControllor {
 			if(Data.mode != 3){
 		        steps=Data.totalstpes;
 		        if(Data.mode == 0)
-					stepLabel.setText("HP:"+steps*100);
+					s_battle.set("HP:"+steps*100);
 				else if(Data.mode == 1)
 					stepLabel.setText("Steps Left:"+steps);
 				else if(Data.mode == 2)
-					stepLabel.setText("Energy Value:"+steps*10);
-		        stepProgressBar.setProgress(1.0);
+					s_coins.set("Energy Value:"+steps*10);
+		        s_bar.set(1.0);
 			}
 	        score.set(0);
 	        Timer timer = new Timer();
@@ -1182,19 +1225,12 @@ public class GameWinControllor {
 		});
 	}
 
-	public void onStoreBtnClick(ActionEvent actionEvent) {
-//		BufferedWriter bw = null;
-//		try {
-//			bw = new BufferedWriter(new FileWriter("src/gui/EndlessModeStore.txt"));
-//		} catch (IOException e) {
-//			e.printStackTrace();
-//		}
-//
+	public void onPackBtnClick(ActionEvent actionEvent) {
+
 			Platform.runLater(()->{
 				new Pack();
 			});
 
-		
 	}
 	
 	public void onSmallHammerBtnClick(ActionEvent actionEvent) {
@@ -1317,7 +1353,7 @@ public class GameWinControllor {
 		}
 	}
 	public void onMagicBtnClick(ActionEvent actionEvent){
-			if(score.intValue() < 250) {
+			if(score.intValue() < MAGIC_BIRD_SCORD) {
 				noticeText.setText("Your score is inadequate!");
 				Timer timer = new Timer();
 				timer.schedule(new TimerTask(){

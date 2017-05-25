@@ -187,7 +187,7 @@ public class PackCtr {
         if(GameWinControllor.s_battle != null)
             GameWinControllor.s_battle.setValue("HP:"+GameWinControllor.steps*100);
 //        GameWinControllor.stepProgressBar.setProgress((double) GameWinControllor.steps/Data.totalstpes);    不能把stepprogressbar给static
- GameWinControllor.s_bar.set((double) GameWinControllor.steps/Data.totalstpes);
+        GameWinControllor.s_bar.set((double) GameWinControllor.steps/Data.totalstpes);
         pack.setText("使用成功~");
         new Timer().schedule(new TimerTask(){
 
