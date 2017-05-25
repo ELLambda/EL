@@ -86,7 +86,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="i_sum" text=" 0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <Label fx:id="i_sum" text="0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="19.0" />
                </font>

@@ -29,7 +29,7 @@ public class ShopWin extends Stage {
 		 Scene scene=new Scene(root,600,400);
 		 scene.setFill(Color.TRANSPARENT);
 		 scene.getStylesheets().add(getClass().getResource("Shop.css").toExternalForm());
-		scene.getStylesheets().add(getClass().getResource("/fontstyle.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
 		 this.setScene(scene);
 		 
 	        this.initStyle(StageStyle.UNDECORATED);

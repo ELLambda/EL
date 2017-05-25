@@ -64,7 +64,7 @@
             <Tooltip style="-fx-background-color:rgba(255,255,255,0.5);&#10;-fx-text-fill:white;" text="退出此关" textAlignment="CENTER" />
           </tooltip>
         </Button>
-        <Button fx:id="storeBtn" alignment="BOTTOM_CENTER" font="$x1" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" mnemonicParsing="false" onAction="#onStoreBtnClick" prefHeight="45.0" prefWidth="120.0" styleClass="menuBtn" text="Pack" textAlignment="CENTER" textFill="WHITE">
+        <Button fx:id="packBtn" alignment="BOTTOM_CENTER" font="$x1" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0" mnemonicParsing="false" onAction="#onPackBtnClick" prefHeight="45.0" prefWidth="120.0" styleClass="menuBtn" text="Pack" textAlignment="CENTER" textFill="WHITE">
           <tooltip>
             <Tooltip style="-fx-background-color:rgba(255,255,255,0.5);&#10;-fx-text-fill:white;" text="背包" textAlignment="CENTER" />
           </tooltip>

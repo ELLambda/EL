@@ -768,11 +768,6 @@ public  void erase(){
 public void onRestartBtnClick(ActionEvent actionEvent) {
 	if(isMoving == false){
 		Music.playEffectMusic(2);//click
-		if(Data.mode == 3){
-			Calculator.scores += score.intValue();
-		if(Calculator.scores >= SCOREBOUND)
-			AchievementsManager.AchievementsList[1][4].setAchieved(true);
-		}
 		blockGridPan.getChildren().clear();
 		BlockManager.twoBlocks.clear();
 		createBlocks();
@@ -780,21 +775,19 @@ public void onRestartBtnClick(ActionEvent actionEvent) {
 		for(Block  block : btns){
 			block.setStyle("-fx-background-color: transparent;-fx-background-image: null;");
 		}
-
-        //noticeText.clear();
+		opposite.clear();
+		
         noticeText.setText("Restart!");
+        Timer timer = new Timer();
+		timer.schedule(new TimerTask(){
+			public void run(){
+				noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
+			}
+		}, 1000);
        
-		if(Data.mode != 3){
-	        steps=Data.totalstpes;
-//	        if(Data.mode == 0)
-//				stepLabel.setText("Health Point:"+steps*100);
-//			else if(Data.mode == 1)
-//				stepLabel.setText("Steps Left:"+steps);
-//			else if(Data.mode == 2)
-//				stepLabel.setText("Energy Value:"+steps*10);
-	        stepLabel.setText("Steps Left:"+steps);
-	        stepProgressBar.setProgress(1.0);
-		}
+	    steps=Data.totalstpes;
+	    stepLabel.setText("Steps Left:"+steps);
+	    stepProgressBar.setProgress(1.0);
         score = new SimpleIntegerProperty(0);
 	}
 
