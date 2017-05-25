@@ -4,8 +4,7 @@ import java.util.*;
 
 import achievements.AchievementsManager;
 import achievements.Calculator;
-import javafx.animation.FadeTransition;
-import javafx.animation.Transition;
+import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -15,8 +14,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.util.Duration;
 
 /**  
@@ -631,10 +630,45 @@ public  void erase(){
 		}
 		BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]] = null;
         final int iFinal = i;
-        //消失的动画
-        FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
-        transition.setFromValue(1);
-        transition.setToValue(0);
+		block.setBackground(new Background(new BackgroundImage(
+				new Image("gui/img/star/little.png"),
+				BackgroundRepeat.NO_REPEAT,
+				BackgroundRepeat.NO_REPEAT,
+				BackgroundPosition.CENTER,
+				BackgroundSize.DEFAULT
+		)));
+		block.setStyle("-fx-effect: null;");
+
+		//消失的动画
+		FadeTransition transition = new FadeTransition(Duration.seconds(ZOOMSECOND),block);
+		transition.setFromValue(1);
+		transition.setToValue(0);
+		//变形动画
+		ScaleTransition scaleTransition=new ScaleTransition(Duration.seconds(ZOOMSECOND),block);
+		scaleTransition.setFromX(1);
+		scaleTransition.setToX(2);
+		scaleTransition.setFromY(1);
+		scaleTransition.setToY(2);
+
+		//旋转动画
+		RotateTransition rotateTransition=new RotateTransition(Duration.seconds(SECOND),block);
+		rotateTransition.setFromAngle(0);
+		rotateTransition.setToAngle(60);
+		rotateTransition.setCycleCount(Timeline.INDEFINITE);
+		rotateTransition.setAutoReverse(true);
+		rotateTransition.play();
+		//移动动画
+		TranslateTransition translateTransition=new TranslateTransition(Duration.seconds(SECOND),block);
+//			translateTransition.setByX((baseBlock.getX()-block.getX())*60);
+//			translateTransition.setByY((baseBlock.getY()-block.getY())*60);
+		translateTransition.setByX((9-block.getX())*60);
+		translateTransition.setByY((-1.3-block.getY())*60);
+		translateTransition.setOnFinished(e->{
+
+			transition.play();
+			scaleTransition.play();
+		});
+		translateTransition.play();
         if(block.getSpecialType().equals("null")){		//不变成特效块
             
             transition.setOnFinished(e->{
