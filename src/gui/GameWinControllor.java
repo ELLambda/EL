@@ -734,11 +734,11 @@ public class GameWinControllor {
 //			translateTransition.setByY((baseBlock.getY()-block.getY())*60);
 			translateTransition.setByX((9-block.getX())*60);
 			translateTransition.setByY((-1.3-block.getY())*60);
-			translateTransition.setOnFinished(e->{
-
-				transition.play();
-				scaleTransition.play();
-			});
+//			translateTransition.setOnFinished(e->{
+//
+//				transition.play();
+//				scaleTransition.play();
+//			});
 			translateTransition.play();
 
 
@@ -746,9 +746,12 @@ public class GameWinControllor {
 
 	        if(block.getSpecialType().equals("null")){		//不变成特效块
 		        
-		        	transition.setOnFinished(e->{
-		        		
-		        		blockGridPan.getChildren().remove(block);
+	        	translateTransition.setOnFinished(e->{
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
 		        		if(iFinal == BlockManager.length-1){
 		        			descend();
 		        		}
@@ -757,9 +760,12 @@ public class GameWinControllor {
 	        else if(block.getSpecialType().equals("MagicBird")){			//变成魔力鸟
 	        	if(block.getColor().equals("MagicBird")){
 	        		 
-	 		        	transition.setOnFinished(e->{
-	 		        		
-	 		        		blockGridPan.getChildren().remove(block);
+	        		translateTransition.setOnFinished(e->{
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 	 		        		if(iFinal == BlockManager.length-1){
 	 		        			descend();
 			        			
@@ -768,9 +774,13 @@ public class GameWinControllor {
 	        	}
 	        	else{	
 		        	
-			        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 			        		
-			        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 			        		
 			        		createOneBlock(block.getX(),block.getY());
 			        		Block magicBirdBlock = BlockManager.blocks[block.getX()][block.getY()];
@@ -785,9 +795,13 @@ public class GameWinControllor {
 	        }
 	        else if(block.getSpecialType().equals("Bomb")){			//变成爆炸块
 
-		        	transition.setOnFinished(e->{
+	        	translateTransition.setOnFinished(e->{
 		        		
-		        		blockGridPan.getChildren().remove(block);
+	        		transition.play();
+					scaleTransition.play();
+					transition.setOnFinished(e2 -> {
+						blockGridPan.getChildren().remove(block);
+					});
 		        		
 		        		createOneBlock(block.getX(),block.getY());
 		        		Block bombBlock = BlockManager.blocks[block.getX()][block.getY()];
@@ -804,20 +818,28 @@ public class GameWinControllor {
 	        else if(block.getSpecialType().equals("horizon")){
 	        	if(block.getPattern().equals("horizon")){
 	        		
-	 		        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 	 		        		
-	 		        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 	 		        		
-	 		        		if(iFinal == BlockManager.length-1){
-	 		        			descend();
-			        		}
-	 			        });
+						if(iFinal == BlockManager.length-1){
+	 		        		descend();
+			        	}
+	 			    });
 	        	}
 	        	else{
 	        		
-			        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 			        		
-			        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 			        		
 			        		createOneBlock(block.getX(),block.getY());
 			        		Block nb = BlockManager.blocks[block.getX()][block.getY()];
@@ -836,9 +858,13 @@ public class GameWinControllor {
 	        else if(block.getSpecialType().equals("vertical")){
 	        	if(block.getPattern().equals("vertical")){
 	        		
-	 		        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 	 		        		
-	 		        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 	 		        		
 	 		        		if(iFinal == BlockManager.length-1){
 	 		        			descend();
@@ -848,9 +874,13 @@ public class GameWinControllor {
 	        	}
 	        	else{
 	        		
-			        	transition.setOnFinished(e->{
+	        		translateTransition.setOnFinished(e->{
 			        		
-			        		blockGridPan.getChildren().remove(block);
+	        			transition.play();
+						scaleTransition.play();
+						transition.setOnFinished(e2 -> {
+							blockGridPan.getChildren().remove(block);
+						});
 			        		
 			        		createOneBlock(block.getX(),block.getY());
 			        		Block nb = BlockManager.blocks[block.getX()][block.getY()];
