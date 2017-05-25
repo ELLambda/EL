@@ -152,6 +152,7 @@ public class PackCtr {
     @FXML
     public void onBackBtnClicked(){
         Platform.runLater(()->{
+            GameWinControllor.s.setValue("Energy Value:"+GameWinControllor.steps*10);
            root.getScene().getWindow().hide();
         });
     }

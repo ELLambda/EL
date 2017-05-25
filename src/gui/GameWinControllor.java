@@ -4,6 +4,8 @@ import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -52,6 +54,7 @@ public class GameWinControllor {
 	public static final double SECOND = 0.5;
 	//public static int score=0;
 	public static IntegerProperty score;
+	public static StringProperty s;
 	protected static int erasedTimes = 1;
 	protected static boolean isMoving = false;
 	protected static int steps=Data.totalstpes;
@@ -106,7 +109,8 @@ public class GameWinControllor {
 		else if(Data.mode == 2){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 			stepLabel.setLayoutX(980);
-			stepLabel.setText("Energy Value:"+steps*10);
+			s = new SimpleStringProperty("Energy Value:"+steps*10);
+			stepLabel.textProperty().bind(s);
 
 		}
 		//无尽模式
