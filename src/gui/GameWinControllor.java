@@ -4,6 +4,8 @@ import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -33,6 +35,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.CountDownLatch;
 
+import static shop.Shop.coins;
+
 
 //为了方便继承修改了作用域
 public class GameWinControllor {
@@ -50,6 +54,8 @@ public class GameWinControllor {
 	public static final double SECOND = 0.5;
 	//public static int score=0;
 	public static IntegerProperty score;
+	public static StringProperty s_coins;
+	public static StringProperty s_battle;
 	protected static int erasedTimes = 1;
 	protected static boolean isMoving = false;
 	protected static int steps=Data.totalstpes;
@@ -77,20 +83,23 @@ public class GameWinControllor {
 		
 		steps=Data.totalstpes;
 		score = new SimpleIntegerProperty(0);
-		
-		//使用上一关购买的商品
-		for(int i = 0;i<Shop.selectedList.size();i++)
-			steps = Shop.selectedList.get(i).addStep(steps);
-		
-		for(int i = 0; i<Shop.selectedList.size();i++)
-			score = new SimpleIntegerProperty(Shop.selectedList.get(i).addScore(score.intValue()));
+
+		//在OK键后生效使用道具
+		//steps += PackCtr.addedStep;
+		//使用上一关购买的商品 （此方法只能满足于买下药品只能在下一关使用，所以被注释）
+//		for(int i = 0;i<Shop.selectedList.size();i++)
+//			steps = Shop.selectedList.get(i).addStep(steps);
+//
+//		for(int i = 0; i<Shop.selectedList.size();i++)
+//			score = new SimpleIntegerProperty(Shop.selectedList.get(i).addScore(score.intValue()));
 		
 		
 		//剧情模式
 		if(Data.mode == 0){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Target score:"+Data.targetScore);
 			stepLabel.setLayoutX(980);
-			stepLabel.setText("HP:"+steps*100);
+			s_battle = new SimpleStringProperty("HP:"+steps*100);
+			stepLabel.textProperty().bind(s_battle);
 
 		}
 		//生日模式
@@ -102,7 +111,8 @@ public class GameWinControllor {
 		else if(Data.mode == 2){
 			noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 			stepLabel.setLayoutX(980);
-			stepLabel.setText("Energy Value:"+steps*10);
+			s_coins = new SimpleStringProperty("Energy Value:"+steps*10);
+			stepLabel.textProperty().bind(s_coins);
 
 		}
 		//无尽模式
@@ -538,7 +548,7 @@ public class GameWinControllor {
 	        		setToolNotSelected(magic);
 					score.set(score.intValue() - 500);		//使用魔力棒技能减500分
 					if(Data.mode == 2){
-						noticeText.setText("      coins:      "+String.valueOf(score.intValue()));
+						noticeText.setText("Your score:"+String.valueOf(score.intValue())+"    Coins:"+String.valueOf(score.intValue()/1000));
 
 					}
 					else if(Data.mode == 3){
@@ -592,14 +602,15 @@ public class GameWinControllor {
 		}
 
 		//金币换算 + 测试金币
-		Shop.coins = score.intValue()/1000;
-		System.out.println("in gameWin coins = " + Shop.coins);
+		coins += score.intValue()/1000;
+		System.out.println("in gameWin coins = " + coins);
 		shop.Shop.setCoinsCondition();
 
 		 Music.playEffectMusic(1);//eliminate
 		
 		 System.out.println("start erasing");
-		 		 
+
+		 Block baseBlock=BlockManager.blocks[BlockManager.erased[0][0]][BlockManager.erased[0][1]];
 		for(int i = 0;i < BlockManager.length;i++){
 			
 			Block block = BlockManager.blocks[BlockManager.erased[i][0]][BlockManager.erased[i][1]];
@@ -656,6 +667,23 @@ public class GameWinControllor {
 	        FadeTransition transition = new FadeTransition(Duration.seconds(SECOND),block);
 	        transition.setFromValue(1);
 	        transition.setToValue(0);
+	        //变形动画
+	        ScaleTransition scaleTransition=new ScaleTransition(Duration.seconds(SECOND),block);
+	        scaleTransition.setFromX(1);
+	        scaleTransition.setToX(2);
+			scaleTransition.setFromY(1);
+			scaleTransition.setToY(2);
+
+			//移动动画
+			TranslateTransition translateTransition=new TranslateTransition(Duration.seconds(SECOND),block);
+			translateTransition.setByX((baseBlock.getX()-block.getX())*60);
+			translateTransition.setByY((baseBlock.getY()-block.getY())*60);
+			translateTransition.setOnFinished(e->{
+				transition.play();
+				scaleTransition.play();
+			});
+			translateTransition.play();
+
 	        if(block.getSpecialType().equals("null")){		//不变成特效块
 		        
 		        	transition.setOnFinished(e->{
@@ -781,7 +809,8 @@ public class GameWinControllor {
 	        }
 	        
 	        
-	        transition.play();
+//	        transition.play();
+//	        scaleTransition.play();
 	        
 		}
 			
@@ -1013,7 +1042,7 @@ public class GameWinControllor {
 			
 			if(Data.mode == 2){
 				
-				Shop.coins = score.intValue();
+				coins = score.intValue();
 				
 				Timer timer = new Timer();
 				timer.schedule(new TimerTask(){

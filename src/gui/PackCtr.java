@@ -7,6 +7,9 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
+import static gui.ShopController.med_1_remain;
+import static gui.ShopController.med_2_remain;
+import static gui.ShopController.med_3_remain;
 
 /**
  * Created by julia98 on 2017/5/24.
@@ -39,13 +42,19 @@ public class PackCtr {
     @FXML
     public Button ok;
 
-    public static int num1 = shop.Shop.getPack1Condition();
-    public static int num2 = shop.Shop.getPack2Condition();
-    public static int num3 = shop.Shop.getPack3Condition();
+    public static int num1;
+    public static int num2;
+    public static int num3;
 
     public int use1 = 0;
     public int use2 = 0;
     public int use3 = 0;
+
+    public static int med1addedStep = 2;
+    public static int med2addedStep = 3;
+    public static int med3addedStep = 5;
+
+    public static int addedStep = 0;
 
 
     public int getmed1now(){
@@ -67,12 +76,15 @@ public class PackCtr {
         return use3;
     }
     public void setmed1now(){
+        med_1_remain--;
         num1--;
     }
     public void setmed2now(){
+        med_2_remain--;
         num2--;
     }
     public void setmed3now(){
+        med_3_remain--;
         num3--;
     }
     public void setmed1use(){
@@ -86,6 +98,11 @@ public class PackCtr {
     }
 
     @FXML void initialize(){
+
+        num1 = shop.Shop.getPack1Condition();
+        num2 = shop.Shop.getPack2Condition();
+        num3 = shop.Shop.getPack3Condition();
+
         med1now.setText("现有:" + num1);
         med2now.setText("现有:" + num2);
         med3now.setText("现有:" + num3);
@@ -111,6 +128,7 @@ public class PackCtr {
     public void onMed2BtnClicked(){
         if(num2 <= 0) {
             pack.setText("药品不够啦~");
+            //System.out.println("我是输出2");
         }else{
             setmed2now();
             setmed2use();
@@ -134,12 +152,21 @@ public class PackCtr {
     @FXML
     public void onBackBtnClicked(){
         Platform.runLater(()->{
+        	if(GameWinControllor.s_coins != null)
+            GameWinControllor.s_coins.setValue("Energy Value:"+GameWinControllor.steps*10);
+        	if(GameWinControllor.s_battle != null)
+            GameWinControllor.s_battle.setValue("HP:"+GameWinControllor.steps*100);
            root.getScene().getWindow().hide();
         });
     }
 
     @FXML
     public void onOKBtnClicked(){
+        addedStep = getmed1use()*med1addedStep + getmed2use()*med2addedStep + getmed3use()*med3addedStep;
+        GameWinControllor.steps += addedStep;
+        shop.Shop.setPack1Condition();
+        shop.Shop.setPack2Condition();
+        shop.Shop.setPack3Condition();
         pack.setText("使用成功~");
     }
 

@@ -26,7 +26,7 @@ public class Pack extends Stage {
             Scene scene = new Scene(root, 700, 400);
             scene.getStylesheets().add(getClass().getResource("story.css").toExternalForm());
             this.initStyle(StageStyle.UNDECORATED);
-            this.setFullScreen(true);
+            this.setFullScreen(false);
             this.setScene(scene);
             this.show();
 
