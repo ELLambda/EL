@@ -57,6 +57,7 @@ public class Music {
             for (int i = 0; i < bgMusic.length; i++) {
                 bgMusic[i].stop();
             }
+            currentBGM = null;
         }
     }
 
@@ -81,6 +82,13 @@ public class Music {
 
     public static MediaPlayer getCurrentBGM() {
         return currentBGM;
+    }
+    
+    public static boolean isWelcomeMusic(){
+    	if(currentBGM != null && currentBGM.equals(bgMusic[5]))
+    		return true;
+    	else
+    		return false;
     }
 }
 

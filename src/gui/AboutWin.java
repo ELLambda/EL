@@ -21,7 +21,7 @@ public class AboutWin extends Stage {
     AnchorPane root;
 
     public AboutWin() {
-        Music.playBgMusic(14);
+        Music.playBgMusic(10);
 
         root = new AnchorPane();
         root.setBackground(new Background(new BackgroundImage(new Image("gui/img/aboutwin.png"),

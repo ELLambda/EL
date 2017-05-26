@@ -23,7 +23,7 @@ public class GameWin2 extends Stage {
 
     public GameWin2() {
         // TODO Auto-generated constructor stub
-        Music.playBgMusic(15);//bgm
+        Music.playBgMusic(9);//bgm
         try {
             this.initStyle(StageStyle.TRANSPARENT);
 
