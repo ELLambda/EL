@@ -100,6 +100,8 @@ public class GameWinControllor {
         else if (Data.mode == 1) {
             noticeText.setText("Your score:" + String.valueOf(score.intValue()) + "    Target score:" + Data.targetScore);
             stepLabel.setText("Steps Left:" + steps);
+            s_bar.set((double) steps / Data.totalstpes);
+            stepProgressBar.progressProperty().bind(s_bar);
         }
         //金币模式
         else if (Data.mode == 2) {
@@ -222,8 +224,8 @@ public class GameWinControllor {
                                         BlockManager.twoBlocks.get(1).setNotSelected();
                                         BlockManager.twoBlocks.get(0).setIsPressed(false);
                                         BlockManager.twoBlocks.get(1).setIsPressed(false);
-//									BlockManager.twoBlocks.get(0).setSpecialType("null");
-//									BlockManager.twoBlocks.get(1).setSpecialType("null");
+									BlockManager.twoBlocks.get(0).setSpecialType("null");
+									BlockManager.twoBlocks.get(1).setSpecialType("null");
                                         BlockManager.twoBlocks.clear();
                                         for (int i = 0; i < 10; i++)
                                             for (int j = 0; j < 10; j++) {
@@ -259,8 +261,8 @@ public class GameWinControllor {
 //										h.add(BlockManager.twoBlocks.get(1));
 //									}
 
-//									BlockManager.twoBlocks.get(0).setSpecialType("null");
-//									BlockManager.twoBlocks.get(1).setSpecialType("null");
+									BlockManager.twoBlocks.get(0).setSpecialType("null");
+									BlockManager.twoBlocks.get(1).setSpecialType("null");
                                         BlockManager.twoBlocks.get(0).setColor(color);
                                         BlockManager.twoBlocks.get(1).setColor(color);
                                         BlockManager.twoBlocks.clear();
@@ -309,8 +311,8 @@ public class GameWinControllor {
                                             color = BlockManager.twoBlocks.get(1).getColor();
                                             line = BlockManager.twoBlocks.get(1).getY();
                                         }
-//									BlockManager.twoBlocks.get(0).setSpecialType("null");
-//									BlockManager.twoBlocks.get(1).setSpecialType("null");
+									BlockManager.twoBlocks.get(0).setSpecialType("null");
+									BlockManager.twoBlocks.get(1).setSpecialType("null");
                                         BlockManager.twoBlocks.get(0).setColor(color);
                                         BlockManager.twoBlocks.get(1).setColor(color);
                                         BlockManager.twoBlocks.clear();
@@ -358,8 +360,8 @@ public class GameWinControllor {
                                             color = BlockManager.twoBlocks.get(1).getColor();
                                             line = BlockManager.twoBlocks.get(1).getX();
                                         }
-//									BlockManager.twoBlocks.get(0).setSpecialType("null");
-//									BlockManager.twoBlocks.get(1).setSpecialType("null");
+									BlockManager.twoBlocks.get(0).setSpecialType("null");
+									BlockManager.twoBlocks.get(1).setSpecialType("null");
                                         BlockManager.twoBlocks.get(0).setColor(color);
                                         BlockManager.twoBlocks.get(1).setColor(color);
                                         BlockManager.twoBlocks.clear();
@@ -1138,6 +1140,8 @@ public class GameWinControllor {
 
             AchievementsManager.AchievementsList[1][4].setRate((double) Calculator.scores / (double) SCOREBOUND);
 
+
+            score.set(0);
 
             Timer timer = new Timer();
             timer.schedule(new TimerTask() {

@@ -40,6 +40,7 @@ public class GameWin extends Stage {
             Button exitBtn = (Button) root.lookup("#exitBtn");
             exitBtn.setOnAction(e -> {
 
+
                 Calculator.scores += GameWinControllor.score.intValue();
                 Music.stopBgMusic();
                 Platform.runLater(() -> {
@@ -65,6 +66,7 @@ public class GameWin extends Stage {
 
                             break;
                     }
+                    GameWinControllor.score.set(0);
                     this.close();
                 });
             });

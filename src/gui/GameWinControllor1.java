@@ -527,8 +527,10 @@ public class GameWinControllor1 extends GameWinControllor {
 
             System.out.println("LOCKED" + LockedStar);
             System.out.println(block.getColor());
-            if (block.getColor().equals(LockedStar))
+            if (block.getColor().equals(LockedStar)) {
                 number.set(number.intValue() + 1);
+                noticeText.setText("Your saved: " + number.intValue() + " stars" + "    Target:" + TARGET);
+            }
 
             switch (block.getColor()) {
                 case ("1"):
