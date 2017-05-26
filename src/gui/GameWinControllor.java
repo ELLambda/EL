@@ -1,19 +1,6 @@
 package gui;
 
-import achievements.AchievementsManager;
-import achievements.Calculator;
-import javafx.animation.*;
-import javafx.application.Platform;
-import javafx.beans.property.*;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
-import javafx.util.Duration;
+import static shop.Shop.coins;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -23,7 +10,36 @@ import java.util.Iterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import static shop.Shop.coins;
+import achievements.AchievementsManager;
+import achievements.Calculator;
+import javafx.animation.FadeTransition;
+import javafx.animation.RotateTransition;
+import javafx.animation.ScaleTransition;
+import javafx.animation.Timeline;
+import javafx.animation.Transition;
+import javafx.animation.TranslateTransition;
+import javafx.application.Platform;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
+import javafx.scene.layout.GridPane;
+import javafx.util.Duration;
 
 
 //为了方便继承修改了作用域
@@ -39,15 +55,15 @@ public class GameWinControllor {
     private static final int MAGIC_BIRD_SCORD = 500;  //使用魔力鸟所需的分数
     public static BlockManager BlockManager = new BlockManager();
     //public static int score=0;
-    public static IntegerProperty score = new SimpleIntegerProperty(0);
-    public static StringProperty s_coins = new SimpleStringProperty("");
-    public static StringProperty s_battle = new SimpleStringProperty("");
-    public static DoubleProperty s_bar = new SimpleDoubleProperty(0);
-    protected static int erasedTimes = 1;
-    protected static boolean isMoving = false;
+    public static IntegerProperty score;
+    public static StringProperty s_coins;
+    public static StringProperty s_battle;
+    public static DoubleProperty s_bar;
+    protected int erasedTimes = 1;
+    protected boolean isMoving = false;
     protected static int steps = Data.totalstpes;
     ;
-    protected static String itemSelected = "null";
+    protected String itemSelected = "null";
     public Label stepLabel;
     public ProgressBar stepProgressBar;
     public Button smallHammer;
@@ -75,7 +91,11 @@ public class GameWinControllor {
 
         steps = Data.totalstpes;
 
-
+        score = new SimpleIntegerProperty(0);
+        s_coins = new SimpleStringProperty("");
+        s_battle = new SimpleStringProperty("");
+        s_bar = new SimpleDoubleProperty(0);
+        steps = Data.totalstpes;
         //在OK键后生效使用道具
         //steps += PackCtr.addedStep;
         //使用上一关购买的商品 （此方法只能满足于买下药品只能在下一关使用，所以被注释）
@@ -585,17 +605,17 @@ public class GameWinControllor {
 
 
         if (Data.mode == 2) {
-            noticeText.setText("Your score:" + String.valueOf(score.intValue()) + "    Coins:" + String.valueOf(score.intValue() / 1000));
+            noticeText.setText("Your score:" + String.valueOf(score.intValue()) + "    Stars:" + String.valueOf(score.intValue() / 1000));
         } else if (Data.mode == 3) {
             noticeText.setText("    Your score:   " + String.valueOf(score.intValue()));
         } else {
             noticeText.setText("Your score:" + String.valueOf(score.intValue()) + "    Target score:" + Data.targetScore);
         }
 
-        //金币换算 + 测试金币
-        coins += score.intValue() / 1000;
-        System.out.println("in gameWin coins = " + coins);
-        shop.Shop.setCoinsCondition();
+//        //金币换算 + 测试金币
+//        coins += score.intValue() / 1000;
+//        System.out.println("in gameWin coins = " + coins);
+//        shop.Shop.setCoinsCondition();
 
         Music.playEffectMusic(1);//eliminate
 
@@ -1180,7 +1200,8 @@ public class GameWinControllor {
 
             if (Data.mode == 2) {
 
-                coins = score.intValue();
+                coins = score.intValue() / 1000;
+                shop.Shop.setCoinsCondition();
 
                 Timer timer = new Timer();
                 timer.schedule(new TimerTask() {

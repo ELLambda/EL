@@ -66,7 +66,7 @@ public class GameWin extends Stage {
 
                             break;
                     }
-                    GameWinControllor.score.set(0);
+//                    GameWinControllor.score.set(0);
                     this.close();
                 });
             });

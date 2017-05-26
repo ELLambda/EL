@@ -37,7 +37,7 @@ public class InputNameWin extends Stage {
         scene.getStylesheets().add(getClass().getResource("inputname.css").toExternalForm());
 
 
-        Label prompText = new Label("喜欢刷分的你\n留下你的大名吧");
+        Label prompText = new Label("喜欢刷分的你"+System.lineSeparator()+"留下你的大名吧");
         nameTextField = new TextField();
         VBox vBox = new VBox();
         vBox.setAlignment(Pos.CENTER);
