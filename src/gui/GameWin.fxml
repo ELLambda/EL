@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0"
+            xmlns="http://javafx.com/javafx/8" fx:controller="gui.GameWinControllor">
+    <children>
+        <GridPane fx:id="blockGridPan" alignment="CENTER" layoutX="300.0" layoutY="122.0" prefHeight="610"
+                  prefWidth="610">
+            <columnConstraints>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+                <ColumnConstraints hgrow="NEVER" minWidth="50.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10"/>
+            </padding>
+            <rowConstraints>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+                <RowConstraints maxHeight="200.0" minHeight="50.0" prefHeight="200.0" vgrow="NEVER"/>
+            </rowConstraints>
+        </GridPane>
+        <VBox id="VBox" alignment="CENTER" layoutX="74.0" layoutY="143.0" spacing="30.0">
+            <children>
+                <Button id="restartBtn" alignment="BOTTOM_CENTER" maxHeight="-1.0" maxWidth="-1.0" minHeight="-1.0"
+                        mnemonicParsing="false" onAction="#onRestartBtnClick" prefHeight="45.0" prefWidth="120.0"
+                        styleClass="menuBtn" text="Restart" textAlignment="CENTER" textFill="WHITE">
+                    <font>
+                        <Font name="Bauhaus 93" size="25.0" fx:id="x1"/>
+                    </font>
+                    <tooltip>
+                        <Tooltip style="-fx-background-color:rgba(255,255,255,0.5);&#10;-fx-text-fill:white;" text="重玩"
+                                 textAlignment="CENTER"/>
+                    </tooltip>
+                </Button>
+                <Button fx:id="exitBtn" alignment="BOTTOM_CENTER" font="$x1" maxHeight="-1.0" maxWidth="-1.0"
+                        minHeight="-1.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="120.0"
+                        styleClass="menuBtn" text="Exit" textAlignment="CENTER" textFill="WHITE">
+                    <tooltip>
+                        <Tooltip style="-fx-background-color:rgba(255,255,255,0.5);&#10;-fx-text-fill:white;"
+                                 text="退出此关" textAlignment="CENTER"/>
+                    </tooltip>
+                </Button>
+                <Button fx:id="packBtn" alignment="BOTTOM_CENTER" font="$x1" maxHeight="-1.0" maxWidth="-1.0"
+                        minHeight="-1.0" mnemonicParsing="false" onAction="#onPackBtnClick" prefHeight="45.0"
+                        prefWidth="120.0" styleClass="menuBtn" text="Pack" textAlignment="CENTER" textFill="WHITE">
+                    <tooltip>
+                        <Tooltip style="-fx-background-color:rgba(255,255,255,0.5);&#10;-fx-text-fill:white;" text="背包"
+                                 textAlignment="CENTER"/>
+                    </tooltip>
+                </Button>
+                <Button fx:id="settingBtn" alignment="BOTTOM_CENTER" font="$x1" maxHeight="-1.0" maxWidth="-1.0"
+                        minHeight="-1.0" mnemonicParsing="false" onAction="#onSettingBtnClick" prefHeight="45.0"
+                        prefWidth="120.0" styleClass="menuBtn" text="Setting" textAlignment="CENTER" textFill="WHITE">
+                    <tooltip>
+                        <Tooltip style="-fx-background-color:rgba(255,255,255,0.5);&#10;-fx-text-fill:white;" text="设置"
+                                 textAlignment="CENTER"/>
+                    </tooltip>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </VBox>
+        <TextField fx:id="noticeText" alignment="CENTER" editable="false" layoutX="355.0" layoutY="49.0"
+                   prefHeight="47.0" prefWidth="500.0">
+            <font>
+                <Font name="Bauhaus 93" size="25.0"/>
+            </font>
+        </TextField>
+        <Label fx:id="stepLabel" layoutX="1010.0" layoutY="143.0" text="Steps Left:" textFill="WHITE">
+            <font>
+                <Font name="Bauhaus 93" size="24.0"/>
+            </font>
+        </Label>
+        <ProgressBar fx:id="stepProgressBar" layoutX="968.0" layoutY="189.0" prefWidth="200.0" progress="1.0"/>
+        <VBox id="tools" alignment="CENTER" layoutX="1030.0" layoutY="292.0" spacing="20">
+            <children>
+                <Label layoutX="15.0" layoutY="4.0" text="Tools" textFill="white">
+                    <font>
+                        <Font name="Bauhaus 93" size="20.0"/>
+                    </font>
+                </Label>
+
+                <Button id="smallHammer" fx:id="smallHammer" layoutY="34.0" mnemonicParsing="false"
+                        onAction="#onSmallHammerBtnClick" prefHeight="70" prefWidth="70" text="">
+                    <tooltip>
+                        <Tooltip text="花费20点分数使用该道具，消除任意一个方块"/>
+                    </tooltip>
+                </Button>
+                <Button id="bigHammer" fx:id="bigHammer" layoutY="82.0" mnemonicParsing="false"
+                        onAction="#onBigHammerBtnClick" prefHeight="70" prefWidth="70" text="">
+                    <tooltip>
+                        <Tooltip text="花费200点分数使用该道具，消除任意一个3*3的区域 "/>
+                    </tooltip>
+                </Button>
+                <Button id="magicStick" fx:id="magic" layoutY="82.0" mnemonicParsing="false" onAction="#onMagicBtnClick"
+                        prefHeight="70" prefWidth="70" text="">
+                    <tooltip>
+                        <Tooltip text="花费500点分数使用该道具，使任意一个方块变成一个随机的特殊块"/>
+                    </tooltip>
+                </Button>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0"/>
+    </padding>
+</AnchorPane>

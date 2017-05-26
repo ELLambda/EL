@@ -1,6 +1,5 @@
 package gui;
 
-import gui.gamewin.GameWinControllor;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
