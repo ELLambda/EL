@@ -14,24 +14,25 @@ import javafx.stage.StageStyle;
  *
  * @author julia98
  */
-public class ChapterSelectWin extends Stage {
-    AnchorPane root;
+public class ChapterSelectWin extends Stage
+{
+	AnchorPane root;
 
-    public ChapterSelectWin() throws IOException {
+	public ChapterSelectWin() throws IOException
+	{
 
-        Music.playBgMusic(4);
-        root = FXMLLoader.load(getClass().getResource("chapterSelect.fxml"));
+		Music.playBgMusic(4);
+		root = FXMLLoader.load(getClass().getResource("chapterSelect.fxml"));
 
-        Scene scene = new Scene(root, 1200, 800);
-        scene.setFill(Color.TRANSPARENT);
-        //scene.getStylesheets().add(getClass().getResource("/fontstyle2.css").toExternalForm());
-        scene.getStylesheets().add(getClass().getResource("chapterSelect.css").toExternalForm());
-        this.setScene(scene);
+		Scene scene = new Scene(root, 1200, 800);
+		scene.setFill(Color.TRANSPARENT);
+		// scene.getStylesheets().add(getClass().getResource("/fontstyle2.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("chapterSelect.css").toExternalForm());
+		this.setScene(scene);
 
-        this.initStyle(StageStyle.UNDECORATED);
-        this.show();
+		this.initStyle(StageStyle.UNDECORATED);
+		this.show();
 
-    }
-
+	}
 
 }

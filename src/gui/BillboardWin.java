@@ -26,81 +26,85 @@ import javafx.util.Duration;
 /**
  * Created by wenxi on 2017/5/18.
  */
-public class BillboardWin extends Stage {
-    public ListView<BillboardItem> listView = new ListView<>();
-    AnchorPane root = new AnchorPane();
+public class BillboardWin extends Stage
+{
+	public ListView<BillboardItem> listView = new ListView<>();
+	AnchorPane root = new AnchorPane();
 
-    public BillboardWin() {
-        //放置数据
+	public BillboardWin()
+	{
+		// 放置数据
 
+		// Billboard.scorelist[0].setBillboardItem("1000&100");
+		// Billboard.getBillboardCondition();
 
-        //Billboard.scorelist[0].setBillboardItem("1000&100");
-//        Billboard.getBillboardCondition();
+		Billboard.getBillboardCondition();
 
-        Billboard.getBillboardCondition();
+		BillboardItem[] items = new BillboardItem[Billboard.getRank()];
+		for (int i = 0; i < Billboard.getRank(); i++)
+		{
+			items[i] = Billboard.scorelist[i];
+		}
 
-        BillboardItem[] items = new BillboardItem[Billboard.getRank()];
-        for (int i = 0; i < Billboard.getRank(); i++) {
-            items[i] = Billboard.scorelist[i];
-        }
+		ObservableList<BillboardItem> list = FXCollections.observableArrayList(items);
+		// for(int i=0;i<Billboard.getRank()-1;i++){
+		// list.add(Billboard.scorelist[i].getBillboardItem());
+		// }
+		listView.setMinWidth(450);
+		listView.setPrefHeight(320);
+		listView.setItems(list);
+		listView.setLayoutX(120);
+		listView.setLayoutY(40);
 
-        ObservableList<BillboardItem> list = FXCollections.observableArrayList(items);
-//        for(int i=0;i<Billboard.getRank()-1;i++){
-//           list.add(Billboard.scorelist[i].getBillboardItem());
-//        }
-        listView.setMinWidth(450);
-        listView.setPrefHeight(320);
-        listView.setItems(list);
-        listView.setLayoutX(120);
-        listView.setLayoutY(40);
+		root.getChildren().add(listView);
+		root.setBackground(new Background(
+				new BackgroundImage(new Image("gui/img/achievement/billboard.jpg"), BackgroundRepeat.NO_REPEAT,
+						BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
 
-        root.getChildren().add(listView);
-        root.setBackground(new Background(new BackgroundImage(new Image("gui/img/achievement/billboard.jpg"),
-                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT)));
+		Scene scene = new Scene(root, 600, 400);
+		scene.getStylesheets().add(getClass().getResource("billboard.css").toExternalForm());
+		this.setScene(scene);
 
-        Scene scene = new Scene(root, 600, 400);
-        scene.getStylesheets().add(getClass().getResource("billboard.css").toExternalForm());
-        this.setScene(scene);
+		circleAnimation();
 
-        circleAnimation();
+		this.initStyle(StageStyle.TRANSPARENT);
+		this.show();
+	}
 
-        this.initStyle(StageStyle.TRANSPARENT);
-        this.show();
-    }
+	public void circleAnimation()
+	{
 
+		int x = 40;
+		int y = 200;
 
-    public void circleAnimation() {
+		Circle circle = new Circle(x, y, 20);
+		circle.setFill(Color.TRANSPARENT);
+		circle.setStroke(Color.web("rgba(255,255,255,0.8);"));
+		circle.setStrokeWidth(5);
+		circle.setCursor(Cursor.HAND);
 
-        int x = 40;
-        int y = 200;
+		// 点击圆形关闭消息窗口
+		circle.setOnMouseClicked(e ->
+		{
+			this.close();
+			new AchievementWin();
+		});
 
-        Circle circle = new Circle(x, y, 20);
-        circle.setFill(Color.TRANSPARENT);
-        circle.setStroke(Color.web("rgba(255,255,255,0.8);"));
-        circle.setStrokeWidth(5);
-        circle.setCursor(Cursor.HAND);
+		root.getChildren().add(circle);
 
-        //点击圆形关闭消息窗口
-        circle.setOnMouseClicked(e -> {
-            this.close();
-            new AchievementWin();
-        });
+		// 缩放动画
+		ScaleTransition st = new ScaleTransition(Duration.millis(2000), circle);
+		st.setByX(0.4);
+		st.setByY(0.4);
+		st.setCycleCount(Timeline.INDEFINITE);
+		st.play();
 
-        root.getChildren().add(circle);
+		FadeTransition ft = new FadeTransition(Duration.millis(2000), circle);
+		ft.setCycleCount(Timeline.INDEFINITE);
+		ft.setFromValue(1);
+		ft.setToValue(0.1);
+		ft.play();
 
-        //缩放动画
-        ScaleTransition st = new ScaleTransition(Duration.millis(2000), circle);
-        st.setByX(0.4);
-        st.setByY(0.4);
-        st.setCycleCount(Timeline.INDEFINITE);
-        st.play();
-
-        FadeTransition ft = new FadeTransition(Duration.millis(2000), circle);
-        ft.setCycleCount(Timeline.INDEFINITE);
-        ft.setFromValue(1);
-        ft.setToValue(0.1);
-        ft.play();
-
-    }
+	}
 
 }

@@ -12,20 +12,22 @@ import javafx.stage.StageStyle;
 /**
  * @author julia98
  */
-public class Story8Win extends Stage {
-    AnchorPane root;
+public class Story8Win extends Stage
+{
+	AnchorPane root;
 
-    public Story8Win() throws IOException {
-        Music.playBgMusic(11);
-        root = FXMLLoader.load(getClass().getResource("Story8.fxml"));
+	public Story8Win() throws IOException
+	{
+		Music.playBgMusic(11);
+		root = FXMLLoader.load(getClass().getResource("Story8.fxml"));
 
-        Scene scene = new Scene(root, 1200, 800);
-        scene.setFill(Color.TRANSPARENT);
-        scene.getStylesheets().add(getClass().getResource("story.css").toExternalForm());
-        this.setScene(scene);
+		Scene scene = new Scene(root, 1200, 800);
+		scene.setFill(Color.TRANSPARENT);
+		scene.getStylesheets().add(getClass().getResource("story.css").toExternalForm());
+		this.setScene(scene);
 
-        this.initStyle(StageStyle.UNDECORATED);
-        this.show();
+		this.initStyle(StageStyle.UNDECORATED);
+		this.show();
 
-    }
+	}
 }

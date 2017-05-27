@@ -12,27 +12,29 @@ import javafx.stage.StageStyle;
 /**
  * Created by julia98 on 2017/5/24.
  */
-public class Pack extends Stage {
+public class Pack extends Stage
+{
 
-    @FXML
-    AnchorPane root;
+	@FXML
+	AnchorPane root;
 
+	public Pack()
+	{
 
-    public Pack() {
+		try
+		{
+			root = FXMLLoader.load(getClass().getResource("Pack.fxml"));
+			Scene scene = new Scene(root, 700, 400);
+			scene.getStylesheets().add(getClass().getResource("story.css").toExternalForm());
+			this.initStyle(StageStyle.UNDECORATED);
+			this.setFullScreen(false);
+			this.setScene(scene);
+			this.show();
 
-        try {
-            root = FXMLLoader.load(getClass().getResource("Pack.fxml"));
-            Scene scene = new Scene(root, 700, 400);
-            scene.getStylesheets().add(getClass().getResource("story.css").toExternalForm());
-            this.initStyle(StageStyle.UNDECORATED);
-            this.setFullScreen(false);
-            this.setScene(scene);
-            this.show();
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+	}
 }
-

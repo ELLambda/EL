@@ -11,44 +11,48 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+public class GameWin1 extends Stage
+{
 
-public class GameWin1 extends Stage {
+	Parent root;
 
-    Parent root;
+	public GameWin1()
+	{
+		Music.playBgMusic(9);// bgm
+		try
+		{
+			this.initStyle(StageStyle.TRANSPARENT);
 
+			root = FXMLLoader.load(getClass().getResource("GameWin1.fxml"));
 
-    public GameWin1() {
-        Music.playBgMusic(9);//bgm
-        try {
-            this.initStyle(StageStyle.TRANSPARENT);
+			Scene scene = new Scene(root, 1200, 800);
+			scene.setFill(Color.TRANSPARENT);
+			scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
+			// scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
 
-            root = FXMLLoader.load(getClass().getResource("GameWin1.fxml"));
+			// ��lookup����λ�ؼ�
+			Button exitBtn = (Button) root.lookup("#exitBtn");
+			exitBtn.setOnAction(e ->
+			{
 
-            Scene scene = new Scene(root, 1200, 800);
-            scene.setFill(Color.TRANSPARENT);
-            scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
-            scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
-            //scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
+				// Calculator.scores += GameWinControllor.score.intValue();
+				Music.stopBgMusic();
+				Platform.runLater(() ->
+				{
+					new LevelWin();
+					this.close();
+				});
+			});
 
-            //��lookup����λ�ؼ�
-            Button exitBtn = (Button) root.lookup("#exitBtn");
-            exitBtn.setOnAction(e -> {
+			this.setScene(scene);
+			this.show();
 
-//				Calculator.scores += GameWinControllor.score.intValue();
-                Music.stopBgMusic();
-                Platform.runLater(() -> {
-                    new LevelWin();
-                    this.close();
-                });
-            });
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 
-            this.setScene(scene);
-            this.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+	}
 
 }

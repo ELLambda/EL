@@ -20,96 +20,102 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 
-public class WelcomeWin extends Application {
+public class WelcomeWin extends Application
+{
 
-    Group ellipseGroup = new Group();//�����Բ����,���ں���һ����ת
-    @FXML
-    private AnchorPane rootPan;
-    @FXML
-    private Text prompText;
+	Group ellipseGroup = new Group();// �����Բ����,���ں���һ����ת
+	@FXML
+	private AnchorPane rootPan;
+	@FXML
+	private Text prompText;
 
-    public void musics() {
-        Music.playBgMusic(5);//open
-    }
+	public void musics()
+	{
+		Music.playBgMusic(5);// open
+	}
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        Calculator.initialize();
-        AchievementsManager.setAchievements();
-        AchievementsManager.getAchieveCondition();
-        Billboard.getBillboardCondition();
-        musics();
-        rootPan = FXMLLoader.load(getClass().getResource("WelcomeWin.fxml"));
-        Scene scene = new Scene(rootPan, 600, 400);
-        scene.getStylesheets().add(getClass().getResource("welcome.css").toExternalForm());
-        scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
-        scene.setFill(Color.TRANSPARENT);
+	@Override
+	public void start(Stage primaryStage) throws Exception
+	{
+		Calculator.initialize();
+		AchievementsManager.setAchievements();
+		AchievementsManager.getAchieveCondition();
+		Billboard.getBillboardCondition();
+		musics();
+		rootPan = FXMLLoader.load(getClass().getResource("WelcomeWin.fxml"));
+		Scene scene = new Scene(rootPan, 600, 400);
+		scene.getStylesheets().add(getClass().getResource("welcome.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("resources/fontstyle.css").toExternalForm());
+		scene.setFill(Color.TRANSPARENT);
 
-        for (int i = 0; i < 6; i++) {
-            createEllipse(i);
-        }
+		for (int i = 0; i < 6; i++)
+		{
+			createEllipse(i);
+		}
 
-        //������ʾ
-        ellipseGroup.setLayoutX(scene.getWidth() / 2);
-        ellipseGroup.setLayoutY(scene.getHeight() / 2 - 50);
-        rootPan.getChildren().add(ellipseGroup);
-        //��ת
-        rotateEllipses(ellipseGroup);
+		// ������ʾ
+		ellipseGroup.setLayoutX(scene.getWidth() / 2);
+		ellipseGroup.setLayoutY(scene.getHeight() / 2 - 50);
+		rootPan.getChildren().add(ellipseGroup);
+		// ��ת
+		rotateEllipses(ellipseGroup);
 
-        //�����������ط�������Ϸ
-        rootPan.setOnMouseClicked(e -> {
-            Platform.runLater(new Runnable() {
+		// �����������ط�������Ϸ
+		rootPan.setOnMouseClicked(e ->
+		{
+			Platform.runLater(new Runnable()
+			{
 
-                @Override
-                public void run() {
-                    new MainWin();
-                    primaryStage.close();
-                }
-            });
-        });
+				@Override
+				public void run()
+				{
+					new MainWin();
+					primaryStage.close();
+				}
+			});
+		});
 
+		primaryStage.setScene(scene);
+		primaryStage.initStyle(StageStyle.UNDECORATED);
+		primaryStage.show();
 
-        primaryStage.setScene(scene);
-        primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.show();
+	}
 
-    }
+	// public static void main(String[] args) {
+	// launch(args);
+	// }
 
-//	public static void main(String[] args) {
-//		launch(args);
-//	}
+	// ��ת��Բ��
+	public void rotateEllipses(Group ellipse)
+	{
+		FadeTransition fd = new FadeTransition(Duration.millis(3000), ellipse);
+		fd.setFromValue(0.1);
+		fd.setToValue(1);
+		fd.setCycleCount(Timeline.INDEFINITE);
+		fd.setAutoReverse(true);
+		// fd.setAutoReverse(true);
+		fd.play();
 
-    //��ת��Բ��
-    public void rotateEllipses(Group ellipse) {
-        FadeTransition fd = new FadeTransition(Duration.millis(3000), ellipse);
-        fd.setFromValue(0.1);
-        fd.setToValue(1);
-        fd.setCycleCount(Timeline.INDEFINITE);
-        fd.setAutoReverse(true);
-        //fd.setAutoReverse(true);
-        fd.play();
+		RotateTransition rt = new RotateTransition(Duration.millis(3000), ellipse);
+		rt.setFromAngle(0);
+		rt.setToAngle(180);
+		rt.setCycleCount(1);
+		rt.play();
+	}
 
-        RotateTransition rt = new RotateTransition(Duration.millis(3000), ellipse);
-        rt.setFromAngle(0);
-        rt.setToAngle(180);
-        rt.setCycleCount(1);
-        rt.play();
-    }
+	/*
+	 * @param int i:���ڼ���ƫת�Ƕ�
+	 */
+	public void createEllipse(int i)
+	{
+		// �½���Բ�������ɫ
+		Ellipse ellipse = new Ellipse(50, 100);
+		ellipse.setFill(Color.web("rgba(255,255,255,0.3)"));
 
-    /*
-     * @param int i:���ڼ���ƫת�Ƕ�
-     */
-    public void createEllipse(int i) {
-        //�½���Բ�������ɫ
-        Ellipse ellipse = new Ellipse(50, 100);
-        ellipse.setFill(Color.web("rgba(255,255,255,0.3)"));
+		// ����ԭʼ��ת�Ƕ�
+		ellipse.setRotate(i * 30);
 
-        //����ԭʼ��ת�Ƕ�
-        ellipse.setRotate(i * 30);
-
-
-        ellipseGroup.getChildren().add(ellipse);
-    }
-
+		ellipseGroup.getChildren().add(ellipse);
+	}
 
 }
