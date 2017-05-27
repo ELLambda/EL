@@ -1,6 +1,7 @@
 package gui;
 
-import achievements.Billboard;
+import java.io.IOException;
+
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,79 +11,47 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
+public class GameWin2 extends Stage
+{
 
+	Parent root;
 
-public class GameWin2 extends Stage {
+	public GameWin2()
+	{
+		Music.playBgMusic(9);// bgm
+		try
+		{
+			this.initStyle(StageStyle.TRANSPARENT);
 
-    Parent root;
+			root = FXMLLoader.load(getClass().getResource("GameWin2.fxml"));
 
+			Scene scene = new Scene(root, 1200, 800);
+			scene.setFill(Color.TRANSPARENT);
+			scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
 
-    public GameWin2() {
-        // TODO Auto-generated constructor stub
-        Music.playBgMusic(15);//bgm
-        try {
-            this.initStyle(StageStyle.TRANSPARENT);
+			// ��lookup����λ�ؼ�
+			Button exitBtn = (Button) root.lookup("#exitBtn");
+			exitBtn.setOnAction(e ->
+			{
 
-            root = FXMLLoader.load(getClass().getResource("GameWin2.fxml"));
+				// Calculator.scores += GameWinControllor.score.intValue();
+				Music.stopBgMusic();
+				Platform.runLater(() ->
+				{
+					new LevelWin();
+					this.close();
+				});
+			});
 
-            Scene scene = new Scene(root, 1200, 800);
-            scene.setFill(Color.TRANSPARENT);
-            scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
-            scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
+			this.setScene(scene);
+			this.show();
 
-            //��lookup����λ�ؼ�
-            Button exitBtn = (Button) root.lookup("#exitBtn");
-            exitBtn.setOnAction(e -> {
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 
-//				Calculator.scores += GameWinControllor.score.intValue();
-                Music.stopBgMusic();
-                Platform.runLater(() -> {
-                    switch (Data.mode) {
-                        case 0:
-                        case 2:
-                            try {
-                                new ChapterSelectWin();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            }
-                            break;
-                        case 1:
-                            new LevelWin();
-                            break;
-                        case 3:
-
-                            Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
-                            String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
-
-
-                            Billboard.scorelist[Billboard.RANK].setTime(str);
-
-                            Arrays.sort(Billboard.scorelist);
-                            for (int i = 0; i < Billboard.RANK + 1; i++)
-                                System.out.println(Billboard.scorelist[i]);
-
-                            Billboard.setBillboardCondition();
-
-                            new MainWin();
-                            break;
-                    }
-                    this.close();
-                });
-            });
-
-            this.setScene(scene);
-            this.show();
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-    }
+	}
 
 }
-

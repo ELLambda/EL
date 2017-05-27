@@ -1,5 +1,8 @@
 package gui;
 
+import java.io.IOException;
+import java.net.URL;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,69 +10,67 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
-import java.net.URL;
+public class MainWinControllor
+{
 
-public class MainWinControllor {
+	public Button startBtn;
 
+	@FXML
+	public Button help;
 
-    public Button startBtn;
+	public static void changeScene(AnchorPane root, URL url)
+	{
+		try
+		{
+			root = FXMLLoader.load(url);
 
-    @FXML
-    public Button help;
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
 
-    public static void changeScene(AnchorPane root, URL url) {
-        try {
-            root = FXMLLoader.load(url);
+	@FXML
+	private void onStartBtnClick()
+	{
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+		Platform.runLater(() ->
+		{
+			startBtn.getScene().getWindow().hide();
+			new ModeWin();
+		});
 
+	}
 
-    @FXML
-    private void onStartBtnClick() {
+	@FXML
+	public void onHelpBtnClicked(ActionEvent actionEvent)
+	{
+		Platform.runLater(() ->
+		{
+			try
+			{
+				new Helper();
+			} catch (Exception e)
+			{
+				e.printStackTrace();
+			}
+		});
 
-        Platform.runLater(() -> {
-            startBtn.getScene().getWindow().hide();
-            new ModeWin();
-        });
+	}
 
-//		Data.mode=1;
-//		Platform.runLater(()->{
-//			startBtn.getScene().getWindow().hide();
-//			Data.mode=1;
-//			LevelWin levelWin=new LevelWin();
-//		});
+	public void onAboutBtnClick(ActionEvent actionEvent)
+	{
+		Platform.runLater(() ->
+		{
+			startBtn.getScene().getWindow().hide();
+			new AboutWin();
+		});
+	}
 
-
-    }
-
-    @FXML
-    public void onHelpBtnClicked(ActionEvent actionEvent) {
-        Platform.runLater(() -> {
-            try {
-                new Helper();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-
-    }
-
-    public void onAboutBtnClick(ActionEvent actionEvent) {
-        Platform.runLater(() -> {
-            startBtn.getScene().getWindow().hide();
-            new AboutWin();
-        });
-    }
-
-
-    public void onAchievementBtnClick(ActionEvent actionEvent) {
-        startBtn.getScene().getWindow().hide();
-        new AchievementWin();
-    }
-
+	public void onAchievementBtnClick(ActionEvent actionEvent)
+	{
+		startBtn.getScene().getWindow().hide();
+		new AchievementWin();
+	}
 
 }

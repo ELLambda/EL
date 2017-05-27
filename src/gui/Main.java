@@ -4,54 +4,35 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main extends Application
+{
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+	public static void main(String[] args)
+	{
+		launch(args);
+	}
 
-    @Override
-    public void start(Stage stage) throws Exception {
-        // TODO Auto-generated method stub
+	@Override
+	public void start(Stage stage) throws Exception
+	{
 
+		Platform.runLater(new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				try
+				{
+					new WelcomeWin().start(new Stage());
 
-        Platform.runLater(new Runnable() {
-            @Override
-            public void run() {
-                // TODO Auto-generated method stub
-                try {
-                    new WelcomeWin().start(new Stage());
-//					new InputNameWin();
-                    //new Pack();
-//					ew GameWin3();
-                    //new BillboardWin();
-                    //new Pack();
+				} catch (Exception e)
+				{
+					e.printStackTrace();
+				}
 
-                    //new ShopWin();
-                    //new AchievementWin();
-//					Data.setLimit(12);
-//					new GameWin();
-                } catch (Exception e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
+			}
+		});
 
-            }
-        });
-
-
-        //MessageWin msg=new MessageWin();
-
-        //LevelWin level=new LevelWin();
-
-        //GameWin game=new GameWin();
-        //MessageWin msg1=new MessageWin(1);
-
-
-    }
-
+	}
 
 }
-
-
-

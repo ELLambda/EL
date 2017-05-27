@@ -1,5 +1,7 @@
 package gui;
 
+import java.io.IOException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -7,42 +9,40 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
+public class GameWin3 extends Stage
+{
 
-public class GameWin3 extends Stage {
+	Parent root;
 
-    Parent root;
+	public GameWin3()
+	{
+		Music.playBgMusic(9);// bgm
+		try
+		{
+			this.initStyle(StageStyle.TRANSPARENT);
 
+			root = FXMLLoader.load(getClass().getResource("GameWin3.fxml"));
 
-    public GameWin3() {
-        // TODO Auto-generated constructor stub
-        Music.playBgMusic(15);//bgm
-        try {
-            this.initStyle(StageStyle.TRANSPARENT);
+			Scene scene = new Scene(root, 1200, 800);
+			scene.setFill(Color.TRANSPARENT);
+			scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
+			scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
 
-            root = FXMLLoader.load(getClass().getResource("GameWin3.fxml"));
+			// //��lookup����λ�ؼ�
+			// Button exitBtn=(Button) root.lookup("#exitBtn");
+			// exitBtn.setOnAction(e->{
+			//
+			//
+			// });
+			//
+			this.setScene(scene);
+			this.show();
 
-            Scene scene = new Scene(root, 1200, 800);
-            scene.setFill(Color.TRANSPARENT);
-            scene.getStylesheets().add(getClass().getResource("gamewin.css").toExternalForm());
-            scene.getStylesheets().add(getClass().getResource("menubtn.css").toExternalForm());
+		} catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 
-
-//			//��lookup����λ�ؼ�
-//			Button exitBtn=(Button) root.lookup("#exitBtn");
-//			exitBtn.setOnAction(e->{
-//
-//
-//			});
-//
-            this.setScene(scene);
-            this.show();
-
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-    }
+	}
 
 }
