@@ -1,12 +1,12 @@
 package gui;
 
-import javafx.animation.Transition;
-import javafx.animation.TranslateTransition;
-import javafx.util.Duration;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+
+import javafx.animation.Transition;
+import javafx.animation.TranslateTransition;
+import javafx.util.Duration;
 
 
 public class BlockManager {

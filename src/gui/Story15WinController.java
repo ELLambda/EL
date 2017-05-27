@@ -38,7 +38,7 @@ public class Story15WinController {
     public void onSkipBtnClicked() {
         Platform.runLater(() -> {
             //game
-            GameWin game = new GameWin();
+            new GameWin();
             root.getScene().getWindow().hide();
         });
     }
@@ -49,7 +49,7 @@ public class Story15WinController {
             Platform.runLater(() -> {
                 //GameWin game=new GameWin();
                 //MainWin mw = new MainWin();
-                FinishWin fw = new FinishWin();
+                new FinishWin();
                 root.getScene().getWindow().hide();
             });
 

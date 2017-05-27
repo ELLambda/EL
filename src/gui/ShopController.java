@@ -1,5 +1,8 @@
 package gui;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -8,9 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import shop.ShopItem;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ShopController {
     public static int price_1 = 2;//金创药单价

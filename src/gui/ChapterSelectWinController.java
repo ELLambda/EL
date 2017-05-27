@@ -1,6 +1,10 @@
 package gui;
 
 
+import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -10,10 +14,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
-
-import java.io.IOException;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class ChapterSelectWinController {
     @FXML

@@ -181,29 +181,29 @@ public class PackCtr {
 
     @FXML
     public void onOKBtnClicked() {
-        addedStep = getmed1use() * med1addedStep + getmed2use() * med2addedStep + getmed3use() * med3addedStep;
-        GameWinControllor.steps += addedStep;
-        shop.Shop.setPack1Condition();
-        shop.Shop.setPack2Condition();
-        shop.Shop.setPack3Condition();
-        if (GameWinControllor.s_coins != null)
-            GameWinControllor.s_coins.setValue("Energy Value:" + GameWinControllor.steps * 10);
-        if (GameWinControllor.s_battle != null)
-            GameWinControllor.s_battle.setValue("HP:" + GameWinControllor.steps * 100);
-//        GameWinControllor.stepProgressBar.setProgress((double) GameWinControllor.steps/Data.totalstpes);    不能把stepprogressbar给static
-        GameWinControllor.s_bar.set((double) GameWinControllor.steps / Data.totalstpes);
-        pack.setText("使用成功~");
-        new Timer().schedule(new TimerTask() {
-
-            @Override
-            public void run() {
-                Platform.runLater(() -> {
-                    root.getScene().getWindow().hide();
-                });
-            }
-
-        }, 800);
-
+    	if(hasUsed == true){
+	        addedStep = getmed1use() * med1addedStep + getmed2use() * med2addedStep + getmed3use() * med3addedStep;
+	        GameWinControllor.steps += addedStep;
+	        shop.Shop.setPack1Condition();
+	        shop.Shop.setPack2Condition();
+	        shop.Shop.setPack3Condition();
+	        if (GameWinControllor.s_coins != null)
+	            GameWinControllor.s_coins.setValue("Energy Value:" + GameWinControllor.steps * 10);
+	        if (GameWinControllor.s_battle != null)
+	            GameWinControllor.s_battle.setValue("HP:" + GameWinControllor.steps * 100);
+	        GameWinControllor.s_bar.set((double) GameWinControllor.steps / Data.totalstpes);
+	        pack.setText("使用成功~");
+	        new Timer().schedule(new TimerTask() {
+	
+	            @Override
+	            public void run() {
+	                Platform.runLater(() -> {
+	                    root.getScene().getWindow().hide();
+	                });
+	            }
+	
+	        }, 800);
+    	}
     }
 
 

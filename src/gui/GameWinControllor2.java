@@ -1,5 +1,11 @@
 package gui;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import achievements.AchievementsManager;
 import achievements.Calculator;
 import javafx.animation.FadeTransition;
@@ -15,8 +21,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-
-import java.util.*;
 
 /**
  * 玩家点击四种块分别作为两个加数和和中的两个加数

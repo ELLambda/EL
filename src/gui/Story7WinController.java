@@ -38,7 +38,7 @@ public class Story7WinController {
     public void onSkipBtnClicked() {
         Platform.runLater(() -> {
             //game
-            GameWin game = new GameWin();
+            new GameWin();
             root.getScene().getWindow().hide();
         });
     }
@@ -47,7 +47,7 @@ public class Story7WinController {
     public void onChartClicked() {
         if (i == word.size())
             Platform.runLater(() -> {
-                GameWin game = new GameWin();
+                new GameWin();
                 //StorySelectBox ssb = new StorySelectBox(7);
                 root.getScene().getWindow().hide();
             });

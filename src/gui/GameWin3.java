@@ -1,5 +1,7 @@
 package gui;
 
+import java.io.IOException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -7,15 +9,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
-
 public class GameWin3 extends Stage {
 
     Parent root;
 
 
     public GameWin3() {
-        // TODO Auto-generated constructor stub
         Music.playBgMusic(9);//bgm
         try {
             this.initStyle(StageStyle.TRANSPARENT);
@@ -39,7 +38,6 @@ public class GameWin3 extends Stage {
             this.show();
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

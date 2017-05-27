@@ -1,5 +1,7 @@
 package gui;
 
+import java.util.Arrays;
+
 import achievements.Billboard;
 import achievements.BillboardItem;
 import javafx.animation.FadeTransition;
@@ -17,8 +19,6 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-
-import java.util.Arrays;
 
 
 /**

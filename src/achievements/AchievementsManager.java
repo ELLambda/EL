@@ -57,7 +57,7 @@ public class AchievementsManager
 //				System.out.println(achieveCondition[i]);
             }
 
-//			br.close();
+			br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

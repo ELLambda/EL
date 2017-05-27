@@ -1,13 +1,13 @@
 package gui;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
-import java.io.IOException;
 
 /**
  * Created by julia98 on 2017/5/24.
@@ -19,7 +19,6 @@ public class Pack extends Stage {
 
 
     public Pack() {
-        // TODO Auto-generated constructor stub
 
         try {
             root = FXMLLoader.load(getClass().getResource("Pack.fxml"));
@@ -31,7 +30,6 @@ public class Pack extends Stage {
             this.show();
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

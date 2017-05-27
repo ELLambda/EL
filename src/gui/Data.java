@@ -74,7 +74,7 @@ public class Data {
     private static final int SHOP_CHAPTER10_STEP = 40;
     private static final int SHOP_CHAPTER11_STEP = 35;
     private static final int SHOP_CHAPTER12_STEP = 30;
-    private static final int SHOP_CHAPTER13_STEP = 20;
+//    private static final int SHOP_CHAPTER13_STEP = 20;
     private static final int NEVER_REACHED = 2147483647;
     public static int totalstpes = 0;
     public static int targetScore = 0;

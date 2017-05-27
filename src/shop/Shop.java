@@ -1,9 +1,15 @@
 package shop;
 
-import java.io.*;
-import java.util.ArrayList;
+import static gui.ShopController.med_1_remain;
+import static gui.ShopController.med_2_remain;
+import static gui.ShopController.med_3_remain;
 
-import static gui.ShopController.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 
 
 /**

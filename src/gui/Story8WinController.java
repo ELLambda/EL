@@ -1,5 +1,7 @@
 package gui;
 
+import java.util.ArrayList;
+
 import Story.FileManager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -8,8 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-
-import java.util.ArrayList;
 
 /**
  * @author julia98
@@ -38,7 +38,7 @@ public class Story8WinController {
     public void onSkipBtnClicked() {
         Platform.runLater(() -> {
             //game
-            GameWin game = new GameWin();
+            new GameWin();
             root.getScene().getWindow().hide();
         });
     }
@@ -47,7 +47,7 @@ public class Story8WinController {
     public void onChartClicked() {
         if (i == word.size() + 1)//退出对话框
             Platform.runLater(() -> {
-                GameWin game = new GameWin();
+                new GameWin();
                 //StorySelectBox ssb = new StorySelectBox(2);
                 root.getScene().getWindow().hide();
             });
@@ -60,7 +60,7 @@ public class Story8WinController {
         if (i == word.size())//出现选择框
             Platform.runLater(() -> {
                 //GameWin game=new GameWin();
-                StorySelectBox ssb = new StorySelectBox(8);
+                new StorySelectBox(8);
                 //root.getScene().getWindow().hide();
                 i++;
             });

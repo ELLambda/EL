@@ -7,7 +7,12 @@ import javafx.animation.Timeline;
 import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundImage;
+import javafx.scene.layout.BackgroundPosition;
+import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.layout.BackgroundSize;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
@@ -25,7 +30,6 @@ public class MessageWin extends Stage {
      * n为第几关
      */
     public MessageWin(int n) {
-        // TODO Auto-generated constructor stub
         root = new AnchorPane();
         Scene scene = new Scene(root, 1200, 800);
         scene.setFill(Color.TRANSPARENT);

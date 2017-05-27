@@ -4,6 +4,8 @@
 
 package gui;
 
+import java.io.IOException;
+
 import achievements.AchievementsManager;
 import achievements.Billboard;
 import achievements.Calculator;
@@ -21,8 +23,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import shop.Shop;
-
-import java.io.IOException;
 
 public class MainWin extends Stage {
 

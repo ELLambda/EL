@@ -12,9 +12,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelOneBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(1);
+            new MessageWin(1);
             Data.order = 1;
         });
 
@@ -23,9 +22,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelTwoBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(2);
+            new MessageWin(2);
             Data.order = 2;
         });
 
@@ -34,9 +32,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelThreeBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(3);
+            new MessageWin(3);
             Data.order = 3;
         });
 
@@ -45,9 +42,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelFourBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(4);
+            new MessageWin(4);
             Data.order = 4;
         });
 
@@ -56,9 +52,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelFiveBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(5);
+            new MessageWin(5);
             Data.order = 5;
         });
 
@@ -67,9 +62,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelSixBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(6);
+            new MessageWin(6);
             Data.order = 6;
         });
 
@@ -78,9 +72,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelSevenBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(7);
+            new MessageWin(7);
             Data.order = 7;
         });
 
@@ -89,9 +82,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelEightBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(8);
+            new MessageWin(8);
             Data.order = 8;
         });
 
@@ -100,9 +92,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelNineBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(9);
+            new MessageWin(9);
             Data.order = 9;
         });
 
@@ -111,9 +102,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelTenBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(10);
+            new MessageWin(10);
             Data.order = 10;
         });
 
@@ -122,9 +112,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelElevenBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(11);
+            new MessageWin(11);
             Data.order = 11;
         });
 
@@ -133,9 +122,8 @@ public class LevelWinControllor {
     @FXML
     private void onLevelTwelveBtnClick() {
         Platform.runLater(() -> {
-            //GameWin game=new GameWin();
             btn.getScene().getWindow().hide();
-            MessageWin msg = new MessageWin(12);
+            new MessageWin(12);
             Data.order = 12;
         });
 

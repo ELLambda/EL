@@ -14,7 +14,7 @@ public class ShopItem {
     //商品价格
     private int price;
     //所选商品数量
-    private int num;
+//    private int num;
     //商品是否可获得
     //可以获得的为亮或者弹出提示框
     private boolean affordable = false;
@@ -27,8 +27,8 @@ public class ShopItem {
     public ShopItem(String name, int price, int num, int addedStep, int addedScore) {
         this.name = name;
         this.price = price;
-        this.num = num;
-        this.addedStep = addedStep;
+//        this.num = num;
+        ShopItem.addedStep = addedStep;
         this.addedScore = addedScore;
     }
 

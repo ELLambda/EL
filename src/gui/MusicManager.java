@@ -7,7 +7,7 @@ import javafx.scene.media.MediaPlayer;
 public class MusicManager {
 
     public static Media getMedia(String resource) {
-        JFXPanel fxPanel = new JFXPanel();
+        new JFXPanel();
         return new Media(MusicManager.class.getResource(resource).toString());
     }
 

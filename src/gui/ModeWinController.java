@@ -1,10 +1,10 @@
 package gui;
 
+import java.io.IOException;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
-
-import java.io.IOException;
 
 /**
  * Created by wenxi on 2017/5/18.

@@ -1,6 +1,10 @@
 package achievements;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * 用来记录成就的实现条件
@@ -11,7 +15,7 @@ import java.io.*;
 public class Calculator {
     public static AchievementsManager achievementsManager;
 
-    public static int[] list = new int[achievementsManager.ACHIEVEMENT_NUMBER];
+    public static int[] list = new int[AchievementsManager.ACHIEVEMENT_NUMBER];
 
     public static int first;
     public static int second;
@@ -41,7 +45,7 @@ public class Calculator {
                 String[] spl = line.split("@");
 
 
-                for (int i = 0; i < achievementsManager.ACHIEVEMENT_NUMBER; i++) {
+                for (int i = 0; i < AchievementsManager.ACHIEVEMENT_NUMBER; i++) {
                     list[i] = Integer.parseInt(spl[i]);
 
 //				System.out.println(list[i]);
@@ -77,10 +81,10 @@ public class Calculator {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(
                     "src/achievements/calculator.txt", false));
-            for (int i = 0; i < achievementsManager.ACHIEVEMENT_NUMBER - 1; i++) {
+            for (int i = 0; i < AchievementsManager.ACHIEVEMENT_NUMBER - 1; i++) {
                 bw.write(list[i] + "@");
             }
-            bw.write(list[achievementsManager.ACHIEVEMENT_NUMBER - 1] + "");
+            bw.write(list[AchievementsManager.ACHIEVEMENT_NUMBER - 1] + "");
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();

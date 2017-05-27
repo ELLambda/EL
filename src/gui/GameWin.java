@@ -1,5 +1,9 @@
 package gui;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import achievements.AchievementsManager;
 import achievements.Calculator;
 import javafx.application.Platform;
@@ -11,17 +15,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 public class GameWin extends Stage {
 
     Parent root;
 
 
     public GameWin() {
-        // TODO Auto-generated constructor stub
         if (Data.mode != 1) {
             Music.playBgMusic(9);//bgm
         }
@@ -75,7 +74,6 @@ public class GameWin extends Stage {
             this.show();
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

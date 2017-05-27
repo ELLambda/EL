@@ -31,9 +31,9 @@ public class FileManager {
 
     private static final String[] chapters = {CHAPTER1, CHAPTER2, CHAPTER3, CHAPTER4, CHAPTER5, CHAPTER6, CHAPTER7, CHAPTER8, CHAPTER9, CHAPTER10, CHAPTER11, CHAPTER12, ENDING1, ENDING2, ENDING3};
 
-    private static final String[] chapterNames = {"第一章 遇见未知", "第二章 星座物语", "第三章 遇见未知", "第四章 奇怪的梦", "第五章 神木之约", "第六章 神魔之井", "第七章 迷宫初识", "第八章 生死之门", "第九章 三世回眸",
-            "第十章 神木之戒", "第十一章 神木之忆", "第十二章 木石前盟", "大结局", "大结局", "大结局"};
-    private static String chapterName;
+//    private static final String[] chapterNames = {"第一章 遇见未知", "第二章 星座物语", "第三章 遇见未知", "第四章 奇怪的梦", "第五章 神木之约", "第六章 神魔之井", "第七章 迷宫初识", "第八章 生死之门", "第九章 三世回眸",
+//            "第十章 神木之戒", "第十一章 神木之忆", "第十二章 木石前盟", "大结局", "大结局", "大结局"};
+//    private static String chapterName;
 
     public ArrayList<String> word = new ArrayList<String>();
 
@@ -63,7 +63,7 @@ public class FileManager {
     //章节共 为12+3 = 15 节
     public FileManager(int index) {
 
-        this.chapterName = chapterNames[index];
+//        this.chapterName = chapterNames[index];
 
         try {
             BufferedReader reader = new BufferedReader
@@ -93,7 +93,7 @@ public class FileManager {
                 }
 //				else 
 //					type.add(5);
-
+                reader.close();
             }
 
         } catch (Exception e) {
@@ -108,6 +108,7 @@ public class FileManager {
             while ((line = reader.readLine()) != null) {
                 word.add(line);
             }
+            reader.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

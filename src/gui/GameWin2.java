@@ -1,5 +1,10 @@
 package gui;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Calendar;
+
 import achievements.Billboard;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -10,11 +15,6 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
-
 
 public class GameWin2 extends Stage {
 
@@ -22,7 +22,6 @@ public class GameWin2 extends Stage {
 
 
     public GameWin2() {
-        // TODO Auto-generated constructor stub
         Music.playBgMusic(9);//bgm
         try {
             this.initStyle(StageStyle.TRANSPARENT);
@@ -78,7 +77,6 @@ public class GameWin2 extends Stage {
             this.show();
 
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 

@@ -18,12 +18,10 @@ public class LevelWin extends Stage {
     AnchorPane root;
 
     public LevelWin() {
-        // TODO Auto-generated constructor stub
         Music.playBgMusic(2);//bgm
         try {
             root = FXMLLoader.load(getClass().getResource("LevelWin.fxml"));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         Scene scene = new Scene(root, 1200, 800);

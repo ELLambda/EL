@@ -34,7 +34,6 @@ public class WelcomeWin extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        // TODO Auto-generated method stub
         Calculator.initialize();
         AchievementsManager.setAchievements();
         AchievementsManager.getAchieveCondition();
@@ -63,8 +62,7 @@ public class WelcomeWin extends Application {
 
                 @Override
                 public void run() {
-                    // TODO Auto-generated method stub
-                    MainWin main = new MainWin();
+                    new MainWin();
                     primaryStage.close();
                 }
             });

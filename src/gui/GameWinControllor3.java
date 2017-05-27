@@ -1,5 +1,15 @@
 package gui;
 
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import achievements.AchievementsManager;
 import achievements.Billboard;
 import achievements.Calculator;
@@ -13,10 +23,6 @@ import javafx.geometry.Insets;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
-
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 //import jdk.nashorn.internal.runtime.UnwarrantedOptimismException;
 
