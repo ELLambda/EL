@@ -39,25 +39,25 @@ public class FileManager {
 
     //存储当前应该画哪个人物,
     //更换背景图为setWin
-    public ArrayList<ArrayList> type = new ArrayList<ArrayList>();
-
-    //唐绍台词
-    public ArrayList<String> ts = new ArrayList<String>();
-
-    //璇玑台词
-    public ArrayList<String> xj = new ArrayList<String>();
-
-    //老人台词
-    public ArrayList<String> lr = new ArrayList<String>();
-
-    //旁白
-    public ArrayList<String> narration = new ArrayList<String>();
-
-    //选项
-    public ArrayList<String[]> choices = new ArrayList<String[]>();
-
-    //背景图
-    public ArrayList<String> bg = new ArrayList<String>();
+//    public ArrayList<ArrayList> type = new ArrayList<ArrayList>();
+//
+//    //唐绍台词
+//    public ArrayList<String> ts = new ArrayList<String>();
+//
+//    //璇玑台词
+//    public ArrayList<String> xj = new ArrayList<String>();
+//
+//    //老人台词
+//    public ArrayList<String> lr = new ArrayList<String>();
+//
+//    //旁白
+//    public ArrayList<String> narration = new ArrayList<String>();
+//
+//    //选项
+//    public ArrayList<String[]> choices = new ArrayList<String[]>();
+//
+//    //背景图
+//    public ArrayList<String> bg = new ArrayList<String>();
 
     //输入所在的章节，将文件转换为台词及其执行顺序
     //章节共 为12+3 = 15 节
@@ -65,40 +65,40 @@ public class FileManager {
 
 //        this.chapterName = chapterNames[index];
 
-        try {
-            BufferedReader reader = new BufferedReader
-                    (new FileReader(new File(chapters[index - 1])));
-
-            String line = null;
-
-            while ((line = reader.readLine()) != null) {
-                if (line.startsWith("/*ts")) {
-                    type.add(ts);
-                    ts.add(line.trim().replaceAll("/*ts", ""));
-                } else if (line.startsWith("/*xj")) {
-                    type.add(xj);
-                    xj.add(line.trim().replaceAll("/xj", ""));
-                } else if (line.startsWith("/*lr")) {
-                    type.add(lr);
-                    xj.add(line.trim().replaceAll("/*lr", ""));
-                } else if (line.startsWith("//")) {
-                    type.add(narration);
-                    narration.add(line.trim().replaceAll("//", ""));
-                } else if (line.startsWith("A.")) {
-                    type.add(choices);
-                    String[] twochoices = line.trim().split("@");
-                    choices.add(twochoices);
-                } else if (line.startsWith("/*bg")) {
-                    type.add(bg);
-                }
-//				else 
-//					type.add(5);
-                reader.close();
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            BufferedReader reader = new BufferedReader
+//                    (new FileReader(new File(chapters[index - 1])));
+//
+//            String line = null;
+//
+//            while ((line = reader.readLine()) != null) {
+//                if (line.startsWith("/*ts")) {
+//                    type.add(ts);
+//                    ts.add(line.trim().replaceAll("/*ts", ""));
+//                } else if (line.startsWith("/*xj")) {
+//                    type.add(xj);
+//                    xj.add(line.trim().replaceAll("/xj", ""));
+//                } else if (line.startsWith("/*lr")) {
+//                    type.add(lr);
+//                    xj.add(line.trim().replaceAll("/*lr", ""));
+//                } else if (line.startsWith("//")) {
+//                    type.add(narration);
+//                    narration.add(line.trim().replaceAll("//", ""));
+//                } else if (line.startsWith("A.")) {
+//                    type.add(choices);
+//                    String[] twochoices = line.trim().split("@");
+//                    choices.add(twochoices);
+//                } else if (line.startsWith("/*bg")) {
+//                    type.add(bg);
+//                }
+////				else 
+////					type.add(5);
+//                reader.close();
+//            }
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         try {
             BufferedReader reader = new BufferedReader
