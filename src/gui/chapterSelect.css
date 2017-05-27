@@ -30,8 +30,8 @@
 }
 
 #shop {
-    -fx-border-radius: 0;
-    -fx-background-radius: 0;
+    -fx-border-radius: 23;
+    -fx-background-radius: 23;
     -fx-pref-width: 60;
     -fx-pref-height: 60;
     -fx-background-color: transparent;

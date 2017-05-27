@@ -122,7 +122,7 @@ public class PackCtr {
 
     @FXML
     public void onMed1BtnClicked() {
-        med1btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
+        //med1btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
         med2btn.setStyle(null);
         med3btn.setStyle(null);
         if (num1 <= 0) {
@@ -139,7 +139,7 @@ public class PackCtr {
 
     @FXML
     public void onMed2BtnClicked() {
-        med2btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
+        //med2btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
         med1btn.setStyle(null);
         med3btn.setStyle(null);
 
@@ -157,7 +157,7 @@ public class PackCtr {
 
     @FXML
     public void onMed3BtnClicked() {
-        med3btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
+        //med3btn.setStyle("-fx-effect: dropshadow(gaussian, red, 8, 0.8, 0, 0)");
         med1btn.setStyle(null);
         med2btn.setStyle(null);
 
