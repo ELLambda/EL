@@ -23,7 +23,7 @@ public class GameWin extends Stage {
     public GameWin() {
         // TODO Auto-generated constructor stub
         if (Data.mode != 1) {
-            Music.playBgMusic(15);//bgm
+            Music.playBgMusic(9);//bgm
         }
         try {
             this.initStyle(StageStyle.TRANSPARENT);
@@ -60,13 +60,13 @@ public class GameWin extends Stage {
 
                             Data.scoreToBeSet = GameWinControllor.score.intValue();
                             Data.timeToBeSet = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
-                            AchievementsManager.AchievementsList[1][4].setRate((double) Calculator.scores / GameWinControllor.SCOREBOUND);
+                            AchievementsManager.AchievementsList[1][4].setRate((double)(AchievementsManager.AchievementsList[1][4].getRate() + Calculator.scores / GameWinControllor.SCOREBOUND));
 
                             new InputNameWin();
 
                             break;
                     }
-                    GameWinControllor.score.set(0);
+//                    GameWinControllor.score.set(0);
                     this.close();
                 });
             });

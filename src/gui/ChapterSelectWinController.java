@@ -128,7 +128,7 @@ public class ChapterSelectWinController {
     public void onBackBtnClicked() {
         Platform.runLater(() -> {
             //main
-            MainWin main = new MainWin();
+            new MainWin();
             root.getScene().getWindow().hide();
         });
     }
@@ -137,7 +137,7 @@ public class ChapterSelectWinController {
     public void onChapter1Clicked() {
         //Platform.runLater(()->{
         //main
-        ChapterWin chapter = new ChapterWin(1);
+        new ChapterWin(1);
 
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -161,7 +161,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 2) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(2);
+                new ChapterWin(2);
                 root.getScene().getWindow().hide();
             });
         }
@@ -172,7 +172,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 3) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(3);
+                new ChapterWin(3);
                 root.getScene().getWindow().hide();
             });
         }
@@ -183,7 +183,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 4) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(4);
+                new ChapterWin(4);
                 root.getScene().getWindow().hide();
             });
         }
@@ -194,7 +194,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 5) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(5);
+                new ChapterWin(5);
                 root.getScene().getWindow().hide();
             });
         }
@@ -205,7 +205,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 6) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(6);
+                new ChapterWin(6);
                 root.getScene().getWindow().hide();
             });
         }
@@ -216,7 +216,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 7) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(7);
+                new ChapterWin(7);
                 root.getScene().getWindow().hide();
             });
         }
@@ -227,7 +227,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 8) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(8);
+                new ChapterWin(8);
                 root.getScene().getWindow().hide();
             });
         }
@@ -238,7 +238,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 9) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(9);
+                new ChapterWin(9);
                 root.getScene().getWindow().hide();
             });
         }
@@ -249,7 +249,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 10) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(10);
+                new ChapterWin(10);
                 root.getScene().getWindow().hide();
             });
         }
@@ -260,7 +260,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 11) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(11);
+                new ChapterWin(11);
                 root.getScene().getWindow().hide();
             });
         }
@@ -271,7 +271,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 12) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(12);
+                new ChapterWin(12);
                 root.getScene().getWindow().hide();
             });
         }
@@ -282,7 +282,7 @@ public class ChapterSelectWinController {
         if (Data.chapterReached >= 13) {
             Platform.runLater(() -> {
                 //main
-                ChapterWin chapter = new ChapterWin(13);
+                new ChapterWin(13);
                 root.getScene().getWindow().hide();
             });
         }
@@ -414,10 +414,9 @@ public class ChapterSelectWinController {
         Platform.runLater(() -> {
             //shopWindow
             try {
-                ShopWin shop = new ShopWin();
+                new ShopWin();
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+            	e.printStackTrace();
             }
         });
     }

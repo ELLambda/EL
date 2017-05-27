@@ -31,8 +31,11 @@ public class MainWin extends Stage {
 
 
     public MainWin() {
-        // TODO Auto-generated constructor stub
-
+    	System.out.println(Music.getCurrentBGM());
+    	
+    	if(!Music.isWelcomeMusic()){
+    		Music.playBgMusic(5);
+    	}
         try {
             root = FXMLLoader.load(getClass().getResource("MainWin.fxml"));
             Scene scene = new Scene(root, 900, 600);
