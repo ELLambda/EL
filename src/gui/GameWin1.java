@@ -1,11 +1,7 @@
 package gui;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Arrays;
-import java.util.Calendar;
 
-import achievements.Billboard;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -41,35 +37,7 @@ public class GameWin1 extends Stage {
 //				Calculator.scores += GameWinControllor.score.intValue();
                 Music.stopBgMusic();
                 Platform.runLater(() -> {
-                    switch (Data.mode) {
-                        case 0:
-                        case 2:
-                            try {
-                                new ChapterSelectWin();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            }
-                            break;
-                        case 1:
-                            new LevelWin();
-                            break;
-                        case 3:
-
-                            Billboard.scorelist[Billboard.RANK].setScore(GameWinControllor.score.intValue());
-                            String str = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
-
-
-                            Billboard.scorelist[Billboard.RANK].setTime(str);
-
-                            Arrays.sort(Billboard.scorelist);
-                            for (int i = 0; i < Billboard.RANK + 1; i++)
-                                System.out.println(Billboard.scorelist[i]);
-
-                            Billboard.setBillboardCondition();
-
-                            new MainWin();
-                            break;
-                    }
+                    new LevelWin();
                     this.close();
                 });
             });

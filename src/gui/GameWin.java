@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import achievements.AchievementsManager;
+import achievements.Billboard;
 import achievements.Calculator;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -56,13 +57,15 @@ public class GameWin extends Stage {
                             new LevelWin();
                             break;
                         case 3:
-
-                            Data.scoreToBeSet = GameWinControllor.score.intValue();
-                            Data.timeToBeSet = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
-                            AchievementsManager.AchievementsList[1][4].setRate((double)(AchievementsManager.AchievementsList[1][4].getRate() + Calculator.scores / GameWinControllor.SCOREBOUND));
-
-                            new InputNameWin();
-
+                        	if(GameWinControllor.score.intValue() > Billboard.scorelist[Billboard.RANK - 1].getScore()){
+	                            Data.scoreToBeSet = GameWinControllor.score.intValue();
+	                            Data.timeToBeSet = (new SimpleDateFormat("yyyy-MM-dd")).format(Calendar.getInstance().getTime());
+	                            AchievementsManager.AchievementsList[1][4].setRate((double)(AchievementsManager.AchievementsList[1][4].getRate() + Calculator.scores / GameWinControllor.SCOREBOUND));
+	                            
+	                            new InputNameWin();
+                        	}
+                        	else
+                        		new MainWin();
                             break;
                     }
 //                    GameWinControllor.score.set(0);
